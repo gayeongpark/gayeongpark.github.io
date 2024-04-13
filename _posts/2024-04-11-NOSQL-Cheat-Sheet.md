@@ -103,7 +103,7 @@ MongoDB is primarily used for OLTP workloads due to its strengths in handling tr
 
 - It involves operations such as aggregations, joins on large data sets. For example, calculating total revenue by stores, product, clerk, or date range. However, it does not handle direct updates.
 
-- It focus on providing fast query response times rather then data integrity.
+- It focuses on providing fast query response times rather then data integrity.
 
 # CAP theorem and its implications for selecting a NoSQL database
 
