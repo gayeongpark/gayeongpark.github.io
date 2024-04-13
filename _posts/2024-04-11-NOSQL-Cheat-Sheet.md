@@ -57,7 +57,7 @@ author: Lantana Park
 
     NoSQL, especially MongoDB, provides flexible schema model. Which allows me to easily add or remove data fields without modifying the existing database schema to affecting other data records. Even though I made a schema for specifying the data structure, I can add a new field dynamically so that a whole new data and records in the same collection can have different structures.
 
-3.  **Fast queries(fast reading)**
+3.  **Fast queries (fast reading)**
 
     Queries in NoSQL database can be faster than SQL database. Since Data in SQL database is typically normalized, queries for a single object or entity require to join data from multiple tables. So, it takes costs when the tables are growing. However, data in NoSQL databases can be access and stored together due to denormalized structure. Hence queries typically do not require joins, and **the queries are very fast and readings are very fast.**
 
