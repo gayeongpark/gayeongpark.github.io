@@ -47,7 +47,7 @@ author: Lantana Park
 
 # The advantages and disadvantages of NoSQL compared to relational databases
 
-## advantages of NoSQL
+## Advantages of NoSQL
 
 1.  **Scalability (Horizontal)**
 
@@ -55,13 +55,13 @@ author: Lantana Park
 
 2.  **Schema flexibility**
 
-    NoSQL, especially MongoDB, provides flexible schema model. Which allows me to easily add or remove data fields without modifying the existing database schema to affecting other data records. So, even though I made a schema for specifying the data structure, I can add a new field dynamically and a whole new data and records in the same collection can have different structures.
+    NoSQL, especially MongoDB, provides flexible schema model. Which allows me to easily add or remove data fields without modifying the existing database schema to affecting other data records. Even though I made a schema for specifying the data structure, I can add a new field dynamically so that a whole new data and records in the same collection can have different structures.
 
 3.  **Fast queries(fast reading)**
 
     Queries in NoSQL database can be faster than SQL database. Since Data in SQL database is typically normalized, queries for a single object or entity require to join data from multiple tables. So, it takes costs when the tables are growing. However, data in NoSQL databases can be access and stored together due to denormalized structure. Hence queries typically do not require joins, and **the queries are very fast and readings are very fast.**
 
-## The disadvantages of NoSQL
+## Disadvantages of NoSQL
 
 1. **No standardized language and interface to complex queries**
 
@@ -75,11 +75,11 @@ author: Lantana Park
 
    Instead of ACID, many NoSQL databases use the BASE (Basically Available, Soft state, Eventual consistency) model. Here, consistency is achieved eventually, meaning that while immediate consistency is not guaranteed, the data will become consistent after a short delay, which is generally acceptable in many real-world applications like social media or online shopping.
 
-   - Basically Available: The system remains operational even in the presence of failures, ensuring that users can still access data and perform operations.
+   - **Basically Available**: The system remains operational even in the presence of failures, ensuring that users can still access data and perform operations.
 
-   - Soft state: The state of the system may change over time, even without input, due to eventual consistency and asynchronous updates.
+   - **Soft state**: The state of the system may change over time, even without input, due to eventual consistency and asynchronous updates.
 
-   - Eventual consistency: The system guarantees that, given enough time and no further updates, all replicas of data will eventually converge to a consistent state.
+   - **Eventual consistency**: The system guarantees that, given enough time and no further updates, all replicas of data will eventually converge to a consistent state.
 
    ### eventual consistency vs consistency
 
