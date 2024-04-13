@@ -85,6 +85,26 @@ author: Lantana Park
 
    Eventual consistency allows for temporary inconsistency between replicas with the assurance that they will eventually converge to a consistent state, while consistency ensures immediate and strong consistency across all replicas at all times.
 
+# Two types of data processing system: OLAP (online analytical processing) and OLTP (online transaction processing)
+
+MongoDB is primarily used for OLTP workloads due to its strengths in handling transactional operations and real-time data, it can also support some OLAP-style queries and analytics to a certain extent.
+
+## What is OLTP (Online Transactional Processing)?
+
+- It is designed to handle day-to-day operational tasks, including simple lookups, retrieving, modifying individual records. For example, finding a customer id and retrieving their orders
+
+- It handles many updates, such as updating customer information or processing payments.
+
+- It handles real-time transactions like online purchases or banking transactions. So, strong consistency is crucial to ensure data integrity.
+
+## What is OLAP (Online Analytical Processing)?
+
+- It is designed to perform complex analytical queries and generating reports to support decision-making processes.
+
+- It involves operations such as aggregations, joins on large data sets. For example, calculating total revenue by stores, product, clerk, or date range. However, it does not handle direct updates.
+
+- It focus on providing fast query response times rather then data integrity.
+
 # CAP theorem and its implications for selecting a NoSQL database
 
 Distribution is important in NoSQL because of its characteristics. It relies on horizontal scaling out to handle growth/large data sets. CAP theorem provides a fundamental understanding to complexities of distributed system design. It helps in making informed decisions that align with the application's requirements and the system's architectural goals.
