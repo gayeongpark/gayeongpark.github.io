@@ -64,7 +64,7 @@ author: Lantana Park
 
    `-l` is for username, the reason for using `-l` (lowercase) specifically is that I needed to specify a single username - `chris` to try
 
-   `-P` is for password, the reason for using `-P` (uppercase) specifically is that I needed to specify a file containing a list of password wordlist to attemp the brute-forcing.
+   `-P` is for password, the reason for using `-P` (uppercase) specifically is that I needed to specify a file containing a list of password word list to attempt the brute-forcing.
 
    As it was FTP(File Transfer Protocol), I needed to set `ftp://` and then appended ip number of target machine.
 

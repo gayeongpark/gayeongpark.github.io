@@ -1,11 +1,8 @@
 ---
 layout: post
-title: NOSQL assessment cheat sheet
-subtitle: Let's getting prepared to NOSQL database (particularly MongoDB)
-# cover-img: /assets/img/banditlogo.png
-# thumbnail-img: /assets/img/crypto/crypto.png
-# share-img: /assets/img/path.jpg
-tags: [Nosql, database, assessment]
+title: NoSQL assessment preparation
+subtitle: Let's getting prepared to NoSQL database (particularly MongoDB)
+tags: [NoSQL, database, assessment]
 comments: true
 author: Lantana Park
 ---
@@ -18,11 +15,11 @@ author: Lantana Park
 
 - It is suited for hierarchical data storage.
 
-# Different type of Nosql database and its advantages and disadvantages
+# Different type of NoSQL database and its advantages and disadvantages
 
 1. Document data
 
-   Data and metadata are stored hirearchically in JSON-based documents inside the database. **MongoDB**
+   Data is stored hierarchically in JSON-based documents inside the database. **MongoDB**
 
    ![document-based](/assets/img/mongodb/MongoDB%20document%20based.png)
 
@@ -32,9 +29,9 @@ author: Lantana Park
 
    ![keyandvalue](/assets/img/mongodb/key-value.png)
 
-   ### Difference between docuemtn based data and key value data
+   ### Difference between document based data and key value data
 
-   Document databased store data in Json document, which allows for a complex structure compared to the simple key-value pairs. Each document can contain nested/embeded structure like arrays and sub-documents.
+   Document oriented-database store data in Json document, which allows for a complex structure compared to the simple key-value pairs. Each document can contain nested/embedded structure like arrays and sub-documents.
 
 3. Wide-Column data
 
@@ -50,7 +47,7 @@ author: Lantana Park
 
 # The advantages and disadvantages of NoSQL compared to relational databases
 
-## advantages of Nosql
+## advantages of NoSQL
 
 1.  **Scalability (Horizontal)**
 
@@ -58,17 +55,17 @@ author: Lantana Park
 
 2.  **Schema flexibility**
 
-    NoSQL, especially MongoDB, provides flexible schema model. Which allows me to easily add or remove data fields without modifying the exsting database schema to affecting other data records. So records in the same collection can have different structures
+    NoSQL, especially MongoDB, provides flexible schema model. Which allows me to easily add or remove data fields without modifying the existing database schema to affecting other data records. So records in the same collection can have different structures
 
 3.  **Fast queries(fast reading)**
 
-    Queries in Nosql database can be faster than SQL database. Since Data in SQL database is typically normalized, so queries for a single object or entity require to join data from multiple tables. So it takes costs when the tables are growing. However, data in Nosql databases should be access and stored together(denormalized). So queries typically do not require joins, so **the queries are very fast and readings are very fast.**
+    Queries in NoSQL database can be faster than SQL database. Since Data in SQL database is typically normalized, so queries for a single object or entity require to join data from multiple tables. So it takes costs when the tables are growing. However, data in NoSQL databases should be access and stored together(denormalized/embedded). So queries typically do not require joins, so **the queries are very fast and readings are very fast.**
 
 ## The disadvantages of NoSQL
 
-1. No standarized language and interface to complex queries
+1. No standardized language and interface to complex queries
 
-   There is no standarized query languages to conduct complex queries.
+   There is no standardized query languages to conduct complex queries.
 
 2. Data retrieval inconsistency
 
@@ -80,7 +77,7 @@ author: Lantana Park
 
 # CAP theorem and its implications for selecting a NoSQL database
 
-distrubution is important in Nosql because of its characteristics. It relys on horizontal scaling out to handle growth. CAP theorem provides fundamental understanding to complexities of distributed system design. It helps in making informed decisions that align with the application's requirements and the system's architectural goals.
+distribution is important in NoSQL because of its characteristics. It relies on horizontal scaling out to handle growth. CAP theorem provides fundamental understanding to complexities of distributed system design. It helps in making informed decisions that align with the application's requirements and the system's architectural goals.
 
 ![mongoDB](/assets/img/mongodb/CAP_Theorem_Venn_Diagram.png)
 
@@ -88,9 +85,9 @@ distrubution is important in Nosql because of its characteristics. It relys on h
 
 - **Availability**: any client making a request for data gets a response, even if one or more nodes are down. That means all working nodes in the distributed system return a valid response for any request, without exception.
 
-- **Partition tolerance**: it is a communications break within a distributed system—a lost or temporarily delayed connection between two nodes. Partition tolerance means that the cluster must continue to work despite any number of communication breakdowns between nodes in the system.
+- **Partition tolerance**: it is a communications break within a distributed system — a lost or temporarily delayed connection between two nodes. Partition tolerance means that each system must continue to work together despite any number of communication breakdowns between nodes in the system.
 
-**a distributed database system can only fully satisfy two out of the three gaurantess**
+**a distributed database system can only fully satisfy two out of the three guarantees**
 
 - CP database: it delivers **consistency** and **partition tolerance** at the expense of availability. When a partition occurs between any two nodes, **the system has to shut down the non-consistent node until the partition is resolved**.
 
@@ -104,7 +101,24 @@ MongoDB is classified as a **CP** data store. Because it resolves network partit
 
 MongoDB uses the single master node that receives all write operations. The primary node is the source of truth for all data writes. When the primary node becomes unavailable, the secondary node, replicated from the primary node(Consistency), will be elected as the new primary node.
 
-# Optimize the respective data structure for huge amounts of data, performance and efficiency in Nosql
+# Optimize the respective data structure for huge amounts of data, performance and efficiency in NoSQL (especially MongoDB)
 
-It involves serveral strategies tailored to the specific type of Nosql database.
+It involves several strategies tailored to the specific type of NoSQL database.
 
+1. Embedding and referencing
+
+   Unlike SQL databases, NoSQL databases often benefit from denormalization to avoid costly join operations. Embedding generally provides better performance for read operations. Embedded data models also allow developers to update related data in a single write operation. Referencing makes much more sense when modeling many:many relationships. However, whenever referencing, an application must issue follow-up queries to resolve any references. This, in turn, requires more round-trips to the server.
+
+2. Indexing
+
+   Indexes improve the efficiency of read operations by reducing the amount of data that query operations need to process.
+
+3. Sharding/replication
+
+   Distributing data across multiple servers to horizontally scale out database improves scalability and performance.
+
+   Creating replica sets for enabling the creation of multiple copies of data for high availability and fault tolerance. Having multiple replicas of data provides a level of data redundancy, helping protect against data loss.
+
+4. Caching
+
+   Frequent database queries can impact application performance. Implementing caching mechanisms to store frequently accessed data reduces query load.

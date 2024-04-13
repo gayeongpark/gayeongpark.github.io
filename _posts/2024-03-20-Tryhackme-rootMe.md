@@ -3,7 +3,7 @@ layout: post
 title: Tryhackme - RootMe
 subtitle: tryhackme RootMe walkthrough
 thumbnail-img: /assets/img/rootMe/11d59cb34397e986062eb515f4d32421.png
-tags: [linux, priviliege escalation, tryhackme, rootMe]
+tags: [linux, privilege escalation, tryhackme, rootMe]
 comments: true
 author: Lantana Park
 ---
@@ -22,7 +22,7 @@ In this post, I mention several IP addresses that I am attacking due to terminat
 
    Answer: 2.4.29
 
-   I added the `-sV` option to the nmap scanning command to check the service version.
+   I added the `-sV` option to the `nmap` scanning command to check the service version.
 
    **What is Apache?**
 
@@ -66,7 +66,7 @@ In this post, I mention several IP addresses that I am attacking due to terminat
 
    ![php5](/assets/img/rootMe/Screenshot%202024-03-19%20at%2010.57.04.png)
 
-   Secondly, I opend the port to listen outcomes of the connection between my local machine and remote target system. Please keep in mind, when the port is open, run the php file again by clicking the php file in the `/uploads`.
+   Secondly, I opened the port to listen outcomes of the connection between my local machine and remote target system. Please keep in mind, when the port is open, run the php file again by clicking the php file in the `/uploads`.
 
    Finally, after listening port, I could access a shell from the target system and then used the `find . -type f -name "user.txt"` command to find the user.txt file somewhere else.
 

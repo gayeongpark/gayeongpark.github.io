@@ -192,7 +192,7 @@ Higher-order functions are a concept in functional programming. They are functio
 
 To explain with my source code,
 
-in this express.js server code, middleware functions are used to process requests. The `authenticateUser` middleware checks if the user is anthenticated before processing to the route handler. Middleware functions in this code below are higher-order functions because they take three arguments: `req` (the request object), `res` (the response object), and `next` (a function to call the next middleware in the stack).
+in this express.js server code, middleware functions are used to process requests. The `authenticateUser` middleware checks if the user is authenticated before processing to the route handler. Middleware functions in this code below are higher-order functions because they take three arguments: `req` (the request object), `res` (the response object), and `next` (a function to call the next middleware in the stack).
 
 The `next` argument is particularly significant because it allows `authenticateUser` to control the flow of the application by deciding whether to proceed to the next piece of middleware in the stack or terminate the chain based on authentication logic. Since `next` function has the potential to call this function depending on the outcome of its internal logic, the ability to take and invoke functions makes middleware inherently higher-order.
 
@@ -224,7 +224,7 @@ const authenticateUser = async (req, res, next) => {
 };
 ```
 
-Additionally, in the route handler `router.get("/:id", authenticateUser, async (req, res) => {})`, the use of `authenticateUser` as middleware before the asynchronous route handler also illustrates the use of higher-order functions. The middleware preprocesses the request, applying authentication logic, before passing control to the route handler.
+Additionally, in the route handler `router.get("/:id", authenticateUser, async (req, res) => {})`, the use of `authenticateUser` as middleware before the asynchronous route handler also illustrates the use of higher-order functions. The middleware pre-processes the request, applying authentication logic, before passing control to the route handler.
 
 ```javascript
 // server code to get an authenticated user profile data

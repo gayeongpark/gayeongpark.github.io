@@ -12,7 +12,7 @@ author: Lantana Park
 
 ## What is OOP(Object Oriented Programming)?
 
-It is one of the programming concept and has three main concepts: class and instance, inheritance, and encampsulation.
+It is one of the programming concept and has three main concepts: class and instance, inheritance, and encapsulation.
 
 As far as I understood, it allows me to group related information together so that I can produce shorter and more reuseable code.
 
@@ -26,7 +26,7 @@ class Student {
   constructor(name, nationality, languages) {
     this.name = name; // Attribute storing name
     this.nationality = nationality; // Attribute storing nationality
-    this.languages = languages; // Attrubute stroing nationality
+    this.languages = languages; // Attribute storing nationality
   }
   // Method of the student class
   introduceSelf() {
@@ -91,7 +91,7 @@ const config = {
   initialName: "please input your name", // I set the initial name is world, so, at first, it will print hello world
 };
 
-// Logger with dependecy injection
+// Logger with dependency injection
 // It is to print log message to the console based on the specified log level.
 class Logger {
   constructor(logLevel) {
