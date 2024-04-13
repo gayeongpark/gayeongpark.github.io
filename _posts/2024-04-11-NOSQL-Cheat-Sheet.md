@@ -1,7 +1,7 @@
 ---
 layout: post
 title: NoSQL assessment preparation
-subtitle: Assessment preparation for NoSQL database (particularly NoSQL - MongoDB)
+subtitle: Assessment preparation for NoSQL database (particularly MongoDB)
 tags: [NoSQL, database, assessment, mongoDB, data optimization]
 comments: true
 author: Lantana Park
@@ -11,7 +11,7 @@ author: Lantana Park
 
 - It was developed from open-source project to deal with limitation of SQL database
 
-- It provides a free schema structure, so it offers rapid scalability to manage large and unstructured data sets.
+- It provides a free schema structure, and it offers rapid scalability to manage large and unstructured data sets.
 
 - It is also type of distributed database, which means that information is copied and stored on various servers, which can be remote or local.(sharding) This ensures availability and reliability of data. Because, if some of the data goes offline, the rest of the database can continue to run.
 
