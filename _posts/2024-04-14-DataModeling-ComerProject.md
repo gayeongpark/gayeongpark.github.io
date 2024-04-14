@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Data Modeling - Comer project
+title: [SE_06] Data Modeling - Comer project
 subtitle: A data modeling for Comer project (web application - solo project)
 # thumbnail-img: /assets/img/rootMe/11d59cb34397e986062eb515f4d32421.png
 tags: [MongoDB, data modeling, user casing, NoSQL, erdiagram]
@@ -16,7 +16,7 @@ Backend: Node.js, Express.js, Mongoose, MongoDB (NoSQL)
 
 1. **Users:**
 
-   They have the capability to create an account, view booked experiences, and access their previously opened events. Users can also edit their profiles. They also can find forgot password and reset the password. They cannot save previously saved password, so it should not be matched with the current password and old one. To sign up, individuals must provide an email address, create a password, and confirm that password again. Upon submitting this information, they will receive an email containing a verification token. This token is appended to a URL(user will be redirected to this url address); clicking on the hyperlinked URL in the email activates the user's account, allowing them to participate in any desired activities on the website. If users complete to verify their email addresses, the email token string will change from a string to a null value. Additionally, users can reset their passwords once their email addresses are found in the database. In this situation, emailToken will be issued. Once user click the url sent to their email address, the emailToken will be changed into null. And then user can reset the password, which should not be matched with the previously saved password. Finally, users can delete their accounts, which will change their isActive status to false, not deleting whole data.
+   Users have the capability to create an account, view booked experiences, and access their previously opened events. Users can also edit their profiles. They also can find forgot password and reset the password. They cannot save previously saved password, so it should not be matched with the current password and old one. To sign up, individuals must provide an email address, create a password, and confirm that password again. Upon submitting this information, they will receive an email containing a verification token. This token is appended to a URL(user will be redirected to this url address); clicking on the hyperlinked URL in the email activates the user's account, allowing them to participate in any desired activities on the website. If users complete to verify their email addresses, the email token string will change from a string to a null value. Additionally, users can reset their passwords once their email addresses are found in the database. In this situation, emailToken will be issued. Once user click the url sent to their email address, the emailToken will be changed into null. And then user can reset the password, which should not be matched with the previously saved password. Finally, users can delete their accounts, which will change their isActive status to false, not deleting whole data.
 
 2. **Experiences:**
 
