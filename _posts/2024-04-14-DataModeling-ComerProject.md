@@ -3,7 +3,7 @@ layout: post
 title: [SE_06] Data Modeling - Comer project
 subtitle: A data modeling for Comer project (web application - solo project)
 # thumbnail-img: /assets/img/rootMe/11d59cb34397e986062eb515f4d32421.png
-tags: [MongoDB, data modeling, user casing, NoSQL, erdiagram]
+tags: [MongoDB, data modeling, user casing, NoSQL]
 comments: true
 author: Lantana Park
 ---
@@ -16,32 +16,76 @@ Backend: Node.js, Express.js, Mongoose, MongoDB (NoSQL)
 
 1. **Users:**
 
-   Users have the capability to create an account, view booked experiences, and access their previously opened events. Users can also edit their profiles. They also can find forgot password and reset the password. They cannot save previously saved password, so it should not be matched with the current password and old one. To sign up, individuals must provide an email address, create a password, and confirm that password again. Upon submitting this information, they will receive an email containing a verification token. This token is appended to a URL(user will be redirected to this url address); clicking on the hyperlinked URL in the email activates the user's account, allowing them to participate in any desired activities on the website. If users complete to verify their email addresses, the email token string will change from a string to a null value. Additionally, users can reset their passwords once their email addresses are found in the database. In this situation, emailToken will be issued. Once user click the url sent to their email address, the emailToken will be changed into null. And then user can reset the password, which should not be matched with the previously saved password. Finally, users can delete their accounts, which will change their isActive status to false, not deleting whole data.
+   **Account Creation and Verification:**
+   Users have the capability to create an account by providing an email address, setting a password, and confirming it. Upon submission, they receive an email containing a verification token. Clicking on the URL within the email activates the account, enabling access to various features on the website.
+
+   **Profile Management:**
+   Once registered, users can update their profiles and view booked experiences. They can also access previously created culinary events.
+
+   **Password Management:**
+   Users have the option to reset their passwords. If forgotten, they can initiate the process by providing their email address. Upon confirmation, a new email containing a verification token is sent. Clicking on the URL in the email allows users to reset their password. The new password must not match the previous one.
+
+   **Account Deletion:**
+   Users can choose to delete their accounts. This action changes their status to inactive without deleting their entire dataset.
 
 2. **Experiences:**
 
-   Users can create/edit events. They can upload image files, which are stored on AWS S3 bucket. The event details, including title, description, perks (such as food, beverages, transportation, equipment, and others), guest requirements (minimum age, allowance of kids and pets, maximum group size), languages spoken, general availability (start time, end time, date range), tags, price with currency, additional notes for consideration by users, likes from other users, and cancellation policy, are stored in the database. To facilitate event location, information such as country, city, state, address (including street number), longitude, latitude, coordinates, and full address are also stored in the database. These location details are provided via the Mapbox library from the client side. If users want to edit events, they can revise the information only what they want to edit, not inputting all information. User can search events by city name.
+   **Event Creation and Editing:**
+   Users have the ability to create and edit multiple events. They can upload image files, which are stored on an AWS S3 bucket. Event details encompass various aspects such as title, description, perks (e.g., food, beverages, transportation, equipment), guest requirements (minimum age, allowance of kids and pets, maximum group size), languages spoken, general availability (start time, end time, date range), tags, price with currency, additional notes for user consideration, likes from other users, and cancellation policy. These details are stored in the database.
+
+   **Event Location:**
+   To aid in locating events, relevant information including country, city, state, address (including street number), longitude, latitude, and full address is stored in the database. The location details are retrieved via the Mapbox library from the client side.
+
+   **Display Event:**
+   Users can view all saved experiences on the main page. The server retrieves events that are not dated before today's date, ensuring relevance and timeliness of displayed content. Additionally, on the event detail page, available dates and times will be listed. Dates displayed will not precede today's date, maintaining accuracy and relevance.
+
+   **Event Editing Process:**
+   When editing events, users can modify specific information without the need to input all details again.
+
+   **Event Search:**
+   Users have the capability to search for events by city name, enhancing the accessibility and user-friendliness of the platform.
 
 3. **Comments:**
 
-   Users are able to create and delete comments on the detailed event pages. An experience page may contain multiple comments. When a comment is posted, the user ID and experience ID are stored as foreign keys, along with the comment's description.
+   Users can create and delete multiple comments on the detailed event pages. Each experience page may host multiple comments. When a comment is posted, it is stored in the database along with the user ID and experience ID as foreign keys, along with the comment's description.
 
 4. **Availabilities:**
 
-   When a user opens their event, an availability entity is created based on data from the start time, end time, and date range (Experience entity). This entity includes the experience ID as a foreign key, dateMaxGuestPairs, booking information (to track who booked the event), and a timestamp. Within the dateMaxGuestPairs, objects are stored that include details such as the date, start time, end time, maximum number of guests allowed, price, and current status. When an event is booked by a user, the number of maximum guests allowed is accordingly decreased. In addition to it, an object (including date, slotId, userId, experienceId, experienceTitle, UserEmail, startTime, endTime) will be created in the availabilities.booking array.
+   **Entity Creation:**
+   When a user opens their event, an availability entity is generated utilizing data from the start time, end time, and date range of the Experience entity. This entity includes the experience ID as a foreign key, multiple dateMaxGuestPairs, many booking details (if a user booked a slot) to track event bookings, and a timestamp.
+
+   **DateMaxGuestPairs Details:**
+   Within the indexed dateMaxGuestPairs, objects are stored, containing details such as the date, start time, end time, maximum number of guests allowed, price, and current status.
+
+   **Booking Process:**
+   Upon a user booking the event, the maximum number of guests allowed is appropriately decreased to the relevant data and time slot.
+
+   **Booking Object Creation:**
+   Additionally, one a user book a slot from an event, an object is created within the availabilities.booking array. This object includes details like date, slotId, userId, experienceId, experienceTitle, UserEmail, startTime, and endTime.
 
 ## ER Diagram
 
-```
-erDiagram
+```mermaid
 
     USER {
         string _id PK "Unique identifier"
         string email "Email address"
         string password "Hashed password with salt"
+        string password2 "Hashed password2 with salt"
         boolean isActive "Status indicating if the user's account is active"
         boolean isVerified "Status indicating if the user's email is verified"
         string emailToken "Token for email verification process"
+        string profilePicture "Profile image"
+        string description "Description to introduction"
+        string firstName "First name"
+        string lastName "Last name"
+        string city "City"
+        string country "Country"
+        string province "Province"
+        string street "Street"
+        number zip "Zip code"
+        number phoneNumber "Phone Number"
+        string resetPasswordEmailToken "Token for reset password and email verification process"
         dateTime createdAt "Creation Timestamp"
         dateTime updatedAt "Last Update Timestamp"
     }
@@ -62,9 +106,9 @@ erDiagram
         number latitude "Latitude"
         string[] coordinates "String version of longitude and latitude"
         string fullAddress "Full Postal Address"
-        string[] files "Associated Files (e.g., images)"
+        array FILES "Embedded array for image urls"
         string[] likes "User Likes - userId"
-        object perks "Perks Object"
+        object PERKS "Embedded Perks Object"
         string notice "Special Notice from Host"
         string startTime "Starting Time"
         boolean kidsAllowed "Kids Allowed"
@@ -73,13 +117,21 @@ erDiagram
         number maxGuest "Maximum Number of Guests"
         number price "Price"
         string currency "Currency"
-        string[] tags "Experience Tags"
+        array tags "Embedded experience Tags"
         dateTime startDate "Start Date"
         dateTime endDate "End Date"
         boolean cancellation1 "Cancellation Policy - Condition 1"
         boolean cancellation2 "Cancellation Policy - Condition 2"
         dateTime createdAt "Creation Timestamp"
         dateTime updatedAt "Last Update Timestamp"
+    }
+
+    TAGS {
+        string tags "Tags"
+    }
+
+    FILES {
+        string files "Experience image urls"
     }
 
     PERKS {
@@ -133,14 +185,4 @@ erDiagram
         dateTime updatedAt "Last Update Timestamp"
     }
 
-    USER ||--o{ EXPERIENCE : "creates/edits/likes/search"
-    USER ||--o{ COMMENT : "creates/deletes"
-    AVAILABILITY ||--o{ DATEMAXGUESTPAIR : "includes"
-    AVAILABILITY ||--o{ BOOKING : "includes"
-    DATEMAXGUESTPAIR ||--|| BOOKING : "booked for"
-    EXPERIENCE ||--o{ COMMENT : "includes"
-    EXPERIENCE ||--o{ PERKS : "has"
-    EXPERIENCE ||--o{ AVAILABILITY : "has"
 ```
-
-![diagram](/assets/img/comerProject/mermaid-diagram-2024-03-21-112751.png)
