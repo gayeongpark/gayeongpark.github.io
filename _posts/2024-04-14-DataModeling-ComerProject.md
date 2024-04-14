@@ -1,16 +1,16 @@
 ---
 layout: post
 title: Data Modeling - Comer project
-subtitle: Practice to make a data modeling for Comer project (web application - solo project)
+subtitle: A data modeling for Comer project (web application - solo project)
 # thumbnail-img: /assets/img/rootMe/11d59cb34397e986062eb515f4d32421.png
-tags: [MongoDB, data modeling, user case, NoSQL, erdiagram]
+tags: [MongoDB, data modeling, user casing, NoSQL, erdiagram]
 comments: true
 author: Lantana Park
 ---
 
 [Comer Website](https://comer-app.onrender.com/)
 
-Backend: Node.js, Express.js, Mongoose, MongoDB(NoSQL)
+Backend: Node.js, Express.js, Mongoose, MongoDB (NoSQL)
 
 ## User Case (Entities)
 
@@ -48,7 +48,7 @@ erDiagram
 
      EXPERIENCE {
         string _id PK "Unique identifier"
-        string userId FK "Reference to User"
+        string userId FK "Reference from User"
         string title "Title of the Experience"
         string[] language "Languages Offered"
         string description "Brief Description"
@@ -102,7 +102,7 @@ erDiagram
 
     AVAILABILITY {
         string _id PK "Unique identifier for availability record"
-        string experienceId FK "Reference to Experience"
+        string experienceId FK "Reference from Experience"
         object[] dateMaxGuestPairs "Array of Date, Time, and Guest Information"
         object[] booking "Array of booking detailed information"
         dateTime createdAt "Creation Timestamp"
