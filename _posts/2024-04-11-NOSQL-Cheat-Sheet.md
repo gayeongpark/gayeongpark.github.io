@@ -1,6 +1,6 @@
 ---
 layout: post
-title: [SE_06] NoSQL assessment preparation
+title: SE_06 / NoSQL assessment preparation
 subtitle: Assessment preparation for NoSQL database (particularly MongoDB)
 tags: [NoSQL, database, assessment, mongoDB, data optimization]
 comments: true

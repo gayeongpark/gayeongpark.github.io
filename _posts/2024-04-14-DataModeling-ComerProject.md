@@ -1,6 +1,6 @@
 ---
 layout: post
-title: [SE_06] Data Modeling - Comer project
+title: SE_06 / Data Modeling - Comer project
 subtitle: A data modeling for Comer project (web application - solo project)
 # thumbnail-img: /assets/img/rootMe/11d59cb34397e986062eb515f4d32421.png
 tags: [MongoDB, data modeling, user casing, NoSQL]
