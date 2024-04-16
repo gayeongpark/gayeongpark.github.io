@@ -64,4 +64,4 @@ Backend: Node.js, Express.js, Mongoose, MongoDB (NoSQL)
 
 ## Diagram
 
-![dataModeling](/assets/img/comerProject/Comer%20data%20modeling.png)
+![dataModeling](../assets/img/comerProject/data%20modeling.png)
