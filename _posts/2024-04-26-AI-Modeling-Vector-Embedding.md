@@ -1,20 +1,38 @@
 ---
 layout: post
-title: Search recommending AI model practice
-subtitle: Practice to building AI model using vector embedding, used dot product for similarity
-tags: [ai, javascript, MongoDB, vector, dot product, math, Node.js]
+title: Practice AI service for search
+subtitle: Building AI service using embeddings (vectors) with dot product for comparing similarity
+tags: [ai, node.js, MongoDB, vector, dot product, linear algebra, se40]
 comments: true
 author: Lantana Park
 ---
 
-# Calculation similarity of each input queries to search movie (dot product applied example)
+# Calculation similarity of each input query to search movie (dot product applied example)
+
+It is to have a better understand of dot product
 
 1. Set up server and DB using Node.js(express.js) and MongoDB
 
-2. Generate sample DB in MongoDB for movie
+   ![server](../assets/img/aiSearch/server.png)
 
-3. Using `hugging face`, generate vectors of each movie title in DB
+2. Generate sample DB in MongoDB for sample movie DB
 
-4. Using dot product (math concept), calculate similarity(cosine between two vectors) with each DB and input string
+   ![mongoDB1](../assets/img/aiSearch/Screenshot%202024-04-26%20at%2017.17.17.png)
 
-5. Result in most similar movie (limit 5), that means find lowest cosine value between input queries and movie DB
+   ![mongoDB2](../assets/img/aiSearch/Screenshot%202024-04-26%20at%2017.17.32.png)
+
+   ![mongoDB3](../assets/img/aiSearch/Screenshot%202024-04-26%20at%2017.17.42.png)
+
+3. Using openai, calculate query embeddings(vectors)
+
+   ![qeuryEmbedding](../assets/img/aiSearch/queryEmbedding.png)
+
+   if I input a qeury `http://localhost:8000/search?q=dragon`
+
+   ![resultedEmbedding1](../assets/img/aiSearch/Screenshot%202024-04-26%20at%2020.18.26.png)
+
+   ![resultedEmbedding2](../assets/img/aiSearch/Screenshot%202024-04-26%20at%2020.18.35.png)
+
+4. Calculate similarity using dot product(particularity calculate cosine between these ones) between the `query embeddings` and `plot_embeddings`.
+
+5. Display most similar movie title and plot (limit 5)
