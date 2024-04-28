@@ -17,13 +17,13 @@ It is to have a better understanding of dot product and its applied method.
 
    ![server2](../assets/img/aiSearch/Screenshot%202024-04-26%20at%2021.30.06.png)
 
-2. Generate sample movie DB in MongoDB
+2. Generate/prepare sample movie DB in MongoDB
 
-   ![mongoDB1](../assets/img/aiSearch/Screenshot%202024-04-26%20at%2017.17.17.png)
+   ![mongoDB1](../assets/img/aiSearch/Screenshot%202024-04-28%20at%2020.43.05.png)
 
-   With this sample DB, I am going to use `sample_mflix.movies`
+   ![mongoDB2](../assets/img/aiSearch/Screenshot%202024-04-28%20at%2020.43.19.png)
 
-3. Using openai, generate query embeddings(vectors)
+3. Using openai api, add query embeddings(vectors) in the `movies` collections
 
    ![queryEmbedding](../assets/img/aiSearch/queryEmbedding.png)
 
@@ -39,19 +39,21 @@ It is to have a better understanding of dot product and its applied method.
 
    ![update](../assets/img/aiSearch/updateEmbedding.png)
 
-5. Calculate similarity using dot product(particularity calculate cosine between these ones) and normal vectors between the `query embeddings` and `plot_embeddings`.
+   ![mongoDB3](../assets/img/aiSearch/Screenshot%202024-04-28%20at%2020.43.33.png)
+
+5. Calculate similarity using dot product (particularity calculate cosine between these ones) and normal vectors between the `query embeddings` and `plot_embeddings`.
 
    In order to calculate the cosine value between two vectors. it is required to know dot product. It is to calculate the angle between two vectors and projection of one vector onto another.
 
-   Dot product formula,
+   Dot product formula below,
 
    ![dotProduct](../assets/img/aiSearch/dotProduct.jpg)
 
-   Since we need to determine the cosine value for finding similarity and display 10 top similar movies
+   It is required to determine the cosine theta value for finding similarity between two vectors and display 10 top similar movies,
 
    ![cosine](../assets/img/aiSearch/cosine%20calculation.png)
 
-   The cosine value (= similarity) between two vectors means these two vectors are similar
+   Cosine value (= similarity) between two vectors represents the similarity between two vectors.
 
    ![similarCalculation](../assets/img/aiSearch/calculationSimilar.png)
 
@@ -61,8 +63,12 @@ It is to have a better understanding of dot product and its applied method.
 
    ![wholeCode](../assets/img/aiSearch/wholeCode.png)
 
-   According to the results, I could recognize it was quite accurate.
+   According to the results, I could recognize that it was quite accurate.
 
    ![result](../assets/img/aiSearch/result.png)
+
+In order to increase the accuracy, it will be great to develop a service from embedding generator, instead of using openai api.
+
+I am going to expand this ai method into my next project.
 
 GitHub repository:
