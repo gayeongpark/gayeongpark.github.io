@@ -142,7 +142,7 @@ print(b + 10)  # Outputs: 133
 
 ## Structural typing
 
-Structural typing determines an object's type by its structure rather than its explicit type declaration.
+Structural typing determines an object's type by **its structure** rather than its explicit type declaration.
 
 TypeScript example,
 
@@ -206,7 +206,7 @@ Here, both `Bird` and `Airplane` can be passed to `make_it_fly` because they bot
 
 ## Nominal typing
 
-Nominal typing, also known as name-based typing, means that a type is considered different from another type if they have different names, regardless of whether they have the same structure or not.
+Nominal typing, also known as name-based typing, means that **a type is considered different from another type if they have different names**, regardless of whether they have the same structure or not.
 
 TypeScript example,
 
