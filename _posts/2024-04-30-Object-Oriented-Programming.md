@@ -13,17 +13,11 @@ author: Lantana Park
 
 OOP, object-oriented programming is one of the programming concepts and has three main concepts: class and instance, encapsulation, inheritance, and polymorphism.
 
-<!-- Object-oriented concepts:
-
-Classes and objects
-Inheritance (e.g. single/multiple inheritance, interface inheritance, abstract classes, prototype-based / class-based inheritance)
-Polymorphism (incl. dynamic dispatch and late binding) -->
-
 ## What is classes and objects?
 
-**Class** is a blueprint for creating object. It is like making bread mold.
+**Class** is a blueprint for creating object. It is like making a mold to bake a bread.
 
-**Object** is an instance of a class. It is like making bread using the mold.
+**Object** is an instance of a class. It is like backing bread using the mold.
 
 JavaScript example,
 
@@ -189,7 +183,7 @@ class SourdoughBread extends Bread {
 }
 
 let mySourdough = new SourdoughBread("sourdough starter");
-mySourdough.bake(); // Baking cream bread with sourdough starter.
+console.log(mySourdough.bake()); // Baking cream bread with sourdough starter.
 ```
 
 ## Encapsulation
@@ -223,11 +217,11 @@ class Bread {
 }
 
 let myBread = new Bread("brown", "Rye-wheat"); // Creating an object of the Bread class
-myBread.bake(); // Works fine, because method is public
+console.log(myBread.bake()); // Works fine, because method is public
 console.log(myBread.color); // Works fine, because property is public
 
-myBread.ingredient; // Error, 'ingredient' is private and only accessible within class 'Bread'
-myBread.mixIngredients(); // Error, 'mixIngredients' is private and only accessible within class 'Bread'
+console.log(myBread.ingredient); // Error, 'ingredient' is private and only accessible within class 'Bread'
+console.log(myBread.mixIngredients()); // Error, 'mixIngredients' is private and only accessible within class 'Bread'
 ```
 
 ## Polymorphism
