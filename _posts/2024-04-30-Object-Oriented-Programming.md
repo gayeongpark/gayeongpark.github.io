@@ -31,6 +31,7 @@ class Bread {
 }
 
 let myBread = new Bread("brown", "Rye-wheat"); // Creating an object of the Car class
+console.log(myBread); // Bread {color: "brown", ingredient: "Rye-wheat"}
 ```
 
 ## Inheritance
