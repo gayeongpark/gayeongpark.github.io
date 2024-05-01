@@ -20,18 +20,16 @@ Types help the compiler or interpreter differentiate between kinds of data, allo
 TypeScript example,
 
 ```typescript
-const year: number = 2024;
+const year: number = 2030;
 
-console.log(year); // Outputs: 2024
+console.log(year); // Outputs: 2030
 ```
 
-Here, `number` is a syntactic token that signals to the compiler the nature of age.
+Here, `number` is a syntactic token that signals to the compiler the nature of `year` by assigning number type to the variable.
 
 - **Representation and Value space:**
 
 Each type defines a range of values it can represent.
-
-TypeScript `boolean` can hold true or false.
 
 TypeScript example,
 
@@ -45,9 +43,11 @@ if (!isCompleted) {
 console.log(isCompleted); // Outputs: true
 ```
 
+Here, the type of `isActive` variable was defined in terms of possible values.
+
 - **Semantic meaning:**
 
-Types can carry specific meanings
+Types can carry specific meanings.
 
 TypeScript example,
 
@@ -67,7 +67,7 @@ sendEmail(user1Email); // Clear that the function expects an Email type
 
 - **Behavior:**
 
-Data types also dictate what operations can be performed with them. For instance, arithmetic operations are typically defined for numeric types like integers and floats.
+Types can dictate what operations can be performed with them. For instance, arithmetic operations are typically defined for numeric types like integers and floats.
 
 TypeScript example,
 
@@ -85,7 +85,7 @@ console.log(`Total cost of the ${productName}: $${totalCost.toFixed(2)}`);
 
 ### Static typing
 
-Static typing involves type checking during compilation, before program execution. Once a variable is assigned a data type, it remains unchanged throughout the programs execution. Static typing reduces the chances of runtime errors(this error happens after compilation) and detects errors at an early stage.
+Static typing involves **type checking during compilation**, before program execution. Once a variable is assigned a data type, **it remains unchanged throughout the programs execution**. Static typing reduces the chances of runtime errors(this error happens after compilation) and detects errors at an early stage.
 
 On the other side, it will be hard to have small type revision and these small type changes can draw bigger architectural changes.
 
@@ -99,11 +99,11 @@ function staticTyping(value: number): number {
 console.log(staticTyping(5));
 ```
 
-Please check the function type is number and its argument type is number. These types are not changed.
+Please check the function type is `number` and its argument type is `number`. These types should not be changed throughout this function execution.
 
 ### Dynamic typing
 
-Once a specific function is called, types of the function are checked during the runtime(after compilation). Dynamic typing allows for type changes within a variable, even during function execution, and more flexibility and ease in writing type-neutral code.
+Once a specific function is called, types of the function are checked **during the runtime** (after compilation). **Dynamic typing allows for type changes within a variable, even during function execution**, and more flexibility and ease in writing type-neutral code.
 
 So it requires solid unit test.
 
@@ -118,11 +118,11 @@ def dynamic_typing(value):
 dynamic_typing(10) # 10 is the first value dynamic_typing recognize as an argument
 ```
 
-The type of a variable is determined at runtime and can change as the program executes.
+The type of this argument value is determined at runtime and can change as the program executes.
 
 ### Type conversion(type casting)
 
-Type conversion is the process of converting a variable from one type to another. (convert the data type by assigning data type to the new variable)
+Type conversion is the process of converting the type of a variable from one to another by assigning new data type to the new variable
 
 - Implicit conversion: This happens when the programming language **automatically converts** a type to another to perform some operation.
 - Explicit conversion: This requires the programmer to **write code specifying the conversion**.
@@ -140,9 +140,9 @@ b = int(a)     # Explicit conversion: string to integer
 print(b + 10)  # Outputs: 133
 ```
 
-## Structural typing
+## Structural typing (static type system)
 
-Structural typing determines an object's type by **its structure** rather than its explicit type declaration.
+Structural typing determines an object's type by **its structure** rather than its explicit type declaration. **The compiler checks that the types have the same structure** without requiring them to be declared as the same. Since typing checking occurs at the compile time, errors can be caught early in the development process.
 
 TypeScript example,
 
@@ -180,9 +180,9 @@ startPlaying(myMusicPlayer, "favorite_song.mp3"); // Outputs: Playing music from
 startPlaying(myPodcastPlayer, "interesting_podcast.mp3"); // Outputs: Streaming podcast from file: interesting_podcast.mp3
 ```
 
-## Duck typing
+## Duck typing (dynamic typing system)
 
-Duck typing is a dynamic typing concept that **determines an object's type by what methods and properties it has**, not what it is supposed to be.
+Duck typing is a dynamic typing concept that **determines an object's type by what methods and properties it has**, not what it is named to be. The type check happens at runtime.
 
 Python example,
 
@@ -206,7 +206,7 @@ Here, both `Bird` and `Airplane` can be passed to `make_it_fly` because they bot
 
 ## Nominal typing
 
-Nominal typing, also known as name-based typing, means that **a type is considered different from another type if they have different names**, regardless of whether they have the same structure or not.
+Nominal typing, also known as name-based typing, means that **a type is considered different from another type if they have different names**, regardless of whether they have the same structure or not. **Type compatibility is checked at compile-time** on explicit declaration.
 
 TypeScript example,
 

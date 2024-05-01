@@ -2,9 +2,6 @@
 layout: post
 title: Functional programming
 subtitle: Practice for concept of functional programming
-# cover-img: /assets/img/Blackboard.png
-# thumbnail-img: /assets/img/designathon/coverdesginathon.png
-# share-img: /assets/img/path.jpg
 tags: [concept of programming, functional programming, javascript, python]
 comments: true
 author: Lantana Park
@@ -24,7 +21,7 @@ author: Lantana Park
 
 - Imperative programming describes a step-by-step process for a program's execution, detailing the steps required to solve a problem. (such as Object-Oriented Programming)
 
-- In the declarative paradigm, I need to define the results I want a program to accomplish wihout describing its control flow. (such as Functional Programming)
+- In the declarative paradigm, I need to define the results I want a program to accomplish without describing its control flow. (such as Functional Programming)
 
 - JavaScript is supporting both paradigms, declarative and imperative programming.
 
@@ -79,7 +76,7 @@ const handlePerksChange = (e) => {
     // `setPerks` is called with a function as its argument rather than a direct new state value. This function receives the previous state as its parameter.
     ...prevPerks,
     // Here is where immutability is applied.
-    // `...prevPerks` creates a new object that is a shallow copy of `prevPerks`. By spreading `prevPerks`, all existing properties and their values are included in the new state object, ensuring that I am building on the latest state withoug mutating it.
+    // `...prevPerks` creates a new object that is a shallow copy of `prevPerks`. By spreading `prevPerks`, all existing properties and their values are included in the new state object, ensuring that I am building on the latest state without mutating it.
     [name]: value,
     // This syntax dynamically updates the property of the object that corresponds to the input's name attribute.
     // The property's value is set to the new value from the input.
@@ -112,7 +109,7 @@ console.log(greet("lantana"));
 // Hi, lantana
 ```
 
-However, the code below is **not** pure function because count was declared outside of the function. So that side effect can be happeded.
+However, the code below is **not** pure function because count was declared outside of the function. So that side effect can be happened.
 
 ```javascript
 let count = 10;
@@ -123,6 +120,32 @@ function addToCount(num) {
 
 addToCount(5); // 15
 ```
+
+### Anonymous Functions
+
+Anonymous functions are functions without a name. They are really useful when I need a quick small function without specifying the function name.
+
+#### What is Lambda expression?
+
+It is a function without name. It can be expressed using `lambda` keyword in Python and arrow functions in JavaScript
+
+```python
+def cube(y):
+    return y*y*y
+
+lambda_cube = lambda y: y*y*y
+print("Using function defined with `def` keyword, cube:", cube(5)) # Using function defined with `def` keyword, cube: 125
+print("Using lambda function, cube:", lambda_cube(5)) # Using lambda function, cube: 125
+```
+
+I declared `lambda` keyword function and `def` keyword function to compare.
+
+```javascript
+const double = (x) => x * 2;
+console.log(double(4)); // 8
+```
+
+I just declared a variable, called `double` and then declared a simple arrow function.
 
 ### Higher Order Functions
 
@@ -253,10 +276,10 @@ Currying is a functional programming concept where a function that takes multipl
 
 ```javascript
 // The function applyShipCost takes three arguments sequentially, country, flatRate, order
-// According to the variable, named 'applyShippingToUSA', 'USA' for the country and '10' for the flat rate are assgined to the    'applyShippingCost' function.
+// According to the variable, named 'applyShippingToUSA', 'USA' for the country and '10' for the flat rate are assigned to the    'applyShippingCost' function.
 // However, this does not execute the final function yet. Instead, it creates a new function, 'applyShippingToUSA'.
 const applyShippingCost = (country) => (flatRate) => (order) => {
-  // Since 'USA' from order object === 'USA' the arugment value assgined at first
+  // Since 'USA' from order object === 'USA' the argument value assigned at first
   if (order.shipTo === country) {
     return {
       ...order,
