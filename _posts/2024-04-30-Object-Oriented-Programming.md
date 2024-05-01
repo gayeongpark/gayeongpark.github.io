@@ -2,7 +2,7 @@
 layout: post
 title: Object Oriented programming
 subtitle: Practice for concept of object oriented programming
-tags: [programming, class, object-oriented, inheritance]
+tags: [programming, class, object-oriented, inheritance, se03]
 comments: true
 author: Lantana Park
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
-title: General types for programming
-subtitle: Types and type systems
+title: General types programming
+subtitle: Practice for types and type systems
 tags: [programming, typescript, general concept, types, se03]
 comments: true
 author: Lantana Park

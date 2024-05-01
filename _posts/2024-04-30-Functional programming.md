@@ -2,7 +2,7 @@
 layout: post
 title: Functional programming
 subtitle: Practice for concept of functional programming
-tags: [concept of programming, functional programming, javascript, python]
+tags: [concept of programming, functional programming, javascript, python, se03]
 comments: true
 author: Lantana Park
 ---
