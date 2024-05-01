@@ -91,7 +91,7 @@ class Spread:
     def __init__(self, spread_type):
         self.spread_type = spread_type
 
-class Sandwich(Bread, Spread):  # Creating multiple inheritance
+class Sandwich(Bread, Spread):  # Creating multiple inheritance class
     def __init__(self, color, ingredient, filling, spread_type):
         Bread.__init__(self, color, ingredient)  # Initializing Bread part
         Spread.__init__(self, spread_type)        # Initializing Spread part
@@ -107,9 +107,90 @@ print(my_sandwich.describe())  # A brown sandwich made of Rye-wheat with turkey 
 
 ### Interface Inheritance
 
+In interface inheritance, I can define a binding agreement for classes in the form of an interface, which specifies the properties and methods that classes must implement.
+
+```typescript
+// Defining the interface that acts as a blueprint(mold) for bread-making classes
+interface Bread {
+  color: string;
+  ingredient: string;
+  bake(): void; // Creating a method to bake a bread
+}
+
+// Implementing the interface in a specific class
+class RyeBread implements Bread {
+  color: string;
+  ingredient: string;
+
+  constructor(color: string, ingredient: string) {
+    this.color = color;
+    this.ingredient = ingredient;
+  }
+  // implementing the bake method as specified in the interface
+  bake() {
+    console.log(`Baking a ${this.color} bread with ${this.ingredient}`);
+  }
+}
+
+let myRyeBread = new RyeBread("dark brown", "Rye");
+console.log(myRyeBread.bake()); // Baking a dark brown bread with Rye
+```
+
 ### Prototype-based Inheritance
 
+In prototype-based inheritance, objects can inherit from other objects using prototype keyword.
+
+```javascript
+// Defining the constructor function designed to create objects
+function Bread(color, ingredient) {
+  this.color = color;
+  this.ingredient = ingredient;
+}
+
+// Adding the back method to the Bread prototype
+Bread.prototype.bake = function () {
+  console.log(`Baking ${this.color} bread with ${this.ingredient}.`);
+};
+
+// Creating an instance of Bread
+let ryeBread = new Bread("brown", "Rye-wheat");
+console.log(ryeBread.bake()); // Baking brown bread with Rye-wheat.
+
+// Create a new bread object based on the ryeBread prototype
+let multiGrainBread = Object.create(ryeBread);
+multiGrainBread.ingredient = "Multigrain";
+console.log(multiGrainBread.bake()); // Baking brown bread with Multigrain.
+```
+
 ### Class-based Inheritance
+
+In class-based inheritance, I can define a class and then extend the class by creating subclasses.
+
+```typescript
+// Defining a class
+class Bread {
+  color: string;
+  ingredient: string;
+
+  constructor(color: string, ingredient: string) {
+    this.color = color;
+    this.ingredient = ingredient;
+  }
+
+  bake(): void {
+    console.log(`Baking ${this.color} bread with ${this.ingredient}.`);
+  }
+}
+// Extending the Bread class by using extends keyword and creating a SourdoughBread subclass
+class SourdoughBread extends Bread {
+  constructor(ingredient: string) {
+    super("cream", ingredient); // super is to use the properties from the parent class
+  }
+}
+
+let mySourdough = new SourdoughBread("sourdough starter");
+mySourdough.bake(); // Baking cream bread with sourdough starter.
+```
 
 ## Encapsulation
 
@@ -149,6 +230,54 @@ myBread.ingredient; // Error, 'ingredient' is private and only accessible within
 myBread.mixIngredients(); // Error, 'mixIngredients' is private and only accessible within class 'Bread'
 ```
 
-## polymorphism
+## Polymorphism
 
-### dynamic binding
+```typescript
+// Defining the base Bread class
+class Bread {
+  color: string;
+  ingredient: string;
+
+  constructor(color: string, ingredient: string) {
+    this.color = color;
+    this.ingredient = ingredient;
+  }
+
+  bake(): string {
+    return `Baking bread: ${this.color} bread with ${this.ingredient}.`;
+  }
+}
+
+// Extending the Bread class to create specific bread types
+class RyeBread extends Bread {
+  constructor() {
+    super("dark brown", "rye and wheat");
+  }
+
+  bake(): string {
+    return `Baking ${this.color} rye bread using traditional methods with ${this.ingredient}.`;
+  }
+}
+
+class SourdoughBread extends Bread {
+  constructor() {
+    super("light creamy", "sourdough starter");
+  }
+
+  bake(): string {
+    return `Baking ${this.color} sourdough bread with a slow fermentation using ${this.ingredient}.`;
+  }
+}
+
+// Creating a function to demonstrate polymorphism
+function bakeBread(bread: Bread) {
+  console.log(bread.bake());
+}
+
+// Using the function with different bread types
+let myRyeBread = new RyeBread();
+let mySourdough = new SourdoughBread();
+
+console.log(bakeBread(myRyeBread)); // Baking dark brown rye bread using traditional methods with rye and wheat.
+console.log(bakeBread(mySourdough)); // Baking light creamy sourdough bread with a slow fermentation using sourdough starter.
+```
