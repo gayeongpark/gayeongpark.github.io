@@ -17,7 +17,7 @@ OOP, object-oriented programming is one of the programming concepts and has thre
 
 **Class** is a blueprint for creating object. It is like making a mold to bake a bread.
 
-**Object** is an instance of a class. It is like backing bread using the mold.
+**Object** is an instance of a class. It is like baking bread with the mold.
 
 JavaScript example,
 
@@ -162,7 +162,7 @@ console.log(multiGrainBread.bake()); // Baking brown bread with Multigrain.
 In class-based inheritance, I can define a class and then extend the class by creating subclasses.
 
 ```typescript
-// Defining a class
+// Defining a Bread class
 class Bread {
   color: string;
   ingredient: string;
