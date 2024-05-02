@@ -11,7 +11,7 @@ author: Lantana Park
 
 ## What is OOP(Object Oriented Programming)?
 
-OOP, object-oriented programming is one of the programming concepts and has three main concepts: class and instance, encapsulation, inheritance, and polymorphism.
+OOP, object-oriented programming, is one of the programming concepts and has three main concepts: class and instance, encapsulation, inheritance, and polymorphism.
 
 ## What is classes and objects?
 
@@ -32,6 +32,44 @@ class Bread {
 
 let myBread = new Bread("brown", "Rye-wheat"); // Creating an object of the Car class
 console.log(myBread); // Bread {color: "brown", ingredient: "Rye-wheat"}
+```
+
+## Encapsulation
+
+Encapsulation can be called "data hiding" because I can hide certain data and limit the access the data to the subclass. This feature can be used if I want to protect data purposefully by other component.
+
+TypeScript example,
+
+```typescript
+class Bread {
+  // Setting public properties can be accessed from outside the class
+  public color: string;
+
+  // Setting private properties cannot be accessed from outside the class, only within this class
+  private ingredient: string;
+
+  constructor(color: string, ingredient: string) {
+    this.color = color; // Public, can be accessed and modified anywhere
+    this.ingredient = ingredient; // Private, modification restricted within this class
+  }
+
+  // Setting public method to bake bread, can be called from anywhere
+  public bake() {
+    console.log(`Baking ${this.color} bread with ${this.ingredient}.`);
+  }
+
+  // Setting private method, can only be used internally by the class
+  private mixIngredients() {
+    console.log(`Mixing ingredients: ${this.ingredient}`);
+  }
+}
+
+let myBread = new Bread("brown", "Rye-wheat"); // Creating an object of the Bread class
+console.log(myBread.bake()); // Works fine, because method is public
+console.log(myBread.color); // Works fine, because property is public
+
+console.log(myBread.ingredient); // Error, 'ingredient' is private and only accessible within class 'Bread'
+console.log(myBread.mixIngredients()); // Error, 'mixIngredients' is private and only accessible within class 'Bread'
 ```
 
 ## Inheritance
@@ -133,7 +171,7 @@ console.log(myRyeBread.bake()); // Baking a dark brown bread with Rye
 
 ### Prototype-based Inheritance
 
-In prototype-based inheritance, objects can inherit from other objects using prototype keyword.
+In prototype-based inheritance, objects can inherit from other objects using prototype keyword. Prototype is playing a role as a gene, which is created when I make a object.
 
 ```javascript
 // Defining the constructor function designed to create objects
@@ -147,7 +185,7 @@ Bread.prototype.bake = function () {
   console.log(`Baking ${this.color} bread with ${this.ingredient}.`);
 };
 
-// Creating an instance of Bread
+// Creating an instance of Bread to use the property from a gene
 let ryeBread = new Bread("brown", "Rye-wheat");
 console.log(ryeBread.bake()); // Baking brown bread with Rye-wheat.
 
@@ -187,45 +225,11 @@ let mySourdough = new SourdoughBread("sourdough starter");
 console.log(mySourdough.bake()); // Baking cream bread with sourdough starter.
 ```
 
-## Encapsulation
-
-Encapsulation can be called "data hiding" because I can hide certain data and limit the access the data to the subclass. This feature can be used if I want to protect data purposefully by other component.
-
-TypeScript example,
-
-```typescript
-class Bread {
-  // Setting public properties can be accessed from outside the class
-  public color: string;
-
-  // Setting private properties cannot be accessed from outside the class, only within this class
-  private ingredient: string;
-
-  constructor(color: string, ingredient: string) {
-    this.color = color; // Public, can be accessed and modified anywhere
-    this.ingredient = ingredient; // Private, modification restricted within this class
-  }
-
-  // Setting public method to bake bread, can be called from anywhere
-  public bake() {
-    console.log(`Baking ${this.color} bread with ${this.ingredient}.`);
-  }
-
-  // Setting private method, can only be used internally by the class
-  private mixIngredients() {
-    console.log(`Mixing ingredients: ${this.ingredient}`);
-  }
-}
-
-let myBread = new Bread("brown", "Rye-wheat"); // Creating an object of the Bread class
-console.log(myBread.bake()); // Works fine, because method is public
-console.log(myBread.color); // Works fine, because property is public
-
-console.log(myBread.ingredient); // Error, 'ingredient' is private and only accessible within class 'Bread'
-console.log(myBread.mixIngredients()); // Error, 'mixIngredients' is private and only accessible within class 'Bread'
-```
-
 ## Polymorphism
+
+`Poly` means many and `morphism` means form. So it means many forms.
+
+In the polymorphism, an overridden method is resolved at runtime (not compile time). So that it allows a program to be more flexible because the method calls are not fixed at compile time but are **dynamically determined at runtime**.
 
 ```typescript
 // Defining the base Bread class
@@ -248,31 +252,27 @@ class RyeBread extends Bread {
   constructor() {
     super("dark brown", "rye and wheat");
   }
-
+  // Overriding the method from Bread class to provide specific baking instructions for each type of bread (Dynamic dispatch)
   bake(): string {
     return `Baking ${this.color} rye bread using traditional methods with ${this.ingredient}.`;
   }
 }
 
+// Extending the Bread class to create specific bread types
 class SourdoughBread extends Bread {
   constructor() {
     super("light creamy", "sourdough starter");
   }
-
+  // Overriding the method from Bread class to provide specific baking instructions for each type of bread (Dynamic dispatch)
   bake(): string {
     return `Baking ${this.color} sourdough bread with a slow fermentation using ${this.ingredient}.`;
   }
-}
-
-// Creating a function to demonstrate polymorphism
-function bakeBread(bread: Bread) {
-  console.log(bread.bake());
 }
 
 // Using the function with different bread types
 let myRyeBread = new RyeBread();
 let mySourdough = new SourdoughBread();
 
-console.log(bakeBread(myRyeBread)); // Baking dark brown rye bread using traditional methods with rye and wheat.
-console.log(bakeBread(mySourdough)); // Baking light creamy sourdough bread with a slow fermentation using sourdough starter.
+console.log(myRyeBread.bake()); // Baking dark brown rye bread using traditional methods with rye and wheat.
+console.log(mySourdough.bake()); // Baking light creamy sourdough bread with a slow fermentation using sourdough starter.
 ```

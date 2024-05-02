@@ -81,6 +81,39 @@ let totalCost: number = price + price * taxRate;
 console.log(`Total cost of the ${productName}: $${totalCost.toFixed(2)}`);
 ```
 
+## Primitive types and reference types
+
+In programming, data types can generally be classified into two categories: primitive types and reference types.
+
+### Primitive types
+
+Primitive types are the most basic forms of data. In TypeScript, these include types like `number`, `string`, `boolean`, `null`, `undefined`, `symbol`, and `bigint`. These types store their data directly in the location the variable accesses.
+
+In short, primitive types, when copied to another variable, **copy the actual value**.
+
+```typescript
+let age: number = 30; // Here, `age` is a variable of primitive type `number`
+let isActive: boolean = true; // `isActive` is a primitive type `boolean`
+
+console.log(age); // 30
+console.log(isActive); // true
+```
+
+### Reference types
+
+Reference types store references to their data rather than the data itself. This means the variable actually stores a pointer to the location in memory where the data is stored. Common reference types in TypeScript include `object`, `array`, and `function`.
+
+In short, when reference types are copied, **only the reference (or pointer) is copied**, not the actual data.
+
+```typescript
+let user: { name: string; age: number } = { name: "Jane Doe", age: 28 };
+console.log(user); // { name: "Jane Doe", age: 28 }
+
+let numbers: number[] = [1, 2, 3];
+numbers.push(4);
+console.log(numbers); // [1, 2, 3, 4]
+```
+
 ## Dynamic vs Static typing
 
 ### Static typing
@@ -176,8 +209,8 @@ const myMusicPlayer = new MusicPlayer();
 const myPodcastPlayer = new PodcastPlayer();
 
 // Both players can be used interchangeably in the startPlaying function
-startPlaying(myMusicPlayer, "favorite_song.mp3"); // Outputs: Playing music from file: favorite_song.mp3
-startPlaying(myPodcastPlayer, "interesting_podcast.mp3"); // Outputs: Streaming podcast from file: interesting_podcast.mp3
+startPlaying(myMusicPlayer, "favorite_song.mp3"); // Playing music from file: favorite_song.mp3
+startPlaying(myPodcastPlayer, "interesting_podcast.mp3"); // Streaming podcast from file: interesting_podcast.mp3
 ```
 
 ## Duck typing (dynamic typing system)
@@ -198,8 +231,8 @@ class Airplane:
 def make_it_fly(thing):
     thing.fly()
 
-make_it_fly(Bird())        // Outputs: Flies into the sky!
-make_it_fly(Airplane())    // Outputs: Takes off the runway!
+make_it_fly(Bird())        # Flies into the sky!
+make_it_fly(Airplane())    # Takes off the runway!
 ```
 
 Here, both `Bird` and `Airplane` can be passed to `make_it_fly` because they both have a `fly` method. The system doesn’t care what type `thing` is, as long as it meets the necessary functional criteria.
