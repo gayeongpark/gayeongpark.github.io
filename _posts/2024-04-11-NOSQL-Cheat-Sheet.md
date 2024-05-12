@@ -9,11 +9,11 @@ author: Lantana Park
 
 # The concepts, characteristics and significance of NoSQL
 
-- It was developed from open-source project to deal with limitation of SQL database
+- It was developed from a open-source project to deal with limitation of SQL database
 
 - It provides a free schema structure, and it offers rapid scalability to manage large and unstructured data sets.
 
-- It is also type of distributed database, which means that information is copied and stored on various servers, which can be remote or local.(sharding) This ensures availability and reliability of data. Because, if some of the data goes offline, the rest of the database can continue to run.
+- It is a type of distributed database, which means that information can be copied and stored on various servers, which can be remote or local.(sharding) This ensures availability and reliability of data. Because, if some of the data goes offline, the rest of the distributed database can continue to run.
 
 # Different type of NoSQL database and its advantages and disadvantages
 
@@ -51,15 +51,16 @@ author: Lantana Park
 
 1.  **Scalability (Horizontal)**
 
-    NoSQL, especially MongoDB, designed for **horizontal scalability**. That means NoSQL database like MongoDB can handle large volumes of data by distributing it across multiple servers (sharding). That makes it easier to scale out (horizontal scaling). Thus it allows developers to use of **cheaper** and standard machines and can be more cost-efficient at scale.
+    NoSQL is designed for horizontal scalability. This means that a NoSQL database can handle large volumes of data by distributing it across multiple servers (sharding). Thus, they allow developers to utilize cheaper, standard server machines, which can be more cost-efficient.
 
 2.  **Schema flexibility**
 
-    NoSQL, especially MongoDB, provides flexible schema model. Which allows me to easily add or remove data fields without modifying the existing database schema to affecting other data records. Even though I made a schema for specifying the data structure, I can add a new field dynamically so that a whole new data and records in the same collection can have different structures.
+    NoSQL provides a flexible schema model, which allows developers to easily add or remove data fields without modifying the existing database schema records. Even though I created a schema to specify the data structure, I can dynamically add a new field so that new data and records in the same collection can have different structures.
 
 3.  **Fast queries (fast reading)**
 
-    Queries in NoSQL database can be faster than SQL database. Since Data in SQL database is typically normalized, queries for a single object or entity require to join data from multiple tables. So, it takes costs when the tables are growing. However, data in NoSQL databases can be access and stored together due to denormalized structure. Hence queries typically do not require joins, and **the queries are very fast and readings are very fast.**
+    Queries in NoSQL databases can be faster than those in SQL databases. Since data in SQL databases is typically normalized, querying for a single object or entity often requires joining data from multiple tables, which becomes costly as the tables grow. However, data in NoSQL databases is accessed and stored together due to their denormalized structure. Hence, queries typically do not require joins, making both queries and read operations very fast. Additionally, many NoSQL databases support indexing, which can significantly speed up query processing.
+
 
 ## Disadvantages of NoSQL
 
