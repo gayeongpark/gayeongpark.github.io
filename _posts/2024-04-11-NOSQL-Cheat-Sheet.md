@@ -51,7 +51,7 @@ author: Lantana Park
 
 1.  **Scalability (Horizontal)**
 
-    NoSQL is designed for horizontal scalability. This means that a NoSQL database can handle large volumes of data by distributing it across multiple servers (sharding). Thus, they allow developers to utilize cheaper, standard server machines, which can be more cost-efficient.
+    NoSQL is designed for horizontal scalability. This means that a NoSQL database can handle large volumes of data by distributing it across multiple servers (sharding). Thus, it allows developers to utilize cheaper, standard server machines, which can be more cost-efficient.
 
 2.  **Schema flexibility**
 
@@ -59,8 +59,7 @@ author: Lantana Park
 
 3.  **Fast queries (fast reading)**
 
-    Queries in NoSQL databases can be faster than those in SQL databases. Since data in SQL databases is typically normalized, querying for a single object or entity often requires joining data from multiple tables, which becomes costly as the tables grow. However, data in NoSQL databases is accessed and stored together due to their denormalized structure. Hence, queries typically do not require joins, making both queries and read operations very fast. Additionally, many NoSQL databases support indexing, which can significantly speed up query processing.
-
+    Queries in NoSQL databases can be faster than those in SQL databases. Since data in SQL databases is typically normalized, querying for a single entity often requires joining data from multiple tables, which becomes costly as the tables grow. However, data in NoSQL databases is accessed and stored together due to their denormalized structure. Hence, queries typically do not require data joining, making both queries and read operations very fast. Additionally, many NoSQL databases support indexing, which can significantly speed up query processing.
 
 ## Disadvantages of NoSQL
 
@@ -70,11 +69,11 @@ author: Lantana Park
 
 2. **Data retrieval inconsistency**
 
-   NoSQL databases prioritize speed and availability due to their distributed nature, which can lead to inconsistencies in data retrieval. This occurs because data might not be updated simultaneously across all servers, resulting in different responses based on the server accessed.
+   **NoSQL databases prioritize speed and availability due to their distributed nature, which can lead to inconsistencies in data retrieval**. **This occurs because data might not be updated simultaneously across all servers**, resulting in different responses based on the server accessed.
 
-   Unlike traditional databases that follow ACID principles (Atomicity, Consistency, Isolation, Durability) to ensure data integrity, NoSQL databases often do not meet the consistency requirement. This means they might not provide the same data consistency as seen in ACID-compliant databases.
+   **Unlike traditional SQL databases that follow ACID principles (Atomicity, Consistency, Isolation, Durability) to ensure data integrity, NoSQL databases often do not meet the consistency requirement**. This means they might not provide the same data consistency as seen in ACID-compliant databases.
 
-   Instead of ACID, many NoSQL databases use the BASE (Basically Available, Soft state, Eventual consistency) model. Here, consistency is achieved eventually, meaning that while immediate consistency is not guaranteed, the data will become consistent after a short delay, which is generally acceptable in many real-world applications like social media or online shopping.
+   Instead of ACID, many NoSQL databases use the BASE (Basically Available, Soft state, Eventual consistency) model. Here, **consistency is achieved eventually, meaning that while immediate consistency is not guaranteed, the data will become consistent after a short delay**, which is generally acceptable in many real-world applications like social media or online shopping.
 
    - **Basically Available**: The system remains operational even in the presence of failures, ensuring that users can still access data and perform operations.
 
