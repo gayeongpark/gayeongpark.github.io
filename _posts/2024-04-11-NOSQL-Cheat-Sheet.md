@@ -69,7 +69,7 @@ author: Lantana Park
 
 2. **Data retrieval inconsistency**
 
-   **NoSQL databases prioritize speed and availability due to their distributed nature, which can lead to inconsistencies in data retrieval**. **This occurs because data might not be updated simultaneously across all servers**, resulting in different responses based on the server accessed.
+   **NoSQL databases prioritize speed and availability due to their distributed nature, which can lead to inconsistencies in data retrieval**. **This occurs because data might not be updated simultaneously across all servers, resulting in different responses based on the server accessed**.
 
    **Unlike traditional SQL databases that follow ACID principles (Atomicity, Consistency, Isolation, Durability) to ensure data integrity, NoSQL databases often do not meet the consistency requirement**. This means they might not provide the same data consistency as seen in ACID-compliant databases.
 
@@ -87,23 +87,21 @@ author: Lantana Park
 
 # Two types of data processing system: OLAP (online analytical processing) and OLTP (online transaction processing)
 
-MongoDB is primarily used for OLTP workloads due to its strengths in handling transactional operations and real-time data, it can also support some OLAP-style queries and analytics to a certain extent.
-
 ## What is OLTP (Online Transactional Processing)?
 
-- It is designed to handle day-to-day operational tasks, including simple lookups, retrieving, modifying individual records. For example, finding a customer id and retrieving their orders
+- It is designed to **handle day-to-day operational tasks**, including simple lookups, retrieving, modifying individual records. For example, finding a customer id and retrieving their orders.
 
-- It handles many updates, such as updating customer information or processing payments.
+- It **handles many updates, such as updating customer information or processing payments**.
 
-- It handles real-time transactions like online purchases or banking transactions. So, strong consistency is crucial to ensure data integrity.
+- It **handles real-time transactions like online purchases or banking transactions**. So, **strong consistency** is crucial to ensure data integrity.
 
 ## What is OLAP (Online Analytical Processing)?
 
-- It is designed to perform complex analytical queries and generating reports to support decision-making processes.
+- It is designed to **perform complex analytical queries and generating reports to support decision-making processes**.
 
-- It involves operations such as aggregations, joins on large data sets. For example, calculating total revenue by stores, product, clerk, or date range. However, it does not handle direct updates.
+- It involves operations such as aggregations, joins on large data sets. For example, calculating total revenue by stores, product, clerk, or date range. However, **it does not handle direct updates**.
 
-- It focuses on providing fast query response times rather then data integrity.
+- It **focuses on providing fast query response times** rather then data integrity.
 
 # CAP theorem and its implications for selecting a NoSQL database
 
@@ -111,11 +109,9 @@ Distribution is important in NoSQL because of its characteristics. It relies on 
 
 ![mongoDB](/assets/img/mongodb/CAP_Theorem_Venn_Diagram.png)
 
-- **Consistency**: all clients see the same data at the same time. For making this to fulfill, whenever data is written to one node, it should be instantly forwarded or replicated to all the other nodes in the system. That means all nodes in the system continue to cooperatively provide service, even when nodes become unavailable. Consistency supports modern workloads that are less dependent on a strong consistency, but rely heavily on availability.
-
-- **Availability**: any client making a request for data gets a response, even if one or more nodes are down. That means all working nodes in the distributed system return a valid response for any request, without exception.
-
-- **Partition tolerance**: it is a communications break within a distributed system — a lost or temporarily delayed connection between two nodes. Partition tolerance means that each system must continue to work together despite any number of communication breakdowns between nodes in the system.
+- **Consistency** means every read receives the most recent write.
+- **Availability** means every request receives a (non-error) response, without the guarantee that it contains the most recent write.
+- **Partition tolerance** means the system continues to operate despite arbitrary message loss or failure of part of the system.
 
 **A distributed database system can only fully satisfy two out of the three guarantees**
 
