@@ -25,11 +25,11 @@ const year: number = 2030;
 console.log(year); // 2030
 ```
 
-Here, `number` is a syntactic token that signals to the compiler the nature of `year` by assigning number type to the variable.
+`number` tells the complier that `year` is a numeric value, helping with operations and error checking.
 
 - **Representation and Value space:**
 
-Each type defines a range of values it can represent.
+Types defines a range of values it can represent.
 
 TypeScript example,
 
@@ -43,27 +43,30 @@ if (!isActive) {
 console.log(isActive); //true
 ```
 
-Here, the type of `isActive` variable was defined in terms of possible values.
+`boolean` restricts `isActive` variable to only `true` or `false`, ensuring consistent usage.
 
 - **Semantic meaning:**
 
-Types can carry specific meanings.
+Types show how types can provide specific, meaningful information about the data being used.
 
 TypeScript example,
 
 ```typescript
-type Email = string;
-type UserID = number;
+type email = string; // Email is an alias for string
+type userID = number; // userId is an alias for number
 
-let user1Email: Email = "user1@example.com";
-let user1ID: UserID = 101;
+let user1Email: email = "user1@example.com";
+let user1ID: userID = 101;
 
-function sendEmail(userEmail: Email) {
+function sendEmail(userEmail: email) {
   console.log(`Sending email to: ${userEmail}`);
 }
 
-sendEmail(user1Email); // Clear that the function expects an Email type
+sendEmail(user1Email); // "Sending email to: user1@example.com"
+sendEmail(user1ID); // Error: Argument of type 'UserID' is not assignable to parameter of type 'Email'.
 ```
+
+Alias like `email` and `userId`improves code readability and ensures type safety by preventing incorrect usage.
 
 - **Behavior:**
 
@@ -79,6 +82,7 @@ const productName: string = "Book";
 // Calculating total cost using arithmetic operations, which are valid on numbers
 let totalCost: number = price + price * taxRate;
 console.log(`Total cost of the ${productName}: $${totalCost.toFixed(2)}`);
+// "Total cost of the Book: $32.09"
 ```
 
 ## Primitive types and reference types
