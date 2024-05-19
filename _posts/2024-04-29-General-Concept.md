@@ -182,6 +182,7 @@ Python example,
 x = 10         # Integer type
 y = 3.14       # Float type
 z = x + y      # Implicit conversion: x is converted to float
+# The interpreter infers that x (an int) needs to be converted to a float to match the type of y (type inference)
 print(z)       # 13.14
 
 a = "123"
@@ -193,30 +194,7 @@ Type casting can be used in static typing, when I want to convert between differ
 
 #### dynamic typing vs type conversion
 
-while dynamic typing allows for changing the type of a variable during program execution without the need for explicit type conversions, type conversion involves explicitly creating a new variable or expression to hold the converted value while leaving the original variable unchanged.
-
-#### Type inference (static type system)
-
-The compiler or interpreter analyzes the code and **infers the data types of variables based on their usage and the context in which they are declared**.
-
-Haskell example,
-
-```haskell
--- Define a function that adds two numbers
-add :: Num a => a -> a -> a
-add x y = x + y
-
--- Call the function without explicitly specifying types
-result = add 5 10
-
--- Haskell infers the types of 'result', 'x', and 'y'
--- 'result' will have the same type as the arguments (in this case, 'Int' because literals are inferred as 'Int')
--- 'x' and 'y' will also be inferred as 'Int' based on the usage
-main = print result
--- 15
-```
-
-The types of `result`, `x`, and `y` were deduced based on their usage.
+while dynamic typing allows for changing the type of a variable **during program execution without the need for explicit type conversions**, type conversion involves explicitly creating a new variable or expression to hold the converted value while leaving the original variable unchanged.
 
 ### Structural typing (dynamic type system)
 
