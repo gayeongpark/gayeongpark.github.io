@@ -9,20 +9,20 @@ author: Lantana Park
 
 # Type Systems
 
-Types in programming serve to improve both the correctness and clarity of programming constructs, such as variables, expressions, functions or modules.
+Types in programming serve **to improve both the correctness and clarity of programming constructs**, such as variables, expressions, functions or modules.
 
 ## What is type?
 
 - **Syntactic Role:**
 
-Types help the compiler or interpreter differentiate between kinds of data, allowing for the appropriate processing.
+Types help the compiler or interpreter **differentiate between kinds of data**, allowing for the appropriate processing.
 
 TypeScript example,
 
 ```typescript
 const year: number = 2030;
 
-console.log(year); // Outputs: 2030
+console.log(year); // 2030
 ```
 
 Here, `number` is a syntactic token that signals to the compiler the nature of `year` by assigning number type to the variable.
@@ -36,11 +36,11 @@ TypeScript example,
 ```typescript
 let isActive: boolean = false;
 
-if (!isCompleted) {
-  isCompleted = true;
+if (!isActive) {
+  isActive = true;
 }
 
-console.log(isCompleted); // Outputs: true
+console.log(isActive); //true
 ```
 
 Here, the type of `isActive` variable was defined in terms of possible values.

@@ -13,7 +13,7 @@ author: Lantana Park
 
 - It provides a free schema structure, and it offers rapid scalability to manage large and unstructured data sets.
 
-- It is a type of distributed database, which means that information can be copied and stored on various servers, which can be remote or local.(sharding) This ensures availability and reliability of data. Because, if some of the data goes offline, the rest of the distributed database can continue to run.
+- It is a type of distributed database, which means that information can be copied and stored on various servers, which can be remote or local. This ensures availability and reliability of data. Because, if some of the data goes offline, the rest of the distributed database can continue to run.
 
 # Different type of NoSQL database and its advantages and disadvantages
 
