@@ -96,7 +96,7 @@ class Bread {
 // Creating Sandwich class and inheriting all the attributes from Bread class
 class Sandwich extends Bread {
   constructor(color, ingredient, filling) {
-    super(color, ingredient); // Call the super class constructor and pass in the color and ingredient from the Bread class
+    super(color, ingredient); // Calling the super class constructor and pass in the color and ingredient from the Bread class
     this.filling = filling; // Additional property specific to Sandwich
   }
   // Setting a method for describing a sandwich
@@ -163,7 +163,7 @@ class RyeBread implements Bread {
     this.color = color;
     this.ingredient = ingredient;
   }
-  // implementing the bake method as specified in the interface
+  // Implementing the bake method as specified in the interface
   bake() {
     console.log(`Baking a ${this.color} bread with ${this.ingredient}`);
   }
@@ -197,7 +197,7 @@ Bread.prototype.bake = function () {
 let ryeBread = new Bread("brown", "Rye-wheat");
 console.log(ryeBread.bake()); // Baking brown bread with Rye-wheat.
 
-// Create a new bread object based on the ryeBread prototype
+// Creating a new bread object based on the ryeBread prototype
 let multiGrainBread = Object.create(ryeBread);
 multiGrainBread.ingredient = "Multigrain";
 console.log(multiGrainBread.bake()); // Baking brown bread with Multigrain.
@@ -289,8 +289,8 @@ class SourdoughBread extends Bread {
 let myRyeBread = new RyeBread();
 let mySourdough = new SourdoughBread();
 
-console.log(myRyeBread.bake()); // Baking dark brown rye bread using traditional methods with rye and wheat.
-console.log(mySourdough.bake()); // Baking light creamy sourdough bread with a slow fermentation using sourdough starter.
+console.log(myRyeBread.bake()); // Dynamic binding: Baking dark brown rye bread using traditional methods with rye and wheat.
+console.log(mySourdough.bake()); // Dynamic binding: Baking light creamy sourdough bread with a slow fermentation using sourdough starter.
 ```
 
 Static binding in TypeScript example,
