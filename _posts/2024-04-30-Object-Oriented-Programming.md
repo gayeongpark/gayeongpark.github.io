@@ -17,7 +17,7 @@ OOP, object-oriented programming, is one of the programming concepts and has fou
 
 **Class** is a blueprint for creating objects. It is like making a mold to bake a bread.
 
-**Object** is an instance of a class. It is like baking bread with the mold.
+**Object** is an instance of a class. It is like baking bread with the baking mold and given ingredients.
 
 JavaScript example,
 
