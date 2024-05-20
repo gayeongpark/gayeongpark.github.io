@@ -11,18 +11,18 @@ author: Lantana Park
 
 ## What is OOP(Object Oriented Programming)?
 
-OOP, object-oriented programming, is one of the programming concepts and has three main concepts: class and instance, encapsulation, inheritance, and polymorphism.
+OOP, object-oriented programming, is one of the programming concepts and has four main concepts: class and instance, encapsulation, inheritance, and polymorphism.
 
 ## What is classes and objects?
 
-**Class** is a blueprint for creating object. It is like making a mold to bake a bread.
+**Class** is a blueprint for creating objects. It is like making a mold to bake a bread.
 
 **Object** is an instance of a class. It is like baking bread with the mold.
 
 JavaScript example,
 
 ```javascript
-// setting mold to make a bread
+// Define a class to set a baking mold
 class Bread {
   constructor(color, ingredient) {
     this.color = color;
@@ -30,8 +30,8 @@ class Bread {
   }
 }
 
-let myBread = new Bread("brown", "Rye-wheat"); // Creating an object of the Car class
-console.log(myBread); // Bread {color: "brown", ingredient: "Rye-wheat"}
+let myBread = new Bread("brown", "Rye-wheat"); // Creating an object of the Bread class
+console.log(myBread); // {color: "brown", ingredient: "Rye-wheat"}
 ```
 
 ## Encapsulation
