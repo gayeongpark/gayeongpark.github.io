@@ -103,7 +103,7 @@ It always **returns the same output from the given input (name) without causing 
 
 #### What is referential transparent expression
 
-An expression is referentially transparent if it can be replaced with its value without changing the program's behavior. This property is a direct consequence of using pure functions.
+It is a expression that referentially transparent, if it can be replaced with its value without changing the program's behavior. This property is a direct consequence of using pure functions.
 
 ```javascript
 // Pure function
