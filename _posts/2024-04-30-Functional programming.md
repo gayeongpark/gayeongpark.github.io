@@ -198,7 +198,7 @@ Thus, Functions can be reused in different contexts by encapsulating common func
               </Link>
               <div>
                 <button
-                  className="flex rounded-md border border-transparent bg-red-700 px-6 py-2 text-md font-medium text-white shadow-sm        hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+                  className="flex rounded-md border border-transparent bg-red-700 px-6 py-2 text-md font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
                   onClick={() => cancelBooking(booking._id)}
                 >
                   Cancel booking
@@ -227,11 +227,11 @@ Thus, Functions can be reused in different contexts by encapsulating common func
 
 To explain with my source code,
 
-in this express.js server code, middleware functions are used to process requests. The `authenticateUser` middleware checks if the user is authenticated before processing to the route handler. Middleware functions in this code below are higher-order functions because they take three arguments: `req` (the request object), `res` (the response object), and `next` (a function to call the next middleware in the stack).
+it is an example of a higher-order function because it takes a `next` function as an argument.
 
-The `next` argument is particularly significant because it is a function and allows `authenticateUser` to control the flow of the application by deciding whether to proceed to the next piece of middleware in the stack or terminate the chain based on authentication logic. Since `next` function has the potential to call this function depending on the outcome of its internal logic, the ability to take and invoke functions makes middleware inherently higher-order.
+And the `next` function is a callback function that is passed to `authenticateUser`. If the authentication succeeds, `authenticateUser` calls `next()` to pass control to the next middleware function in the stack.
 
-The authentication logic is encapsulated in authenticateUser, making it reusable across different routes.
+This code can be reused to other router operation.
 
 ```javascript
 // middleware
@@ -261,7 +261,9 @@ const authenticateUser = async (req, res, next) => {
 };
 ```
 
-Additionally, in the route handler `router.get("/:id", authenticateUser, async (req, res) => {})`, the use of `authenticateUser` as middleware before the asynchronous route handler also illustrates the use of higher-order functions. The middleware pre-processes the request, applying authentication logic, before passing control to the route handler.
+Additionally, the `router.get` method is another higher-order function. It takes the path string `"/:id"`, the middleware function `authenticateUser`, and an asynchronous callback function as arguments.
+
+The middleware function `authenticateUser` is passed to `router.get` method to handle authentication before the callback function that fetches and returns the user data is executed.
 
 ```javascript
 // server code to get an authenticated user profile data
