@@ -161,14 +161,14 @@ Thus, Functions can be reused in different contexts by encapsulating common func
 
 - In javaScript, `map` is a higher-order function that transforms an array by applying a function to all of its elements and returning a new array with the results.
 
-![map](/assets/img/functionalProgramming/functor-example.jpg)
+  ![map](/assets/img/functionalProgramming/functor-example.jpg)
 
-```javascript
-const numbers = [1, 2, 3, 4];
-const squares = numbers.map((x) => x * x); // Applying a function to square each element
-console.log(numbers); // [1, 2, 3, 4]
-console.log(squares); // [1, 4, 9, 16]
-```
+  ```javascript
+  const numbers = [1, 2, 3, 4];
+  const squares = numbers.map((x) => x * x); // Applying a function to square each element
+  console.log(numbers); // [1, 2, 3, 4]
+  console.log(squares); // [1, 4, 9, 16]
+  ```
 
 - `filter` is another higher-order function that takes another function as an argument.
 
