@@ -161,12 +161,14 @@ Thus, Functions can be reused in different contexts by encapsulating common func
 
 - In javaScript, `map` is a higher-order function that transforms an array by applying a function to all of its elements and returning a new array with the results.
 
-  ```javascript
-  const numbers = [1, 2, 3, 4];
-  const squares = numbers.map((x) => x * x); // Applying a function to square each element
-  console.log(numbers); // [1, 2, 3, 4]
-  console.log(squares); // [1, 4, 9, 16]
-  ```
+![map](/assets/img/functionalProgramming/functor-example.jpg)
+
+```javascript
+const numbers = [1, 2, 3, 4];
+const squares = numbers.map((x) => x * x); // Applying a function to square each element
+console.log(numbers); // [1, 2, 3, 4]
+console.log(squares); // [1, 4, 9, 16]
+```
 
 - `filter` is another higher-order function that takes another function as an argument.
 
@@ -346,8 +348,6 @@ console.log(companyHierarchy);
 ### Functors
 
 It has a container that holds a value and provides a way to apply a function to that value without modifying the container's structure. Any type that has a map function can be functor.
-
-![functors](/assets/img/functionalProgramming/functor-example.jpg)
 
 In this code example, by defining a structure(`createBox`), this function encapsulates a value and provides a `map` to apply transformations to that value, returning a new instance of the structure with the transformed value.
 
