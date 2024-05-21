@@ -99,17 +99,19 @@ const handlePerksChange = (e) => {
 
 ### Pure functions
 
-It always returns the same output for the same input (name) without causing any side effects.
+It always returns the same output from the given input (name) without causing any side effects. So the output can be predictable.
 
 ```javascript
+// Pure function
 function greet(name) {
   return `Hi, ${name}`;
 }
+// Referential transparent expression
 console.log(greet("lantana"));
 // Hi, lantana
 ```
 
-However, the code below is **not** pure function because count was declared outside of the function. So that side effect can be happened.
+However, the code below is **not** pure function because `count` was declared outside of the function, it can draw modification from the external state. So, the function is mutability.
 
 ```javascript
 let count = 10;
@@ -118,16 +120,16 @@ function addToCount(num) {
   count += num;
 }
 
-addToCount(5); // 15
+console.log(addToCount(5)); // 15
 ```
 
 ### Anonymous Functions
 
-Anonymous functions are functions without a name. They are really useful when I need a quick small function without specifying the function name.
+Anonymous functions are functions without a name. They are really useful when I need a quick small function without specifying the function name. These functions are often used as arguments to higher-order functions, for event handling.
 
 #### What is Lambda expression?
 
-It is a function without name. It can be expressed using `lambda` keyword in Python and arrow functions in JavaScript
+It is a concise way to represent an anonymous function. It can be expressed using `lambda` keyword in Python and arrow functions in JavaScript
 
 ```python
 def cube(y):
@@ -149,7 +151,9 @@ I just declared a variable, called `double` and then declared a simple arrow fun
 
 ### Higher Order Functions
 
-Higher-order functions are a concept in functional programming. They are functions that can take other functions as arguments or return function as their results. It characteristic allows for a higher level of abstraction in programming, enabling more flexible and reusable code.
+Higher-order functions are a concept in functional programming. They are functions that can **take other functions as arguments** or **return a function as their results**. It characteristic allows for a higher level of abstraction in programming, enabling more flexible and reusable code.
+
+Thus, Functions can be reused in different contexts by encapsulating common function operations or behaviors.
 
 - In javaScript, `map` is a higher-order function that transforms an array by applying a function to all of its elements and returning a new array with the results.
 
@@ -160,7 +164,7 @@ Higher-order functions are a concept in functional programming. They are functio
   console.log(squares); // [1, 4, 9, 16]
   ```
 
-- `filter` is another higher-order function that creates a new array with all elements that pass the test implemented by the provided function.
+- `filter` is another higher-order function that takes another function as an argument.
 
   In my code example,
 
@@ -201,7 +205,9 @@ Higher-order functions are a concept in functional programming. They are functio
   }
   ```
 
-- `reduce` method is a higher-order function. It operates on arrays and takes a callback function as an argument, applying this callback to reduce the array to a single value.
+  The `filter` function is used inside the arrow function passed to the `map` function. Inside the `map` function, for each `bookingGroup`, the `filter` function is applied to the `bookingGroup.booking` array. And then these functions return a subset result from the origin value.
+
+- `reduce` method is a higher-order function. It operates on arrays and **takes a callback function as an argument**, applying this callback to reduce the array to a single value.
 
   ```javascript
   let numbers = [5, 20, 100, 60, 1];
@@ -217,7 +223,9 @@ To explain with my source code,
 
 in this express.js server code, middleware functions are used to process requests. The `authenticateUser` middleware checks if the user is authenticated before processing to the route handler. Middleware functions in this code below are higher-order functions because they take three arguments: `req` (the request object), `res` (the response object), and `next` (a function to call the next middleware in the stack).
 
-The `next` argument is particularly significant because it allows `authenticateUser` to control the flow of the application by deciding whether to proceed to the next piece of middleware in the stack or terminate the chain based on authentication logic. Since `next` function has the potential to call this function depending on the outcome of its internal logic, the ability to take and invoke functions makes middleware inherently higher-order.
+The `next` argument is particularly significant because it is a function and allows `authenticateUser` to control the flow of the application by deciding whether to proceed to the next piece of middleware in the stack or terminate the chain based on authentication logic. Since `next` function has the potential to call this function depending on the outcome of its internal logic, the ability to take and invoke functions makes middleware inherently higher-order.
+
+The authentication logic is encapsulated in authenticateUser, making it reusable across different routes.
 
 ```javascript
 // middleware
