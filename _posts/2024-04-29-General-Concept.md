@@ -138,7 +138,7 @@ let result = add(x, 5); // The type of result is inferred to be 'number'
 console.log(result); // 15
 ```
 
-The function type is `number` and its argument type is `number`. These types should not be changed throughout this function execution.
+The function named `add` type is `number` and its argument types are `number`. These types should not be changed throughout this function execution.
 
 #### Dynamic typing
 
