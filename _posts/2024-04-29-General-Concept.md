@@ -107,24 +107,6 @@ console.log(year); // 2030
 console.log(isActive); // true
 ```
 
-### Reference types
-
-Reference types **store references to their data rather than the data itself**. This means the variable actually **stores a pointer to the location in memory** where the data is stored. Common reference types in TypeScript include `object`, `array`, and `function`.
-
-Since It allows alter the original data by storing references, it saves memory.
-
-```typescript
-let user: { name: string; age: number } = { name: "Jane Doe", age: 28 };
-// The variable `user` is an object type.
-console.log(user); // { name: "Jane Doe", age: 28 }
-
-let numbers: number[] = [1, 2, 3];
-// The variable `numbers` is an array type.
-numbers.push(4);
-console.log(numbers); // [1, 2, 3, 4]
-// This is mutability by altering the original data.
-```
-
 ## Type systems
 
 A type system is a set of rule to manage and manipulate data types more effectively.
@@ -135,6 +117,8 @@ A type system is a set of rule to manage and manipulate data types more effectiv
 
 Static typing involves **type checking during compilation**, before program execution. Once a variable is assigned a data type, **it remains unchanged throughout the programs execution**.
 
+**Type inference can be occurred at compile time**.
+
 Static typing reduces the chances of runtime errors(this error happens after compilation) and detects errors at an early stage.
 
 On the other side, it will be hard to have small type revisions and these small type changes can draw bigger architectural changes.
@@ -142,11 +126,16 @@ On the other side, it will be hard to have small type revisions and these small 
 TypeScript example,
 
 ```typescript
-function staticTyping(value: number): number {
-  return value * 2;
+let x = 10; // The type of x is inferred to be 'number'
+let y = "hello"; // The type of y is inferred to be 'string'
+let z = [1, 2, 3]; // The type of z is inferred to be 'number[]'
+
+function add(a: number, b: number) {
+  return a + b; // The return type is inferred to be 'number'
 }
 
-console.log(staticTyping(5)); // 10
+let result = add(x, 5); // The type of result is inferred to be 'number'
+console.log(result); // 15
 ```
 
 The function type is `number` and its argument type is `number`. These types should not be changed throughout this function execution.
