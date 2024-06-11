@@ -9,9 +9,13 @@ author: Lantana Park
 
 # Networking Refresher
 
+![ifconfig](../assets/img/PJPT/ifconfig-terminal-output.png)
+
+from google
+
 ## IP addresses
 
-### What is an IP address?
+### What is an IP address? (layer2)
 
 IP addresses (logical addresses) are the numbers assigned to the every device on the computer networking. It is used to identify the communication across the internet. And also it is utilized to identify and locate devices on a network.
 
@@ -67,16 +71,64 @@ The different version of ip addresses (IPv4 and IPv6) can be divided into public
 
 ### What is NAT
 
-NAT is a method used by routers or servers to translate private, local IP addresses to a public IP address and vice versa.
+`NAT` is a method used by routers or servers to translate private, local IP addresses to a public IP address and vice versa.
 
-This clever design, not only saves IPv4 addresses(because of the address limitation of IPv4) but also adds a layer of security by hiding the internal IP addresses of local devices from the internet.
+This design, not only saves `IPv4` addresses (because of the address limitation of IPv4) but also adds a layer of security by hiding the internal IP addresses of local devices from the internet.
 
-NAT is not needed in IPv6 addresses because IPv6 has a vast address space. This allows direct communication between devices, simplifying networks and improving security.
+`NAT` is not needed in IPv6 addresses because IPv6 has a vast address space. This allows direct communication between devices, simplifying networks and improving security.
 
 ![nat](../assets/img/PJPT/NAT-in-IPv6-03.png)
 
-## MAC addresses
+## MAC addresses (layer3)
 
-`MAC` (Media Access Control - physical address) address is identified under `ether`. It is usually fixed and cannot be changed unless the device’s network interface is replaced.
+A `MAC` (Media Access Control - physical address) address is identified under the `ether` field in network configurations. It consists of 48 bits, usually represented as a string of 12 hexadecimal digits. It is usually fixed and cannot be changed unless the device’s network interface is replaced or a process known as "**MAC spoofing**" is used.
 
-It address may look like `00:1A:2B:3C:4D:5E`. It allows devices to communicate with each other a local area network (LAN).
+![nic](../assets/img/PJPT/_1577686558_iQJrlFa5Gm.jpg)
+
+MAC addresses are only relevant within the scope of the **local network** segment. When data needs to be transmitted beyond the local network, it is encapsulated in network packets that contain source and destination IP addresses.
+
+A `MAC` address may look like `00:1A:2B:3C:4D:5E`. It allows devices to communicate with each other on a local area network (LAN). When data is sent from one device to another on the same network, it is encapsulated within Ethernet frames that contain the source and destination MAC addresses. Routers and switches use these MAC addresses to forward the data to the appropriate destination.
+
+The first three pairs of the MAC address `00:1A:2B` are Organizationally Unique Identifiers (OUIs) that identify the manufacturer of the network interface card (NIC). Each NIC has a unique MAC address assigned by the manufacturer. The remaining three pairs `3C:4D:5E` are unique identifiers specific to that NIC, also assigned by the manufacturer.
+
+![identify](../assets/img/PJPT/Screenshot%202024-06-11%20at%2007.34.20.png)
+
+## TCP(Transmission Control Protocol) and UDP (User Datagram Protocol)(layer4)
+
+`TCP` is connection-oriented protocol(high reliability). It breaks data into smaller packets, assigns sequence numbers to them, and ensures they are reassembled correctly at the receiving end. It is widely used for applications that require guaranteed delivery, such as web browsing, email, file transfer, and remote login.
+
+`UDP`, on the other hand, is a connection-less protocol. It is simpler and more lightweight, making it suitable for applications that can tolerate some data loss or delay. It simply sends data packets from one device to another without waiting for acknowledgements or retransmissions. UDP is commonly used for real-time applications like streaming media, online gaming, DNS (Domain Name System), and VoIP (Voice over IP).
+
+### Three-way handshake for TCP connection
+
+The three-way handshake is a process used by TCP to establish a connection between two devices. It is a sequence of three steps that takes place before data transmission can begin.
+
+`SYN > SYN ACK > ACK`
+
+1. `SYN (Synchronize)`: The initiating device (often referred to as the client) sends a TCP packet with the SYN flag set to the destination device (often referred to as the server). This packet indicates the desire to establish a connection and includes an initial sequence number.
+
+2. `SYN-ACK (Synchronize-Acknowledge)`: Upon receiving the SYN packet, the destination device responds with a TCP packet that has both the SYN and ACK (acknowledge) flags set. This packet acknowledges the receipt of the initial SYN packet and also includes its own initial sequence number.
+
+3. `ACK (Acknowledge)`: Finally, the initiating device acknowledges the SYN-ACK packet by sending an ACK packet back to the destination. This packet confirms the establishment of the connection and typically contains an incremented sequence number.
+
+Once the three-way handshake is complete, the connection is established, and both devices are ready to exchange data. The sequence numbers exchanged during the handshake are used to ensure that data is transmitted and received in the correct order.
+
+## Common ports and protocols
+
+1. TCP
+   FTP(File Transfer Protocol) | 21
+   SSH(Secure Shell Protocol) | 22
+   Telnet(It is to connect virtual terminal on local area networks) | 23
+   SMTP(Simple Mail Transfer Protocol) | 25
+   DNS(Domain Name System) | 53
+   HTTP | 80
+   HTTPS | 443
+   POPS | 110
+   SMB(Samba - file shares) | 139 + 445(In the later version of window)
+   IMAP(Internet Message Access Protocol) | 143
+
+2. UDP
+   DNS(Domain Name System) | 53
+   DHCP(Dynamic Host Configuration Protocol) | 67, 68
+   TFTP(Trivial File Transfer Protocol) | 69
+   SNMP(Simple Network Management Protocol) | 161
