@@ -15,7 +15,7 @@ from google
 
 ## IP addresses
 
-### What is an IP address? (layer2)
+### What is an IP address? (layer3)
 
 IP addresses (logical addresses) are the numbers assigned to the every device on the computer networking. It is used to identify the communication across the internet. And also it is utilized to identify and locate devices on a network.
 
@@ -57,7 +57,7 @@ omitting leading zeros within a group and representing consecutive groups of zer
 step1: `2001:db8:0:0:8a2e:370:7334:0`
 step2: `2001:db8::8a2e:370:7334:0`
 
-![table](/gayeongpark.github.io/assets/img/PJPT/hex-table.webp)
+![table](../assets/img/PJPT/hex-table.webp)
 
 ### Types of IP address
 
@@ -69,9 +69,11 @@ The different version of ip addresses (IPv4 and IPv6) can be divided into public
 
 **Dynamic IP addresses change over time**. It can be used for devices such as computers, smartphones, and tablets, where a constant address is not necessary. And it is for devices that connect to a network temporarily, like guest devices or IoT devices, often use dynamic IP addresses.
 
+**Static IP addresses** remain the same over an extended period and often used for services that require a consistent address, such as hosting a website or running a mail server.
+
 ### What is NAT
 
-`NAT` is a method used by routers or servers to translate private, local IP addresses to a public IP address and vice versa.
+`NAT` is a method used by **routers or servers** to translate private, local IP addresses to a public IP address and vice versa.
 
 This design, not only saves `IPv4` addresses (because of the address limitation of IPv4) but also adds a layer of security by hiding the internal IP addresses of local devices from the internet.
 
@@ -79,7 +81,7 @@ This design, not only saves `IPv4` addresses (because of the address limitation 
 
 ![nat](../assets/img/PJPT/NAT-in-IPv6-03.png)
 
-## MAC addresses (layer3)
+## MAC addresses (layer2)
 
 A `MAC` (Media Access Control - physical address) address is identified under the `ether` field in network configurations. It consists of 48 bits, usually represented as a string of 12 hexadecimal digits. It is usually fixed and cannot be changed unless the device’s network interface is replaced or a process known as "**MAC spoofing**" is used.
 
@@ -132,3 +134,23 @@ Once the three-way handshake is complete, the connection is established, and bot
    DHCP(Dynamic Host Configuration Protocol) | 67, 68
    TFTP(Trivial File Transfer Protocol) | 69
    SNMP(Simple Network Management Protocol) | 161
+
+## OSI(Open Systems Interconnection) Model
+
+It is a conceptual framework that represent how network communication work.
+
+1. Physical | It is responsible for the transmission and reception of raw unstructured data bits over a physical medium | data cables, cat6
+2. Data | It handles the reliable transmission of data frames between directly connected nodes over a physical link | switching, MAC addresses(ethernet), Wi-Fi, PPP(Point-to-Point Protocol)
+3. Network | It enables the routing(the process of selecting a path across one or more networks) of data packets across different networks. It deals with logical addressing and determines the best path for data delivery based on network conditions and routing protocols | IP addresses, routing
+4. Transport | It ensures the reliable and orderly delivery of data between end systems. It breaks data into smaller segments, manages end-to-end communication, and provides error recovery, flow control, and congestion control. | TCP and UDP
+5. Session | It establishes, manages, and terminates communication sessions between applications.
+6. Presentation | It is responsible for data representation, encryption, compression, and formatting. It ensures that data sent by the application layer of one system is understandable by the application layer of another system | WMV, JPEG, MOV
+7. Application | It is the closet layer to the end-user and provides services directly to the user applications. It includes protocols for various application-level services such as file transfer, email, web browsing, and remote access. | HTTP, SMTP, FTP, and DNS
+
+This OSI model is a conceptual model and does not necessarily reflect the exact implementation of all networking systems, which often use a hybrid of various layers and protocols.
+
+## Subnetting network
+
+In the netmask, we can find what the subnet looks like. 
+
+
