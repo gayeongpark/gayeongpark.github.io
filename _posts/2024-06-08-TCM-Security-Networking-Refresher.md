@@ -139,18 +139,25 @@ Once the three-way handshake is complete, the connection is established, and bot
 
 It is a conceptual framework that represent how network communication work.
 
-1. Physical | It is responsible for the transmission and reception of raw unstructured data bits over a physical medium | data cables, cat6
-2. Data | It handles the reliable transmission of data frames between directly connected nodes over a physical link | switching, MAC addresses(ethernet), Wi-Fi, PPP(Point-to-Point Protocol)
-3. Network | It enables the routing(the process of selecting a path across one or more networks) of data packets across different networks. It deals with logical addressing and determines the best path for data delivery based on network conditions and routing protocols | IP addresses, routing
-4. Transport | It ensures the reliable and orderly delivery of data between end systems. It breaks data into smaller segments, manages end-to-end communication, and provides error recovery, flow control, and congestion control. | TCP and UDP
-5. Session | It establishes, manages, and terminates communication sessions between applications.
-6. Presentation | It is responsible for data representation, encryption, compression, and formatting. It ensures that data sent by the application layer of one system is understandable by the application layer of another system | WMV, JPEG, MOV
-7. Application | It is the closet layer to the end-user and provides services directly to the user applications. It includes protocols for various application-level services such as file transfer, email, web browsing, and remote access. | HTTP, SMTP, FTP, and DNS
+1. **Physical** | It is responsible for the transmission and reception of raw unstructured data bits over a physical medium | data cables, cat6
+2. **Data** | It handles the reliable transmission of data frames between directly connected nodes over a physical link | switching, MAC addresses(ethernet), Wi-Fi, PPP(Point-to-Point Protocol)
+3. **Network** | It enables the routing(the process of selecting a path across one or more networks) of data packets across different networks. It deals with logical addressing and determines the best path for data delivery based on network conditions and routing protocols | IP addresses, routing
+4. **Transport** | It ensures the reliable and orderly delivery of data between end systems. It breaks data into smaller segments, manages end-to-end communication, and provides error recovery, flow control, and congestion control. | TCP and UDP
+5. **Session** | It establishes, manages, and terminates communication sessions between applications.
+6. **Presentation** | It is responsible for data representation, encryption, compression, and formatting. It ensures that data sent by the application layer of one system is understandable by the application layer of another system | WMV, JPEG, MOV
+7. **Application** | It is the closet layer to the end-user and provides services directly to the user applications. It includes protocols for various application-level services such as file transfer, email, web browsing, and remote access. | HTTP, SMTP, FTP, and DNS
 
 This OSI model is a conceptual model and does not necessarily reflect the exact implementation of all networking systems, which often use a hybrid of various layers and protocols.
 
-## Subnetting network
+## IP subnetting and CIDR notations
 
-In the netmask, we can find what the subnet looks like. 
+In the `netmask` from `ifconfig`, we can find what the subnet looks like. It is the process of creating a sub-network within a network and commonly used in IPv4 networks. It helps improve network performance and security.
 
+In this example,
 
+- IP address: `192.168.1.1`
+- Subnet Mask: `255.255.255.0`
+
+This subnet mask `255.255.255.0` means the first three number (`192.168.1`) are the network part, and the last number (`.1`) is the host part. This allows up to `254` devices (from `.1` to `.254`) in this subnet.
+
+CIDR (Classless Inter-Domain Routing) notation is a method used to represent IP addresses and their corresponding subnet masks.
