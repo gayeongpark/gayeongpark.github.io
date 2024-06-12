@@ -85,7 +85,7 @@ This design, not only saves `IPv4` addresses (because of the address limitation 
 
 A `MAC` (Media Access Control - physical address) address is identified under the `ether` field in network configurations. It consists of 48 bits, usually represented as a string of 12 hexadecimal digits. It is usually fixed and cannot be changed unless the device’s network interface is replaced or a process known as "**MAC spoofing**" is used.
 
-![nic](../assets/img/PJPT/_1577686558_iQJrlFa5Gm.jpg)
+![nic](../assets/img/PJPT/nic.png)
 
 MAC addresses are only relevant within the scope of the **local network** segment. When data needs to be transmitted beyond the local network, it is encapsulated in network packets that contain source and destination IP addresses.
 
@@ -143,7 +143,7 @@ It is a conceptual framework that represent how network communication work.
 2. **Data** | It handles the reliable transmission of data frames between directly connected nodes over a physical link | switching, MAC addresses(ethernet), Wi-Fi, PPP(Point-to-Point Protocol)
 3. **Network** | It enables the routing(the process of selecting a path across one or more networks) of data packets across different networks. It deals with logical addressing and determines the best path for data delivery based on network conditions and routing protocols | IP addresses, routing
 4. **Transport** | It ensures the reliable and orderly delivery of data between end systems. It breaks data into smaller segments, manages end-to-end communication, and provides error recovery, flow control, and congestion control. | TCP and UDP
-5. **Session** | It establishes, manages, and terminates communication sessions between applications.
+5. **Session** | It establishes, manages, and terminates communication sessions between applications. | session management
 6. **Presentation** | It is responsible for data representation, encryption, compression, and formatting. It ensures that data sent by the application layer of one system is understandable by the application layer of another system | WMV, JPEG, MOV
 7. **Application** | It is the closet layer to the end-user and provides services directly to the user applications. It includes protocols for various application-level services such as file transfer, email, web browsing, and remote access. | HTTP, SMTP, FTP, and DNS
 
