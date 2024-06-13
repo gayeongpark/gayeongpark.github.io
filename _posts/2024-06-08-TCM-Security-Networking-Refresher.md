@@ -155,9 +155,46 @@ In the `netmask` from `ifconfig`, we can find what the subnet looks like. It is 
 
 In this example,
 
-- IP address: `192.168.1.1`
-- Subnet Mask: `255.255.255.0`
+- IP address: `10.0.0.5`
+- Subnet Mask: `255.255.255.128`
 
-This subnet mask `255.255.255.0` means the first three number (`192.168.1`) are the network part, and the last number (`.1`) is the host part. This allows up to `254` devices (from `.1` to `.254`) in this subnet.
+This subnet mask `255.255.255.128` means the first three number from the ip address (`10.0.0`) are the network part, and the last number (`.5`) is the host part. 
+
+Subnet Details,
+
+Binary subnet Mask: `11111111.11111111.11111111.10000000`
+
+This indicates **25 bits** for the network part (the number of 1s)
+
+1 | 1 | 1 | 1 | 1 | 1 | 1 | 1
+128 | 64 | 32 | 16 | 8 | 4 | 2 | 1
+
+= 255
+
+1 | 0 | 0 | 0 | 0 | 0 | 0 | 0
+128 | 64 | 32 | 16 | 8 | 4 | 2 | 1
+
+= 128
+
+Calculation the number of host bits
+
+Total bits = **32**
+Network bits = **25**
+Host bits = 32 - 25 = **7**
+
+Calculation total possible addresses
+
+2<sup>7</sup> = **128**
+
+- Network address (all 0s in the host part) = **2<sup>7</sup>**
+- Broadcast address (all 1s in the host part) = **2**
+
+128 − 2 = **126**
+
+Network Address: `10.0.0.0`
+First Usable IP Address: `10.0.0.1`
+Last Usable IP Address: `10.0.0.126`
+Broadcast Address: `10.0.0.127`
+
 
 CIDR (Classless Inter-Domain Routing) notation is a method used to represent IP addresses and their corresponding subnet masks.
