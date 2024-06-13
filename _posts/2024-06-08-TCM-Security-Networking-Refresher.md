@@ -118,34 +118,36 @@ Once the three-way handshake is complete, the connection is established, and bot
 ## Common ports and protocols
 
 1. TCP
-   FTP(File Transfer Protocol) | 21
-   SSH(Secure Shell Protocol) | 22
-   Telnet(It is to connect virtual terminal on local area networks) | 23
-   SMTP(Simple Mail Transfer Protocol) | 25
-   DNS(Domain Name System) | 53
-   HTTP | 80
-   HTTPS | 443
-   POPS | 110
-   SMB(Samba - file shares) | 139 + 445(In the later version of window)
-   IMAP(Internet Message Access Protocol) | 143
+   FTP(File Transfer Protocol) | 21 |
+   SSH(Secure Shell Protocol) | 22 |
+   Telnet(It is to connect virtual terminal on local area networks) | 23 |
+   SMTP(Simple Mail Transfer Protocol) | 25 |
+   DNS(Domain Name System) | 53 |
+   HTTP | 80 |
+   HTTPS | 443 |
+   POPS | 110 |
+   SMB(Samba - file shares) | 139 + 445(In the later version of window) |
+   IMAP(Internet Message Access Protocol) | 143 |
 
 2. UDP
-   DNS(Domain Name System) | 53
-   DHCP(Dynamic Host Configuration Protocol) | 67, 68
-   TFTP(Trivial File Transfer Protocol) | 69
-   SNMP(Simple Network Management Protocol) | 161
+   DNS(Domain Name System) | 53 |
+   DHCP(Dynamic Host Configuration Protocol) | 67, 68 |
+   TFTP(Trivial File Transfer Protocol) | 69 |
+   SNMP(Simple Network Management Protocol) | 161 |
 
 ## OSI(Open Systems Interconnection) Model
 
 It is a conceptual framework that represent how network communication work.
 
 1. **Physical** | It is responsible for the transmission and reception of raw unstructured data bits over a physical medium | data cables, cat6
-2. **Data** | It handles the reliable transmission of data frames between directly connected nodes over a physical link | switching, MAC addresses(ethernet), Wi-Fi, PPP(Point-to-Point Protocol)
-3. **Network** | It enables the routing(the process of selecting a path across one or more networks) of data packets across different networks. It deals with logical addressing and determines the best path for data delivery based on network conditions and routing protocols | IP addresses, routing
+2. **Data** | It handles the reliable transmission of data frames between directly connected nodes over a physical link | **switching**, MAC addresses(ethernet), Wi-Fi, PPP(Point-to-Point Protocol)
+3. **Network** | It enables the **routing**(the process of selecting a path across one or more networks) of data packets across different networks. It deals with logical addressing and determines the best path for data delivery based on network conditions and routing protocols | IP addresses, routing
 4. **Transport** | It ensures the reliable and orderly delivery of data between end systems. It breaks data into smaller segments, manages end-to-end communication, and provides error recovery, flow control, and congestion control. (Node balancer)| TCP and UDP
 5. **Session** | It establishes, manages, and terminates communication sessions between applications. | session management
 6. **Presentation** | It is responsible for data representation, encryption, compression, and formatting. It ensures that data sent by the application layer of one system is understandable by the application layer of another system | WMV, JPEG, MOV
 7. **Application** | It is the closet layer to the end-user and provides services directly to the user applications. It includes protocols for various application-level services such as file transfer, email, web browsing, and remote access. | HTTP, SMTP, FTP, and DNS
+8. **Human**
+9. **Government/politics**
 
 This OSI model is a conceptual model and does not necessarily reflect the exact implementation of all networking systems, which often use a hybrid of various layers and protocols.
 
@@ -158,7 +160,7 @@ In this example,
 - IP address: `10.0.0.5`
 - Subnet Mask: `255.255.255.128`
 
-This subnet mask `255.255.255.128` means the first three number from the ip address (`10.0.0`) are the network part, and the last number (`.5`) is the host part. 
+This subnet mask `255.255.255.128` means the first three number from the ip address (`10.0.0`) are the network part, and the last number (`.5`) is the host part.
 
 Subnet Details,
 
@@ -191,10 +193,59 @@ Calculation total possible addresses
 
 128 − 2 = **126**
 
-Network Address: `10.0.0.0`
+Network Address(A unique physical or logical address that distinguishes a network node or device over a computer): `10.0.0.0`
 First Usable IP Address: `10.0.0.1`
 Last Usable IP Address: `10.0.0.126`
-Broadcast Address: `10.0.0.127`
+Broadcast Address(The special address for sending packet to all devices on a network): `10.0.0.127`
+
+**CIDR** (Classless Inter-Domain Routing) notation is a method used to represent IP addresses and their corresponding subnet mask. With using this notation, I can calculate subnet mask, broadcast address. host range.
+
+If I am given `192.168.1.0/24`,
+
+1. Network address: `192.168.1.0`
+
+2. Subnet Mask: Since `/24` was assigned, I can translate this into subnet mask by converting into 24 bit binary sequence. Like `11111111.11111111.11111111.00000000` And then translate this binary sequence into decimal.
+
+- `11111111` → `255`
+- `11111111` → `255`
+- `11111111` → `255`
+- `00000000` → `0`
+
+= `255.255.255.0`
+
+3. Broadcast Address (It is the last address in the valid range): I tried to convert `192.168.1.0` into binary `11000000.10101000.00000001.00000000`.
+
+(Please refer my number based post for more information about decimal to binary conversion)
+
+The first 24 bits are the network part `11000000.10101000.00000001`
+The remaining 8 bits are the host part `00000000`
+
+To get the broadcast address, I set all the host bits to 1:
+
+- Network part: `11000000.10101000.00000001`
+- Host part: `11111111`
+
+Combined result is:
+`11000000.10101000.00000001.11111111`
+
+And then converted into decimal:
+
+Convert to Decimal:
+
+`11000000` in decimal is `192`
+`10101000` in decimal is `168`
+`00000001` in decimal is `1`
+`11111111` in decimal is `255`
+So, the **broadcast address** is `192.168.1.255`.
+
+4. Host range : `192.168.1.1` to `192.168.1.254`, because the last valid address is `192.168.1.255`
+
+5. The number of hosts: 
+
+In `192.168.1.0/24`, the subnet mask is `255.255.255.0`, which means 24 bits are used for the network portion.
+
+32 (IPv4 addresses are 32 bits) - 24 = 8
+
+The number of host addresses is 2<sup>8</sup> - 2(for network address and broadcast address) = 256 - 2 = **254**
 
 
-CIDR (Classless Inter-Domain Routing) notation is a method used to represent IP addresses and their corresponding subnet masks.
