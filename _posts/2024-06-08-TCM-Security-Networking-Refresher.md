@@ -139,7 +139,7 @@ Once the three-way handshake is complete, the connection is established, and bot
 
 It is a conceptual framework that represent how network communication work.
 
-1. **Physical** | It is responsible for the transmission and reception of raw unstructured data bits over a physical medium | data cables, cat6
+1. **Physical** | It is responsible for the transmission and reception of raw unstructured data bits over a physical medium | RJ45, cat6
 2. **Data** | It handles the reliable transmission of data frames between directly connected nodes over a physical link | **switching**, MAC addresses(ethernet), Wi-Fi, PPP(Point-to-Point Protocol)
 3. **Network** | It enables the **routing**(the process of selecting a path across one or more networks) of data packets across different networks. It deals with logical addressing and determines the best path for data delivery based on network conditions and routing protocols | IP addresses, routing
 4. **Transport** | It ensures the reliable and orderly delivery of data between end systems. It breaks data into smaller segments, manages end-to-end communication, and provides error recovery, flow control, and congestion control. (Node balancer)| TCP and UDP
@@ -150,6 +150,10 @@ It is a conceptual framework that represent how network communication work.
 9. **Government/politics**
 
 This OSI model is a conceptual model and does not necessarily reflect the exact implementation of all networking systems, which often use a hybrid of various layers and protocols.
+
+## TCP/IP model
+
+![model](../assets/img/PJPT/networking-osi_vs_tcp-ip_model_table.jpg)
 
 ## IP subnetting and CIDR notations
 
@@ -240,12 +244,10 @@ So, the **broadcast address** is `192.168.1.255`.
 
 4. Host range : `192.168.1.1` to `192.168.1.254`, because the last valid address is `192.168.1.255`
 
-5. The number of hosts: 
+5. The number of hosts:
 
 In `192.168.1.0/24`, the subnet mask is `255.255.255.0`, which means 24 bits are used for the network portion.
 
 32 (IPv4 addresses are 32 bits) - 24 = 8
 
 The number of host addresses is 2<sup>8</sup> - 2(for network address and broadcast address) = 256 - 2 = **254**
-
-
