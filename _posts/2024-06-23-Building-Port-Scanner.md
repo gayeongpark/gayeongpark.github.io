@@ -100,7 +100,9 @@ Applications of Socket Communication
 
 # Port scanner
 
-Even though I can use port scanning tool, like `nmap`, I just made my port scanning tool using node.js and python.
+Even though I can use some port scanning tools, like `nmap`, `pnscan`, or `netcat`, I just made my port scanning tool using node.js and python.
+
+This port scanning tool I made is really **slow**. To make the port scanner faster, I can implement multithreading. However, in this example, I did not add the multithreading feature.
 
 In this python example,
 
@@ -154,16 +156,26 @@ except socket.error:
     # It is to handle connection errors
 ```
 
+1. Made a python file above
+   ![portscanningpython1](../assets/img/PJPT/coding/Screenshot%202024-06-24%20at%2022.21.40.png)
+
+2. Started the port scanning tool for scanning my website port.
+   ![portscanningpython2](../assets/img/PJPT/coding/Screenshot%202024-06-24%20at%2022.21.26.png)
+
+![portscanningpython3](../assets/img/PJPT/coding/Screenshot%202024-06-24%20at%2022.26.31.png)
+
 In this node.js example,
 
 ```javascript
 #!/usr/bin/env node // Define interpreter
 
-const net = require("net");
-const dns = require("dns");
-const readline = require("readline");
+const net = require("net"); // Import the `net` module for networking capabilities such as creating servers and clients.
+const dns = require("dns"); // Import the `dns` for resolving DNS resolution
+const readline = require("readline"); // Import the `readline` module to handle reading from the command line.
 
 // Get the target from command line arguments
+// Retrieve command-line arguments, excluding the first two (node and script path).
+// Ex, node scanner.js https://google.com, I want to slice only `https://google.com`
 const args = process.argv.slice(2);
 
 // If there is no valid hostname, the error log will be printed
@@ -173,15 +185,17 @@ if (args.length !== 1) {
   process.exit(1);
 }
 
+// Extract only the string `https://google.com`
 const target = args[0];
 
-// Resolve the hostname to an IP address
+// Resolve the hostname to an IP address using dns lookup
 dns.lookup(target, (err, address) => {
+  // If there is an error, the network will be closed
   if (err) {
     console.error("Hostname could not be resolved.");
     process.exit(1);
   }
-
+  // For pretty banner
   console.log("-".repeat(50));
   console.log(`Scanning target ${address}`);
   console.log(`Time started: ${new Date()}`);
@@ -232,6 +246,12 @@ dns.lookup(target, (err, address) => {
 });
 ```
 
+1. Made a python file above
+   ![portscanningjavascript1](../assets/img/PJPT/coding/Screenshot%202024-06-24%20at%2022.37.38.png)
+
+2. Started the port scanning tool for scanning my website port.
+   ![portscanningpython3](../assets/img/PJPT/coding/Screenshot%202024-06-24%20at%2022.37.34.png)
+
 # Ransomware
 
-It is to have an experiment of creating simple malware.
+It is to have an experiment of creating a simple malware.
