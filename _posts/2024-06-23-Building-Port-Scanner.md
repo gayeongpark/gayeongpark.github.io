@@ -160,9 +160,7 @@ except socket.error:
    ![portscanningpython1](../assets/img/PJPT/coding/Screenshot%202024-06-24%20at%2022.21.40.png)
 
 2. Started the port scanning tool for scanning my website port.
-   ![portscanningpython2](../assets/img/PJPT/coding/Screenshot%202024-06-24%20at%2022.21.26.png)
-
-![portscanningpython3](../assets/img/PJPT/coding/Screenshot%202024-06-24%20at%2022.26.31.png)
+   ![portscanningpython3](../assets/img/PJPT/coding/Screenshot%202024-06-24%20at%2022.26.31.png)
 
 In this node.js example,
 
@@ -254,4 +252,6 @@ dns.lookup(target, (err, address) => {
 
 # Ransomware
 
-It is to have an experiment of creating a simple malware.
+It is to have an experiment of creating a simple malware. Ransomware is to encrypt the every data that is not necessary to boot the machine up.
+
+In order to avoid letting those malicious actors, the first and most important thing I can do is to have great network policies. And I have to follow proper server protocol 
