@@ -83,8 +83,3 @@ It connects segments of a single network at the data link layer for using MAC ad
 It is to connect with two or multiple LAN (Local Area Network) with different protocols and architectures and serves as an entrance to another network. It translates data from one protocol to another, enabling communication between different networks. Router can be a common example of a gateway. And it manages data between these networks based on **IP addresses**.
 
 ![gateway](<../assets/img/network/images%20(1).jpeg>)
-
-IPS/IDS
-Firewall
-Storage
-CDN

@@ -254,4 +254,4 @@ dns.lookup(target, (err, address) => {
 
 It is to have an experiment of creating a simple malware. Ransomware is to encrypt the every data that is not necessary to boot the machine up.
 
-In order to avoid letting those malicious actors, the first and most important thing I can do is to have great network policies. And I have to follow proper server protocol 
+In order to avoid letting those malicious actors, the first and most important thing I can do is to have great network policies and follow proper server protocols.
