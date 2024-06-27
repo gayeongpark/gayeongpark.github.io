@@ -17,7 +17,9 @@ As the UTM user, it was really hard to install kioptrix lab in my utm machine. T
 
 2. Extracted the contents of this compressed file. `7zz x Kioptrix_utm.7z`
 
-   ![decompressed](../assets/img/kioptrix/Screenshot%202024-06-26%20at%2023.17.12.png)
+   ![decompressed1](../assets/img/kioptrix/Screenshot%202024-06-26%20at%2023.16.56.png)
+
+   ![decompressed2](../assets/img/kioptrix/Screenshot%202024-06-26%20at%2023.17.12.png)
 
 3. Installed the decompressed file on my UTM machine
 
@@ -29,7 +31,7 @@ As the UTM user, it was really hard to install kioptrix lab in my utm machine. T
 
 5. While running up on the Kioptrix lab, I found the lab's ip address on my kali machine and then ready to attack with port scanning.
 
-   discovering lab's networking
+   discovering lab's networking status
 
    `netdiscover -r 192.168.64.0/24`
 
@@ -43,4 +45,4 @@ As the UTM user, it was really hard to install kioptrix lab in my utm machine. T
 
    ![scanning2](../assets/img/kioptrix/Screenshot%202024-06-26%20at%2022.53.18.png)
 
-   ![scanning3](../assets/img/kioptrix/Screenshot%202024-06-26%20at%2023.16.56.png)
+6. 
