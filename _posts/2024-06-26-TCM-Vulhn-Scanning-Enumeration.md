@@ -1,13 +1,13 @@
 ---
 layout: post
 title: TCM - practice for Kioptrix Lab
-subtitle: Preparing for PJPT (Practical Junior Penetration Tester) certification by walking through Kioptrix lab (level1)
-tags: [ethical hacking, tcm, pjpt, kiotrix, utm, level1]
+subtitle: Preparing for PJPT (Practical Junior Penetration Tester) certification by walking through Kioptrix lab - level1
+tags: [ethical hacking, tcm, pjpt, kioptrix, utm, level1]
 comments: true
 author: Lantana Park
 ---
 
-# Kioptrix Lab
+# Kioptrix Lab (Level 1)
 
 ## Preparation
 
