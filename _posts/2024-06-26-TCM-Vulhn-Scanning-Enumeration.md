@@ -212,6 +212,10 @@ Attackers can exploit the buffer overflows to corrupt a web application's execut
 
 5. I just made some tries to login the target ssh without login.
 
+   ### What is SSH(Secure Shell) protocol?
+
+   It is to access a computer over unsecure network. It provides strong password authentication and public authentication, as well as encrypted data communication between two computers. It is widely used for managing servers and network devices securely.
+
    ![ssh1](../assets/img/kioptrix/Screenshot%202024-07-01%20at%2018.26.08.png)
 
    **Key exchange algorithms** in `SSH` is to enable the secure negotiation and derivation of a shared session key. This session key, in turn, are used to encrypt data, ensuring confidentiality and integrity throughout the SSH session.
@@ -232,7 +236,3 @@ Attackers can exploit the buffer overflows to corrupt a web application's execut
    - https://www.exploit-db.com/exploits/21402
 
    ![potential](../assets/img/kioptrix/Screenshot%202024-07-01%20at%2018.30.05.png)
-
-   ### What is SSH(Secure Shell) protocol?
-
-   It is to access a computer over unsecure network. It provides strong password authentication and public authentication, as well as encrypted data communication between two computers. It is widely used for managing servers and network devices securely.
