@@ -160,7 +160,7 @@ Attackers can exploit the buffer overflows to corrupt a web application's execut
 
    ![msfconsole2](../assets/img/kioptrix/Screenshot%202024-07-01%20at%2009.42.45.png)
 
-   Searching auxiliaries of SMB
+   Searching auxiliaries of SMB for scanning its version
 
    ![search](../assets/img/kioptrix/Screenshot%202024-07-01%20at%2017.26.03.png)
 
@@ -195,7 +195,7 @@ Attackers can exploit the buffer overflows to corrupt a web application's execut
 
    `Unix (Samba 2.2.1.a)`
 
-   `IPC$ is accessible using smbclient`
+   `IPC$ is accessible using smbclient with no password input`
 
    ### What is **SMB**(139 or 445 ports)?
 
@@ -236,3 +236,41 @@ Attackers can exploit the buffer overflows to corrupt a web application's execut
    - https://www.exploit-db.com/exploits/21402
 
    ![potential](../assets/img/kioptrix/Screenshot%202024-07-01%20at%2018.30.05.png)
+
+## Scanning with Nessus
+
+There is a tool to comprehensively scan the vulnerabilities of the target machine, which is called `Nessus`.
+
+Here is the steps to use this service.
+
+1. Downloaded/installed the file.
+
+   I selected `aarch64`, instead of `amd`, because I am using M1 mac os.
+
+   ![failed](../assets/img/kioptrix/Screenshot%202024-07-02%20at%2011.59.04.png)
+
+   ![aarch64Selection](../assets/img/kioptrix/Screenshot%202024-07-02%20at%2012.03.14.png)
+
+   ![successDownload](../assets/img/kioptrix/Screenshot%202024-07-02%20at%2011.59.15.png)
+
+   ![successDownload2](../assets/img/kioptrix/Screenshot%202024-07-02%20at%2011.59.29.png)
+
+2. Selected Basic scan and set the scanning configuration
+
+   ![setting1](../assets/img/kioptrix/Screenshot%202024-07-02%20at%2011.05.30.png)
+
+   ![setting2](../assets/img/kioptrix/Screenshot%202024-07-02%20at%2011.06.54.png)
+
+   ![setting3](../assets/img/kioptrix/Screenshot%202024-07-02%20at%2011.07.32.png)
+
+   ![setting4](../assets/img/kioptrix/Screenshot%202024-07-02%20at%2011.08.06.png)
+
+   ![setting5](../assets/img/kioptrix/Screenshot%202024-07-02%20at%2011.12.20.png)
+
+3. From now on, I am going to use this scanned potential vulnerabilities in the process of exploitation.
+
+   ![setting6](../assets/img/kioptrix/Screenshot%202024-07-02%20at%2012.12.50.png)
+
+   ![setting7](../assets/img/kioptrix/Screenshot%202024-07-02%20at%2012.12.20.png)
+
+## Exploitation
