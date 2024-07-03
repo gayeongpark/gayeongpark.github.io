@@ -323,7 +323,7 @@ I have to choose between using the staged and non-staged payloads depends on sev
 
    First, I used the `metasploit` to exploit the vulnerabilities of `Samba 2.2.1a`
 
-   Running `msfconsole`
+   Running `msfconsole` in order to use `metasploit`
 
    ![running](../assets/img/kioptrix/Screenshot%202024-07-03%20at%2010.07.00.png)
 
@@ -374,6 +374,8 @@ I have to choose between using the staged and non-staged payloads depends on sev
    ![run1](../assets/img/kioptrix/Screenshot%202024-07-03%20at%2014.13.41.png)
 
    ![run2](../assets/img/kioptrix/Screenshot%202024-07-03%20at%2014.14.09.png)
+
+   ![firstTry](../assets/img/kioptrix/Screenshot%202024-07-03%20at%2018.58.03.png)
 
    ![final1](../assets/img/kioptrix/Screenshot%202024-07-03%20at%2014.14.49.png)
 
