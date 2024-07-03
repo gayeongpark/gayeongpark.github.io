@@ -277,7 +277,7 @@ Here is the steps to use this service.
 
 ### What is (netcat) reverse shell?
 
-The target is connecting to the attack box that is listening. That means attacker's machine should be a server and a victim should be a client. An attacker opens up a port for communication and waits for incoming connection from the victim.
+**The target is connecting to the attack box that is listening**. That means attacker's machine should be a server and a victim should be a client. An attacker opens up a port for communication and waits for incoming connection from the victim.
 
 `nc -lvnp 7777` (attacker's machine)
 
@@ -305,7 +305,8 @@ A stage payload sends the exploit shellcode in multiple stages. Initially, a sma
 
 Example,
 
-`windows/meterpreter_reverse_tcp`
+`windows/meterpreter/reverse_tcp`
+`linux/x64/meterpreter/reverse_tcp`
 
 ### What is non-staged payloads (particularly in `metasploit` framework)?
 
@@ -313,10 +314,67 @@ The entire payload is sent to the target machine in one go. This payload contain
 
 Example,
 
-`windows/meterpreter/reverse_tcp`
+`windows/meterpreter_reverse_tcp`
+`linux/x64/meterpreter/reverse_tcp`
 
 I have to choose between using the staged and non-staged payloads depends on several factors, including network connection stability, the target environment, the payload size, and requirements of penetrating test.
 
-1. Samba exploitation
-   
-   
+1. `139 - SMB exploitation (trans2open)`
+
+   First, I used the `metasploit` to exploit the vulnerabilities of `Samba 2.2.1a`
+
+   Running `msfconsole`
+
+   ![running](../assets/img/kioptrix/Screenshot%202024-07-03%20at%2010.07.00.png)
+
+   Searching modules to exploit the `trans2open`
+
+   ![selecting](../assets/img/kioptrix/Screenshot%202024-07-03%20at%2010.07.17.png)
+
+   Selecting the proper module to exploit it. Samba is an implementation of the SMB protocol for Unix-like systems. And `Linux` is often included under the umbrella term "Unix-like" operating systems. Thus I selected `exploit/linux/samba/trans2open`
+
+   ![selecting2](../assets/img/kioptrix/Screenshot%202024-07-03%20at%2010.06.48.png)
+
+   https://www.rapid7.com/db/modules/exploit/linux/samba/trans2open/
+
+   For now, no payload configured and `linux/x86/meterpreter/reverse_tcp` will be run as default
+
+   Setting the RHOSTS (target machine)
+
+   ![selecting3](../assets/img/kioptrix/Screenshot%202024-07-03%20at%2010.06.16.png)
+
+   Trying to run, but failed...
+
+   ![running](../assets/img/kioptrix/Screenshot%202024-07-03%20at%2013.33.21.png)
+
+   Setting manually possible payload `linux/x86/shell_reverse_tcp` because linux on x86 architecture is widely deployed across various environments and reverse TCP shell establishes a reverse TCP connection back to the attacker's machine. (Because it is widely used payload)
+
+   ![settingpayload](../assets/img/kioptrix/Screenshot%202024-07-03%20at%2013.50.46.png)
+
+   ![settingpayload2](../assets/img/kioptrix/Screenshot%202024-07-03%20at%2010.05.55.png)
+
+   ![settingpayload3](../assets/img/kioptrix/Screenshot%202024-07-03%20at%2013.51.11.png)
+
+   ![settingpayload4](../assets/img/kioptrix/Screenshot%202024-07-03%20at%2010.05.04.png)
+
+   Obtained root authentication
+
+2. `80, 443 - mod_ssl/2.8.4 (OpenLuck)`
+
+   resourced from https://github.com/heltonWernik/OpenLuck
+
+   ![gitclone](../assets/img/kioptrix/Screenshot%202024-07-03%20at%2014.12.29.png)
+
+   ![ls](../assets/img/kioptrix/Screenshot%202024-07-03%20at%2014.12.38.png)
+
+   ![installinglibrary](../assets/img/kioptrix/Screenshot%202024-07-03%20at%2014.12.52.png)
+
+   ![compile](../assets/img/kioptrix/Screenshot%202024-07-03%20at%2014.13.01.png)
+
+   ![run1](../assets/img/kioptrix/Screenshot%202024-07-03%20at%2014.13.41.png)
+
+   ![run2](../assets/img/kioptrix/Screenshot%202024-07-03%20at%2014.14.09.png)
+
+   ![final1](../assets/img/kioptrix/Screenshot%202024-07-03%20at%2014.14.49.png)
+
+   ![final2](../assets/img/kioptrix/Screenshot%202024-07-03%20at%2014.14.36.png)
