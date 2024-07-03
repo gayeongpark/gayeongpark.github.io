@@ -59,10 +59,10 @@ What sets me apart from other people is my ability to gather information and enu
 
 Noted information
 
-`80(http)/443(https) - 192.168.64.15`</br>
-`80/tcp    open  http        Apache httpd 1.3.20 ((Unix)  (Red-Hat/Linux) mod_ssl/2.8.4`</br>
-`443/tcp   open  ssl/https   Apache/1.3.20 (Unix)  (Red-Hat/Linux) mod_ssl/2.8.4`</br>
-`Default webpage - Apache Web Server/1.3.20 (Unix) - PHP`</br>
+`80(http)/443(https) - 192.168.64.15`
+`80/tcp    open  http        Apache httpd 1.3.20 ((Unix)  (Red-Hat/Linux) mod_ssl/2.8.4`
+`443/tcp   open  ssl/https   Apache/1.3.20 (Unix)  (Red-Hat/Linux) mod_ssl/2.8.4`
+`Default webpage - Apache Web Server/1.3.20 (Unix) - PHP`
 `Document - https://192.168.64.15/manual/index.html Not Found - Apache/1.3.20`
 
 Potential vulnerabilities
@@ -92,7 +92,7 @@ Noted information
 
 ### What is mod_ssl?
 
-It is an Apache HTTP Server module that provided support for secure communication over HTTP and HTTPS. Since 2.8.4 and 2.8.7 are really older versions of `mod_ssl`, I found common vulnerabilities by googling this web server module.
+It is an Apache HTTP Server module that provided support for secure communication over HTTP and HTTPS. Since 2.8.4 and 2.8.7 are really older versions of `mod_ssl`, I found common vulnerabilities by googling it.
 
 Potential vulnerabilities
 
@@ -120,7 +120,7 @@ Attackers can exploit the buffer overflows to corrupt a web application's execut
 
    ![dirb2](../assets/img/kioptrix/Screenshot%202024-06-28%20at%2011.13.04.png)
 
-   And visited some found directories
+   And visited some hidden directories
 
    ![visited2](../assets/img/kioptrix/Screenshot%202024-06-28%20at%2011.13.26.png)
 
@@ -176,7 +176,7 @@ Attackers can exploit the buffer overflows to corrupt a web application's execut
 
    ![rhost](../assets/img/kioptrix/Screenshot%202024-07-01%20at%2017.24.59.png)
 
-   Furthermore, I used `smbclient` to check the shared resources on the server that uses the SMB protocol. In fact, I just approached this protocol in order to ensure that it is indeed inaccessible for now.
+   Furthermore, I used `smbclient` to check the shared resources on the server that uses the `SMB` protocol. In fact, I just approached this protocol in order to ensure that it is indeed inaccessible for now.
 
    ![smbclient](../assets/img/kioptrix/Screenshot%202024-07-01%20at%2018.16.11.png)
 
@@ -188,10 +188,13 @@ Attackers can exploit the buffer overflows to corrupt a web application's execut
 
    `139 / tcp  open  netbios-ssn Samba smbd (workgroup: MYGROUP)`
 
-   `Host script results:`</br>
-   `|_smb2-time: Protocol negotiation failed (SMB2)`</br>
-   `|_clock-skew: -3d05h31m10s`</br>
-   `|_nbstat: NetBIOS name: KIOPTRIX, NetBIOS user: <unknown>, NetBIOS MAC: <unknown> (unknown)`</br>
+   `Host script results:`
+
+   `|_smb2-time: Protocol negotiation failed (SMB2)`
+
+   `|_clock-skew: -3d05h31m10s`
+
+   `|_nbstat: NetBIOS name: KIOPTRIX, NetBIOS user: <unknown>, NetBIOS MAC: <unknown> (unknown)`
 
    `Unix (Samba 2.2.1.a)`
 
@@ -241,7 +244,7 @@ Attackers can exploit the buffer overflows to corrupt a web application's execut
 
 ## Scanning with Nessus
 
-There was a tool called `Nessus` that comprehensively scans vulnerabilities on the target machine. With this tool, I could perform brute-force attacks using `hydra`, conduct web application scans, and perform TCP, SYN, and UDP scans.
+There was a tool called `Nessus` that comprehensively scans vulnerabilities on the target machine. With this nice tool, I could perform brute-force attacks using `hydra` though, it is possible to do the web application scans, and perform TCP, SYN, and UDP scans.
 
 Here is the steps to use this service.
 
@@ -307,7 +310,7 @@ A stage payload sends the exploit shell code in multiple stages. Initially, a sm
 
 Example,
 
-`windows/meterpreter_reverse_tcp`</br>
+`windows/meterpreter_reverse_tcp`
 `linux/x64/meterpreter_reverse_tcp`
 
 ### What is non-staged payloads (particularly in `metasploit` framework)?
@@ -316,7 +319,7 @@ The entire payload is sent to the target machine in one go. This payload contain
 
 Example,
 
-`windows/meterpreter/reverse_tcp`</br>
+`windows/meterpreter/reverse_tcp`
 `linux/x64/meterpreter/reverse_tcp`
 
 I have to choose between using the staged and non-staged payloads depends on several factors, including network connection stability, the target environment, the payload size, and requirements of penetrating test.
