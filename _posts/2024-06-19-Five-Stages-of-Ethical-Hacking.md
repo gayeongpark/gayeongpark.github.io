@@ -41,8 +41,6 @@ Once I have that access, the process starts to repeat. I need to do the scanning
 
 bypassing security mechanisms, setting up backdoors or remote access tools, and establishing persistent access
 
-## Covering tracks
+## Post-exploitation
 
 In the last stage, I need to remove the logs of my activities, files from the target machine system or network. And do not forget about restoring the system to its original state. The main reason is to remain undetected, leaving no traces of my activities.
-
-

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: TCM - practice for dev
+title: TCM - practice for dev capstone
 subtitle: Preparing for PJPT (Practical Junior Penetration Tester) certification by walking through dev lab from TCM
 tags: [ethical hacking, tcm, pjpt, dev, privilege escalation, CMS]
 comments: true
@@ -114,7 +114,7 @@ author: Lantana Park
 
    ![loggedin](../assets/img/dev/Screenshot%202024-07-10%20at%2009.02.21.png)
 
-   And then accessed `/passwd` file inputting `http://192.168.64.23:8080/dev/index.php?p=action.search&action=../../../../../../../etc/passwd`
+   And then accessed `/passwd` file by inputting `http://192.168.64.23:8080/dev/index.php?p=action.search&action=../../../../../../../etc/passwd`
 
    ![passwd1](../assets/img/dev/Screenshot%202024-07-09%20at%2015.44.51.png)
 
