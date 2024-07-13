@@ -62,11 +62,15 @@ author: Lantana Park
 
    So that I opened the inspection page for this website.
 
-   ![openingInspection](../assets/img/blackpearl/Screenshot%202024-07-12%20at%2018.31.16.png)
+   ![openingInspection1](../assets/img/blackpearl/Screenshot%202024-07-12%20at%2018.31.16.png)
 
-   There was a comment line `alek@blackpearl.tcm`. It seemed `blackpearl.tcm` should be a hostname that I can visit on firefox. The reason I thought in this way was that I have experience of adding a hostname and ip when I answered some questions from Tryhackme. I could not approach web service because there was white page with no content. At that time,adding a hostname and ip address to my local `/etc/host` was the answer to work well. Because there was DNS resolution issues dues to non-publicly resolved hostnames.
+   ![openingInspection2](../assets/img/blackpearl/Screenshot%202024-07-13%20at%2009.27.53.png)
 
-   In order to get any information that allows me to enumerate this `http` service in detail, I added the hostname and ip address to the `/etc/host`
+   ![openingInspection3](../assets/img/blackpearl/Screenshot%202024-07-13%20at%2009.19.32.png)
+
+   There was a comment line mentioning `alek@blackpearl.tcm`. And it appeared that `blackpearl.tcm` might be another hostname accessible in firefox. The reason I thought in this way was that I have some previous experiences of adding a hostname and ip for fixing dns issues. In those instances, resolving DNS issues by adding a hostname and IP address to my local `/etc/hosts` file often resolved the problem of accessing web services. This approach was effective especially when dealing with non-publicly resolved hostnames, which could otherwise result in a blank page with no content.
+
+   To gather more information for enumerating this HTTP service, I added the hostname and IP address to the `/etc/hosts` file.
 
    ![addinghost1](../assets/img/blackpearl/Screenshot%202024-07-12%20at%2019.02.39.png)
 
@@ -94,13 +98,13 @@ author: Lantana Park
 
    ![foundedPage4](../assets/img/blackpearl/Screenshot%202024-07-12%20at%2019.11.27.png)
 
-   `/navigate` page used Navigate CMS v2.8.
+   `/navigate` page used `Navigate CMS v2.8`.
 
    I thought it would be great to utilize this cms vulnerability to get a shell at first.
 
-   By googling navigate cms v2.8, I found a really attractive resources to exploit Unauthenticated Remote Code Execution vulnerability.
+   By googling navigate cms v2.8, I found a really attractive resource, which is the exploitation of Unauthenticated Remote Code Execution vulnerability.
 
-   resources from (https://www.rapid7.com/db/modules/exploit/multi/http/navigate_cms_rce/)
+   resourced from (https://www.rapid7.com/db/modules/exploit/multi/http/navigate_cms_rce/)
 
    ![foundedVuln1](../assets/img/blackpearl/Screenshot%202024-07-12%20at%2019.15.29.png)
 
@@ -137,13 +141,13 @@ And then I attempted to list all files with the SUID bit set.
 - `find /`: Starts searching from the root directory.
 - `perm /4000`: Finds files with the SUID bit set.
 - `exec ls -al {} \;`: Executes `ls -al` on each found file. `{}` is a placeholder for the found file, and `\;` indicates the end of the `-exec` command.
-- `2>/dev/null`: Redirects error messages to /dev/null to keep the output clean.
+- `2>/dev/null`: Redirects error messages to `/dev/null` to keep the output clean.
 
 ![suidFile](../assets/img/blackpearl/Screenshot%202024-07-12%20at%2023.33.41.png)
 
-`php7.3` was somewhat different from what I checked out before.
+`php7.3` was somewhat different from what I checked out different target machines before.
 
-So made a decision to use `gfobins` if there is a way to exploit `php` for suid. And then found the way to exploit for privilege escalation.
+So I made a decision to use `gfobins` in order to exploit `php` for suid. Fortunately, I found the way to exploit it for privilege escalation.
 
 ![gfobins](../assets/img/blackpearl/Screenshot%202024-07-12%20at%2023.59.49.png)
 
@@ -158,5 +162,9 @@ Success!
 ![successExploitation2](../assets/img/blackpearl/Screenshot%202024-07-12%20at%2023.00.35.png)
 
 I could read the final `flag.txt`
+
+### What is virtual host routing?
+
+This concept is to embrace more than one web site on one system or web server. For example, `www.example1.com` and `www.example2.com` can both be hosted on the same server.
 
 ![successExploitation3](../assets/img/blackpearl/Screenshot%202024-07-12%20at%2023.01.37.png)
