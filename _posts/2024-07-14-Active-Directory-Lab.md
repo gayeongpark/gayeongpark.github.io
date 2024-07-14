@@ -1,6 +1,6 @@
 ---
 layout: post
-title: TCM - Active Directory Lab Build
+title: TCM - Active Directory Lab Building
 subtitle: Preparing for PJPT (Practical Junior Penetration Tester) certification by walking through active directory lab build
 tags: [ethical hacking, tcm, pjpt, active directory. windows]
 comments: true
@@ -86,3 +86,10 @@ Finally, admin can easily manage user access and enforce security policies from 
   ![adTrustsDiagram](../assets/img/AD/trust%20relationship.jpg)
 
 ## Building out AD lab
+
+Requirements
+
+- 1 Windows server 2022
+- 2 Windows 11 enterprise workstations
+
+1. Downloaded the necessary ISOs and installed Windows in my UTM.
