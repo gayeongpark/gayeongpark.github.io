@@ -31,7 +31,7 @@ Logon process:
 
 Since my password is not sent around the network all the time, just the encrypted tickets, it can provide enhanced authorization and authentication service.
 
-And it can be convenience because I can access multiple resources without re-entering my password
+And it can be convenience because I can access multiple resources without re-entering my password.
 
 finally, admin can easily manage user access and enforce security policies from a central location.
 
@@ -46,7 +46,7 @@ finally, admin can easily manage user access and enforce security policies from 
 - **Schema** defines every type of object that can be stored in the directory. It enforces rules regarding object creation and configuration. It serves as a rule-book or blueprint.
 
   - **Class object** : Represents the types of objects that can be created in the directory, such as User, Computer, and Printer.
-  - **Attribute object** : Refers to the information that can be attached to an object, such as Display name
+  - **Attribute object** : Refers to the information that can be attached to an object, such as Display name.
 
 - **Domains** are used to group and manage objects in an organization. (www.google.com)
 
