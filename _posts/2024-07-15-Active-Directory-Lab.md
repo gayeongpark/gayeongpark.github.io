@@ -17,7 +17,7 @@ Active Directory (AD) is like a phone book for Windows networks. Approximately 9
 
 The critical concept of AD is **Centralization** for the creation and management of user accounts. User accounts are stored as objects made up of attributes. A wide variety of objects are stored in the Active Directory database. It utilizes the **Kerberos protocol** for secure authentication, ensuring that users can efficiently and securely access network resources. When users attempt to log on to a network using Active Directory, several processes and components work together to ensure secure and efficient access to resources.
 
-Logon process
+Logon process:
 
 1. Once users attempt to log on to a network by typing username and password, the client computer sends this information to the Active Directory server, which is called the Domain Controller.
 
