@@ -1,6 +1,6 @@
 ---
 layout: post
-title: TCM - practice for Blue Lab
+title: TCM - practice for blue Lab
 subtitle: Preparing for PJPT (Practical Junior Penetration Tester) certification by walking through blue lab from HTB
 tags: [ethical hacking, tcm, pjpt, blue, easy-peasy]
 comments: true

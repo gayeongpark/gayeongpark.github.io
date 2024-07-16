@@ -2,7 +2,7 @@
 layout: post
 title: TCM - Active Directory Lab Building
 subtitle: Preparing for PJPT (Practical Junior Penetration Tester) certification by walking through active directory lab build
-tags: [ethical hacking, tcm, pjpt, active directory. windows]
+tags: [ethical hacking, tcm, pjpt, active directory, windows, lab building]
 comments: true
 author: Lantana Park
 ---
@@ -66,7 +66,7 @@ Finally, admin can easily manage user access and enforce security policies from 
 
 - **Organizational Units(OUs)** are Active Directory containers that can hold users, groups, computers, and other OUs. OUs represent the organization hierarchically and logically, allowing for consistent management of a collection of objects, delegation of permissions to administer groups of objects, and the application of policies.
 
-  #### Different types of objects
+  Different types of objects
 
   - **User**: Enables network resource access for a user.
   - **InetOrgPerson**: Similar to a user account. Uses for compatibility with other directory services.
@@ -89,7 +89,56 @@ Finally, admin can easily manage user access and enforce security policies from 
 
 Requirements
 
-- 1 Windows server 2022
-- 2 Windows 11 enterprise workstations
+- 1 Windows server 2022 for setting up domain controller / `192.168.64.32`
+- 2 Windows 11 enterprise workstations for setting up user machines and policies
 
-1. Downloaded the necessary ISOs and installed Windows in my UTM.
+  - Computer Name: THEPUNISHER / `192.168.64.33`
+    ![computername1](../assets/img/AD/Screenshot%202024-07-16%20at%2018.55.05.png)
+  - Computer Name: SPIDERMAN / `192.168.64.34`
+    ![computername2](../assets/img/AD/Screenshot%202024-07-16%20at%2018.54.34.png)
+
+  ![filesDownload3](../assets/img/AD/Screenshot%202024-07-16%20at%2009.12.35.png)
+
+  ![settingDC1](../assets/img/AD/Screenshot%202024-07-16%20at%2018.44.37.png)
+
+  ![settingDC2](../assets/img/AD/Screenshot%202024-07-16%20at%2019.08.25.png)
+
+  ![settingDC3](../assets/img/AD/Screenshot%202024-07-16%20at%2019.08.33.png)
+
+  ![settingDC4](../assets/img/AD/Screenshot%202024-07-16%20at%2019.09.31.png)
+
+  To verify Domain connections
+
+  ![connectionWithPunisher](../assets/img/AD/Screenshot%202024-07-16%20at%2018.46.39.png)
+
+  ![connectionWithSpiderMan](../assets/img/AD/Screenshot%202024-07-16%20at%2018.46.57.png)
+
+  To verify DNS connections
+
+  ![connectingCheckFromClient](../assets/img/AD/Screenshot%202024-07-16%20at%2018.51.56.png)
+
+  ![connectingCheckFromClient](../assets/img/AD/Screenshot%202024-07-16%20at%2018.52.33.png)
+
+  ![connectingCheckWithDC](../assets/img/AD/Screenshot%202024-07-16%20at%2019.11.51.png)
+
+Even though I set my victim ad environment manually by following the heath's instructions, It will be great to use this resource if you want to set AD environment without any guidance.
+
+(https://github.com/Dewalt-arch/pimpmyadlab?tab=readme-ov-file)
+
+## Attacking Active Directory: Initial Attack Vectors
+
+1. LLMNR(Link Local Multicast Name Resolution) Poisoning
+
+   It is used to identify hosts when DNS fails to do so in a network. The key flaw is that, when I intercept the traffic in the network, I am able to capture a username and a hash when I respond to this traffic. Now this can be called "a man in the middle attack". It is to utilize weak password. In order to do this attack, I set really weak passwords on the victim machines.
+
+   Here are the attack processes
+
+   Step 1, Run `responder`
+
+   `responder`
+
+   `sudo responder -I tun0 -dw`
+
+2. SMB Relay Attacks
+
+3. SMB Relay Attack Defenses
