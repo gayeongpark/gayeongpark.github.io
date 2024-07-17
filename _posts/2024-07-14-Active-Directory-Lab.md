@@ -124,21 +124,116 @@ Requirements
 Even though I set my victim ad environment manually by following the heath's instructions, It will be great to use this resource if you want to set AD environment without any guidance.
 
 (https://github.com/Dewalt-arch/pimpmyadlab?tab=readme-ov-file)
+(https://www.bowneconsultingcontent.com/pub/EH/proj/D7.htm)
+
+And, I got many helps from TCM discord.
 
 ## Attacking Active Directory: Initial Attack Vectors
 
-1. LLMNR(Link Local Multicast Name Resolution) Poisoning
+1. LLMNR(Link Local Multicast Name Resolution) Poisoning attack
 
-   It is used to identify hosts when DNS fails to do so in a network. The key flaw is that, when I intercept the traffic in the network, I am able to capture a username and a hash when I respond to this traffic. Now this can be called "a man in the middle attack". It is to utilize weak password. In order to do this attack, I set really weak passwords on the victim machines.
+   - LLMNR (Link-Local Multicast Name Resolution): A protocol used for name resolution on local networks when DNS is unavailable. It allows devices to query each other directly for name resolution.
+
+   - NBT-NS (NetBIOS Name Service): A legacy protocol for name resolution over IP networks, primarily used in Windows environments.
+
+   Both protocols can be exploited by attackers through poisoning attacks, where malicious actors respond to legitimate queries with fake data to intercept or redirect traffic.
 
    Here are the attack processes
 
    Step 1, Run `responder`
 
-   `responder`
+   `responder` is a tool to capture credentials, for example, once a target sends out an LLMNR request by inputting attacker's ip address (`\\192.168.64.11`) on the File explorer, the `responder` will send a response to the server directing all traffic to the attacker.
 
-   `sudo responder -I tun0 -dw`
+   `sudo responder -I eth0 -dwv`
 
-2. SMB Relay Attacks
+   `-I eth0` is to specify the network interface to use.
 
-3. SMB Relay Attack Defenses
+   `-d` is to run the responder in diagnostic mode.
+
+   `-w` is to capture WPAD requests and serve malicious responses.
+
+   `-v`is to get detailed information about the what responder is doing.
+
+   Waiting for the response.
+
+   ![waitingResponse1](../assets/img/AD/Screenshot%202024-07-17%20at%2010.18.05.png)
+
+   ![waitingResponse2](../assets/img/AD/Screenshot%202024-07-17%20at%2010.38.30.png)
+
+   Step 2, Input attacker's ip address on the victim's (THEPUNISHER(Computer Name) - fcastle(User Name)) and Get the response from it.
+
+   ![connectingToAttacker1](../assets/img/AD/Screenshot%202024-07-17%20at%2010.45.53.png)
+
+   ![connectingToAttacker2](../assets/img/AD/Screenshot%202024-07-17%20at%2010.17.46.png)
+
+   ![connectingToAttacker3](../assets/img/AD/Screenshot%202024-07-17%20at%2010.48.48.png)
+
+   ### What is NTLM?
+
+   It is a suit of Microsoft security protocols for providing authentication, integrity, and confidentiality to users. It is a different with Kerberos protocol.
+
+   One of the characteristics is that the hash used by NTML is not as strong as the encryption method used by Kerberos protocol.
+
+   Here is the authentication process of NTML protocol
+
+   ![ntlmProtocol](../assets/img/AD/server-during-ntlm-authentication.png)
+
+   Step 3, Save one of the hashes and crack the hash
+
+   ![saveHashes1](../assets/img/AD/Screenshot%202024-07-17%20at%2010.52.36.png)
+
+   ![saveHashes2](../assets/img/AD/Screenshot%202024-07-17%20at%2010.52.50.png)
+
+   Need to set a proper module to crack the password
+
+   Since the smb response was `NTMLv2`, I considered to set `5600`. However I visited `hashcat` wiki to check the hash format that I want to crack.
+
+   ![crackPassword1](../assets/img/AD/Screenshot%202024-07-17%20at%2010.53.38.png)
+
+   ![crackPassword2](../assets/img/AD/Screenshot%202024-07-17%20at%2010.53.27.png)
+
+   Attempt to crack the hashed password with the module and wordlists
+
+   ![crackPassword3](../assets/img/AD/Screenshot%202024-07-17%20at%2010.54.02.png)
+
+   ![crackPassword4](../assets/img/AD/Screenshot%202024-07-17%20at%2010.54.17.png)
+
+   ![crackPassword5](../assets/img/AD/Screenshot%202024-07-17%20at%2010.54.27.png)
+
+   Cracked password is `Password1`
+
+2. LLMNR(Link Local Multicast Name Resolution) Poisoning Defenses (Mitigation)
+
+   To disable `LLMNR`, just select "Turn OFF multicast name resolution".
+
+   In the DC server,
+
+   ![server](../assets/img/AD/Screenshot%202024-07-17%20at%2012.22.59.png)
+
+   Go to Group Policy Management
+
+   Click `Computer Configuration` > `Administrative Templates` > `Network` > `DNS Client` > `Turn off the multicast name resolution`
+
+   ![groupPolicyManagement](../assets/img/AD/Screenshot%202024-07-17%20at%2012.25.59.png)
+
+   Hit the `Enabled` > `Apply` > `OK`
+
+   ![groupPolicyManagement](../assets/img/AD/Screenshot%202024-07-17%20at%2012.26.14.png)
+
+   To disable `NBT-NS`, just select "Disable NetBIOS over TCP/IP".
+
+   Go to `Network Connections` > `Network Adapter Properties` > `TCP/IPv4 Properties` > `Advanced tab` > `WINS tab` > `Disable NetBIOS over TCP/IP`
+
+   ![disableNBT1](../assets/img/AD/Screenshot%202024-07-17%20at%2012.50.25.png)
+
+   ![disableNBT2](../assets/img/AD/Screenshot%202024-07-17%20at%2012.50.59.png)
+
+   ![disableNBT3](../assets/img/AD/Screenshot%202024-07-17%20at%2012.51.15.png)
+
+   ![disableNBT4](../assets/img/AD/Screenshot%202024-07-17%20at%2012.51.39.png)
+
+   If a company must use or cannot disable LLMNR/NBT-NS, the best course of action is to require strong password and Network Access Control for ensuring only authorized devices connections to the network.
+
+3. SMB Relay Attacks
+
+4. SMB Relay Attack Defenses
