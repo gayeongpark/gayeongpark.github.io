@@ -130,110 +130,209 @@ And, I got many helps from TCM discord.
 
 ## Attacking Active Directory: Initial Attack Vectors
 
-1. LLMNR(Link Local Multicast Name Resolution) Poisoning attack
+1.  LLMNR(Link Local Multicast Name Resolution) Poisoning attack
 
-   - LLMNR (Link-Local Multicast Name Resolution): A protocol used for name resolution on local networks when DNS is unavailable. It allows devices to query each other directly for name resolution.
+    - LLMNR (Link-Local Multicast Name Resolution): A protocol used for name resolution on local networks when DNS is unavailable. It allows devices to query each other directly for name resolution.
 
-   - NBT-NS (NetBIOS Name Service): A legacy protocol for name resolution over IP networks, primarily used in Windows environments.
+    - NBT-NS (NetBIOS Name Service): A legacy protocol for name resolution over IP networks, primarily used in Windows environments.
 
-   Both protocols can be exploited by attackers through poisoning attacks, where malicious actors respond to legitimate queries with fake data to intercept or redirect traffic.
+    Both protocols can be exploited by attackers through poisoning attacks, where malicious actors respond to legitimate queries with fake data to intercept or redirect traffic.
 
-   Here are the attack processes
+    Here are the attack processes
 
-   Step 1, Run `responder`
+    Step 1, Run `responder`
 
-   `responder` is a tool to capture credentials, for example, once a target sends out an LLMNR request by inputting attacker's ip address (`\\192.168.64.11`) on the File explorer, the `responder` will send a response to the server directing all traffic to the attacker.
+    `responder` is a tool to capture credentials, for example, once a target sends out an LLMNR request by inputting attacker's ip address (`\\192.168.64.11`) on the File explorer, the `responder` will send a response to the server directing all traffic to the attacker.
 
-   `sudo responder -I eth0 -dwv`
+    `sudo responder -I eth0 -dwv`
 
-   `-I eth0` is to specify the network interface to use.
+    `-I eth0` is to specify the network interface to use.
 
-   `-d` is to run the responder in diagnostic mode.
+    `-d` is to run the responder in diagnostic mode.
 
-   `-w` is to capture WPAD requests and serve malicious responses.
+    `-w` is to capture WPAD requests and serve malicious responses.
 
-   `-v`is to get detailed information about the what responder is doing.
+    `-v`is to get detailed information about the what responder is doing.
 
-   Waiting for the response.
+    Waiting for the response.
 
-   ![waitingResponse1](../assets/img/AD/Screenshot%202024-07-17%20at%2010.18.05.png)
+    ![waitingResponse1](../assets/img/AD/Screenshot%202024-07-17%20at%2010.18.05.png)
 
-   ![waitingResponse2](../assets/img/AD/Screenshot%202024-07-17%20at%2010.38.30.png)
+    ![waitingResponse2](../assets/img/AD/Screenshot%202024-07-17%20at%2010.38.30.png)
 
-   Step 2, Input attacker's ip address on the victim's (THEPUNISHER(Computer Name) - fcastle(User Name)) and Get the response from it.
+    Step 2, Input attacker's ip address on the victim's (THEPUNISHER(Computer Name) - fcastle(User Name)) and Get the response from it.
 
-   ![connectingToAttacker1](../assets/img/AD/Screenshot%202024-07-17%20at%2010.45.53.png)
+    ![connectingToAttacker1](../assets/img/AD/Screenshot%202024-07-17%20at%2010.45.53.png)
 
-   ![connectingToAttacker2](../assets/img/AD/Screenshot%202024-07-17%20at%2010.17.46.png)
+    ![connectingToAttacker2](../assets/img/AD/Screenshot%202024-07-17%20at%2010.17.46.png)
 
-   ![connectingToAttacker3](../assets/img/AD/Screenshot%202024-07-17%20at%2010.48.48.png)
+    ![connectingToAttacker3](../assets/img/AD/Screenshot%202024-07-17%20at%2010.48.48.png)
 
-   ### What is NTLM?
+    ### What is NTLM?
 
-   It is a suit of Microsoft security protocols for providing authentication, integrity, and confidentiality to users. It is a different with Kerberos protocol.
+    It is a suit of Microsoft security protocols for providing authentication, integrity, and confidentiality to users. It is a different with Kerberos protocol.
 
-   One of the characteristics is that the hash used by NTML is not as strong as the encryption method used by Kerberos protocol.
+    One of the characteristics is that the hash used by NTML is not as strong as the encryption method used by Kerberos protocol.
 
-   Here is the authentication process of NTML protocol
+    Here is the authentication process of NTML protocol
 
-   ![ntlmProtocol](../assets/img/AD/server-during-ntlm-authentication.png)
+    ![ntlmProtocol](../assets/img/AD/server-during-ntlm-authentication.png)
 
-   Step 3, Save one of the hashes and crack the hash
+    Step 3, Save one of the hashes and crack the hash
 
-   ![saveHashes1](../assets/img/AD/Screenshot%202024-07-17%20at%2010.52.36.png)
+    ![saveHashes1](../assets/img/AD/Screenshot%202024-07-17%20at%2010.52.36.png)
 
-   ![saveHashes2](../assets/img/AD/Screenshot%202024-07-17%20at%2010.52.50.png)
+    ![saveHashes2](../assets/img/AD/Screenshot%202024-07-17%20at%2010.52.50.png)
 
-   Need to set a proper module to crack the password
+    Need to set a proper module to crack the password
 
-   Since the smb response was `NTMLv2`, I considered to set `5600`. However I visited `hashcat` wiki to check the hash format that I want to crack.
+    Since the smb response was `NTMLv2`, I considered to set `5600`. However I visited `hashcat` wiki to check the hash format that I want to crack.
 
-   ![crackPassword1](../assets/img/AD/Screenshot%202024-07-17%20at%2010.53.38.png)
+    ![crackPassword1](../assets/img/AD/Screenshot%202024-07-17%20at%2010.53.38.png)
 
-   ![crackPassword2](../assets/img/AD/Screenshot%202024-07-17%20at%2010.53.27.png)
+    ![crackPassword2](../assets/img/AD/Screenshot%202024-07-17%20at%2010.53.27.png)
 
-   Attempt to crack the hashed password with the module and wordlists
+    Attempt to crack the hashed password with the module and wordlists
 
-   ![crackPassword3](../assets/img/AD/Screenshot%202024-07-17%20at%2010.54.02.png)
+    ![crackPassword3](../assets/img/AD/Screenshot%202024-07-17%20at%2010.54.02.png)
 
-   ![crackPassword4](../assets/img/AD/Screenshot%202024-07-17%20at%2010.54.17.png)
+    ![crackPassword4](../assets/img/AD/Screenshot%202024-07-17%20at%2010.54.17.png)
 
-   ![crackPassword5](../assets/img/AD/Screenshot%202024-07-17%20at%2010.54.27.png)
+    ![crackPassword5](../assets/img/AD/Screenshot%202024-07-17%20at%2010.54.27.png)
 
-   Cracked password is `Password1`
+    Cracked password is `Password1`
 
-2. LLMNR(Link Local Multicast Name Resolution) Poisoning Defenses (Mitigation)
+2.  LLMNR(Link Local Multicast Name Resolution) Poisoning Defenses (Mitigation)
 
-   To disable `LLMNR`, just select "Turn OFF multicast name resolution".
+    To disable `LLMNR`, just select "Turn OFF multicast name resolution".
 
-   In the DC server,
+    In the DC server,
 
-   ![server](../assets/img/AD/Screenshot%202024-07-17%20at%2012.22.59.png)
+    ![server](../assets/img/AD/Screenshot%202024-07-17%20at%2012.22.59.png)
 
-   Go to Group Policy Management
+    Go to Group Policy Management
 
-   Click `Computer Configuration` > `Administrative Templates` > `Network` > `DNS Client` > `Turn off the multicast name resolution`
+    Click `Computer Configuration` > `Administrative Templates` > `Network` > `DNS Client` > `Turn off the multicast name resolution`
 
-   ![groupPolicyManagement](../assets/img/AD/Screenshot%202024-07-17%20at%2012.25.59.png)
+    ![groupPolicyManagement](../assets/img/AD/Screenshot%202024-07-17%20at%2012.25.59.png)
 
-   Hit the `Enabled` > `Apply` > `OK`
+    Hit the `Enabled` > `Apply` > `OK`
 
-   ![groupPolicyManagement](../assets/img/AD/Screenshot%202024-07-17%20at%2012.26.14.png)
+    ![groupPolicyManagement](../assets/img/AD/Screenshot%202024-07-17%20at%2012.26.14.png)
 
-   To disable `NBT-NS`, just select "Disable NetBIOS over TCP/IP".
+    To disable `NBT-NS`, just select "Disable NetBIOS over TCP/IP".
 
-   Go to `Network Connections` > `Network Adapter Properties` > `TCP/IPv4 Properties` > `Advanced tab` > `WINS tab` > `Disable NetBIOS over TCP/IP`
+    Go to `Network Connections` > `Network Adapter Properties` > `TCP/IPv4 Properties` > `Advanced tab` > `WINS tab` > `Disable NetBIOS over TCP/IP`
 
-   ![disableNBT1](../assets/img/AD/Screenshot%202024-07-17%20at%2012.50.25.png)
+    ![disableNBT1](../assets/img/AD/Screenshot%202024-07-17%20at%2012.50.25.png)
 
-   ![disableNBT2](../assets/img/AD/Screenshot%202024-07-17%20at%2012.50.59.png)
+    ![disableNBT2](../assets/img/AD/Screenshot%202024-07-17%20at%2012.50.59.png)
 
-   ![disableNBT3](../assets/img/AD/Screenshot%202024-07-17%20at%2012.51.15.png)
+    ![disableNBT3](../assets/img/AD/Screenshot%202024-07-17%20at%2012.51.15.png)
 
-   ![disableNBT4](../assets/img/AD/Screenshot%202024-07-17%20at%2012.51.39.png)
+    ![disableNBT4](../assets/img/AD/Screenshot%202024-07-17%20at%2012.51.39.png)
 
-   If a company must use or cannot disable LLMNR/NBT-NS, the best course of action is to require strong password and Network Access Control for ensuring only authorized devices connections to the network.
+    If a company must use or cannot disable LLMNR/NBT-NS, the best course of action is to require **strong password** and **Network Access Control** for ensuring only authorized devices connections to the network.
 
-3. SMB Relay Attacks
+3.  SMB Relay Attacks
 
-4. SMB Relay Attack Defenses
+    SMB is a protocol for a network file sharing.
+
+    Instead of capturing a hash with the responder tool, this SMB Relay Attack occurs when an attacker captures authentication requests (like password hashes) and then relays them to another machine to gain unauthorized access.
+
+    The relayed user credentials need to have administrative privileges on the target machine to provide significant access. This is why targeting admin accounts is crucial. And I cannot relay the credentials to the same machine the credentials were captured from.
+
+    At the moment, Frank Castle (username) from the MARVEL.local domain is admin privileged on two machines (THEPUNISHER and SPIDERMAN)
+
+    1. Identify the workstations without SMB singing enforced(set as default)
+
+    `nmap --script=smb2-security-mode.nse -p445 192.168.64.0/24`
+
+    ![defaultSetting1](../assets/img/AD/Screenshot%202024-07-17%20at%2015.15.22.png)
+
+    ![defaultSetting2](../assets/img/AD/Screenshot%202024-07-17%20at%2015.15.32.png)
+
+    The result says "Message signing enabled but not required". That means this is a default setting for all Windows workstations. Attackers can exploit this weak validation for gaining shell access.
+
+    2. Set up Responder.conf (SMB = Off, HTTP = Off)
+
+    ![offSetting1](../assets/img/AD/Screenshot%202024-07-17%20at%2015.18.38.png)
+
+    Yes, I used mousepad for the quick revision.
+
+    ![offSetting2](../assets/img/AD/Screenshot%202024-07-17%20at%2015.18.33.png)
+
+    The reason behind this is that I will utilize `Responder` and `ntlmrelayx` for this attack.
+
+    To be specific, if the responder is listening for SMB or HTTP requests, it may respond to the captured authentication requests instead of allowing them to be relays. Moreover, by disabling SMB and HTTP in Responder, it can be ensured that only desired traffic (LLMNR or NBT-NS) should be captured and then forwarded to `ntlmrelayx`.
+
+    Launch the responder
+
+    ![launching1](../assets/img/AD/Screenshot%202024-07-17%20at%2015.37.49.png)
+
+    ![launching2](../assets/img/AD/Screenshot%202024-07-17%20at%2015.37.56.png)
+
+    ![launching3](../assets/img/AD/Screenshot%202024-07-17%20at%2015.38.08.png)
+
+    Finally, start `ntlmrelayx` and wait for an event to occur
+
+    ![launching4](../assets/img/AD/Screenshot%202024-07-17%20at%2015.44.27.png)
+
+    Ready to go!
+
+4.  Input the attack ip address on the victim machine (THEPUNISHER) for occurring an event
+
+    The responder captures this event and then passes it to `ntlmrelayx`.
+
+    In `Responder`,
+
+    ![responderResult](../assets/img/AD/Screenshot%202024-07-17%20at%2016.04.12.png)
+
+    In `ntlmrelayx`, local SAM hashed are dumped. These hashes can be cracked.
+
+    ![credentials](../assets/img/AD/Screenshot%202024-07-17%20at%2016.07.21.png)
+
+    Other kinds of relay attack
+
+    I can gain a shell access by SMB client.
+
+    Here are the processes.
+
+    `ntlmrelayx.py –tf targets.txt –smb2support -i`
+
+    ![accessingShell1](../assets/img/AD/Screenshot%202024-07-17%20at%2016.13.34.png)
+
+    ![accessingShell2](../assets/img/AD/Screenshot%202024-07-17%20at%2016.13.44.png)
+
+    It says "Started interactive SMB client shell via TCP on 127.0.0.1:11000", let's begin to connect this SMB Client shell!
+
+    ![gainAccess1](../assets/img/AD/Screenshot%202024-07-17%20at%2016.14.00.png)
+
+    ![gainAccess2](../assets/img/AD/Screenshot%202024-07-17%20at%2016.14.07.png)
+
+5.  SMB Relay Attack Defenses (Mitigation)
+
+    - Enabling SMB signing on all devices can completely stop the attack, but it can cause performance issues with file copies and legacy devices using SMBv1
+
+    `Computer Configuration` > `Policies` > `Windows Settings` > `Security Settings` > `Local Policies` > `Security Options`
+
+    Enabled:
+
+    Microsoft network client: Digitally sign communications (always)
+    Microsoft network client: Digitally sign communications (if server agrees)
+    Microsoft network server: Digitally sign communications (always)
+    Microsoft network server: Digitally sign communications (if client agrees)
+
+    - Disabling NTLM authentication on network can completely stops the attack. However, if Kerberos stops working, Windows defaults back to NTML
+
+    - Account tiering limits domain admins to specific tasks, for example only log onto servers with need for DA. But it can enforce the policy difficult
+
+    - Local admin restriction can prevent a lot of lateral movement. Nevertheless, but it can also increase the workload for the service desk because Service desk staff might need to frequently grant temporary administrative rights or perform administrative tasks on behalf of users.
+
+6.  IPv6 Attacks
+
+7.  IPv6 Attack Defenses
+
+8.  Passback Attacks
+
+9.  Other attacks
