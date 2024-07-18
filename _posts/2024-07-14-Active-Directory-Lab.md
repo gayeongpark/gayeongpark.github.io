@@ -467,6 +467,18 @@ And, I got many helps from TCM discord.
 
 8.  IPv6 Attack Defenses (Mitigation)
 
+    Yes, disabling IPv6 will be complete solution to defend this attack. However it will not be great idea with no doubt and have side effects.
+
+    First, relaying to LDAP and LDAPS can only be mitigated by enabling both LDAP signing and LDAP channel binding.
+
+    Second, disabling WPAD (Web Proxy Auto-Discovery Protocol) can be an effective mitigation strategy to enhance network security. Because WPAD can be exploited by attackers to perform man-in-the-middle attacks.
+
+    In the Group Policy Management Console,
+
+    `Computer Configuration` > `Administrative Templates` > `Windows Components` > `Internet Explorer` > `Disable caching of Auto-Proxy scripts (Enabled)`
+
+    Third, by using Use Access Control Lists (ACLs), only necessary IPv6 traffic should be permitted.
+
 9.  Passback Attacks
 
 10. Initial Internal attack strategy
