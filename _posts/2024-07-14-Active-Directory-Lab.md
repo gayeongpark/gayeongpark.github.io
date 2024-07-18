@@ -123,8 +123,8 @@ Requirements
 
 Even though I set my victim ad environment manually by following the heath's instructions, It will be great to use this resource if you want to set AD environment without any guidance.
 
-(https://github.com/Dewalt-arch/pimpmyadlab?tab=readme-ov-file)
-(https://www.bowneconsultingcontent.com/pub/EH/proj/D7.htm)
+[https://github.com/Dewalt-arch/pimpmyadlab?tab=readme-ov-file]
+[https://www.bowneconsultingcontent.com/pub/EH/proj/D7.htm]
 
 And, I got many helps from TCM discord.
 
@@ -142,7 +142,7 @@ And, I got many helps from TCM discord.
 
     Step 1, Run `responder`
 
-    `responder` is a tool to capture credentials, for example, once a target sends out an LLMNR request by inputting attacker's ip address (`\\192.168.64.11`) on the File explorer, the `responder` will send a response to the server directing all traffic to the attacker.
+    `responder` is a tool to capture credentials, for example, once a target sends out an LLMNR request by inputting attacker's ip address (`\\192.168.64.11`) on the File explorer, for making an event, the `responder` will send a response to the server directing all traffic to the attacker.
 
     `sudo responder -I eth0 -dwv`
 
@@ -186,7 +186,7 @@ And, I got many helps from TCM discord.
 
     Need to set a proper module to crack the password
 
-    Since the smb response was `NTMLv2`, I considered to set `5600`. However I visited `hashcat` wiki to check the hash format that I want to crack.
+    Since the smb response was `NTMLv2`, set `5600`. However I visited `hashcat` wiki to check the hash format that I want to crack.
 
     ![crackPassword1](../assets/img/AD/Screenshot%202024-07-17%20at%2010.53.38.png)
 
@@ -248,6 +248,8 @@ And, I got many helps from TCM discord.
 
     `nmap --script=smb2-security-mode.nse -p445 192.168.64.0/24`
 
+    `--script=smb2-security-mode.nse` is to query the SMBv2 security configuration of a target host.
+
     ![defaultSetting1](../assets/img/AD/Screenshot%202024-07-17%20at%2015.15.22.png)
 
     ![defaultSetting2](../assets/img/AD/Screenshot%202024-07-17%20at%2015.15.32.png)
@@ -276,11 +278,29 @@ And, I got many helps from TCM discord.
 
     Finally, start `ntlmrelayx` and wait for an event to occur
 
+    Before, launch the tool, I saved `targets.txt` to specify the list of target IP addresses.
+
+    ![saveTargets](../assets/img/AD/Screenshot%202024-07-17%20at%2021.58.39.png)
+
+    `ntlmrelayx.py –tf targets.txt –smb2support -i`
+
+    `ntlmrelayx` will listen for incoming NTLM authentication requests. When a victim sends an NTLM authentication request, this tool captures the request and attempts to relay it to one of the targets specified in `targets.txt`
+
+    `-tf` stands for target file
+
+    `targets.txt` is a file that contains a list of target IP addresses
+
+    `--smb2support` is to enable support for SMBv2
+
+    `-i` is to run the tool in interactive mode
+
     ![launching4](../assets/img/AD/Screenshot%202024-07-17%20at%2015.44.27.png)
 
     Ready to go!
 
 4.  Input the attack ip address on the victim machine (THEPUNISHER) for occurring an event
+
+    ![inputIpAddress](../assets/img/AD/Screenshot%202024-07-17%20at%2014.27.46.png)
 
     The responder captures this event and then passes it to `ntlmrelayx`.
 
@@ -292,13 +312,15 @@ And, I got many helps from TCM discord.
 
     ![credentials](../assets/img/AD/Screenshot%202024-07-17%20at%2016.07.21.png)
 
-    Other kinds of relay attack
+    In another type of relay attack,
 
     I can gain a shell access by SMB client.
 
     Here are the processes.
 
     `ntlmrelayx.py –tf targets.txt –smb2support -i`
+
+    `tf` stands for target file
 
     ![accessingShell1](../assets/img/AD/Screenshot%202024-07-17%20at%2016.13.34.png)
 
@@ -310,9 +332,11 @@ And, I got many helps from TCM discord.
 
     ![gainAccess2](../assets/img/AD/Screenshot%202024-07-17%20at%2016.14.07.png)
 
+    Furthermore, I am going to gain the shell from the attacks.
+
 5.  SMB Relay Attack Defenses (Mitigation)
 
-    - Enabling SMB signing on all devices can completely stop the attack, but it can cause performance issues with file copies and legacy devices using SMBv1
+    - Enabling SMB signing on all devices can completely stop the attack, but it can cause performance issues with file copies and legacy devices using `SMBv1`
 
     `Computer Configuration` > `Policies` > `Windows Settings` > `Security Settings` > `Local Policies` > `Security Options`
 
@@ -329,10 +353,68 @@ And, I got many helps from TCM discord.
 
     - Local admin restriction can prevent a lot of lateral movement. Nevertheless, but it can also increase the workload for the service desk because Service desk staff might need to frequently grant temporary administrative rights or perform administrative tasks on behalf of users.
 
-6.  IPv6 Attacks
+6.  Gain the shell access
 
-7.  IPv6 Attack Defenses
+    1. Initial shell access using `metasploit`
 
-8.  Passback Attacks
+       [https://www.rapid7.com/db/modules/exploit/windows/smb/psexec/]
 
-9.  Other attacks
+       I am going to use `psexec`
+
+       ### What is psexec?
+
+       It is stands for "Process Execute". It is designed to allow administrators to perform various activities on remote computers.
+
+       Since I knew the password and username through the previous attacks, I am going to vulnerability to gain the shell access.
+
+       I got some issues in the process of the initial meterpreter through metasploit. The problems were resolved by disabling firewalls(domain, private and public) of the target machine and updating metasploit.
+
+       - MARVEL.local domain exploitation
+
+       ![metasploit1](../assets/img/AD/Screenshot%202024-07-18%20at%2011.28.31.png)
+
+       ![metasploit2](../assets/img/AD/Screenshot%202024-07-18%20at%2011.28.40.png)
+
+       ![metasploit3](../assets/img/AD/Screenshot%202024-07-18%20at%2011.28.59.png)
+
+       ![metasploit4](../assets/img/AD/Screenshot%202024-07-18%20at%2011.29.09.png)
+
+       ![metasploit5](../assets/img/AD/Screenshot%202024-07-18%20at%2011.29.18.png)
+
+       ![metasploit6](../assets/img/AD/Screenshot%202024-07-18%20at%2011.29.27.png)
+
+       ![metasploit7](../assets/img/AD/Screenshot%202024-07-18%20at%2011.29.36.png)
+
+       ![metasploit8](../assets/img/AD/Screenshot%202024-07-18%20at%2011.43.13.png)
+
+       - Local administrator user exploitation
+
+       Important: `set smbdomain .` is needed to set the domain under local.
+
+       ![metasploit9](../assets/img/AD/Screenshot%202024-07-18%20at%2011.44.37.png)
+
+       ![metasploit10](../assets/img/AD/Screenshot%202024-07-18%20at%2011.44.55.png)
+
+    2. Manual way to shell accessing
+
+       I am going to use the python3-impacket tool.
+
+       Impacket allows craft and decode network packets of various protocols, such as SMB, NetBIOS, TCP, IP, UDP, and others.
+
+       ![psexec1](../assets/img/AD/Screenshot%202024-07-18%20at%2011.12.42.png)
+
+       ![psexec2](../assets/img/AD/Screenshot%202024-07-18%20at%2011.12.51.png)
+
+       ![psexec3](../assets/img/AD/Screenshot%202024-07-18%20at%2011.14.28.png)
+
+       ![wmi](../assets/img/AD/Screenshot%202024-07-18%20at%2010.02.02.png)
+
+       ![smb](../assets/img/AD/Screenshot%202024-07-18%20at%2010.02.36.png)
+
+7.  IPv6 Attacks
+
+8.  IPv6 Attack Defenses
+
+9.  Passback Attacks
+
+10. Other attacks
