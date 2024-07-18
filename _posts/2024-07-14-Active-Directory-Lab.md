@@ -395,7 +395,7 @@ And, I got many helps from TCM discord.
 
        ![metasploit10](../assets/img/AD/Screenshot%202024-07-18%20at%2011.44.55.png)
 
-    2. Manual way to shell accessing
+    2. Manual ways to get the shell accessing
 
        I am going to use the python3-impacket tool.
 
@@ -407,14 +407,24 @@ And, I got many helps from TCM discord.
 
        ![psexec3](../assets/img/AD/Screenshot%202024-07-18%20at%2011.14.28.png)
 
-       ![wmi](../assets/img/AD/Screenshot%202024-07-18%20at%2010.02.02.png)
+       ![wmiexec](../assets/img/AD/Screenshot%202024-07-18%20at%2010.02.02.png)
 
-       ![smb](../assets/img/AD/Screenshot%202024-07-18%20at%2010.02.36.png)
+       ![smbexec](../assets/img/AD/Screenshot%202024-07-18%20at%2010.02.36.png)
 
-7.  IPv6 Attacks
+7.  IPv6 Attacks - LDAP relays
 
-8.  IPv6 Attack Defenses
+    IPv6 is a newer version of IPv4 because of no sufficient available IPv4 addresses. IPv6 is used for data transmit between network and system. IPv6 addresses can be resolved through DNS just like IPv4 addresses, with DNS returning IPv6 addresses (AAAA records) in response to queries. Common network services and authentication protocols, such as LDAP and SMB, also support IPv6.
+
+    As networks transition from IPv4 to IPv6, many organizations operate dual-stack networks, supporting both protocols. This can introduce security challenges, especially since IPv6 implementations might not be as tightly secured due to a lack of familiarity among network administrators.
+
+    One of the prominent tools used for IPv6 attacks is **MITM6 (Man-in-the-Middle 6)**. MITM6 exploits the automatic configuration features of IPv6 to redirect network traffic to an attacker.
+
+    The tool works by sending malicious IPv6 Router Advertisements (RA) to force devices on the network to route their traffic through the attacker’s machine. This allows the attacker to intercept, monitor, and manipulate the data being transmitted.
+
+    Here are the processes,
+
+8.  IPv6 Attack Defenses (Mitigation)
 
 9.  Passback Attacks
 
-10. Other attacks
+10. Initial Internal attack strategy
