@@ -429,6 +429,8 @@ And, I got many helps from TCM discord.
 
     `mitm6 -d marvel.local`
 
+    `-d` is to indicate the domain name
+
     ![mitm6](../assets/img/AD/Screenshot%202024-07-18%20at%2019.37.50.png)
 
     2. Run `ntlmrelayx` to forward the intercepted authentication attempts to the LDAP service
@@ -501,11 +503,9 @@ And, I got many helps from TCM discord.
 
    ![ldapCommand4](../assets/img/AD/Screenshot%202024-07-19%20at%2013.29.41.png)
 
-   ![ldpaCommand5](../assets/img/AD/Screenshot%202024-07-19%20at%2013.29.58.png)
+   ![ldapCommand5](../assets/img/AD/Screenshot%202024-07-19%20at%2013.29.58.png)
 
 2. Bloodhound
-
-   GitHub: https://github.com/BloodHoundAD/BloodHound
 
    In this enumeration, I am going to use neo4j. Neo4j is the DBMS for graph database.
 
@@ -585,4 +585,54 @@ And, I got many helps from TCM discord.
 
    ![updateData10](../assets/img/AD/Screenshot%202024-07-19%20at%2011.52.01.png)
 
-3. Plumhound
+3. PlumHound
+
+   Github: https://github.com/PlumHound/PlumHound
+
+   install PlumHound
+
+   ![installPlum](../assets/img/AD/Screenshot%202024-07-19%20at%2015.55.37.png)
+
+   ![installPlum2](../assets/img/AD/Screenshot%202024-07-19%20at%2015.55.45.png)
+
+   ![installPlum3](../assets/img/AD/Screenshot%202024-07-19%20at%2015.55.55.png)
+
+   ![installPlum4](../assets/img/AD/Screenshot%202024-07-19%20at%2015.56.07.png)
+
+   run the plumHound
+
+   Before running this tool, the bloodhound should still be up.
+
+   `python3 PlumHound.py --easy -p neo4j1`
+
+   `--easy` is to indicate the script should run in easy mode, meant for quick setups and less customization.
+
+   `-p` is to specify the password of neo4j
+
+   ![extractInformation1](../assets/img/AD/Screenshot%202024-07-19%20at%2016.00.29.png)
+
+   ![extractInformation2](../assets/img/AD/Screenshot%202024-07-19%20at%2016.00.41.png)
+
+   `python3 PlumHound.py -x tasks/default.tasks -p neo4j1`
+
+   `-x` is to specify an external file that contains tasks or operations for PlumHound to execute.
+
+   `tasks/default.tasks` means that I want to execute default task files of PlumHound.
+
+   ![extractInformation3](../assets/img/AD/Screenshot%202024-07-19%20at%2016.01.01.png)
+
+   ![extractInformation4](../assets/img/AD/Screenshot%202024-07-19%20at%2016.01.12.png)
+
+   ![extractInformation5](../assets/img/AD/Screenshot%202024-07-19%20at%2016.01.22.png)
+
+   ![extractInformation6](../assets/img/AD/Screenshot%202024-07-19%20at%2016.01.34.png)
+
+   launch the file on the firefox
+
+   ![extractInformation7](../assets/img/AD/Screenshot%202024-07-19%20at%2016.01.46.png)
+
+   ![extractInformation8](../assets/img/AD/Screenshot%202024-07-19%20at%2016.02.56.png)
+
+   ![extractInformation9](../assets/img/AD/Screenshot%202024-07-19%20at%2016.02.32.png)
+
+   ![extractInformation10](../assets/img/AD/Screenshot%202024-07-19%20at%2012.42.45.png)
