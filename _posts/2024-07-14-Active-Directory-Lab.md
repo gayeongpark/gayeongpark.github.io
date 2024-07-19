@@ -621,7 +621,11 @@ And, I got many helps from TCM discord.
 
    ![extractInformation3](../assets/img/AD/Screenshot%202024-07-19%20at%2016.01.01.png)
 
+   114 tasks found in the `tasks/default.tasks` file.
+
    ![extractInformation4](../assets/img/AD/Screenshot%202024-07-19%20at%2016.01.12.png)
+
+   The output files are stored in the `reports` directory.
 
    ![extractInformation5](../assets/img/AD/Screenshot%202024-07-19%20at%2016.01.22.png)
 
