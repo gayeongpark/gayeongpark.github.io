@@ -1,13 +1,13 @@
 ---
 layout: post
-title: TCM - Active Directory Lab Building
-subtitle: Preparing for PJPT (Practical Junior Penetration Tester) certification by walking through active directory lab build
+title: TCM - Active Directory Lab Building (Vol1)
+subtitle: Preparing for PJPT (Practical Junior Penetration Tester) certification by walking through active directory lab build (Vol1)
 tags: [ethical hacking, tcm, pjpt, active directory, windows, lab building]
 comments: true
 author: Lantana Park
 ---
 
-# Active directory
+# Active directory 1
 
 ## Overview
 
@@ -479,6 +479,110 @@ And, I got many helps from TCM discord.
 
     Third, by using Use Access Control Lists (ACLs), only necessary IPv6 traffic should be permitted.
 
-9.  Passback Attacks
+## Attacking Active Directory: Post Compromise Enumeration
 
-10. Initial Internal attack strategy
+1. Idapdomaindump
+
+   It is a tool to extract information from a domain controller in a network.
+
+   `ldapdomaindump ldaps://192.168.64.33 -u 'MARVEL\fcastle' -p Password1`
+
+   `ldaps://192.168.64.33` is to specify the IP address (LDAP server)that I want to connect. LDAP (Lightweight Directory Access Protocol) is a protocol used to access and manage directory services (accessibility to information about the resources in a network)
+
+   `-u` is to specify the username for authentication. In this command, I indicated `MARVEL` domain name and fcastle username.
+
+   `-p` is to specify the password. In this command, I provided password `Password1`.
+
+   ![ldapCommand1](../assets/img/AD/Screenshot%202024-07-19%20at%2013.29.06.png)
+
+   ![ldapCommand2](../assets/img/AD/Screenshot%202024-07-19%20at%2013.29.12.png)
+
+   ![ldapCommand3](../assets/img/AD/Screenshot%202024-07-19%20at%2013.29.21.png)
+
+   ![ldapCommand4](../assets/img/AD/Screenshot%202024-07-19%20at%2013.29.41.png)
+
+   ![ldpaCommand5](../assets/img/AD/Screenshot%202024-07-19%20at%2013.29.58.png)
+
+2. Bloodhound
+
+   GitHub: https://github.com/BloodHoundAD/BloodHound
+
+   In this enumeration, I am going to use neo4j. Neo4j is the DBMS for graph database.
+
+   First, install `pip install bloodhound` and `apt install neo4j`
+
+   ![installBloodhound](../assets/img/AD/Screenshot%202024-07-19%20at%2014.37.43.png)
+
+   ![neo4j](../assets/img/AD/Screenshot%202024-07-19%20at%2014.35.31.png)
+
+   Second, run `neo4j console` to initialize the Neo4j server
+
+   ![neo4jStarting](../assets/img/AD/Screenshot%202024-07-19%20at%2014.39.24.png)
+
+   ![neo4jStarting2](../assets/img/AD/Screenshot%202024-07-19%20at%2014.39.38.png)
+
+   go to `http://localhost:7474`.
+
+   the first username and password will be neo4j. Once login success and then it is possible to revise password that I want.
+
+   ![neo4jAccessing](../assets/img/AD/Screenshot%202024-07-19%20at%2014.44.02.png)
+
+   ![neo4jAccessing](../assets/img/AD/Screenshot%202024-07-19%20at%2014.44.18.png)
+
+   Third, run the `bloodhound`
+
+   ![bloodhound](../assets/img/AD/Screenshot%202024-07-19%20at%2014.51.39.png)
+
+   open the bloodhound and then login with the username and changed password.
+
+   ![loginBloodHound](../assets/img/AD/Screenshot%202024-07-19%20at%2014.53.31.png)
+
+   and then boom!
+
+   ![bloodhound](../assets/img/AD/Screenshot%202024-07-19%20at%2014.57.35.png)
+
+   clear the data and then make directory
+
+   ![clearData](../assets/img/AD/Screenshot%202024-07-19%20at%2014.58.17.png)
+
+   ![makeDirect](../assets/img/AD/Screenshot%202024-07-19%20at%2014.59.44.png)
+
+   Fourth, execute `bloodhound-python -d MARVEL.local -u fcastle -p Password1 -ns 192.168.64.32 -c all`
+
+   `-ns` is to specify the server ip address
+
+   `-c` is to indicate that I want to extract all data
+
+   ![runningBloodhound](../assets/img/AD/Screenshot%202024-07-19%20at%2015.04.14.png)
+
+   ![runningBloodhound2](../assets/img/AD/Screenshot%202024-07-19%20at%2015.05.08.png)
+
+   I got all information.
+
+   ![updateData](../assets/img/AD/Screenshot%202024-07-19%20at%2015.06.31.png)
+
+   upload the data I got
+
+   ![updateData2](../assets/img/AD/Screenshot%202024-07-19%20at%2015.07.22.png)
+
+   ![updateData3](../assets/img/AD/Screenshot%202024-07-19%20at%2015.07.27.png)
+
+   Select all the json file
+
+   ![updateData4](../assets/img/AD/Screenshot%202024-07-19%20at%2015.07.34.png)
+
+   ![updateData5](../assets/img/AD/Screenshot%202024-07-19%20at%2015.07.39.png)
+
+   Once the upload is completed, click `clear finish` and then `X`
+
+   ![updateData6](../assets/img/AD/Screenshot%202024-07-19%20at%2015.08.14.png)
+
+   ![updateData7](../assets/img/AD/Screenshot%202024-07-19%20at%2015.08.23.png)
+
+   ![updateData8](../assets/img/AD/Screenshot%202024-07-19%20at%2011.51.08.png)
+
+   ![updateData9](../assets/img/AD/Screenshot%202024-07-19%20at%2011.54.11.png)
+
+   ![updateData10](../assets/img/AD/Screenshot%202024-07-19%20at%2011.52.01.png)
+
+3. Plumhound
