@@ -487,9 +487,9 @@ And, I got many helps from TCM discord.
 
    It is a tool to extract information from a domain controller in a network.
 
-   `ldapdomaindump ldaps://192.168.64.33 -u 'MARVEL\fcastle' -p Password1`
+   `ldapdomaindump ldaps://192.168.64.32 -u 'MARVEL\fcastle' -p Password1`
 
-   `ldaps://192.168.64.33` is to specify the IP address (LDAP server)that I want to connect. LDAP (Lightweight Directory Access Protocol) is a protocol used to access and manage directory services (accessibility to information about the resources in a network)
+   `ldaps://192.168.64.32` is to specify the IP address (LDAP server)that I want to connect. LDAP (Lightweight Directory Access Protocol) is a protocol used to access and manage directory services (accessibility to information about the resources in a network). And `LDAPS` means LDAP communication will be encrypted over SSL.
 
    `-u` is to specify the username for authentication. In this command, I indicated `MARVEL` domain name and fcastle username.
 
@@ -507,7 +507,7 @@ And, I got many helps from TCM discord.
 
 2. Bloodhound
 
-   In this enumeration, I am going to use neo4j. Neo4j is the DBMS for graph database.
+   In this enumeration, I am going to use neo4j. Neo4j is a DBMS for graph type database.
 
    First, install `pip install bloodhound` and `apt install neo4j`
 
@@ -523,17 +523,17 @@ And, I got many helps from TCM discord.
 
    go to `http://localhost:7474`.
 
-   the first username and password will be neo4j. Once login success and then it is possible to revise password that I want.
+   the first username and password will be `neo4j:neo4j`. After login success, it is possible to revise password that I want.
 
    ![neo4jAccessing](../assets/img/AD/Screenshot%202024-07-19%20at%2014.44.02.png)
 
    ![neo4jAccessing](../assets/img/AD/Screenshot%202024-07-19%20at%2014.44.18.png)
 
-   Third, run the `bloodhound`
+   Third, run the `bloodhound`,
 
    ![bloodhound](../assets/img/AD/Screenshot%202024-07-19%20at%2014.51.39.png)
 
-   open the bloodhound and then login with the username and changed password.
+   open the bloodhound and then login with the username and changed password,
 
    ![loginBloodHound](../assets/img/AD/Screenshot%202024-07-19%20at%2014.53.31.png)
 
