@@ -221,7 +221,7 @@ author: Lantana Park
 
     ![installGowitness1](../assets/img/webRevisited/Screenshot%202024-07-23%20at%2014.01.45.png)
 
-    I am not sure why I need to install `gorm.io`. Because, according to the video, there is only instruction command with no reason...
+    I am not sure why I need to install `gorm.io`. Because, there is only instruction to write this command with no reason...
 
     However `gorm.io` is one of go lan library package.
 
@@ -235,7 +235,7 @@ author: Lantana Park
 
     ![runGowitness2](../assets/img/webRevisited/Screenshot%202024-07-23%20at%2014.36.48.png)
 
-5.  Multi-tasking bash script
+5.  Multi-tasking enumeration with writing bash script
 
 ```bash
 #!/bin/bash
@@ -343,6 +343,42 @@ rm $url/recon/wayback/extensions/aspx1.txt
 ```
 
 ## Find & Exploit Common web vulnerabilities
+
+### Web hacking lab building
+
+- Install Docker
+
+![labInstall1](../assets/img/webRevisited/Screenshot%202024-07-23%20at%2017.49.57.png)
+
+![labInstall2](../assets/img/webRevisited/Screenshot%202024-07-23%20at%2017.50.12.png)
+
+- Install Docker-compose
+
+![labInstall3](../assets/img/webRevisited/Screenshot%202024-07-23%20at%2017.50.40.png)
+
+![labInstall4](../assets/img/webRevisited/Screenshot%202024-07-23%20at%2017.50.54.png)
+
+![labInstall5](../assets/img/webRevisited/Screenshot%202024-07-23%20at%2017.51.02.png)
+
+![labInstall6](../assets/img/webRevisited/Screenshot%202024-07-23%20at%2017.51.10.png)
+
+- Download a compressed file `peh-web-labs.tar.gz` and run it
+
+![labInstall7](../assets/img/webRevisited/Screenshot%202024-07-23%20at%2017.51.33.png)
+
+![labInstall8](../assets/img/webRevisited/Screenshot%202024-07-23%20at%2017.51.38.png)
+
+![labInstall9](../assets/img/webRevisited/Screenshot%202024-07-23%20at%2017.51.46.png)
+
+![labInstall10](../assets/img/webRevisited/Screenshot%202024-07-23%20at%2017.51.53.png)
+
+![labInstall11](../assets/img/webRevisited/Screenshot%202024-07-23%20at%2017.51.59.png)
+
+![labInstall12](../assets/img/webRevisited/Screenshot%202024-07-23%20at%2017.52.06.png)
+
+![labInstall13](../assets/img/webRevisited/Screenshot%202024-07-23%20at%2017.52.19.png)
+
+![labInstall14](../assets/img/webRevisited/Screenshot%202024-07-23%20at%2017.53.34.png)
 
 1. SQL injection
 
