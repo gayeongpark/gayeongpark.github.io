@@ -226,9 +226,85 @@ Implement additional measures like restricting SPNs, rotating passwords, and mon
 
 This attack starts with the question. What if a Domain admin token was available?
 
-### What are the tokens?
+Once the attacker has the Domain(DC) Admin token, they can use it to impersonate the Domain Admin. This involves injecting the token into their session or creating a new session with the stolen token.
 
-These are like cookies in the browser.
+Let's knock out this token impersonation attack!
+
+1. Start the `matesploit`, set the options and create a session
+
+![startMetasploi1](../assets/img/AD2/Screenshot%202024-07-25%20at%2018.47.15.png)
+
+![startMetasploit2](../assets/img/AD2/Screenshot%202024-07-25%20at%2018.47.28.png)
+
+![startMetasploit3](../assets/img/AD2/Screenshot%202024-07-25%20at%2018.47.42.png)
+
+![startMetasploit4](../assets/img/AD2/Screenshot%202024-07-25%20at%2018.48.13.png)
+
+![startMetasploit5](../assets/img/AD2/Screenshot%202024-07-25%20at%2018.48.39.png)
+
+![startMetasploit6](../assets/img/AD2/Screenshot%202024-07-25%20at%2018.48.57.png)
+
+![startMetasploit7](../assets/img/AD2/Screenshot%202024-07-25%20at%2018.49.15.png)
+
+![startMetasploit8](../assets/img/AD2/Screenshot%202024-07-25%20at%2018.49.32.png)
+
+2. Load the incognito module
+
+The reason why I need to use incognito module is that this module makes impersonation attack and subsequent privilege escalation much more possible and easy.
+
+Once I load the incognito module, it adds several commands to my meterpreter session that are not available by default.
+
+![loadIncognito1](../assets/img/AD2/Screenshot%202024-07-25%20at%2019.24.33.png)
+
+![loadIncognito2](../assets/img/AD2/Screenshot%202024-07-25%20at%2019.24.55.png)
+
+3. List Available Tokens
+
+This command lists all the available tokens under the current user context.
+
+![delegationToken](../assets/img/AD2/Screenshot%202024-07-25%20at%2018.52.21.png)
+
+4. Impersonate a token
+
+I attempts to impersonate the user `MARVEL\fcastle`
+
+![impersonation1](../assets/img/AD2/Screenshot%202024-07-25%20at%2019.29.37.png)
+
+Verified impersonation
+
+![impersonation2](../assets/img/AD2/Screenshot%202024-07-25%20at%2019.29.57.png)
+
+5. Revert to self and impersonate a higher Privilege Token
+
+![reverting1](../assets/img/AD2/Screenshot%202024-07-25%20at%2018.51.44.png)
+
+This command reverts the session back to the original user context
+
+![reverting2](../assets/img/AD2/Screenshot%202024-07-25%20at%2018.52.21.png)
+
+![reverting3](../assets/img/AD2/Screenshot%202024-07-25%20at%2018.52.36.png)
+
+6. Verifying higher privileged impersonation and add a new user to the Domain Controller
+
+![addingNewUser](../assets/img/AD2/Screenshot%202024-07-25%20at%2019.35.46.png)
+
+I could notice that `hawkeye` was added.
+
+![verification1](../assets/img/AD2/Screenshot%202024-07-25%20at%2019.35.56.png)
+
+![verification2](../assets/img/AD2/Screenshot%202024-07-25%20at%2019.36.07.png)
+
+![verification3](../assets/img/AD2/Screenshot%202024-07-25%20at%2018.30.53.png)
+
+- Token Impersonation - Mitigation
+
+Assign users and service accounts only the minimum permissions they need to perform their job functions. Avoid granting unnecessary administrative privileges that could be abused for token manipulation.
+
+Users should not have administrative rights on their local machines unless absolutely necessary.
+
+- LNK file attacks
+
+- GPP / cPassword attacks
 
 ## Additional Active Directory Attacks
 
