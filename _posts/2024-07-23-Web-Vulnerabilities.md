@@ -380,7 +380,209 @@ rm $url/recon/wayback/extensions/aspx1.txt
 
 ![labInstall14](../assets/img/webRevisited/Screenshot%202024-07-23%20at%2017.53.34.png)
 
-1. SQL injection
+1. SQL injection attack
+
+   SQLi can happens when user input is not properly sanitized.
+
+   Checking SQL injection vulnerability
+
+   `' or 1=1#` does work to retrieve usernames and passwords.
+
+   This suggests that the database is highly likely to be MySQL because it correctly recognize `#` as comment.
+
+   ![sqli1](../assets/img/sqli/Screenshot%202024-07-29%20at%2013.18.29.png)
+
+   - UNION attack
+
+     Attackers can use the `UNION` keyword to get data from other tables within the database.
+
+     In order to work a `UNION` query, two key requirements must be satisfied:
+
+     1. How many columns are being returned from the original query?
+
+        **Method 1** - `ORDER BY`
+
+        `bob' order by 1#`
+        ![sqli2](../assets/img/sqli/Screenshot%202024-07-29%20at%2013.36.59.png)
+
+        `bob' order by 2#`
+        ![sqli3](../assets/img/sqli/Screenshot%202024-07-29%20at%2013.37.11.png)
+
+        `bob' order by 3#`
+        ![sqli4](../assets/img/sqli/Screenshot%202024-07-29%20at%2013.37.28.png)
+
+        `bob' order by 4#`
+        ![sqli5](../assets/img/sqli/Screenshot%202024-07-29%20at%2013.37.45.png)
+
+        It gave me `No user found` result, then I could notice that the result set of the query has fewer than 4 columns.
+
+        **Method 2** - `' UNION SELECT`
+
+        `bob' union select null#`
+
+        ![sqli6](../assets/img/sqli/Screenshot%202024-07-29%20at%2013.45.06.png)
+
+        `bob' union select null, null#`
+
+        ![sqli7](../assets/img/sqli/Screenshot%202024-07-29%20at%2013.45.28.png)
+
+        `bob' union select null, null, null#`
+
+        ![sqli8](../assets/img/sqli/Screenshot%202024-07-29%20at%2013.45.59.png)
+
+        I was able to determine that the original query returns three columns.
+
+        #### Why comments are important?
+
+        By using comments, I can ensure that the database only execute the injected part of the query and the rest of the original query is ignored, preventing syntax errors and unintended results.
+
+        #### Why NULL is used?
+
+        `NULL` is compatible with any data type, so it helps avoid type mismatch errors.
+
+     2. Which columns returned from the original query are of a suitable **data type** to hold the results from the injected query.
+
+        After determining the number of required columns, I can probe each column to test whether it can hold string data. Because the interesting data that I want to retrieve is normally in string form.
+
+        ![sqli9](../assets/img/sqli/Screenshot%202024-07-29%20at%2013.57.39.png)
+
+        ![sqli10](../assets/img/sqli/Screenshot%202024-07-29%20at%2013.58.04.png)
+
+        ![sqli11](../assets/img/sqli/Screenshot%202024-07-29%20at%2013.58.33.png)
+
+        Since there were no errors, the three columns can handle string data.
+
+        3. Use a SQL injection UNION attack to retrieve interesting data.
+
+        Database version
+
+        ![sqli12](../assets/img/sqli/Screenshot%202024-07-29%20at%2015.25.54.png)
+
+        Table information
+
+        ![table](../assets/img/sqli/Screenshot%202024-07-29%20at%2015.21.02.png)
+
+        Column information
+
+        ![column](../assets/img/sqli/Screenshot%202024-07-29%20at%2015.21.46.png)
+
+        Password information
+
+        ![password](../assets/img/sqli/Screenshot%202024-07-29%20at%2015.20.39.png)
+
+        CHEAT SHEET
+
+        https://portswigger.net/web-security/sql-injection/cheat-sheet
+
+        - Blind SQL injection
+
+        Check if this website is vulnerable to SQL injection
+
+        I logged in this website using the given credentials `jeremy:jeremy`.
+
+        ![blindInjection](../assets/img/sqli/Screenshot%202024-07-30%20at%2012.50.00.png)
+
+        Made a repeater to the GET request.
+
+        ![blindInjection2](../assets/img/sqli/Screenshot%202024-07-30%20at%2012.50.09.png)
+
+        In this GET request, I sent a GET request to see if set-cookie value is used in a SQL query without proper sanitization.
+
+        The two different requests to the server with slightly altered cookie value to see if the server's response changes.
+
+        ![blindInjection3](../assets/img/sqli/Screenshot%202024-07-30%20at%2012.03.55.png)
+
+        ![blindInjection4](../assets/img/sqli/Screenshot%202024-07-30%20at%2012.04.02.png)
+
+        ![blindInjection5](../assets/img/sqli/Screenshot%202024-07-30%20at%2013.05.15.png)
+
+        The website displayed the "Welcome to your dashboard!" message, it indicates that my injected condition was included in the SQL query and executed successfully.
+
+        ![blindInjection6](../assets/img/sqli/Screenshot%202024-07-30%20at%2012.04.19.png)
+
+        ![blindInjection7](../assets/img/sqli/Screenshot%202024-07-30%20at%2012.04.27.png)
+
+        ![blindInjection8](../assets/img/sqli/Screenshot%202024-07-30%20at%2013.05.26.png)
+
+        The website did not display the message, it indicates that the false condition caused the query to return no results.
+
+        Let's find the database version using blind SQL injection.
+
+        ![versionInjection1](../assets/img/sqli/Screenshot%202024-07-30%20at%2013.31.11.png)
+
+        ![versionInjection2](../assets/img/sqli/Screenshot%202024-07-30%20at%2013.31.20.png)
+
+        **8.X.X**
+
+        ![versionInjection3](../assets/img/sqli/Screenshot%202024-07-30%20at%2013.20.38.png)
+
+        **8.0.X**
+
+        ![versionInjection4](../assets/img/sqli/Screenshot%202024-07-30%20at%2013.19.02.png)
+
+        ![versionInjection5](../assets/img/sqli/Screenshot%202024-07-30%20at%2013.21.28.png)
+
+        ![versionInjection6](../assets/img/sqli/Screenshot%202024-07-30%20at%2013.21.42.png)
+
+        ![versionInjection6](../assets/img/sqli/Screenshot%202024-07-30%20at%2013.21.52.png)
+
+        **8.0.3**
+
+        Finally, let's find the password of user `jeremy`.
+
+        ![passwordFinding](../assets/img/sqli/Screenshot%202024-07-30%20at%2013.43.02.png)
+
+        ![passwordFinding2](../assets/img/sqli/Screenshot%202024-07-30%20at%2014.12.01.png)
+
+        ![passwordFinding3](../assets/img/sqli/Screenshot%202024-07-30%20at%2014.13.39.png)
+
+        ![passwordFinding4](../assets/img/sqli/Screenshot%202024-07-30%20at%2014.16.18.png)
+
+        ![passwordFinding5](../assets/img/sqli/Screenshot%202024-07-30%20at%2014.17.12.png)
+
+        ![passwordFinding6](../assets/img/sqli/Screenshot%202024-07-30%20at%2014.18.18.png)
+
+        ![passwordFinding7](../assets/img/sqli/Screenshot%202024-07-30%20at%2014.18.09.png)
+
+        The password was `jeremy`
+
+        - Challenge : injection0x03
+
+        Since there was cookie value, I did union attack to get the user information.
+
+        Determining the number of columns
+
+        ![determiningColumn1](../assets/img/sqli/Screenshot%202024-07-30%20at%2015.30.55.png)
+
+        ![determiningColumn2](../assets/img/sqli/Screenshot%202024-07-30%20at%2015.31.11.png)
+
+        ![determiningColumn3](../assets/img/sqli/Screenshot%202024-07-30%20at%2015.31.27.png)
+
+        ![determiningColumn4](../assets/img/sqli/Screenshot%202024-07-30%20at%2015.31.46.png)
+
+        Using the payload `' UNION SELECT null, null, null#` indicates that the website is vulnerable to SQL injection and suggests that the original query has at least three columns.
+
+        Retrieving Tables
+
+        ![tablesRetrieving1](../assets/img/sqli/Screenshot%202024-07-30%20at%2015.32.53.png)
+
+        ![tableRetrieving2](../assets/img/sqli/Screenshot%202024-07-30%20at%2015.33.09.png)
+
+        Retrieving Columns
+
+        ![columnRetrieving1](../assets/img/sqli/Screenshot%202024-07-30%20at%2015.34.20.png)
+
+        ![columnRetrieving2](../assets/img/sqli/Screenshot%202024-07-30%20at%2015.34.40.png)
+
+        Retrieving password
+
+        ![passwordRetrieving](../assets/img/sqli/Screenshot%202024-07-30%20at%2015.28.48.png)
+
+        Retrieving username
+
+        ![usernameRetrieving](../assets/img/sqli/Screenshot%202024-07-30%20at%2015.28.24.png)
+
+        `takeshi`(username) : `onigirigadaisuki`(password)
 
 2. XSS
 

