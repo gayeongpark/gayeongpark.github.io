@@ -405,17 +405,21 @@ Prepared a file to crack these hashes
 
 It is to compromising the krbtgt account for owning the domain.
 
-With this credential, I can request access to any resource or system on the domain.
+### What is `krbtgt` account?
+
+It is automatically created when a Microsoft Active Directory Domain is created. When users logs in a Windows domain, they obtain TGT(Ticket Grant Ticket) which is signed with a key derived from the password of the `krbtgt`. The account's main function(`krbtgt` account) is to provide the secret key used to encrypt and sign all Kerberos tickets within the domain.
+
+A Golden Ticket is a forged Kerberos Ticket Granting Ticket (TGT) created using the `NTLM` hash of the `krbtgt` account password in a Microsoft Active Directory environment. With a Golden Ticket, an attacker can impersonate any user, including domain administrators, and gain unrestricted access to the domain.
 
 Golden tickets == complete access to every machine.
 
-Using the cracked password, I am going to create a golden ticket.
+Using the previously cracked password, I am going to create a golden ticket.
 
 Run the `metasploit`
 
 ![metasplotPsexec1](../assets/img/AD2/Screenshot%202024-08-01%20at%2012.12.42.png)
 
-Load the `kiwi`. Kiwi is an implementation of Mimikatz integrated into the Metasploit Framework. It allows penetration testers to use Mimikatz capabilities directly from the Metasploit environment without needing to run Mimikatz separately.
+Load the `kiwi`. Kiwi is an implementation of `Mimikatz` integrated into the Metasploit Framework. It allows penetration testers to use `Mimikatz` capabilities directly from the Metasploit environment without needing to run `Mimikatz` separately.
 
 ![metasploitPsexec2](../assets/img/AD2/Screenshot%202024-08-01%20at%2012.13.55.png)
 
