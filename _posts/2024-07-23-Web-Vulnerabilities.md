@@ -586,6 +586,10 @@ rm $url/recon/wayback/extensions/aspx1.txt
 
 2. XSS
 
+    - DOM
+    
+    - Stored
+
 3. Command injection
 
 4. Insecure File Upload

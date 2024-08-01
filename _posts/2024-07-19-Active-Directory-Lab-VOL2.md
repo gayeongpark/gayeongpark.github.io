@@ -371,10 +371,70 @@ Make an event by refreshing.
 
 To proceed with this attack, I logged in `peterparker` user in SPIDERMAN machine.
 
-1. Download the mimikats-related files. 
+1. Download the mimikats-related files.
 
 ## After compromising the domain controller/admin?
 
+If I compromise the domain controller on day one, I need to put on blinders and go do it again. I have to go back and try to find other vulnerabilities that are out there in other paths to the domain admin.
+
+During this time, I am going to dump the `NTDS.dit` and crack passwords.
+
+- Dumping the `NTDS.dit`
+
+### What is `NTDS.dit`?
+
+This is a database used to stored AD data. This data includes, user information, group information, security description, and password hashes.
+
+dumping the NTLM hashes
+
+Since I have created this account `hawkeye:Password1@`, I use it because it is stored in the DC local accounts.
+
+![ntlmHashes1](../assets/img/AD2/Screenshot%202024-08-01%20at%2010.06.18.png)
+
+Prepared a file to crack these hashes
+
+![ntlmHashes2](../assets/img/AD2/Screenshot%202024-08-01%20at%2010.24.23.png)
+
+![ntlmHashes3](../assets/img/AD2/Screenshot%202024-08-01%20at%2010.24.00.png)
+
+![ntlmHashes4](../assets/img/AD2/Screenshot%202024-08-01%20at%2010.24.16.png)
+
+![ntlmHashes5](../assets/img/AD2/Screenshot%202024-08-01%20at%2010.23.52.png)
+
+- Golden Ticket Attacks
+
+It is to compromising the krbtgt account for owning the domain.
+
+With this credential, I can request access to any resource or system on the domain.
+
+Golden tickets == complete access to every machine.
+
+Using the cracked password, I am going to create a golden ticket.
+
+Run the `metasploit`
+
+![metasplotPsexec1](../assets/img/AD2/Screenshot%202024-08-01%20at%2012.12.42.png)
+
+Load the `kiwi`. Kiwi is an implementation of Mimikatz integrated into the Metasploit Framework. It allows penetration testers to use Mimikatz capabilities directly from the Metasploit environment without needing to run Mimikatz separately.
+
+![metasploitPsexec2](../assets/img/AD2/Screenshot%202024-08-01%20at%2012.13.55.png)
+
+![metasploitPsexec3](../assets/img/AD2/Screenshot%202024-08-01%20at%2012.14.37.png)
+
+Create the golden ticket.
+
+Let's save `SID` and `NTLM` hashes of `krbtgt`.
+
+![gettingInfo1](../assets/img/AD2/Screenshot%202024-08-01%20at%2011.31.37.png)
+
+![gettingInfo2](../assets/img/AD2/Screenshot%202024-08-01%20at%2012.10.51.png)
+
+![metasploitPsexec4](../assets/img/AD2/Screenshot%202024-08-01%20at%2012.12.01.png)
+
+With this golden ticket, I can revise domain users' password or set up backdoor.
+
 ## Additional Active Directory Attacks
+
+## AD Case Studies (interesting strategies)
 
 ## Attacking Active Directory: Post Exploitation
