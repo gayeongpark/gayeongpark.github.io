@@ -425,6 +425,10 @@ Load the `kiwi`. Kiwi is an implementation of `Mimikatz` integrated into the Met
 
 ![metasploitPsexec3](../assets/img/AD2/Screenshot%202024-08-01%20at%2012.14.37.png)
 
+![kiwiCommand1](../assets/img/AD2/Screenshot%202024-08-01%20at%2016.39.48.png)
+
+![kiwiCommand2](../assets/img/AD2/Screenshot%202024-08-01%20at%2016.38.03.png)
+
 Create the golden ticket.
 
 Let's save `SID` and `NTLM` hashes of `krbtgt`.
