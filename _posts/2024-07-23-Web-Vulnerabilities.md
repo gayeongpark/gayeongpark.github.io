@@ -761,7 +761,7 @@ Let's try to get a shell by commanding payloads.
 
 ![exploitationCI7](../assets/img/commandInjection/Screenshot%202024-08-05%20at%2010.46.08.png)
 
-- Blind / Out-of-Band
+- Blind / Out-of-Band (0X02)
 
 Many examples of command injection are blind vulnerabilities. In reality, the website does not return the output from the command within its HTTP response. So the attacker should infer success based on application responses, changes in behavior, or side effects.
 
@@ -801,7 +801,39 @@ Saved this file to the target server.
 
 ![exploitationCI6](../assets/img/commandInjection/Screenshot%202024-08-05%20at%2012.34.09.png)
 
-Capstone,
+- Challenge
+
+Test to know which result I can get.
+
+![commandInjection1](../assets/img/commandInjection/Screenshot%202024-08-05%20at%2019.25.16.png)
+
+This application was using `awk` to execute a command with user-provided input.
+
+![commandInjection2](../assets/img/commandInjection/Screenshot%202024-08-05%20at%2019.25.22.png)
+
+It turned into moving from parked.
+
+![commandInjection3](../assets/img/commandInjection/Screenshot%202024-08-05%20at%2020.05.08.png)
+
+According to the result, I decided to input the payload on the third input and then add the payload within the awk command.
+
+![commandInjection4](../assets/img/commandInjection/Screenshot%202024-08-05%20at%2019.25.45.png)
+
+![commandInjection5](../assets/img/commandInjection/Screenshot%202024-08-05%20at%2019.25.54.png)
+
+![commandInjection6](../assets/img/commandInjection/Screenshot%202024-08-05%20at%2019.17.21.png)
+
+![commandInjection7](../assets/img/commandInjection/Screenshot%202024-08-05%20at%2019.17.28.png)
+
+I appended `#` to comment out the rest of the line, `)^2))}'`, after the injected `whoami`.
+
+Attempted to exploit.
+
+![commandInjection8](../assets/img/commandInjection/Screenshot%202024-08-05%20at%2019.21.07.png)
+
+![commandInjection8](../assets/img/commandInjection/Screenshot%202024-08-05%20at%2019.20.54.png)
+
+![commandInjection9](../assets/img/commandInjection/Screenshot%202024-08-05%20at%2019.21.16.png)
 
 4. Insecure File Upload
 
