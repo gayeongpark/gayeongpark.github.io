@@ -725,7 +725,85 @@ It worked well. So I attempted to extract stored cookie.
 
 ![capstoneXSS6](../assets/img/xss/Screenshot%202024-08-04%20at%2015.39.09.png)
 
+**React.js can be vulnerable to XSS**
+
 3. Command injection
+
+- Basic command injection
+
+It is to inject command on the user input. Attackers can manipulate an application to execute arbitrary system commands on the server.
+
+Testing if this website is vulnerable to command injection.
+
+![testingCI1](../assets/img/commandInjection/Screenshot%202024-08-05%20at%2009.15.16.png)
+
+![testingCI2](../assets/img/commandInjection/Screenshot%202024-08-05%20at%2009.15.34.png)
+
+I appended a non-existent command at the end of the payload because `; whoami` did not return any result. Adding wrong commands, such as `asd`, `abc`, or `abcd`, at the end ensures that the application reveals as much information as possible about its command execution process.
+
+![testingCI3](../assets/img/commandInjection/Screenshot%202024-08-05%20at%2010.02.06.png)
+
+![testingCI4](../assets/img/commandInjection/Screenshot%202024-08-05%20at%2010.09.58.png)
+
+Let's try to get a shell by commanding payloads.
+
+![exploitationCI1](../assets/img/commandInjection/Screenshot%202024-08-05%20at%2010.32.52.png)
+
+![exploitationCI2](../assets/img/commandInjection/Screenshot%202024-08-05%20at%2010.32.46.png)
+
+![exploitationCI3](../assets/img/commandInjection/Screenshot%202024-08-05%20at%2010.35.10.png)
+
+![exploitationCI4](../assets/img/commandInjection/Screenshot%202024-08-05%20at%2010.35.30.png)
+
+![exploitationCI5](../assets/img/commandInjection/Screenshot%202024-08-05%20at%2010.35.10.png)
+
+![exploitationCI6](../assets/img/commandInjection/Screenshot%202024-08-05%20at%2010.35.36.png)
+
+![exploitationCI7](../assets/img/commandInjection/Screenshot%202024-08-05%20at%2010.46.08.png)
+
+- Blind / Out-of-Band
+
+Many examples of command injection are blind vulnerabilities. In reality, the website does not return the output from the command within its HTTP response. So the attacker should infer success based on application responses, changes in behavior, or side effects.
+
+Test
+
+![testBlindCI1](../assets/img/commandInjection/Screenshot%202024-08-05%20at%2011.00.45.png)
+
+![testBlindCI2](../assets/img/commandInjection/Screenshot%202024-08-05%20at%2011.33.01.png)
+
+![testBlindCI3](../assets/img/commandInjection/Screenshot%202024-08-05%20at%2011.36.01.png)
+
+![testBlindCI4](../assets/img/commandInjection/Screenshot%202024-08-05%20at%2011.36.41.png)
+
+![testBlindCI5](../assets/img/commandInjection/Screenshot%202024-08-05%20at%2011.36.54.png)
+
+![testBlindCI6](../assets/img/commandInjection/Screenshot%202024-08-05%20at%2011.41.17.png)
+
+![testBlindCI7](../assets/img/commandInjection/Screenshot%202024-08-05%20at%2011.42.22.png)
+
+![testBlindCI8](../assets/img/commandInjection/Screenshot%202024-08-05%20at%2011.42.27.png)
+
+![testBlindCI9](../assets/img/commandInjection/Screenshot%202024-08-05%20at%2011.42.27.png)
+
+With these commands and responses, I was able to confirm that the command injection worked. I have already prepared a PHP reverse shell file to obtain a shell.
+
+![exploitationCI1](../assets/img/commandInjection/Screenshot%202024-08-05%20at%2012.14.46.png)
+
+Saved this file to the target server.
+
+![exploitationCI2](../assets/img/commandInjection/Screenshot%202024-08-05%20at%2012.07.38.png)
+
+![exploitationCI3](../assets/img/commandInjection/Screenshot%202024-08-05%20at%2012.07.48.png)
+
+![exploitationCI4](../assets/img/commandInjection/Screenshot%202024-08-05%20at%2012.15.09.png)
+
+![exploitationCI5](../assets/img/commandInjection/Screenshot%202024-08-05%20at%2012.09.47.png)
+
+![exploitationCI6](../assets/img/commandInjection/Screenshot%202024-08-05%20at%2012.34.09.png)
+
+Capstone,
+
+
 
 4. Insecure File Upload
 
@@ -738,6 +816,8 @@ It worked well. So I attempted to extract stored cookie.
 8. Capstone
 
 # Wireless penetration testing
+
+## What is a wireless penetrating testing?
 
 # Reporting
 
