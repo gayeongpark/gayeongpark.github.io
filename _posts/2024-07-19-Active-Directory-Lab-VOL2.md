@@ -565,10 +565,10 @@ As this attack is extremely dangerous, I need to consider the potential impact o
 
 4. Cleaning up
 
-    I have to make the system/network as it was when I entered it.
+   I have to make the system/network as it was when I entered it.
 
-    - Remove executables, scripts, and added files
+   - Remove executables, scripts, and added files
 
-    - Remove malware, rootkits, and added user accounts
+   - Remove malware, rootkits, and added user accounts
 
-    - Set settings back to original configurations
+   - Set settings back to original configurations
