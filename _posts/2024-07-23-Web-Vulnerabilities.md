@@ -803,8 +803,6 @@ Saved this file to the target server.
 
 Capstone,
 
-
-
 4. Insecure File Upload
 
 5. Attacking Authentication
@@ -816,6 +814,8 @@ Capstone,
 8. Capstone
 
 # Wireless penetration testing
+
+To test, I need to buy a wifi usb adapter... Let me see...
 
 ## What is a wireless penetrating testing?
 

