@@ -944,7 +944,49 @@ Added payload on the password spot
 
 Password was `letmein`
 
-- MFA
+- MFA(Multi-factor authentication)
+
+There are two ways to do this attack. One is doing brute-forcing after noticing the pattern of the two-factor authentication code. The other is to intercept the post request and then replace the username into target username. In this case, I did the second option because I could not see any pattern on this code.
+
+There were no pattern on the MFA code.
+
+![mfa1](../assets/img/authenticationattack/Screenshot%202024-08-06%20at%2020.31.49.png)
+
+![mfa2](../assets/img/authenticationattack/Screenshot%202024-08-06%20at%2020.32.41.png)
+
+I made a repeater, replaced jessamy into jeremy(target account), and then sent request again.
+
+![mfa3](../assets/img/authenticationattack/Screenshot%202024-08-06%20at%2020.34.39.png)
+
+It worked well.
+
+In order to render a webpage logged in under jeremy,
+
+I logged in jessamy user account.
+
+![mfa4](../assets/img/authenticationattack/Screenshot%202024-08-06%20at%2020.37.30.png)
+
+Inputted the mfa code.
+
+![mfa5](../assets/img/authenticationattack/Screenshot%202024-08-06%20at%2020.37.57.png)
+
+![mfa6](../assets/img/authenticationattack/Screenshot%202024-08-06%20at%2020.37.47.png)
+
+Intercepted the request before I hit the submit.
+
+![mfa7](../assets/img/authenticationattack/Screenshot%202024-08-06%20at%2020.38.06.png)
+
+Hit the submit.
+
+![mfa8](../assets/img/authenticationattack/Screenshot%202024-08-06%20at%2020.38.16.png)
+
+Replaced by jeremy (target user)
+
+![mfa9](../assets/img/authenticationattack/Screenshot%202024-08-06%20at%2020.38.39.png)
+
+Hit the forward.
+
+![mfa10](../assets/img/authenticationattack/Screenshot%202024-08-06%20at%2020.38.48.png)
 
 - Challenge
 
