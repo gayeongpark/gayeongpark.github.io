@@ -921,6 +921,33 @@ https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Upload%20Insecur
 
 5. Attacking Authentication
 
+Authentication is the process of verifying that a user is who they claim to be.
+Authorization involves verifying whether a user is allowed to do something after login/signup.
+
+- Brute Force
+
+Made an intruder by this POST request.
+
+![BF1](../assets/img/authenticationattack/Screenshot%202024-08-06%20at%2015.49.01.png)
+
+Added payload on the password spot
+
+![BF2](../assets/img/authenticationattack/Screenshot%202024-08-06%20at%2015.49.15.png)
+
+![Bf3](../assets/img/authenticationattack/Screenshot%202024-08-06%20at%2015.57.55.png)
+
+![BF4](../assets/img/authenticationattack/Screenshot%202024-08-06%20at%2015.58.04.png)
+
+![BF5](../assets/img/authenticationattack/Screenshot%202024-08-06%20at%2015.57.33.png)
+
+![BF6](../assets/img/authenticationattack/Screenshot%202024-08-06%20at%2015.59.56.png)
+
+Password was `letmein`
+
+- MFA
+
+- Challenge
+
 6. XXE
 
 7. IDOR
