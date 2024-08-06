@@ -837,6 +837,88 @@ Attempted to exploit.
 
 4. Insecure File Upload
 
+This attack can be happened when a web server allows users to upload files to its filesystem without sufficiently sanitizing/validating the form. If so, attacker can attempt to upload files (such as `.php`, `.jsp`) that enables remote code execution.
+
+- Basic Bypass
+
+Test
+
+I attempted to upload `.txt` file
+
+![uploadFile1](../assets/img/insecureFileUpload/Screenshot%202024-08-06%20at%2009.31.02.png)
+
+![uploadFile2](../assets/img/insecureFileUpload/Screenshot%202024-08-06%20at%2009.30.24.png)
+
+and then `.png` file.
+
+![uploadFile3](../assets/img/insecureFileUpload/Screenshot%202024-08-06%20at%2010.15.12.png)
+
+![uploadFile4](../assets/img/insecureFileUpload/Screenshot%202024-08-06%20at%2009.28.14.png)
+
+![uploadFile5](../assets/img/insecureFileUpload/Screenshot%202024-08-06%20at%2009.28.31.png)
+
+Let's make a repeater to make some modified sends.
+
+Firstly, I uploaded `.txt` file.
+
+![uploadFile6](../assets/img/insecureFileUpload/Screenshot%202024-08-06%20at%2009.29.22.png)
+
+That means file upload form is only validating the file on the client side, not server side.
+
+Secondly, I successfully uploaded `.php` file which allows reversing shell.
+
+![uploadFile7](../assets/img/insecureFileUpload/Screenshot%202024-08-06%20at%2010.22.17.png)
+
+![uploadFile8](../assets/img/insecureFileUpload/Screenshot%202024-08-06%20at%2010.22.41.png)
+
+I needed to find the foothold to run this php file to do the remote code execution.
+
+For finding where the files are stored,
+
+![uploadFile9](../assets/img/insecureFileUpload/Screenshot%202024-08-06%20at%2009.50.56.png)
+
+![uploadFile10](../assets/img/insecureFileUpload/Screenshot%202024-08-06%20at%2009.55.28.png)
+
+![uploadFile11](../assets/img/insecureFileUpload/Screenshot%202024-08-06%20at%2009.55.17.png)
+
+![uploadFile12](../assets/img/insecureFileUpload/Screenshot%202024-08-06%20at%2009.51.12.png)
+
+![uploadFile13](../assets/img/insecureFileUpload/Screenshot%202024-08-06%20at%2009.55.45.png)
+
+![uploadFile14](../assets/img/insecureFileUpload/Screenshot%202024-08-06%20at%2009.56.07.png)
+
+I executed the code remotely.
+
+![uploadFile15](../assets/img/insecureFileUpload/Screenshot%202024-08-06%20at%2010.48.42.png)
+
+![uploadFile16](../assets/img/insecureFileUpload/Screenshot%202024-08-06%20at%2009.54.28.png)
+
+![uploadFile17](../assets/img/insecureFileUpload/Screenshot%202024-08-06%20at%2010.48.54.png)
+
+- Magic Bytes
+
+Some applications identify file type based on their first signature bytes. So I embedded the php payload in the middle of png payload.
+
+relevant resources:
+https://www.pwny.cc/web-attacks/insecure-file-upload
+https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Upload%20Insecure%20Files/README.md
+
+![magicBytes1](../assets/img/insecureFileUpload/Screenshot%202024-08-06%20at%2012.53.02.png)
+
+![magicBytes2](../assets/img/insecureFileUpload/Screenshot%202024-08-06%20at%2013.50.13.png)
+
+![magicBytes3](../assets/img/insecureFileUpload/Screenshot%202024-08-06%20at%2013.50.04.png)
+
+![magicBytes4](../assets/img/insecureFileUpload/Screenshot%202024-08-06%20at%2013.50.24.png)
+
+- Challenge
+
+![challenge4FileUpload1](../assets/img/insecureFileUpload/Screenshot%202024-08-06%20at%2014.37.05.png)
+
+![challenge4FileUpload2](../assets/img/insecureFileUpload/Screenshot%202024-08-06%20at%2014.35.52.png)
+
+![challenge4FileUpload3](../assets/img/insecureFileUpload/Screenshot%202024-08-06%20at%2014.36.05.png)
+
 5. Attacking Authentication
 
 6. XXE
