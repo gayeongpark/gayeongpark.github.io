@@ -990,9 +990,92 @@ Hit the forward.
 
 - Challenge
 
-6. XXE
+This challenge was really difficult because of the lock after 5 login fail attempts. So I needed to cut 5 password payloads on each brute-forcing attempt.
+
+To get a clue about password, I attempted to login with the usernames, such as admin, administrator, jeremy, jessamy, and password 123.
+
+I could notice that admin and administrator were existed.
+
+- admin
+
+![adminUser](../assets/img/authenticationattack/Screenshot%202024-08-07%20at%2009.01.04.png)
+
+- administrator
+
+![administratorUser](../assets/img/authenticationattack/Screenshot%202024-08-07%20at%2009.37.05.png)
+
+Made a intruder to do the brute-forcing username and password.
+
+Set the cluster comb to do the brute-forcing username and password at the same time.
+
+![intruder1](../assets/img/authenticationattack/Screenshot%202024-08-07%20at%2009.37.33.png)
+
+Payload 1 for username
+
+![intruder2](../assets/img/authenticationattack/Screenshot%202024-08-07%20at%2010.11.02.png)
+
+Payload 2 for password
+
+I set the password payload with 5 limitation because after 5 login fails, the account will be locked.
+
+![intruder3](../assets/img/authenticationattack/Screenshot%202024-08-07%20at%2010.10.54.png)
+
+Attack
+
+![intruder4](../assets/img/authenticationattack/Screenshot%202024-08-07%20at%2010.10.42.png)
+
+![intruder5](../assets/img/authenticationattack/Screenshot%202024-08-07%20at%2010.43.41.png)
+
+6. XXE (External Entity Injection)
+
+Some applications uses XML to transfer data. XML stands for extensible markup language. XXE vulnerabilities arise because the XML specification contains various potentially dangerous features.
+
+Test XXE vulnerabilities,
+
+Prepared the xml payload to see if this website parse the xml file.
+
+![xxe1](../assets/img/webRevisited/Screenshot%202024-08-07%20at%2011.17.57.png)
+
+![xxe2](../assets/img/webRevisited/Screenshot%202024-08-07%20at%2011.19.05.png)
+
+Let's retrieve user accounts.
+
+![xxe3](../assets/img/webRevisited/Screenshot%202024-08-07%20at%2011.14.27.png)
+
+![xxe4](../assets/img/webRevisited/Screenshot%202024-08-07%20at%2011.14.43.png)
+
+![xxe5](../assets/img/webRevisited/Screenshot%202024-08-07%20at%2011.15.12.png)
+
+![xxe6](../assets/img/webRevisited/Screenshot%202024-08-07%20at%2011.15.26.png)
+
+To explain the xml payload,
+
+```xml
+<?xml version="1.0"?>
+ <!-- This is the version declaration -->
+<!DOCTYPE creds [
+  <!ENTITY test SYSTEM 'file:///etc/passwd'>
+]>
+<!-- This is to declare an external entity named 'test'. The 'test' entity is set to the content of the file `/etc/passwd` -->
+<creds>
+<!-- This is the root element of the XML document -->
+  <user>&test;</user>
+  <!-- This contains entity reference. XML parser will attempt to replace `&test;` with the content of `/etc/passwd` -->
+  <password>&test;</password>
+</creds>
+```
 
 7. IDOR
+
+This vulnerability can occur when developer expose userID, sessionID, or accountID on the url. It will make attackers to do the brute-force and get the user account information easily.
+
+![idor1](../assets/img/webRevisited/Screenshot%202024-08-07%20at%2011.43.19.png)
+
+![idor2](../assets/img/webRevisited/Screenshot%202024-08-07%20at%2011.43.25.png)
+
+![idor3](../assets/img/webRevisited/Screenshot%202024-08-07%20at%2011.46.59.png)
+
+![idor4](../assets/img/webRevisited/Screenshot%202024-08-07%20at%2011.49.04.png)
 
 8. Capstone
 
