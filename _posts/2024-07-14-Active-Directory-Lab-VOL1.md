@@ -121,12 +121,10 @@ Requirements
 
   ![connectingCheckWithDC](../assets/img/AD/Screenshot%202024-07-16%20at%2019.11.51.png)
 
-Even though I set my victim ad environment manually by following the heath's instructions, It will be great to use this resource if you want to set AD environment without any guidance.
+Even though I set my victim AD environment manually by following the heath's instructions, It will be great to use this resource if you want to set AD environment without any guidance.
 
 [https://github.com/Dewalt-arch/pimpmyadlab?tab=readme-ov-file]
 [https://www.bowneconsultingcontent.com/pub/EH/proj/D7.htm]
-
-And, I got many helps from TCM discord.
 
 ## Attacking Active Directory: Initial Attack Vectors
 
@@ -142,7 +140,7 @@ And, I got many helps from TCM discord.
 
     Step 1, Run `responder`
 
-    `responder` is a tool to capture credentials, for example, once a target sends out an LLMNR request by inputting attacker's ip address (`\\192.168.64.11`) on the File explorer, for making an event, the `responder` will send a response to the server directing all traffic to the attacker.
+    `responder` is a tool to capture credentials, for example, once a target sends out an LLMNR request by inputting attacker's ip address (`\\192.168.64.11`) on the File explorer, for making an event, the `responder` will send a response to the attacker.
 
     `sudo responder -I eth0 -dwv`
 
@@ -160,7 +158,7 @@ And, I got many helps from TCM discord.
 
     ![waitingResponse2](../assets/img/AD/Screenshot%202024-07-17%20at%2010.38.30.png)
 
-    Step 2, Input attacker's ip address on the victim's (THEPUNISHER(Computer Name) - fcastle(User Name)) and Get the response from it.
+    Step 2, Input attacker's ip address on the victim's (THEPUNISHER(Computer Name) - fcastle(User Name))local machine and Get the response from it.
 
     ![connectingToAttacker1](../assets/img/AD/Screenshot%202024-07-17%20at%2010.45.53.png)
 
@@ -365,7 +363,7 @@ And, I got many helps from TCM discord.
 
        It is stands for "Process Execute". It is designed to allow administrators to perform various activities on remote computers.
 
-       Since I knew the password and username through the previous attacks, I am going to vulnerability to gain the shell access.
+       Since I knew the password and username of a local user through the previous attacks, I am going to vulnerability to gain the shell access.
 
        I got some issues in the process of the initial meterpreter through metasploit. The problems were resolved by disabling firewalls(domain, private and public) of the target machine and updating metasploit.
 
@@ -389,7 +387,7 @@ And, I got many helps from TCM discord.
 
        - Local administrator user exploitation
 
-       Important: `set smbdomain .` is needed to set the domain under local.
+       Important: `set smbdomain .` is required to set the local domain.
 
        ![metasploit9](../assets/img/AD/Screenshot%202024-07-18%20at%2011.44.37.png)
 

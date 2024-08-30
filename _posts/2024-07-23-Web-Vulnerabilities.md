@@ -1077,8 +1077,6 @@ This vulnerability can occur when developer expose userID, sessionID, or account
 
 ![idor4](../assets/img/webRevisited/Screenshot%202024-08-07%20at%2011.49.04.png)
 
-8. Capstone
-
 # Wireless penetration testing
 
 To test, I need to buy a wifi usb adapter... Let me see...
