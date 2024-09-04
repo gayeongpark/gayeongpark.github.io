@@ -1,28 +1,265 @@
 ---
 layout: post
-title: Comptia network+ certification
-subtitle: Preparing for Comptia network+ - OSI model
-tags: [network, comptia, fundamentals]
+title: CompTia network+ certification
+subtitle: Preparing for CompTia network+ - OSI model and TCP/IP model
+tags: [network, compTia, fundamentals, OSI model, TCP/IP model]
 comments: true
 author: Lantana Park
 ---
 
 # OSI Model (Open Systems interconnection Reference Model)
 
-It describes overall protocol data processing way.
+The OSI model was developed by the International Organization for Standardization (ISO) as a way to standardize networking protocols and ensure interoperability between different systems and technologies.
 
-## Layer 1 - Physical 
+The OSI model does not actually line up cleanly, easily, or accurately with the way that our modern networks are going to operate. Because modern networks primarily operate based on the TCP/IP model rather than the OSI model.
+
+However one of the benefits of using this reference model is that it can be used equivalently across lots of different technologies and devices and manufactures.
+
+`Please Do Not Throw Sausage Pizza Away`
+
+Our networks are designed for the purpose of making data flow across those networks. The name of data actually gets changed through the layers of the OSI model. Layer five, six, and seven are using the term 'data'. It can be called 'segments' or 'datagrams' in the fourth layer. In the layer three or network layer, I can call it a 'packet'. In the layer 2 or data link layer, it can be called 'frames'. And finally, I can convert the data into ones and zeros, so that it can be referred to 'bits' at the physical layer.
+
+`Do Some People Fear Birthdays`
+
+![osiModel](../assets/img/networkFundamental/1_Y9AgVIxbsgCejNCm-YD07g.png)
+
+## Layer 1 - Physical
+
+This is where binary bits are transmitted across the network and includes physical and electrical network characteristics.
+
+Transition Modulation involves converting digital bits (0s and 1s) into specific electrical, optical, or radio waveforms that can be transmitted over a physical medium such as copper wires, fiber optics(light), or air.
+
+Cables are also part of the physical layer. If I am using something like a Cat 5 or a Cat 6 cable, I may have a certain connector on the end. The way that connector is wired is based on a certain standard. There are two type of standards.
+
+- TIA/EIA-568A
+
+- TIA/EIA-568B
+
+Layer 1 devices view networks from a physical topology perspective.
+
+Layer 1 is synchronizing our communication. I have to consider how does the receiving and know if it is ready to accept ones and zeros that I am going to send it. To make that sure, it should be ensured that it can be either be transmitted asynchronously or synchronously.
+
+In asynchronous networking, I should consider something like a voicemail, email, and messaging. This communication happens out of sync or out of time(irregular intervals). This asynchronous communication uses start and stop bits to indicate when transmissions occur from the sender to the receiver.
+
+In synchronously networking, people have to be in the same place at the same time. It is something like phone-calls. This synchronous networking perspective uses a reference clock to coordinate the transmissions by both sender and receiver.
+
+The way to utilize the bandwidth of the cable,
+
+- Broadband divides bandwidth into separate channels. It is a asynchronous communication. For example, TV service carries multiple channels having a single cable or Satellite.
+
+- Baseband uses all available frequencies on a medium (cable) to transmit data. It uses a reference clock and synchronous communication. For example, a telephone uses baseband communication. And a wired home ethernet network can be also the example of this baseband communication because it uses all of the frequency that is available on the cable.
+
+Multiplexing involves optimizing a limited amount of resources for more efficient utilization. It allows multiple people to use a baseband connection at the same time. There are three main types of multiplexing.
+
+- Time-Division Multiplexing (TDM) : Each session takes a turn, using time slots, to share the medium between all users.
+
+- Statistical Time-Division Multiplexing (StatTDM) : Dynamically allocates the time slots on an as-needed basis.
+
+- Frequency-Division Multiplexing (FDM) : Divides the medium into channels based on frequencies and each session is transmitted over a different channel.
+
+Layer 1 devices are essentially repeaters, passing along whatever is received.
+
+For example,
+
+Fiber optic cable, Ethernet cable, Coaxial cable (wired cables)
+
+Bluetooth, Wi-Fi, Near Field Communication (NFC) (wireless cables)
+
+Hubs, Access points, Media converters (infrastructure devices)
 
 ## Layer 2 - Data Link
 
+Data Link Layer packages data into frames and transmits those frames on the network while performing some error detection, correction, identifying unique network devices using MAC addresses, and providing some flow control.
+
+Every manufacturer of a network card assigns a unique 48-bit physical addressing system to every network interface card (NIC) they produced.
+
+`D2:51:F1:3A:34:29`
+
+`D2:51:F1` represents the particular vendor who made that NIC
+`3A:34:29` represents the exact machine it belongs to
+
+Logical Link Control (LLC) sublayer of the Data Link Layer provides connection services and allows acknowledgement of receipt of message. LLC is the most basic form of flow control by limiting the data that a sender can send at once and allowing the receiver to keep from being overwhelmed.
+
+Additionally, the LLC sublayer offers basic error control functions through mechanisms like checksums. For example, a checksum can be used to verify the integrity of the received data by comparing the calculated checksum of the received data against the transmitted checksum. If there is a mismatch, it indicates an error in transmission.
+
+Communication across the Layer 2 can be synchronized according to three different schemes. It refers to how data transmission is managed and synchronized between devices on a network at the Data Link Layer
+
+1. **Isochronous Communication** means that all network devices use a common reference clock source to synchronize their operations. This clock ensures that data is transmitted at precise intervals.
+
+2. **Synchronous Communication** means that network devices agree on a timing method or clocking scheme to understand when data begins and ends.
+
+3. **Asynchronous Communication** means that each network device operates based on its internal clock and uses special bits to signal the start and end of data frames.
+
+Layer 2 devices are like
+
+Switches, Bridges, Network Interface Card (NIC)
+
 ## Layer 3 - Network
+
+Layer 3 is all about how I am going to forward traffic, which we refer to as routing(layer 3 switching) using logical addresses.
+
+**Logical address**
+
+IPv4 and IPv6 are the primary protocols used at Layer 3.
+
+Example of an IPv4 address: `172.16.254.1`. This address is represented in dotted decimal notation, where the address is divided into four octets (each ranging from 0 to 255).
+
+There are three main methods for forwarding or routing data:
+
+- **Packet switching** : Data is divided into packets and then forwarded.
+
+- Circuit switching : Dedicated communication link is established between two devices. And constant communication path is maintained for the duration of a conversation.
+
+- Message switching : Data is divided into messages which may be stored and then forwarded.
+
+Most networks use packet switching
+
+**Route discovery and selection**
+
+This involves determining the best path for data to travel across a network. Routing protocols assist in this process by enabling routers to exchange information about the network.
+
+- Static route : routes are manually configured by a network administrator and do not change unless manually updated.
+
+- Dynamically assigned route : all of these routers continually talk to each other all the time. And they tell each other which way they know how to get to other routers and which one is the best and fastest route.
+
+**Connection Services**
+
+Layer 3 also provides connection services that enhance the reliability of data transmission. These services build upon the connection services provided at Layer 2.
+
+Flow Control : Ensures that the sender does not transmit data faster than the receiver can process it, preventing data loss.
+
+Packet Reordering : Sometimes packets may arrive at their destination out of order. Packet reordering is a process that ensures the data is correctly reassembled in the original order.
+
+Error Messaging : The Internet Control Message Protocol (ICMP) is used to send error messages and operational information, such as with tools like ping and traceroute.
+
+For example,
+
+Routers (Multi layer switches)
 
 ## Layer 4 - Transport
 
+Transport layer is the dividing line between the upper layers and the lower layers of the OSI model.
+
+**TCP** is a transmission control protocol. It is a connection-oriented protocol that is a reliable way\*\* to transport segments across the network. If a segment is dropped, the protocol will actually ask for acknowledgement each and every time. If it failed to get the acknowledgement, it will resend that piece of information. TCP protocol can be used in e-commerce, websites, and banking services.
+
+TCP three-way handshake
+
+SYN -> SYC-ACK -> ACK
+
+**UDP**(User Datagram Protocol) is what can be called as a connectionless protocol. It does not have to wait for connections. UDP is a unreliable way. If the datagram is dropped, the sender is unaware. So it is good for audio and visual streaming.
+
+TCP is for segments and UDP is for datagram
+
+**TCP** | Reliable | Connection-oriented | Segment retransmission and flow control through windowing | Segment sequencing | Acknowledges segments
+
+**UDP** | Unreliable | Connectionless | No windowing for retransmission | No sequencing | No acknowledgement
+
+There are a couple of extra reliability features.
+
+**Windowing** is a flow control mechanism that allows the sender to adjust the amount of data it transmits before waiting for an acknowledgment from the receiver. If the sender notices that many retransmissions are occurring, it indicates that too much data is being sent at once, overwhelming the network or the receiver. In response, the sender can reduce the "window size," which is the amount of data it sends before requiring an acknowledgment. By doing this, the sender sends smaller segments of data, reducing the likelihood of retransmissions and improving the efficiency and reliability of the transmission. Windowing helps to balance the flow of data, minimizing retransmissions while maximizing throughput by dynamically adjusting to the current network conditions.
+
+**Buffering** occurs when devices allocate memory to store segments if bandwidth is not readily available. Devices such as routers have a special memory in them that will store segments if the bandwidth is not readily available.
+
+Consider a scenario where a router is receiving a large volume of data from multiple sources faster than it can forward that data to the next destination due to limited outbound bandwidth. The router will start storing this data in its buffer. If the incoming data continues to arrive at a rate faster than it can be transmitted, the router’s buffer may fill up completely.
+
+Once the buffer is full, any additional incoming data has nowhere to go, resulting in a **buffer overflow**. The router then has to drop packets, which can lead to network performance issues such as dropped connections, delays, or the need for retransmissions. This is particularly problematic in high-traffic environments where routers are managing large amounts of data simultaneously.
+
+Device examples,
+
+WAN accelerators, Load balancers and firewalls
+
+Protocol examples,
+
+UDP and TCP
+
 ## Layer 5 - Session
+
+**Session** is a conversation that has to be kept separate from all of the others to prevent the intermingling of data. So this session layer keeps conversions separate to prevent intermingling of data.
+
+**Set up session**
+
+This is where we are going to check our user credentials and assign numbers to sessions to help identify them.
+
+**Maintain session**
+
+This is where we are going to transfer data back and forth across the network over and over and over again.
+
+If we have a break in the connection, we can reestablish the connections.
+
+If the connection established successfully, I am going to acknowledge the receipt of the data.
+
+**Tear down session**
+
+This is where the session ends after the transfer is done or when the other party disconnects. Tearing down a session can be done mutually or after the communication has finished.
+
+Devices examples,
+
+H.323(for video connections), NetBIOS
+
+**H.323** used to set up, maintain, and tear down voice and video connections. FaceTime or Skype are probably using like H.323. These operate over the real time transport protocol, known as **RTP**.
+
+**NetBIOS** is used by computers to share files over a network. Windows uses this method of its file sharing as well inside.
 
 ## Layer 6 - Presentation
 
+This layer is responsible for formatting the data to be exchanged and secures that data with proper encryption.
+
+**Data formatting**
+
+Data is formatted by the computer to have compatibility between different devices.
+
+**American Standard Code for Information Interchange (ASCII)** is for text-based language to use. It ensures data is readable by receiving system. It provides proper data structures and negotiates data transfer syntax for the Application Layer (Layer 7).
+
+Other format of data will be GIF, JPG, PNG, SVG, etc.
+
+**Encryption** is used to scramble data as it goes in transit to keep it secure from any prying eyes.
+
+For example, TLS (Transport Layer Security) is being used to secure the data between my computer and a website like Facebook or Google.
+
+TLS connections create an encrypted tunnel, so nobody else can see what's inside it, such as username, password, or credit card information.
+
+SSL (Secure Sockets Layer) was the predecessor to TLS and was commonly used for securing data, though it has largely been replaced by the more secure TLS.
+
+**Scripting languages** like HTML, JavaScript, or PHP operate at the Presentation Layer because they are involved in formatting and structuring data for display and interaction on the web.
+
 ## Layer 7 - Application
 
+This layer provides application-level services where users communicate with the computer.
 
+**File transfer**
+
+**Network transfer**
+
+**Application services** are the thing that unites communicating components from more than one network application.
+
+It belongs to the low-level protocol. For example, POP3, IMAP and SMTP
+
+**Service advertisement**
+
+This is where applications can send out announcements to other devices on the network to state the services they offer.
+
+For example,
+
+Email applications (IMAP, SMTP, or POP3)
+
+Web browsing applications (HTTP, HTTPS)
+
+Domain Name Service (DNS)
+
+File Transfer Protocol (FTP, FTPS, SFTP)
+
+Remote Access (Telnet, SSH and Simple Network Management Protocol)
+
+# The way to send data on the networks
+
+The data is continuously being encapsulated and decapsulated as it moves up or down the layers of the OSI model.
+
+## Encapsulation
+
+As we move down the OSI layers from seven to one, the data can be encapsulated.
+
+## Decapsulation
+
+If we move upward from layer one up to seven, we decapsulate the data.
+
+In the OSI model, we use protocol data units or PDU to transmit the data. 

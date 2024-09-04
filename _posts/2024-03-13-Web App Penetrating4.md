@@ -10,7 +10,7 @@ comments: true
 author: Lantana Park
 ---
 
-## OWASP webGoat A1 - Broken Access Control | Spoofing an Authentification Cookie🍪
+## OWASP webGoat A1 - Broken Access Control | Spoofing an Authentication Cookie🍪
 
 ![index](/assets/img/spoofing/Screenshot%202024-03-13%20at%2016.00.53.png)
 
