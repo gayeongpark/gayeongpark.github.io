@@ -138,21 +138,21 @@ It talks about how the traffic/data is actually going to flow in the network.
 
 **Ring Topology** : A network configuration where each device is connected to two other devices, forming a circular data path. This topology prevents data collisions due to its unidirectional flow. However, if one node fails, it can disrupt the entire network unless redundant connections are available for failover.
 
-    Modern Usage: Although not commonly used today, Ring Topology can be found in Fiber Distributed Data Interface (FDDI) implementations. FDDI is used for data transmission over fiber optic lines in a local area network (LAN) and can extend up to about 200 kilometers.
+- Modern Usage: Although not commonly used today, Ring Topology can be found in Fiber Distributed Data Interface (FDDI) implementations. FDDI is used for data transmission over fiber optic lines in a local area network (LAN) and can extend up to about 200 kilometers.
 
-    FDDI Ring Structure: Operates on a dual-ring structure, providing redundancy with a primary and secondary ring. If the primary ring fails, the secondary ring can maintain network operations, making it suitable for large data transfers and high-reliability requirements, such as in data centers or campus area networks.
+- FDDI Ring Structure: Operates on a dual-ring structure, providing redundancy with a primary and secondary ring. If the primary ring fails, the secondary ring can maintain network operations, making it suitable for large data transfers and high-reliability requirements, such as in data centers or campus area networks.
 
 **Bus Topology** : In this topology, all network devices are connected to a single central cable, called the bus or backbone. Any device can send data, and it is available to every other device on the bus. However, only the intended recipient processes the message.
 
-    Advantages : Easy to install and requires less cable than other layouts.
+- Advantages : Easy to install and requires less cable than other layouts.
 
-    Limitations : The entire network can be disabled if the main cable fails. Additionally, as more devices are added, network performance decreases due to increased data collisions. Bus Topology is rarely used in modern home or office networks.
+- Limitations : The entire network can be disabled if the main cable fails. Additionally, as more devices are added, network performance decreases due to increased data collisions. Bus Topology is rarely used in modern home or office networks.
 
 **Star Topology** : One of the most common network layouts that is in use today. Each node in the network is going to be connected to back to a centralized connection point, which is normally going to be a network switch. That switch can also act as a repeater for the network's data flow.
 
-    Advantages : It is considered to be very robust because the failure of one link does not affect any of the other links.
+- Advantages : It is considered to be very robust because the failure of one link does not affect any of the other links.
 
-    Limitations : if the central devices fails, the entire network fails/inoperable.
+- Limitations : if the central devices fails, the entire network fails/inoperable.
 
 **Hub-and-spoke Topology** : a variation of the star topology where the central node (hub) is connected to multiple nodes (spokes). The spokes are not directly connected each other. so they much transmit their data to one of the hubs, before that data is going to be forwarded to another hub and then onward to the final destination nodes in that spoke. This layout is commonly used in airlines as well as in telecommunication networks.
 
@@ -160,9 +160,9 @@ It talks about how the traffic/data is actually going to flow in the network.
 
 **Mesh Topology** : Features a point-to-point connection between every single device on the network to create a robust and redundant network.
 
-    **Full-mesh Topology** : every node is connected to every other node in the network. It provides high redundancy, but it can be very expensive and complex to install because of the number of cables and ports required.
+- **Full-mesh Topology** : every node is connected to every other node in the network. It provides high redundancy, but it can be very expensive and complex to install because of the number of cables and ports required.
 
-    **Partial-mesh Topology** : some nodes are organized in a full mesh schema, while others are only connected to one or two devices in the network.
+- **Partial-mesh Topology** : some nodes are organized in a full mesh schema, while others are only connected to one or two devices in the network.
 
 ## Wireless Network Tropology
 
@@ -180,19 +180,19 @@ It provides resilience from disasters.
 
 **Three-tiered hierarchy** : In a traditional data center topology, the three-tiered hierarchy is a widely used design that organizes the network into three distinct layers: Core, Distribution (or Aggregation), and Access (or Edge). Each layer has a specific role in ensuring efficient data flow, management, scalability, and redundancy.
 
-    Core : The Core Layer is the backbone of the data center network, providing high-speed and reliable connectivity between various distribution layers and external networks. It is responsible for routing and forwarding large amounts of data quickly and efficiently. The Core Layer is designed for high availability and typically features redundant links and devices to prevent downtime.
+- Core : The Core Layer is the backbone of the data center network, providing high-speed and reliable connectivity between various distribution layers and external networks. It is responsible for routing and forwarding large amounts of data quickly and efficiently. The Core Layer is designed for high availability and typically features redundant links and devices to prevent downtime.
 
-    Distribution/Aggregation : The Distribution Layer, also known as the Aggregation Layer, serves as an intermediary between the Core and Access layers. It aggregates traffic from multiple access switches before routing it to the Core Layer. This layer is also responsible for implementing policies, such as access control, quality of service (QoS), and load balancing. Additionally, it provides redundancy and fault tolerance by connecting to multiple Core Layer devices.
+- Distribution/Aggregation : The Distribution Layer, also known as the Aggregation Layer, serves as an intermediary between the Core and Access layers. It aggregates traffic from multiple access switches before routing it to the Core Layer. This layer is also responsible for implementing policies, such as access control, quality of service (QoS), and load balancing. Additionally, it provides redundancy and fault tolerance by connecting to multiple Core Layer devices.
 
-    Access/Edge : The Access Layer, also known as the Edge Layer, is the first point of entry into the data center network for end devices, such as servers, storage, and network-attached devices. It provides connectivity to the end devices and is responsible for enforcing security policies, VLAN segmentation, and port security. The Access Layer typically consists of switches that connect directly to the servers and other devices in the data center.
+- Access/Edge : The Access Layer, also known as the Edge Layer, is the first point of entry into the data center network for end devices, such as servers, storage, and network-attached devices. It provides connectivity to the end devices and is responsible for enforcing security policies, VLAN segmentation, and port security. The Access Layer typically consists of switches that connect directly to the servers and other devices in the data center.
 
 **Collapsed core** : Network architecture where the core and the distribution layers are being merged into a single layer. This is often seen in smaller or medium-sized data-centers. This can lower the costs because it can reduce the number of switches and simplify the management. This model also reduces latency by decreasing the number of hops between devices and the core of the network.
 
 **Spine and Leaf Architecture** : An alternative network design focused on optimizing communication within the data center itself, using a full mesh topology. This architecture provides faster speeds and lower latency compared to the traditional three-tiered hierarchy.
 
-    Spine : Consists of switches that interconnect all the Leaf Layer switches in a full mesh topology. This layer is responsible for high-speed, low-latency data transfer across the data center by ensuring that each Leaf switch has a direct path to every other Leaf switch.
+- Spine : Consists of switches that interconnect all the Leaf Layer switches in a full mesh topology. This layer is responsible for high-speed, low-latency data transfer across the data center by ensuring that each Leaf switch has a direct path to every other Leaf switch.
 
-    Leaf : Consists of access switches that aggregate traffic from different servers. Each Leaf switch is directly connected to the Spine Layer, providing a consistent and high-performance connection between servers and the network core.
+- Leaf : Consists of access switches that aggregate traffic from different servers. Each Leaf switch is directly connected to the Spine Layer, providing a consistent and high-performance connection between servers and the network core.
 
 When installing a Spine and Leaf architecture, it is common to install two switches in each server rack. This setup is known as Top of Rack (ToR) switching because the switches are physically installed at the top of the server rack. Each server in the rack connects to both of these switches, ensuring redundancy and high availability.
 
@@ -200,10 +200,10 @@ Spine and leaf architecture can be used in combination with the standard three-t
 
 **Traffic flows** :
 
-    North-South : The traffic that enters or leaves the data center from a system physically residing outside the data-center.
+- North-South : The traffic that enters or leaves the data center from a system physically residing outside the data-center.
 
-    Northbound Traffic : Leaving data-center
+- Northbound Traffic : Leaving data-center
 
-    Southbound Traffic : Entering data-center
+- Southbound Traffic : Entering data-center
 
-    East-West : Refers to data flow within a data-center
+- East-West : Refers to data flow within a data-center
