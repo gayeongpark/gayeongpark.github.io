@@ -88,8 +88,6 @@ Cons,
 
 The administration and backup is very difficult because all the files are located on different machines in different places. So it can occur redundancy.
 
-In Korea, Africa is using this networking model.
-
 ### Where the Peer-to-Peer useful?
 
 Each person of the network have and received files.
