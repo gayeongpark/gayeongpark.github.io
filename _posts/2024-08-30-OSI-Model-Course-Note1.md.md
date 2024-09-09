@@ -156,7 +156,7 @@ It talks about how the traffic/data is actually going to flow in the network.
 
 **Hub-and-spoke Topology** : a variation of the star topology where the central node (hub) is connected to multiple nodes (spokes). The spokes are not directly connected each other. so they much transmit their data to one of the hubs, before that data is going to be forwarded to another hub and then onward to the final destination nodes in that spoke. This layout is commonly used in airlines as well as in telecommunication networks.
 
-    Advantages : It can save a lot of money by not having to connect every one of those smaller offices to each of the other smaller offices all over the country.
+- Advantages : It can save a lot of money by not having to connect every one of those smaller offices to each of the other smaller offices all over the country.
 
 **Mesh Topology** : Features a point-to-point connection between every single device on the network to create a robust and redundant network.
 
