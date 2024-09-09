@@ -130,7 +130,7 @@ Flow Control : Ensures that the sender does not transmit data faster than the re
 
 Packet Reordering : Sometimes packets may arrive at their destination out of order. Packet reordering is a process that ensures the data is correctly reassembled in the original order.
 
-Error Messaging : The Internet Control Message Protocol (ICMP) is used to send error messages and operational information, such as with tools like ping and traceroute.
+Error Messaging : The Internet Control Message Protocol (ICMP) is used to send error messages and operational information, such as with tools like `ping` and `traceroute`.
 
 For example,
 
@@ -140,7 +140,7 @@ Routers (Multi layer switches)
 
 Transport layer is the dividing line between the upper layers and the lower layers of the OSI model.
 
-**TCP** is a transmission control protocol. It is a connection-oriented protocol that is a reliable way\*\* to transport segments across the network. If a segment is dropped, the protocol will actually ask for acknowledgement each and every time. If it failed to get the acknowledgement, it will resend that piece of information. TCP protocol can be used in e-commerce, websites, and banking services.
+**TCP** is a transmission control protocol. It is a connection-oriented protocol that is a reliable way to transport segments across the network. If a segment is dropped, the protocol will actually ask for acknowledgement each and every time. If it fails to get the acknowledgement, it will resend that piece of information. TCP protocol can be used in e-commerce, websites, and banking services.
 
 TCP three-way handshake
 
@@ -166,7 +166,7 @@ Once the buffer is full, any additional incoming data has nowhere to go, resulti
 
 Device examples,
 
-WAN accelerators, Load balancers and firewalls
+WAN accelerators, Load balancers and Firewalls
 
 Protocol examples,
 
@@ -256,10 +256,64 @@ The data is continuously being encapsulated and decapsulated as it moves up or d
 
 ## Encapsulation
 
-As we move down the OSI layers from seven to one, the data can be encapsulated.
+Encapsulation refers to wrapping data with additional information (headers and trailers) as it moves down through the OSI model layers.
 
 ## Decapsulation
 
-If we move upward from layer one up to seven, we decapsulate the data.
+Decapsulation is the reverse process: removing the wrappers (headers) as the data moves back up through the OSI layers.
 
-In the OSI model, we use protocol data units or PDU to transmit the data. 
+When the data reaches its destination, each layer will remove its specific header, like opening an envelope and taking out the contents. Once the data reaches the Application Layer, it’s in a format that the application can understand and process.
+
+## OSI Reference Model
+
+![exampleModel](../assets/img/networkFundamental/98d7dda0-c161-4568-80f2-6f06d25eb804_1600x1147.png)
+
+- Layer 7 (Application): The user sends data (e.g., using HTTP). A Layer 7 header with relevant information (like the type of application) is added to the data.
+
+- Layer 6 (Presentation): Encryption and formatting occur, and a Layer 6 header is added.
+
+- Layer 5 (Session): Information about the session (such as session management) is added as a Layer 5 header.
+
+- Layer 4 (Transport): At this layer, the transport protocol (TCP or UDP) adds a header. If TCP is used, information like source and destination ports, sequence numbers, and flags (like SYN and ACK) are included. If it's UDP, the header is smaller with only basic details like source and destination ports.
+
+  **TCP Headers** (20 byte - 60 bytes in size)
+
+  ![tcpHeader](../assets/img/networkFundamental/Screen_Shot_2023-04-17_at_14.38.17.png)
+
+  - SYN (Synchronization) is used to synchronize a connection during the three-way handshake.
+
+  - ACK (Acknowledgement) is used during the three-way handshake, but also used to acknowledge the successful receipt of packets.
+
+  - FIN (Finished) is used to tear down the virtual connections created using the three-way handshake and the SYN flag.
+
+  - RST (Reset) is used to immediately terminate the connection if something goes wrong or if a server wants to reject a connection request.
+
+  If the server does not want to accept the connection (e.g., it's overloaded, the service is unavailable, or it doesn't allow that client), it can respond by sending an RST (Reset) packet instead of the usual SYN-ACK response.
+
+  - PSH (Push) is used to ensure data is given priority and is processed at the sending or receiving ends. It used by the sender to indicate data with a higher priority level.
+
+  - URG (Urgent) is similar to PSH and identifies incoming data as urgent. It is sent to tell the recipient to process it immediately by ignoring anything else that's in the queue.
+
+  UDP header (only 8 bytes in size)
+
+  ![UDPHeader](../assets/img/networkFundamental/UDP-header.jpg)
+
+- Layer 3 (Network): The data gets an IP header containing source and destination IP addresses, which helps routers determine where to send the packet.
+
+  IP Header
+
+  ![ipHeader](../assets/img/networkFundamental/Pubconcierge-IP-Header-Format.png)
+
+- Layer 2 (Data Link): An Ethernet header with MAC (Media Access Control) addresses is added, helping switches direct the frame to the correct device on the local network.
+
+  Ethernet Header
+
+  ![etherHeader](../assets/img/networkFundamental/07fig04_alt.jpg)
+
+  - EtherType is used to indicate which protocol is encapsulated in the payload of a frame. (IPv4, IPv6)
+
+- Layer 1 (Physical): The data is converted into a series of electrical or optical signals, which is transmitted across the physical medium (e.g., Ethernet cable).
+
+## Wireshark
+
+It is the packet analyzer that can pull apart some network traffic and show different layers of the OSI model.
