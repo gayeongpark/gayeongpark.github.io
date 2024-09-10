@@ -65,7 +65,7 @@ Different type of copper media/cables
 
    ![rj45Andrj11](../assets/img/networkFundamental/RJ11-RJ45.jpg)
 
-   - RJ-45 is the standard connector for data networks that utilize copper cables to create ethernet network. This connector has an eight-position and eight-conductor configuration(8P8C). It is going to be widely used in networking to connect computers, switches and routers together inside of a local area network. It can support high-speed data transfer. RJ-45 connectors are used with CAT cables.
+   - **RJ-45** is the standard connector for data networks that utilize copper cables to **create ethernet network**. This connector has an eight-position and eight-conductor configuration(8P8C). It is going to be widely used in networking to connect computers, switches and routers together inside of a local area network. It can support high-speed data transfer. RJ-45 connectors are used with CAT cables.
 
 2. RG-X
 
@@ -73,7 +73,7 @@ Different type of copper media/cables
 
    RG-6 and RG-59 are used for cable television connections and high speed internet service connections respectively.
 
-   - F-type Connector is a screw on connector commonly used with both the RG-6 and RG-59 cable types. This connector is the standard for cable television and satellite connection and it can be used for cable internet connections too.
+   - **F-type Connector** is a screw on connector commonly used with both the RG-6 and RG-59 **cable types**. This connector is the standard for cable television and satellite connection and it can be used for cable internet connections too.
 
    ![f-typeConnector](../assets/img/networkFundamental/f-type.jpg)
 
@@ -171,13 +171,13 @@ Extending network distance by converting Ethernet to fiber for long-distance con
 
 Form Factors of transceivers:
 
-SFP (Small Form-Factor Pluggable): Supports up to 4.25 Gbps.
+SFP (Small Form-Factor Pluggable): Supports up to 4.25 Gbps. It is associated with a single-channel data link.
 
 SFP+: An upgraded version supporting up to 16 Gbps.
 
 QSFP (Quad Small Form-Factor Pluggable): Supports 40 Gbps, with **faster** variants like QSFP+, QSFP28 (100 Gbps), and QSFP56 (200 Gbps).
 
-QSFP+: Similar to the QSFP. It is slightly faster by reaching speeds of about 41.2 gigabits per second. 
+QSFP+: Similar to the QSFP. It is slightly faster by reaching speeds of about 41.2 gigabits per second.
 
 Remember that QSFP modules are faster than SFP modules.
 
