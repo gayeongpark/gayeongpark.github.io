@@ -11,7 +11,7 @@ author: Lantana Park
 
 ## Wireless network types
 
-- **Ad Hoc** / **Independent Basic Service Set** (IBSS) are networks where devices connect directly to each other rather than through a central access point. Ad Hoc network does not typically provide Internet access. Ad Hoc or peer-to-peer configuration allows sharing and collaboration, as long as the devices are within range.
+- **Ad Hoc** / **Independent Basic Service Set** (IBSS) are networks where devices **connect directly to each other** rather than through a central access point. Ad Hoc network does not typically provide Internet access. Ad Hoc or peer-to-peer configuration allows sharing and collaboration, as long as the devices are within range.
 
 When might I want to use ad hoc wireless network?
 
@@ -80,7 +80,7 @@ Mobile hot spot, wireless public networks.
 
 Wireless frequencies are the different frequency bands that are used to transmit and receive the radio waves used by the wireless networks to send data.
 
-- **2.4 GHz**(2.400 GHz to 2.495 GHz) - One of the most widely used frequencies for wireless networking and is known for its long-range and better penetration through solid objects. It has the slowest data transfer speeds due to having smaller channel widths and fewer nonoverlapping channels. Which can lead to interference and retransmission of the data.
+- **2.4 GHz**(2.400 GHz to 2.495 GHz) - One of the most widely used frequencies for wireless networking and is known for its long-range and better penetration through solid objects. It has the slowest data transfer speeds due to having smaller channel widths and fewer non-overlapping channels. Which can lead to interference and retransmission of the data.
 
 - **5 GHz**(5.725 GHz to 5.875 GHz) - There are 24 non-overlapping channels of 20 MHz per channel when working in a 5 GHz-based 802.11 wireless network. It has less interference and higher levels of performance. It has a shorter range then the 2.4 GHz band. (Video streaming and gaming). It has faster data transfer speed.
 
@@ -97,7 +97,7 @@ The IEEE 802.11 standards define the technology for Wi-Fi and have evolved to me
    - Frequency: 5 GHz
    - Speed: Up to 54 Mbps
    - Range: ~35 meters
-   - Higher cost made it primarily used by businesses.
+   - Higher cost made it primarily used by businesses
 
 2. 802.11b (Wireless B):
 
@@ -111,21 +111,21 @@ The IEEE 802.11 standards define the technology for Wi-Fi and have evolved to me
    - Frequency: 2.4 GHz
    - Speed: Up to 54 Mbps
    - Range: ~140 meters
-   - Combined Wireless A’s speed with Wireless B’s affordability.
+   - Combined Wireless A’s speed with Wireless B’s affordability
 
 4. 802.11n (Wireless N / Wi-Fi 4):
 
    - Frequency: 2.4 GHz & 5 GHz
    - Speed: Up to 600 Mbps
    - Range: ~70 meters (2.4 GHz) and ~35 meters (5 GHz)
-   - Introduced MIMO (multiple-input, multiple-output) for faster data transfer.
+   - Introduced MIMO (multiple-input, multiple-output) for faster data transfer. MIMO technology allows an access point to use multiple antennas to send and receive data at faster speeds
 
 5. 802.11ac (Wireless AC / Wi-Fi 5):
 
    - Frequency: 5 GHz
    - Speed: Up to 6.9 Gbps
    - Range: ~35 meters
-   - Introduced MU-MIMO (multi-user MIMO) for simultaneous connections by multiple users. High speed and reliability.
+   - Introduced MU-MIMO (multi-user MIMO) for simultaneous connections by multiple users. High speed and reliability
 
 6. 802.11ax (Wireless AX / Wi-Fi 6):
 
@@ -137,12 +137,69 @@ The IEEE 802.11 standards define the technology for Wi-Fi and have evolved to me
 - Wireless B, G, N, and AX support 2.4 GHz.
 - Wireless A, N, AC, and AX support 5 GHz.
 - Wi-Fi 6E (AX) supports 6 GHz.
-- Higher speeds often come with reduced coverage distances for a single access point.
+- Higher speeds often come with reduced coverage distances for a single access point
 
 ## Wireless Security
 
+Two mechanisms to authentication in the wireless networks,
+
+- Pre-Shared Key (PSK) is a mode of security authentication where the same password or key is being used on both the wireless access point and any connecting client devices trying to gain access to the network. It is a string and password string that I use to connect the wifi access.
+
+Problems,
+
+- Scalability becomes a big problem because everyone knows this key string.
+- There is no individual user accountability because every user is using the exact same key.
+
+Using a pre-shared key in a large office environment is not practical or effective most of the time.
+
+- Enterprise authentication system offers the ability to use individual user credentials and more robust security protocols. To do this, 802.1X can be used for enterprise-grade authentication method.
+
+Encryption options
+
+- Wired Equivalent Privacy (WEP) was the original wireless security standard the very first version of Wi-Fi networks. It is not secure because WEP relies on a pre-shared key and a weak encryption mechanism know as Rivest Cipher 4 (RC4). Additionally it has the **initialization vector** vulnerability. Using Aircrack-ng, attackers can crack a WEP network pre-shared key.
+
+- Wi-Fi Protected Access (WPA) was designed as a replacement for WEP and uses the Temporal Key Integrity Protocol (TKIP). TKIP is still very weak by today's standard because WPA uses Rivest Cipher 4 (RC4) for encryption with Message Integrity Check (MIC). MIC relies on hashing the data before it's sent over the network.
+
+- Wi-Fi Protected Access 2 (WPA2) is still heavily used today. It was created as part of the IEEE 802.11i standard and was first implemented with wireless g and then used again with wireless n, wireless a, and wireless ac networks. Instead of using Message Integrity Check, WPA2 relies on Countermode with Cipher Blockchaining Message Authentication Code Protocol(CCMP). Instead of using RC4, it uses the Advanced Encryption Standard (AES). AES provides more data security and confidentiality.
+
+In personal Mode, WPA2 uses the pre-shared key
+
+In enterprise Mode, WPA2 uses the centralized authentication
+
+- Wi-Fi Protected Access (WPA3) uses the simultaneous Authentication of Equals (SAE). SAE is a security protocol that was designed to enhance the handshake process used in Wi-Fi authentication. It does not use the pre-shared key model. Instead SAE established a secure initial key exchange between the client and the access point.
+
+- Wi-Fi Protected Setup (WPS) is not an encryption or integrity protocol. Instead it is a network security standard aimed at simplifying the setup of a secure Wi-Fi connection. WPS allows users to connect to a network using a PIN that can can hard coded into the user devices. WPS was designed to make it easier for non-technical users to set up secure networks. WPS is vulnerable to brute force attacks and really easy to crack.
+
+In these days, WEP, WPA and WPS are not used due to insecurity.
+
+- Open networks are networks with no security, no protection, and no password.
+
+- WEP is associated with the term Initialization Vector(IV).
+
+- WPA is associated with the terms TKIP and RC4.
+
+- WPA2 is associated with the terms CCMP and AES.
+
+- WPA3 is associated with the term SAE.
+
+- WPS uses a push-button configuration and should be disabled.
+
+- Pre-shared key is associated with a password used in a personal mode of a wireless network.
+
+- Enterprise mode is associated with using an individual username and password for each user.
+
 ## Understanding Wireless Security
 
-## When Wireless Security Fails
+- Enable MAC filtering.
+
+- Enable Wireless isolation to keep those channels and frequencies isolated from each other.
+
+- Disable SSID broadcast to make it harder for someone to find the the wireless network.
+
+- Use WPA2 with a good, long, strong pre-shared key.
+
+- Disable WPS setting.
 
 ## Captive Portals
+
+Captive Portals are webpages that are displayed to newly connected users of a Wi-Fi or wired network before they're granted broader access. Captive Portals are a crucial component in managing both the public and guest wireless networks. It provides us with a balance between user access and network security. Furthermore, it can enhance the user's experience and they can serve as a tool for legal compliance and follow-on marketing.
