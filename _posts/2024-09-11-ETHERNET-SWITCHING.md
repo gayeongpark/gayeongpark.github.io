@@ -110,8 +110,77 @@ Cisco switch - VLAN.DAT
 
 - Speed and Duplex Configurations: These settings control data transmission speed (in Mbps or Gbps) and whether data is sent and received simultaneously (full duplex) or alternately (half duplex). Misconfigurations can reduce performance, and auto-negotiation may sometimes select lower-than-optimal speeds, requiring manual adjustments.
 
-## Spanning Tree Protocol (STP)
+## Spanning Tree Protocol (STP) / 802.1d
+
+It defined by IEEE standard 802.1d, it **prevents loops in network traffic** by allowing redundant links between switches. Without STP, switching loops can lead to broadcast storms that overwhelm the network.
+
+- Key Concepts:
+
+  - Root Bridge: The switch with the lowest Bridge ID (based on priority value and MAC address) is elected as the root bridge.
+  - Non-Root Bridges: All other switches in the topology.
+  - Root Port: Each non-root bridge has a root port, the one closest to the root bridge in terms of cost (lower cost = faster link).
+  - Designated Ports: Ports on each network segment closest to the root bridge, forwarding traffic. All the ports on root bridge are designated ports.
+  - Non-Designated Ports: Block traffic to prevent loops.
+
+- Port States: STP ports transition through blocking, listening, learning, and forwarding states, ensuring loop-free topologies.
+
+- Link Cost: Faster links have lower costs. For example, Cat 3 (10 Mbps) has a higher cost than Cat 5 (100 Mbps), and fiber (10 Gbps) has an even lower cost. **faster links = lower cost, slower links = higher cost**
+
+**STP ensures loop-free network operations while maintaining redundancy for high availability**.
 
 ## Network Access Control (NAC)
 
+Network Access Control (NAC) is a security mechanism used to **ensure that devices connecting to a network meet specific security requirements**. It acts as a gatekeeper, inspecting devices for compliance before granting them access, similar to customs at an airport. Here’s an overview of key NAC concepts:
+
+1. Device Inspection:
+
+   - Devices are inspected upon trying to connect to the network.
+   - If they meet security criteria, they gain access; otherwise, they may be quarantined for remediation.
+
+2. NAC Components:
+
+   - Port Security: Limits physical devices that can connect to network ports. Port security mechanism can be configured to allow only specific MAC addresses to access a port.
+   - MAC Filtering: Controls access based on a device’s MAC address (using allowlists or blocklists). Blocklisting is considered less secure than allowlisting.
+   - 802.1x Authentication: Ensures only authenticated users can access the network using usernames, passwords, certificates, etc. This protocol works by encapsulating the extensible authentication protocol, also known as EAP within the network's frames. It involves three components:
+
+     - Supplicant is a user device that's seeking to access the network.
+     - Authenticator is the network device the user wants to connect to like switches or a wireless access point.
+     - Authentication server is a server on the network that will authenticate the user's device's username, password, smart card, or digital certificate.
+
+3. Implementation in Organizations:
+
+   - Employees can connect company or personal devices, which must comply with the organization's security policies.
+   - Persistent or Non-Persistent Agents are used to assess device compliance:
+     - Persistent Agents (on company devices) continuously monitor security compliance.
+     - Non-Persistent Agents (on personal devices) perform a temporary security check.
+   - When a device is connected to the network, the persistent or non-persistent agent is first going to check the MAC address and verify the device's identity.
+
+4. Advanced Access Controls:
+
+   - Time-Based Access: Limits access during specific hours.
+   - Location-Based Access: Controls access based on the physical location of the device.
+   - Role-Based Access: Grants access based on the user's role within the organization. This access control is a powerful way to enforce the principle of least privilege.
+   - Rule-Based Access: Uses predefined rules (e.g., devices must have antivirus installed) to grant or deny access.
+
+5. Purpose:
+
+   - NAC enhances network security by ensuring only secure, compliant devices and users can access the network. It adapts to various scenarios, providing flexibility in enforcing security policies.
+
 ## Maximum Transmission Unit (MTU)
+
+- MTU Definition: The largest size of a data packet (frame) that can be sent over a network, measured in bytes.
+
+- Impact: Affects network performance and efficiency. A properly set MTU avoids packet loss and excessive overhead.
+
+1. Common MTU Sizes:
+
+   - Wired Ethernet: 1500 bytes (default, balances efficiency and compatibility).
+   - Wireless Networks: Often smaller (~1420 bytes) to handle instability and higher error rates.
+   - VPN/PPPoE: Smaller MTU (1400–1450 bytes) to accommodate overhead from encapsulation.
+   - Jumbo Frames: Typically 9000 bytes, used in high-bandwidth environments like data centers or for large file transfers.
+
+2. Considerations:
+
+- Jumbo Frames: Boost efficiency but require network devices to support them. Improper configuration leads to packet fragmentation, latency, and troubleshooting difficulties.
+
+- Real-World Use: Configure different MTUs for wired, wireless, VPN, and high-speed network segments to optimize performance.
