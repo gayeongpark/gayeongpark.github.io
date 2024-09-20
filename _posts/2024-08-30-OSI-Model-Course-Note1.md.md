@@ -1,7 +1,7 @@
 ---
 layout: post
 title: CompTia network+ certification
-subtitle: Preparing for CompTia network+ - Network Fundamentals
+subtitle: Preparing for CompTia network+ | Network Fundamentals
 tags: [network, compTia, fundamentals, networks]
 comments: true
 author: Lantana Park
@@ -27,39 +27,51 @@ Moreover, Hubs lack any form of security features, so data is indiscriminately s
 
 - **Bridges** : Are network devices used to connect and filter traffic between two or more LAN segments within a local area network.
 
-Bridges use MAC addresses to forward data only to the appropriate segment. By doing so, they help reduce network collisions by creating separate collision domains for each segment. Bridges also play a crucial role in segmenting large networks into smaller, more manageable sections, enhancing performance and security. However, bridges do not have the advanced features of modern switches and are less scalable for larger networks.
+![bridge](../assets/img/networkFundamental/bridge.png)
 
-- **Switches** : Are much smarter version of hub. They provides more security and more efficient bandwidth utilization. Because they forward traffic from one port to the intended destination port. And They can receive and analyze the data packets from devices on the network in order to determine the correct destination.
+Bridges use **MAC addresses** to forward data only to the appropriate segment. By doing so, they help reduce network collisions by creating separate collision domains for each segment. Bridges also play a crucial role in **segmenting large networks into smaller**, more manageable sections, enhancing performance and security. However, bridges do not have the advanced features of modern switches and are less scalable for larger networks.
 
-They forward traffic from one port to the intended destination port based on the MAC address of the devices, which eliminates unnecessary data transmission and significantly reduces collisions.
+- **Switches** : Are much smarter version of the hub and bridge. They provides more security and more efficient bandwidth utilization. Because they forward traffic from one port to the intended destination port. And **They can receive and analyze the data packets from devices on the network in order to determine the correct destination**.
+
+![switch](../assets/img/networkFundamental/Switch-image.png)
+
+They forward traffic from one port to the intended destination port based on **the MAC address** of the devices, which eliminates unnecessary data transmission and significantly reduces collisions.
 
 - **Wireless Access Points (WAPs/APs)** : Allow wireless devices to connect to a wired network. They are used to broadcast data, that means a data packet is sent from one device to all other devices on the same network segment, over a radio frequency wave.
 
-- **Routers** : are a crucial component in the modern networks because they are used to connect different networks together. They can forward data based on the IP addresses of the clients, servers, and other devices over the network.
+![wirelessAccess](../assets/img/networkFundamental/Wireless-Access-Point.png)
 
-Modern routers predominantly rely on the internet protocol to route the traffic across the network using many different types of routing protocols.
+- **Routers** : Are a crucial component in the modern networks because they are used to connect different networks together. They can forward data based on the **IP addresses** of the clients, servers, and other devices over the network.
 
-- **Firewalls** : serve as security barriers between internal networks and the external world. They can monitor incoming and outgoing network traffic based upon predetermined security rules by using Access Control Lists(ACL).
+![router](../assets/img/networkFundamental/router4.png)
+
+Modern routers predominantly rely on the internet protocol to route the traffic across the network using many different types of routing protocols. Routers can also provide security. Embedded firewall and content filtering software provide an additional protection from unwanted content and malicious websites without affecting your online experience.
+
+- **Firewalls** : Serve as security barriers between internal networks and the external world. They can monitor incoming and outgoing network traffic based upon predetermined security rules by using Access Control Lists(ACL).
 
 It helps protect our network from unauthorized access, cyber attacks, and other online threats. Firewalls can be either hardware based, software based, or a combination of both of these.
 
-- **Load Balancers** : are can be devices or software that distribute network or application traffic across multiple servers. These increase efficiency, capacity, and reliability of the services by ensuring that no single server is going to bear too much of that demand.
+- **Load Balancers** : Are can be devices or software that distribute network or application traffic across multiple servers. These increase efficiency, capacity, and reliability of the services by ensuring that no single server is going to bear too much of that demand.
 
 So Load balancers prevent any one server from becoming a bottleneck, improving overall network performance.
 
 - **Proxy** : Acts as an intermediary between a user's device and the internet.
 
-It provides functionalities including web filtering, shared network connections, data caching to improve overall performance, and enhanced security and privacy by hiding the user's real IP address and limiting their exposure to the internet.
+![proxy](../assets/img/networkFundamental/Proxy-Server.png)
+
+It provides functionalities including web filtering(restricting access to certain websites of types of content), shared network connections, data caching to improve overall performance by storing frequently accessed web pages, and enhanced security and privacy by hiding/masking the user's real IP address and limiting their exposure to the internet.
 
 - **Intrusion Detection Systems (IDS)** : Are to detect unauthorized access or anomalies malicious access and alert administrators. The IDS is a listen-only device.
 
 - **Intrusion Prevention Systems (IPS)** : Are not only detect threats, but also take action to prevent intrusion like blocking that traffic from entering network or dropping any kind of harmful packets.
 
-- **Security Information Management (SIM)** : Involves the collection, storage, and analysis of log data from various sources across an organization's IT infrastructure. SIM helps in identifying long-term trends and providing reports that aid in compliance and auditing.
+- **Security Information Management (SIM)** : Involves the collection, storage, and **analysis of log data** from various sources across an organization's IT infrastructure. SIM helps in identifying long-term trends and providing reports that aid in compliance and auditing.
 
-- **Security Event Management (SEM)** : Focuses on real-time monitoring and correlation of events across the network, allowing security teams to detect and respond to potential threats more quickly.
+![siem](../assets/img/networkFundamental/SIEM-explained.png)
 
-- **Controllers** : Are central units used to manage flow control to networking devices. This enables administrators to dictate the behavior of the network switches and routers through software and this gives us more flexibility and efficiency.
+- **Security Event Management (SEM)** : Focuses on **real-time monitoring and correlation of events** across the network, allowing security teams to detect and respond to potential threats more quickly.
+
+- **Controllers** : Are central units used to manage **flow control to networking devices**. This enables administrators to dictate the behavior of the network switches and routers through software and this gives us more flexibility and efficiency.
 
 - **Network-Attached Storage (NAS) Device**: Dedicated file storage system that provides data access to a heterogeneous group of clients.
 
@@ -69,7 +81,9 @@ It provides functionalities including web filtering, shared network connections,
 
 ## Network resources
 
-- Client-Server Model : Used a server to access to network resources (files, scanners, printers, etc.)
+- **Client-Server Model** : Used a server to access to network resources (files, scanners, printers, etc.)
+
+![clientAndServerModel](../assets/img/networkFundamental/Client-server-model.png)
 
 It is a leading model we use in business networks.
 
@@ -84,7 +98,9 @@ Cons,
 1. It costs more money because it requires dedicated hardware, software, or OS.
 2. It requires specialized skill-set to run all those things.
 
-- **Peer-to-Peer Model** : Peers or other machines can share resources together directly.
+- **Peer-to-Peer model** : Peers or other machines can share resources together directly.
+
+![peer-to-peer](../assets/img/networkFundamental/Block-diagram-of-P2P-network-Figure-1.png)
 
 The administration and backup is very difficult because all the files are located on different machines in different places. So it can occur redundancy.
 
@@ -105,18 +121,18 @@ Cons,
 
 ## Network Geography
 
-- Personal Area Network (PAN) : Are smallest type of wired or wireless network which usually covers a distance about 10 feet or less (such as USB, Bluetooth).
+- **Personal Area Network (PAN)** : Are smallest type of wired or wireless network which usually covers a distance about 10 feet or less (such as USB, Bluetooth).
 
-- Local Area Network (LAN) : Connects components in a limited distance, generally up about 100 meters or 300 feet. (WIFI, Ethernet).
+- **Local Area Network (LAN)** : Connects components in a limited distance, generally up about 100 meters or 300 feet. (WIFI, Ethernet).
 
 WiFi | IEEE 802.11
 Ethernet | IEEE 802.3
 
-- Campus Area Network (CAN) : A building-centric LAN that is spread across numerous buildings in a certain area.
+- **Campus Area Network (CAN)** : A building-centric LAN that is spread across numerous buildings in a certain area.
 
-- Metropolitan Area Network (MAN) : Connects locations that are scattered across the entire city.
+- **Metropolitan Area Network (MAN)** : Connects locations that are scattered across the entire city.
 
-- Wide Area Network (WAN) : Connects geographically disparate internal networks. (Virtual Private Networks - VPN, Lease Lines, Internet)
+- **Wide Area Network (WAN)** : Connects geographically disparate internal networks. (Virtual Private Networks - VPN, Lease Lines, Internet)
 
 WAN does not always have to be public like the internet.
 
@@ -152,7 +168,7 @@ It talks about how the traffic/data is actually going to flow in the network.
 
 - Limitations : if the central devices fails, the entire network fails/inoperable.
 
-**Hub-and-spoke Topology** : a variation of the star topology where the central node (hub) is connected to multiple nodes (spokes). The spokes are not directly connected each other. so they much transmit their data to one of the hubs, before that data is going to be forwarded to another hub and then onward to the final destination nodes in that spoke. This layout is commonly used in airlines as well as in telecommunication networks.
+**Hub-and-spoke Topology** : A variation of the star topology where the central node (hub) is connected to multiple nodes (spokes). The spokes are not directly connected each other. so they much transmit their data to one of the hubs, before that data is going to be forwarded to another hub and then onward to the final destination nodes in that spoke. This layout is commonly used in airlines as well as in telecommunication networks.
 
 - Advantages : It can save a lot of money by not having to connect every one of those smaller offices to each of the other smaller offices all over the country.
 
@@ -162,11 +178,11 @@ It talks about how the traffic/data is actually going to flow in the network.
 
 - **Partial-mesh Topology** : some nodes are organized in a full mesh schema, while others are only connected to one or two devices in the network.
 
-## Wireless Network Tropology
+## Wireless Network Topology
 
-**Infrastructure Mode** : Most common type of wireless network. It uses a wireless access point as a centralized point.
+**Infrastructure Mode** : Most common type of wireless network. It **uses a wireless access point** as a centralized point.
 
-**Ad Hoc Mode** : Known as ad hoc. It is decentralized wireless network which creates Peer-to-Peer connections and does not require a router or access point. This can allow people to jump in and jump out of the network as much as they want.
+**Ad Hoc Mode** : Known as Ad Hoc. It is **decentralized** wireless network which creates Peer-to-Peer connections and **does not require a router or access point**. This can allow people to jump in and out of the network as much as they want.
 
 **Wireless Mesh Topology** : Is an interconnection of different types of nodes, devices, and radios to create this mesh topology. Bluetooth, cellular, wi-fi, satellite, microwave, and all of them can combine into this single wireless network. So that we can expand the network access. This provides us redundant and reliable connections.
 
@@ -176,17 +192,17 @@ It provides resilience from disasters.
 
 ## Data-center Topology
 
-**Three-tiered hierarchy** : In a traditional data center topology, the three-tiered hierarchy is a widely used design that organizes the network into three distinct layers: Core, Distribution (or Aggregation), and Access (or Edge). Each layer has a specific role in ensuring efficient data flow, management, scalability, and redundancy.
+**Three-tiered hierarchy** : In a traditional data center topology, the three-tiered hierarchy is a widely used design that organizes the network into three distinct layers: **Core**, **Distribution (or Aggregation)**, and **Access (or Edge)**. Each layer has a specific role in ensuring efficient data flow, management, scalability, and redundancy.
 
-- Core : The Core Layer is the backbone of the data center network, providing high-speed and reliable connectivity between various distribution layers and external networks. It is responsible for routing and forwarding large amounts of data quickly and efficiently. The Core Layer is designed for high availability and typically features redundant links and devices to prevent downtime.
+- Core : The Core Layer is the backbone of the data center network, providing high-speed and reliable connectivity between various distribution layers and external networks. **It is responsible for routing and forwarding large amounts of data quickly and efficiently**. The Core Layer is designed for high availability and typically features redundant links and devices to prevent downtime.
 
-- Distribution/Aggregation : The Distribution Layer, also known as the Aggregation Layer, serves as an intermediary between the Core and Access layers. It aggregates traffic from multiple access switches before routing it to the Core Layer. This layer is also responsible for implementing policies, such as access control, quality of service (QoS), and load balancing. Additionally, it provides redundancy and fault tolerance by connecting to multiple Core Layer devices.
+- Distribution/Aggregation : The Distribution Layer, also known as the Aggregation Layer, serves as an intermediary between the Core and Access layers. **It aggregates traffic from multiple access switches before routing it to the Core Layer**. This layer is also responsible for **implementing policies, such as access control, quality of service (QoS), and load balancing**. Additionally, it provides redundancy and fault tolerance by connecting to multiple Core Layer devices.
 
 - Access/Edge : The Access Layer, also known as the Edge Layer, is the first point of entry into the data center network for end devices, such as servers, storage, and network-attached devices. It provides connectivity to the end devices and is responsible for enforcing security policies, VLAN segmentation, and port security. The Access Layer typically consists of switches that connect directly to the servers and other devices in the data center.
 
-**Collapsed core** : Network architecture where the core and the distribution layers are being merged into a single layer. This is often seen in smaller or medium-sized data-centers. This can lower the costs because it can reduce the number of switches and simplify the management. This model also reduces latency by decreasing the number of hops between devices and the core of the network.
+**Collapsed core Architecture** : Network architecture where the core and the distribution layers are being combined into a single layer. This is often seen in smaller or medium-sized data-centers. This can **lower the costs** because it can **reduce the number of switches and simplify the management**. This model also **reduces latency** by decreasing the number of hops between devices and the core of the network.
 
-**Spine and Leaf Architecture** : An alternative network design focused on optimizing communication within the data center itself, using a full mesh topology. This architecture provides faster speeds and lower latency compared to the traditional three-tiered hierarchy.
+**Spine and Leaf Architecture** : An alternative network design focused on optimizing communication within the data center itself, using a full **mesh topology**. This architecture **provides faster speeds and lower latency** compared to the traditional three-tiered hierarchy.
 
 - Spine : Consists of switches that interconnect all the Leaf Layer switches in a full mesh topology. This layer is responsible for high-speed, low-latency data transfer across the data center by ensuring that each Leaf switch has a direct path to every other Leaf switch.
 
