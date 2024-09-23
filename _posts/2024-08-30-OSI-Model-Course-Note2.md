@@ -17,7 +17,7 @@ However one of the benefits of using this reference model is that it can be used
 
 `Please Do Not Throw Sausage Pizza Away`
 
-Our networks are designed for the purpose of making data flow across those networks. The name of data actually gets changed through the layers of the OSI model. Layer five, six, and seven are using the term 'data'. It can be called 'segments' or 'datagrams' in the fourth layer. In the layer three or network layer, I can call it a 'packet'. In the layer 2 or data link layer, it can be called 'frames'. And finally, I can convert the data into ones and zeros, so that it can be referred to 'bits' at the physical layer.
+Our networks are designed for the purpose of making data flow across those networks. The name of data actually gets changed through the layers of the OSI model. Layer five, six, and seven are using the term 'data'. However it can be called 'segments' or 'datagrams' in the fourth layer. In the layer three or network layer, I can call it a 'packet'. In the layer 2 or data link layer, it can be called 'frames'. And finally, I can convert the data into ones and zeros, so that it can be referred to 'bits' at the physical layer.
 
 `Do Some People Fear Birthdays`
 
@@ -37,45 +37,41 @@ Cables are also part of the physical layer. If I am using something like a Cat 5
 
 Layer 1 devices view networks from a physical topology perspective.
 
-Layer 1 is synchronizing our communication. I have to consider how does the receiving and know if it is ready to accept ones and zeros that I am going to send it. To make that sure, it should be ensured that it can be either be transmitted asynchronously or synchronously.
+Layer 1 is synchronizing our communication. It should be ensured that bits can be either be transmitted asynchronously or synchronously.
 
-In asynchronous networking, I should consider something like a voicemail, email, and messaging. This communication happens out of sync or out of time(irregular intervals). This asynchronous communication uses start and stop bits to indicate when transmissions occur from the sender to the receiver.
+In **asynchronous networking**, I should consider something like a **voicemail, email, and messaging**. This communication happens **out of sync or out of time (irregular intervals)**. This asynchronous communication uses **start and stop bits** to indicate when transmissions occur from the sender to the receiver.
 
-In synchronously networking, people have to be in the same place at the same time. It is something like phone-calls. This synchronous networking perspective uses a reference clock to coordinate the transmissions by both sender and receiver.
+In **synchronously networking**, people have to be in **the same place at the same time**. It is something like **phone-calls**. This synchronous networking perspective uses **a reference clock** to coordinate the transmissions by both sender and receiver.
 
 The way to utilize the bandwidth of the cable,
 
-- Broadband divides bandwidth into separate channels. It is a asynchronous communication. For example, TV service carries multiple channels having a single cable or Satellite.
+- **Broadband** divides bandwidth into separate channels for asynchronous communication. For example, TV service carries multiple channels having a single cable or Satellite.
 
-- Baseband uses all available frequencies on a medium (cable) to transmit data. It uses a reference clock and synchronous communication. For example, a telephone uses baseband communication. And a wired home ethernet network can be also the example of this baseband communication because it uses all of the frequency that is available on the cable.
+- **Baseband** uses all available frequencies on a medium (cable) to transmit data. It uses a reference clock and synchronous communication. For example, a telephone uses baseband communication. And a wired home ethernet network can be also the example of this baseband communication because it uses all of the frequency that is available on the cable.
 
-Multiplexing involves optimizing a limited amount of resources for more efficient utilization. It allows multiple people to use a baseband connection at the same time. There are three main types of multiplexing.
+Multiplexing is a technique used to allow multiple signals or data streams to be transmitted over a single communication channel (wired or wireless). This helps make better use of the available bandwidth and increases efficiency.There are three main types of multiplexing to share bandwidth efficiently.
 
-- Time-Division Multiplexing (TDM) : Each session takes a turn, using time slots, to share the medium between all users.
+- Time-Division Multiplexing (TDM) : Uses time slots for each session.
 
 - Statistical Time-Division Multiplexing (StatTDM) : Dynamically allocates the time slots on an as-needed basis.
 
-- Frequency-Division Multiplexing (FDM) : Divides the medium into channels based on frequencies and each session is transmitted over a different channel.
+- Frequency-Division Multiplexing (FDM) : Divides channels based on frequencies.
 
 Layer 1 devices are essentially repeaters, passing along whatever is received.
 
 For example,
 
-Fiber optic cable, Ethernet cable, Coaxial cable (wired cables)
-
-Bluetooth, Wi-Fi, Near Field Communication (NFC) (wireless cables)
-
-Hubs, Access points, Media converters (infrastructure devices)
+Devices such as **repeaters**, **hubs**, **media converters**, and wireless technologies like **Wi-Fi** and **Bluetooth**.
 
 ## Layer 2 - Data Link
 
-Data Link Layer packages data into frames and transmits those frames on the network while performing some error detection, correction, identifying unique network devices using MAC addresses, and providing some flow control.
+Data Link Layer packages data into **frames** and transmits those frames on the network while performing some error detection, correction, identifying unique network devices using **MAC addresses**, and providing some flow control.
 
-Every manufacturer of a network card assigns a unique 48-bit physical addressing system to every network interface card (NIC) they produced.
+Every manufacturer of a network card assigns a unique 48-bit identifier to every network interface card (NIC) they produced. It can be called MAC address.
 
 `D2:51:F1:3A:34:29`
 
-`D2:51:F1` represents the particular vendor who made that NIC
+`D2:51:F1` represents the particular vendor or manufacture of the NIC (OUI - Organizationally Unique Identifier)
 `3A:34:29` represents the exact machine it belongs to
 
 Logical Link Control (LLC) sublayer of the Data Link Layer provides connection services and allows acknowledgement of receipt of message. LLC is the most basic form of flow control by limiting the data that a sender can send at once and allowing the receiver to keep from being overwhelmed.
