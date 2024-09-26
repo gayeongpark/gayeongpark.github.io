@@ -13,13 +13,13 @@ author: Lantana Park
 
 Fiber optic connections provide high-speed internet using light transmitted through thin fibers of glass or plastic. Here's a breakdown of common fiber deployment methods:
 
-- FTTH - Fiber to the Home | Fiber optic cables are brought directly to individual homes. This provides the fastest speeds, as the fiber connection goes directly into the residence without any copper cable involvement.
+FTTH - Fiber to the Home | Fiber optic cables are brought directly to individual homes. This provides the fastest speeds, as the fiber connection goes directly into the residence without any copper cable involvement.
 
-- FTTC - Fiber to the Curb/Cabinet | Fiber is extended to a curbside or cabinet near the home, and from there, traditional copper cables are used to connect individual homes or businesses. This setup offers high speeds, but the use of copper can slightly reduce performance compared to FTTH.
+FTTC - Fiber to the Curb/Cabinet | Fiber is extended to a curbside or cabinet near the home, and from there, traditional copper cables are used to connect individual homes or businesses. This setup offers high speeds, but the use of copper can slightly reduce performance compared to FTTH.
 
-- FTTN - Fiber to the Node/Neighborhood | Fiber optic cables are run to a node or central point within a neighborhood. From the node, copper cables (like DSL) are used to connect individual homes. Due to the longer distances copper cables must cover, this method is slower compared to FTTH and FTTC.
+FTTN - Fiber to the Node/Neighborhood | Fiber optic cables are run to a node or central point within a neighborhood. From the node, copper cables (like DSL) are used to connect individual homes. Due to the longer distances copper cables must cover, this method is slower compared to FTTH and FTTC.
 
-- FTTB - Fiber to the Building/Basement | Fiber optic cables are brought to the communication room or basement of a multi-unit building. From there, copper cables distribute the connection to individual units within the building, making this setup slower than FTTH, but it may still offer decent speeds depending on the copper wiring.
+FTTB - Fiber to the Building/Basement | Fiber optic cables are brought to the communication room or basement of a multi-unit building. From there, copper cables distribute the connection to individual units within the building, making this setup slower than FTTH, but it may still offer decent speeds depending on the copper wiring.
 
 ## Cable (DOCSIS) Connections
 
@@ -116,5 +116,3 @@ Instead of relying on complex IP routing tables, MPLS uses short, fixed-length l
 - Satellite Modem: Typically used in remote areas without access to cable, fiber, or DSL. It uses coaxial cable to connect to a satellite dish, sending signals to and from satellites in space. The modem outputs a Cat6 connection for local devices.
 
 - Cellular Modem: Mobile phones and dedicated devices can use cellular networks to connect to the internet. These can also function as hotspots, creating a local wireless network using the cellular WAN connection.
-
-
