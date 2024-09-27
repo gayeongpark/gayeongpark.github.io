@@ -214,7 +214,7 @@ Social engineering is any attempt to manipulate users to reveal confidential inf
 
 ## Malware Attacks
 
-Malware is malicious software designed to infiltrate computer systems and cause damage without the user's consent or knowledge. 
+Malware is malicious software designed to infiltrate computer systems and cause damage without the user's consent or knowledge.
 
 - Viruses : Malicious code that requires user interaction to spread. It infects a computer when a user runs an infected file or program (e.g., through a downloaded game). Once executed, the virus replicates and spreads across the network.
 
