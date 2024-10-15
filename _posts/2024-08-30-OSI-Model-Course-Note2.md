@@ -11,9 +11,9 @@ author: Lantana Park
 
 The OSI model was developed by the International Organization for Standardization (ISO) as a way to standardize networking protocols and ensure interoperability between different systems and technologies.
 
-The OSI model does not actually line up cleanly, easily, or accurately with the way that our modern networks are going to operate. Because modern networks primarily operate based on the TCP/IP model rather than the OSI model.
+The OSI model is more theoretical and comprehensive, whereas the TCP/IP model is practical, focused on real-world implementation, and serves as the basis for the Internet.
 
-However one of the benefits of using this reference model is that it can be used equivalently across lots of different technologies and devices and manufactures.
+However one of the benefits of using this OSI model is that it can be used equivalently across lots of different technologies and devices and manufactures.
 
 `Please Do Not Throw Sausage Pizza Away`
 
@@ -25,7 +25,7 @@ Our networks are designed for the purpose of making data flow across those netwo
 
 ## Layer 1 - Physical
 
-This is where binary bits are transmitted across the network and includes physical and electrical network characteristics.
+The Physical Layer is responsible for the transmission of raw bit streams over a physical medium. It deals with the physical characteristics of the communication medium, such as voltage levels, timing of voltage changes, and data rates.
 
 Transition Modulation involves converting digital bits (0s and 1s) into specific electrical, optical, or radio waveforms that can be transmitted over a physical medium such as copper wires, fiber optics(light), or air.
 
@@ -49,23 +49,23 @@ The way to utilize the bandwidth of the cable,
 
 - **Baseband** uses all available frequencies on a medium (cable) to transmit data. It uses a reference clock and synchronous communication. For example, a telephone uses baseband communication. And a wired home ethernet network can be also the example of this baseband communication because it uses all of the frequency that is available on the cable.
 
-Multiplexing is a technique used to allow multiple signals or data streams to be transmitted over a single communication channel (wired or wireless). This helps make better use of the available bandwidth and increases efficiency.There are three main types of multiplexing to share bandwidth efficiently.
+Multiplexing is a technique used to allow multiple signals or data streams to be transmitted over a single communication channel (wired or wireless). This helps make better use of the available bandwidth and increases efficiency. There are three main types of multiplexing to share bandwidth efficiently.
 
-- Time-Division Multiplexing (TDM) : Uses time slots for each session.
+- Time-Division Multiplexing (TDM) : Uses time slots for each session. Telephone networks often use TDM to allow multiple calls to share the same communication line without interference.
 
-- Statistical Time-Division Multiplexing (StatTDM) : Dynamically allocates the time slots on an as-needed basis.
+- Statistical Time-Division Multiplexing (StatTDM) : Dynamically allocates the time slots on an as-needed basis. This is useful in network scenarios where not all connections are active at the same time, improving efficiency by reducing wasted bandwidth.
 
-- Frequency-Division Multiplexing (FDM) : Divides channels based on frequencies.
+- Frequency-Division Multiplexing (FDM) : Divides channels based on frequencies. Radio broadcasting uses FDM to transmit multiple radio stations over the same frequency spectrum by assigning different frequencies to each station.
 
 Layer 1 devices are essentially repeaters, passing along whatever is received.
 
 For example,
 
-Devices such as **repeaters**, **hubs**, **media converters**, and wireless technologies like **Wi-Fi** and **Bluetooth**.
+Devices such as **repeaters**, **hubs**, **media converters**, and a **Wireless Access Point (WAP) used for Wi-Fi** and devices utilizing **Bluetooth** operate primarily at the Physical Layer (Layer 1) of the OSI model.
 
-## Layer 2 - Data Link
+## Layer 2 - Data Link (Defines the format of data on the network)
 
-Data Link Layer packages data into **frames** and transmits those frames on the network while performing some error detection, correction, identifying unique network devices using **MAC addresses**, and providing some flow control.
+Data Link Layer packages data into **frames** and transmits those frames on the network while performing some error detection, correction, identifying unique network devices using **MAC addresses**, and providing some flow control. In short, it ensures that data is transmitted accurately and efficiently between devices on the same local network segment with the MAC addresses.
 
 Every manufacturer of a network card assigns a unique 48-bit identifier to every network interface card (NIC) they produced. It can be called MAC address.
 
@@ -78,7 +78,7 @@ Logical Link Control (LLC) sublayer of the Data Link Layer provides connection s
 
 Additionally, the LLC sublayer offers basic error control functions through mechanisms like checksums. For example, a checksum can be used to verify the integrity of the received data by comparing the calculated checksum of the received data against the transmitted checksum. If there is a mismatch, it indicates an error in transmission.
 
-Communication across the Layer 2 can be synchronized according to three different schemes. It refers to how data transmission is managed and synchronized between devices on a network at the Data Link Layer
+Communication across the Layer 2 can be synchronized according to three different schemes. It refers to how data transmission is managed and synchronized between devices on a network at the Data Link Layer. The choice of scheme depends on the specific requirements of the application, such as the need for timing precision, the nature of the data being transmitted, and the flexibility required for communication.
 
 1. **Isochronous Communication** means that all network devices use a common reference clock source to synchronize their operations. This clock ensures that data is transmitted at precise intervals.
 
@@ -90,9 +90,9 @@ Layer 2 devices are like
 
 Switches, Bridges, Network Interface Card (NIC)
 
-## Layer 3 - Network
+## Layer 3 - Network (Decides which physical path the data will take)
 
-Layer 3 is all about how I am going to forward traffic, which we refer to as routing(layer 3 switching) using logical addresses.
+Layer 3 is responsible for determining the best path for data packets to travel across networks. And it handles logical addressing (e.g., IP addresses) to identify devices on the network.
 
 **Logical address**
 
@@ -100,7 +100,7 @@ IPv4 and IPv6 are the primary protocols used at Layer 3.
 
 Example of an IPv4 address: `172.16.254.1`. This address is represented in dotted decimal notation, where the address is divided into four octets (each ranging from 0 to 255).
 
-There are three main methods for forwarding or routing data:
+There are three main methods for forwarding or routing data :
 
 - **Packet switching** : Data is divided into packets and then forwarded.
 
@@ -132,7 +132,7 @@ For example,
 
 Routers (Multi layer switches)
 
-## Layer 4 - Transport
+## Layer 4 - Transport (Transmits data using transmission protocol including TCP and UDP)
 
 Transport layer is the dividing line between the upper layers and the lower layers of the OSI model.
 
@@ -168,7 +168,7 @@ Protocol examples,
 
 UDP and TCP
 
-## Layer 5 - Session
+## Layer 5 - Session (Maintains connections)
 
 **Session** is a conversation that has to be kept separate from all of the others to prevent the intermingling of data. So this session layer keeps conversions separate to prevent intermingling of data.
 
@@ -194,9 +194,9 @@ H.323(for video connections), NetBIOS
 
 **H.323** used to set up, maintain, and tear down voice and video connections. FaceTime or Skype are probably using like H.323. These operate over the real time transport protocol, known as **RTP**.
 
-**NetBIOS** is used by computers to share files over a network. Windows uses this method of its file sharing as well inside.
+**NetBIOS** is used by computers to share files over a network. Windows uses this method of its file sharing as well inside. it provides essential session management services that allow applications on different computers to communicate over a network.
 
-## Layer 6 - Presentation
+## Layer 6 - Presentation (data encryption)
 
 This layer is responsible for formatting the data to be exchanged and secures that data with proper encryption.
 
@@ -204,21 +204,23 @@ This layer is responsible for formatting the data to be exchanged and secures th
 
 Data is formatted by the computer to have compatibility between different devices.
 
-**American Standard Code for Information Interchange (ASCII)** is for text-based language to use. It ensures data is readable by receiving system. It provides proper data structures and negotiates data transfer syntax for the Application Layer (Layer 7).
+**American Standard Code for Information Interchange (ASCII)** is for text-based language to use. It ensures that data is readable by receiving system. It provides proper data structures and negotiates data transfer syntax for the Application Layer (Layer 7).
 
 Other format of data will be GIF, JPG, PNG, SVG, etc.
 
 **Encryption** is used to scramble data as it goes in transit to keep it secure from any prying eyes.
 
-For example, TLS (Transport Layer Security) is being used to secure the data between my computer and a website like Facebook or Google.
+For example, **TLS (Transport Layer Security)** is being used to secure the data between my computer and a website like Facebook or Google.
 
 TLS connections create an encrypted tunnel, so nobody else can see what's inside it, such as username, password, or credit card information.
 
 SSL (Secure Sockets Layer) was the predecessor to TLS and was commonly used for securing data, though it has largely been replaced by the more secure TLS.
 
+SSL -> TLS
+
 **Scripting languages** like HTML, JavaScript, or PHP operate at the Presentation Layer because they are involved in formatting and structuring data for display and interaction on the web.
 
-## Layer 7 - Application
+## Layer 7 - Application (Human-computer interaction)
 
 This layer provides application-level services where users communicate with the computer.
 
@@ -228,9 +230,9 @@ This layer provides application-level services where users communicate with the 
 
 **Application services** are the thing that unites communicating components from more than one network application.
 
-It belongs to the low-level protocol. For example, POP3, IMAP and SMTP
+It belongs to the low-level protocol. For example, **POP3**, **IMAP** and **SMTP**
 
-**Service advertisement**
+**Service Advertisement**
 
 This is where applications can send out announcements to other devices on the network to state the services they offer.
 
@@ -256,7 +258,7 @@ Encapsulation refers to wrapping data with additional information (headers and t
 
 ## Decapsulation
 
-Decapsulation is the reverse process: removing the wrappers (headers) as the data moves back up through the OSI layers.
+Decapsulation is the reverse process removing the wrappers (headers) as the data moves back up through the OSI layers.
 
 When the data reaches its destination, each layer will remove its specific header, like opening an envelope and taking out the contents. Once the data reaches the Application Layer, it’s in a format that the application can understand and process.
 
@@ -286,7 +288,7 @@ When the data reaches its destination, each layer will remove its specific heade
 
   If the server does not want to accept the connection (e.g., it's overloaded, the service is unavailable, or it doesn't allow that client), it can respond by sending an RST (Reset) packet instead of the usual SYN-ACK response.
 
-  - PSH (Push) is used to ensure data is given priority and is processed at the sending or receiving ends. It used by the sender to indicate data with a higher priority level.
+  - PSH (Push) is used to ensure data is given **priority** and is processed at the sending or receiving ends. It used by the sender to indicate data with a higher priority level.
 
   - URG (Urgent) is similar to PSH and identifies incoming data as urgent. It is sent to tell the recipient to process it immediately by ignoring anything else that's in the queue.
 

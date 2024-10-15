@@ -31,7 +31,7 @@ Moreover, Hubs lack any form of security features, so data is indiscriminately s
 
 Bridges use **MAC addresses** to forward data only to the appropriate segment. By doing so, they help reduce network collisions by creating separate collision domains for each segment. Bridges also play a crucial role in **segmenting large networks into smaller**, more manageable sections, enhancing performance and security. However, bridges do not have the advanced features of modern switches and are less scalable for larger networks.
 
-- **Switches** : Are much smarter version of the hub and bridge. They provides more security and more efficient bandwidth utilization. Because they forward traffic from one port to the intended destination port. And **They can receive and analyze the data packets from devices on the network in order to determine the correct destination**.
+- **Switches** : Are much smarter version of the hub and bridge. They provides more security and more efficient bandwidth utilization. Because they forward traffic from one port to the intended destination port. And **they can receive and analyze the data packets from devices on the network in order to determine the correct destination**.
 
 ![switch](../assets/img/networkFundamental/Switch-image.png)
 
@@ -45,7 +45,7 @@ They forward traffic from one port to the intended destination port based on **t
 
 ![router](../assets/img/networkFundamental/router4.png)
 
-Modern routers predominantly rely on the internet protocol to route the traffic across the network using many different types of routing protocols. Routers can also provide security. Embedded firewall and content filtering software provide an additional protection from unwanted content and malicious websites without affecting your online experience.
+Modern routers predominantly rely on the internet protocol to route the traffic across the network using many different types of routing protocols. Routers can also provide security. Embedded firewall and content filtering software provide an additional protection from unwanted content and malicious websites without affecting the online experience.
 
 - **Firewalls** : Serve as security barriers between internal networks and the external world. They can monitor incoming and outgoing network traffic based upon predetermined security rules by using Access Control Lists(ACL).
 
@@ -59,17 +59,19 @@ So Load balancers prevent any one server from becoming a bottleneck, improving o
 
 ![proxy](../assets/img/networkFundamental/Proxy-Server.png)
 
-It provides functionalities including web filtering(restricting access to certain websites of types of content), shared network connections, data caching to improve overall performance by storing frequently accessed web pages, and enhanced security and privacy by hiding/masking the user's real IP address and limiting their exposure to the internet.
+It provides functionalities including web filtering (restricting access to certain websites of types of content), shared network connections, data caching to improve overall performance by storing frequently accessed web pages, and enhanced security and privacy by hiding/masking the user's real IP address and limiting their exposure to the internet.
 
 - **Intrusion Detection Systems (IDS)** : Are to detect unauthorized access or anomalies malicious access and alert administrators. The IDS is a listen-only device.
 
 - **Intrusion Prevention Systems (IPS)** : Are not only detect threats, but also take action to prevent intrusion like blocking that traffic from entering network or dropping any kind of harmful packets.
 
-- **Security Information Management (SIM)** : Involves the collection, storage, and **analysis of log data** from various sources across an organization's IT infrastructure. SIM helps in identifying long-term trends and providing reports that aid in compliance and auditing.
+- Security Information and Event Management (SIEM) : Is a comprehensive cybersecurity solution that combines two primary functions
 
-![siem](../assets/img/networkFundamental/SIEM-explained.png)
+  - **Security Information Management (SIM)** : Involves the collection, storage, and **analysis of log data** from various sources across an organization's IT infrastructure. SIM helps in identifying long-term trends and providing reports that aid in compliance and auditing.
 
-- **Security Event Management (SEM)** : Focuses on **real-time monitoring and correlation of events** across the network, allowing security teams to detect and respond to potential threats more quickly.
+  ![siem](../assets/img/networkFundamental/SIEM-explained.png)
+
+  - **Security Event Management (SEM)** : Focuses on **real-time monitoring and correlation of events** across the network, allowing security teams to detect and respond to potential threats more quickly.
 
 - **Controllers** : Are central units used to manage **flow control to networking devices**. This enables administrators to dictate the behavior of the network switches and routers through software and this gives us more flexibility and efficiency.
 
@@ -186,9 +188,9 @@ It talks about how the traffic/data is actually going to flow in the network.
 
 **Wireless Mesh Topology** : Is an interconnection of different types of nodes, devices, and radios to create this mesh topology. Bluetooth, cellular, wi-fi, satellite, microwave, and all of them can combine into this single wireless network. So that we can expand the network access. This provides us redundant and reliable connections.
 
-Where might we use a wireless mesh topology?
+### Where might we use a wireless mesh topology?
 
-It provides resilience from disasters.
+A wireless mesh topology is often used in environments where reliable, widespread wireless coverage is required, particularly in areas that are large, complex, or difficult to wire.
 
 ## Data-center Topology
 
@@ -200,11 +202,11 @@ It provides resilience from disasters.
 
 - Access/Edge : The Access Layer, also known as the Edge Layer, is the first point of entry into the data center network for end devices, such as servers, storage, and network-attached devices. It provides connectivity to the end devices and is responsible for enforcing security policies, VLAN segmentation, and port security. The Access Layer typically consists of switches that connect directly to the servers and other devices in the data center.
 
-**Collapsed core Architecture** : Network architecture where the core and the distribution layers are being combined into a single layer. This is often seen in smaller or medium-sized data-centers. This can **lower the costs** because it can **reduce the number of switches and simplify the management**. This model also **reduces latency** by decreasing the number of hops between devices and the core of the network.
+**Collapsed core Architecture** : Network architecture where the core and the distribution layers are being combined into a single layer. This is often seen in smaller or medium-sized data-centers. This can **lower the costs** because it can **reduce the number of switches and simplify the management**. This model also **reduces latency** by decreasing the number of hops (the number of routers that a packet passes through) between devices and the core of the network.
 
 **Spine and Leaf Architecture** : An alternative network design focused on optimizing communication within the data center itself, using a full **mesh topology**. This architecture **provides faster speeds and lower latency** compared to the traditional three-tiered hierarchy.
 
-- Spine : Consists of switches that interconnect all the Leaf Layer switches in a full mesh topology. This layer is responsible for high-speed, low-latency data transfer across the data center by ensuring that each Leaf switch has a direct path to every other Leaf switch.
+- Spine : Consists of switches that interconnect all the Leaf Layer switches in a full mesh topology. This layer is responsible for high-speed, low-latency data transfer across the data center by ensuring that each Spine switch has a direct path to every other Leaf switch.
 
 - Leaf : Consists of access switches that aggregate traffic from different servers. Each Leaf switch is directly connected to the Spine Layer, providing a consistent and high-performance connection between servers and the network core.
 
@@ -212,12 +214,12 @@ When installing a Spine and Leaf architecture, it is common to install two switc
 
 Spine and leaf architecture can be used in combination with the standard three-tiered hierarchy.
 
-**Traffic flows** :
+**Traffic flows**
 
 - North-South : The traffic that enters or leaves the data center from a system physically residing outside the data-center.
 
-- Northbound Traffic : Leaving data-center
+  - Northbound Traffic : Leaving data-center
 
-- Southbound Traffic : Entering data-center
+  - Southbound Traffic : Entering data-center
 
 - East-West : Refers to data flow within a data-center

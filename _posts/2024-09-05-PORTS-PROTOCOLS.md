@@ -15,9 +15,11 @@ author: Lantana Park
 
 Ports range from 0 to 65,535, and are divided into three categories:
 
-- **Well-known ports (0–1,023)** – Reserved for well-known services like HTTP (port 80) or HTTPS (port 443).
-- **Registered ports (1,024–49,151)** – Registered with the Internet Assigned Numbers Authority (IANA) for specific applications.
-- **Ephemeral ports (49,152–65,535)** – Temporary, randomly assigned for short-lived communication.
+- **Well-known ports (0 – 1,023)** – Reserved for well-known services like HTTP (port 80) or HTTPS (port 443).
+
+- **Registered ports (1,024 – 49,151)** – Registered with the Internet Assigned Numbers Authority (IANA) for specific applications.
+
+- **Ephemeral ports (49,152 – 65,535)** – Temporary, randomly assigned for short-lived communication.
 
 When a client connects to a web server, it uses its IP address and an ephemeral port, while the server listens on a well-known port like 80 for HTTP. Data is sent back and forth between the client’s ephemeral port and the server's well-known port until the session ends, at which point the ephemeral port is closed.
 
@@ -35,7 +37,7 @@ TCP also employs flow control to prevent the sender from overwhelming the receiv
 
 This flow control is achieved by Windowing. Windowing occurs by allowing the receiver to specify the amount of data it can handle at a time.
 
-When sending data over the network, the transmission control protocol will use ports as part of its communication process. TCP uses ports to allow for the logical differentiation of services on a single physical machine.
+When sending data over the network, the transmission control protocol will use ports as part of its communication process. **TCP uses ports to allow for the logical differentiation of services on a single physical machine**.
 
 - Acknowledgement
 
@@ -79,11 +81,11 @@ Each datagram does contain the source and destination ports inside of its header
 
 ## Internet Control Message Protocol (ICMP)
 
-ICMP, which operate at the network layer of the OSI model, is a integral part of the internet Protocol Suit which is a set of networking protocols used on the internet. It is not used for sending data between two different systems. It is for diagnosing network communication issues and providing hosts with information about network problems(error reporting and testing).
+ICMP, which operate at the network layer of the OSI model, is a integral part of the internet Protocol Suit which is a set of networking protocols used on the internet. It is not used for sending data between two different systems. It is for **diagnosing network communication issues and providing hosts with information about network problems(error reporting and testing)**.
 
 ICMP messages are quite useful when a service or host is un reachable, when a packet's time to live has expired, or when a router cannot forward packets due to its duffer being filled up.
 
-`PING` utility uses ICMP to send an ICMP Echo Request message to test the reachability of a host on a given IP network. ICMP protocol is encapsulated within the IP packets.
+`PING` uses ICMP to send an ICMP Echo Request message to test the reachability of a host on a given IP network. ICMP protocol is encapsulated within the IP packets. It operates at the Network Layer (Layer 3) of the OSI model.
 
 ICMP messages have a simple structure and each message starts with a header consisting of three different things.
 
@@ -101,7 +103,7 @@ So ICMP is useful for error handling and diagnostics.
 
 Attack type exploiting ICMP,
 
-- ICMP Flood Attack is a type of attack that involves overwhelming a target machine with a large number of ICMP Echo Request packets. It is also know as Ping packets.
+- ICMP Flood Attack is a type of attack that involves overwhelming a target machine with a large number of ICMP Echo Request packets. It is also know as Ping Flood Attack.
 
 - Distributed Denial of Service (DDoS) attack is where the attacker usually uses a network of compromised computers to generate a significant amount of traffic.
 
@@ -112,7 +114,7 @@ linux : `ping <ip address> -s 65500 -t 1 -n 1`
 
 Modern networking system and operating systems are no longer vulnerable to these attacks.
 
-Network administrators may choose to block ICMP traffic at the boundary firewalls and routers. If ICMP is block, it does make troubleshooting the network connectivity issues a little bit harder because the administrator is unable to use tools like ping and traceroute to determine if the network connectivity is working properly and firewalls will drop the ICMP packets or return a host unreachable error.
+If ICMP is blocked, it does make troubleshooting the network connectivity issues a little bit harder because the administrator is unable to use tools like ping and traceroute to determine if the network connectivity is working properly and firewalls will drop the ICMP packets or return a host unreachable error.
 
 ## Web Ports and Protocols
 
@@ -148,11 +150,12 @@ Main differences between HTTP and HTTPS
 
    HTTPS builds user trust, leading to more traffic, which signals search engines to rank the website higher. This loop boosts the website’s SEO, contributing to better search rankings.
 
+- Port 80 (HTTP): Plain text, unencrypted.
+- Port 443 (HTTPS): Encrypted using SSL/TLS, secure.
+
 ## Email Ports and Protocols
 
 These protocols are the backbone of email communication and they ensure that messages are sent, received, and managed efficiently.
-
-Email protocols:
 
 - Simple Mail Transfer Protocol (SMTP) - port 25 is the standard protocol used for sending emails. It is only for sending emails, not for receiving them.
 
@@ -166,6 +169,13 @@ Email protocols:
 
 - Internet Message Access Protocol Secure (IMAPS) - port 993 transmit data inside of an encrypted SSL or TLS tunnel and then send the data through the encryption tunnel using the standard IMAP protocol.
 
+Port 25 (SMTP): Sending emails (unsecure).
+Port 465/587 (SMTPS): Secure email sending (over SSL/TLS).
+Port 110 (POP3): Retrieving emails (unsecure).
+Port 995 (POP3S): Secure POP3 (SSL/TLS).
+Port 143 (IMAP): Email management on the server (unsecure).
+Port 993 (IMAPS): Secure IMAP (SSL/TLS).
+
 ## File Transfer Ports and Protocols
 
 This is the specialized rules and procedures that are utilized for the transmission of files across networks, operate on the designated ports, and act as doorways for data transfer activities.
@@ -178,6 +188,11 @@ This is the specialized rules and procedures that are utilized for the transmiss
 
 - Server Message Block (SMB) - port 445 allows computer apps to read and write to files and request services from the server programs. SMB is predominantly used for Windows file sharing and it allows Windows computers to communicate with each other and share files over a network. Samba on Linux systems does rely on the SMB protocol. SMB is used inside local area networks (LAN), and it is not a protocol to send data across the Internet.
 
+port 20/21 (FTP): File transfer (unsecure).
+Port 22 (SFTP): Secure file transfer (over SSH).
+Port 69 (TFTP): Simple, unsecure file transfer.
+Port 445 (SMB): Windows file sharing.
+
 ## Remote Access Ports and Protocols
 
 These protocols build and manage systems and networks from across the network.
@@ -187,6 +202,10 @@ These protocols build and manage systems and networks from across the network.
 - Telnet - port 23 is one of the earliest remote login protocols and allows a user on one computer to login remotely to another computer that is part of the same network. Telnet was designed for local area networks only, although some people have used it over the internet. Telnet actually transfer its data in plain text, so it is not secure protocol. This is why SSH was developed. I should never use telnet.
 
 - Remote Desktop Protocol (RDP) - port 3389 is the proprietary protocol that was developed by Microsoft to provide users with a graphical user interface to connect to another computer over a network connection. It only allows to issue and receive text-based information. It supports different types of network topologies and multiple LAN protocols. It allows for smart card authentication, data encryption, and bandwidth reduction mechanisms.
+
+Port 22 (SSH): Secure remote login.
+Port 23 (Telnet): Remote login (unsecure, plain text).
+Port 3389 (RDP): Microsoft remote desktop (secure graphical interface).
 
 ## Network Service Ports and Protocols
 
@@ -202,6 +221,8 @@ These are crucial for the smooth functioning of digital communications and netwo
 
 - System Logging (Syslog) - port 514 is a standard for message logging that allows devices to send event messages across IP networks to an event message collector known as a Syslog server. It uses UDP or TCP. If I want to use standard messaging and logging, it will use UDP. However if I have a situation where reliability becomes a concern, I can configure it to use TCP.
 
+Port 53 (DNS): Translates domain names to IP addresses.
+
 ## Other Network Service Ports and Protocols
 
 - Network Time Protocol (NTP) - port 123 is used to synchronize the clocks of a computer over a given network. It uses UDP. It enables our networks to maintain accurate time with precision and reliability, which is crucial for transaction logging, security protocols and the coordination of system functions.
@@ -211,5 +232,3 @@ These are crucial for the smooth functioning of digital communications and netwo
 - Lightweight Directory Access Protocol (LDAP) - port 389 is a protocol for accessing and maintaining distributed directory information services over an IP network. It is used to look up information in a directory listing. It uses both TCP and UDP. It transmits all that information in plain text.
 
 - Lightweight Directory Access Protocol over SSL (LDAPS) - port 636 is a version of LDAP that is encrypted with SSL or, in newer versions, TLS for increased security. It uses TCP. This protocol provides secure directory service transactions that protects the sensitive data during the transmission by placing it inside of an encrypted tunnel.
-
-
