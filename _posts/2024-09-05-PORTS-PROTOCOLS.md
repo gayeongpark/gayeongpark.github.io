@@ -1,7 +1,7 @@
 ---
 layout: post
 title: CompTia network+ certification
-subtitle: Preparing for CompTia network+ - ports and protocols
+subtitle: Preparing for CompTia network+ | Ports and Protocols
 tags: [network, compTia, fundamentals, ports, protocols]
 comments: true
 author: Lantana Park

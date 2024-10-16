@@ -1,7 +1,7 @@
 ---
 layout: post
 title: CompTia network+ certification
-subtitle: Preparing for CompTia network+ Network Fundamentals
+subtitle: Preparing for CompTia network+ | Network Fundamentals
 tags: [network, compTia, fundamentals, networks]
 comments: true
 author: Lantana Park

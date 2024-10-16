@@ -1,7 +1,7 @@
 ---
 layout: post
 title: CompTia network+ certification
-subtitle: Preparing for CompTia network+ - OSI model and TCP/IP model
+subtitle: Preparing for CompTia network+ | OSI model and TCP/IP model
 tags: [network, compTia, fundamentals, OSI model, TCP/IP model]
 comments: true
 author: Lantana Park

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: CompTia network+ certification
-subtitle: Preparing for CompTia network+ - distribution systems
+subtitle: Preparing for CompTia network+ | Distribution Systems
 tags: [network, compTia, fundamentals, systems]
 comments: true
 author: Lantana Park
@@ -13,7 +13,7 @@ author: Lantana Park
 
 Cable Distribution System is an organized system to connect the network's backbone in MDF to the Intermediate Distribution Frames(IDF) and to end user's wall jacks.
 
-Components of cable distribution systems
+### Components of cable distribution systems
 
 - **Demarcation Point** is the location at which the Internet service provider's connection ends and the network infrastructure and cabling begin.
 
@@ -34,7 +34,7 @@ Components of cable distribution systems
 
 - **Patch Panels** organize cables so I can easily connect devices to the network. They allow I to quickly move or repair cables without messing with the expensive equipment. Patch panels have ports on the front (where cables connect) and punchdown blocks on the back (where I secure cables using a special punchdown tool). There are two types:
 
-  - Copper patch panels (for regular network cables).
+  - Copper patch panels (for copper cables).
   - Fiber distribution panels (for fiber optic cables).
 
 - **Wall Jacks** is where I plug my computer or phone into the network. Behind the scenes, this jack connects to a cable that runs through the walls and ceilings to the IDF, where it’s connected to the patch panel and then to a switch.
@@ -57,7 +57,7 @@ Power Distribution Systems ensure consistent and reliable power delivery for net
 
 This system is a technology designed for indoor environmental comfort that provides temperature control, humidity management, and airflow regulation.
 
-- Temperature Control is a significant consideration as computer networks and data centers house electronic equipment that generates heat. Most networking equipment has failsafes designed to power off if it gets too hot to prevent any damage from occurring on that system.
+- Temperature Control is a significant consideration as computer networks and data centers house electronic equipment that generates heat. Most networking equipment has fail-safes designed to power off if it gets too hot to prevent any damage from occurring on that system.
 
 Maintain a steady temperature of 68-77°F or 20-25°C
 Maintain a relative humidity level of 40 to 60%
@@ -80,4 +80,4 @@ In order to properly manage the airflow,
 
 - Special suppression systems utilize a clean agent as part of its suppression system. There is a danger with using a special suppression system because if there's people in the data center, they're going to be suffocated along with that fire whenever I release the clean agent.
 
-So the datacenter with special suppression system must be equipped with an alarm and has supplemental oxygen available.
+So the data center with special suppression system must be equipped with an alarm and has supplemental oxygen available.
