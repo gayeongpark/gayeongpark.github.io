@@ -66,9 +66,9 @@ Classless subnet masks deviate from the default for a class. For example:
 
 Class Breakdown:
 
-- Class A: Default subnet mask is 255.0.0.0 or /8.
-- Class B: Default subnet mask is 255.255.0.0 or /16.
-- Class C: Default subnet mask is 255.255.255.0 or /24.
+- Class A : Default subnet mask is 255.0.0.0 or /8.
+- Class B : Default subnet mask is 255.255.0.0 or /16.
+- Class C : Default subnet mask is 255.255.255.0 or /24.
 
 In essence, CIDR notation simplifies IP address and subnet representation by specifying the number of bits dedicated to the network portion of the address.
 
@@ -99,7 +99,7 @@ In essence, CIDR notation simplifies IP address and subnet representation by spe
 
    - Range: 169.254.0.0 – 169.254.255.255.
    - Assigned when DHCP fails, allowing limited local network communication but not internet access.
-   - Indicates potential issues with DHCP(for automatically assigning IP addresses) when seen on a device.
+   - Indicates potential issues with DHCP (for automatically assigning IP addresses) when seen on a device.
    - It is considered private IPs.
 
 ## IPv4 Data Flows
@@ -123,9 +123,9 @@ There are two main ways to assign IP addresses in a network: static (manual) and
 
    - The IP address and related information are assigned automatically. This is more efficient for both small and large networks. The four critical pieces of information that are dynamically assigned are the IP address, subnet mask, default gateway, and DNS server.
 
-Methods of Dynamic IP Assignment
+### Methods of Dynamic IP Assignment
 
-1. BOOTP (Bootstrap Protocol):
+1. BOOTP (Bootstrap Protocol)
 
    - An older protocol from 1985 used for diskless workstations. It assigns IP addresses based on a static MAC address database.
 
@@ -133,9 +133,7 @@ Methods of Dynamic IP Assignment
 
    - Introduced in 1993, it dynamically assigns IP addresses from a pool or scope of addresses. It leases an IP to a client for a set time and automatically renews or reassigns it when necessary.
    - **DHCP provides the IP address, subnet mask, default gateway, DNS server, and optional WINS server information**.
-   - DHCP is the modern implementation of BOOTP.
-
-     - WINS is like DNS, but it only works within a Windows domain environment.
+   - DHCP is the modern implementation of BOOTP. WINS is like DNS, but it only works within a Windows domain environment.
 
 3. APIPA (Automatic Private IP Addressing)
 
@@ -169,7 +167,7 @@ Easy way to calculate the assignable IP addresses
 
 If the IP address is `172.16.1.0/27`
 
-1. IPs
+1. Assignable IPs
 
    = 2<sup>(32-27)</sup> - 2
 
@@ -177,7 +175,7 @@ If the IP address is `172.16.1.0/27`
 
    = 32 (Total IPs) - 2 (Network IP and Broadcast IP - Unassignable)
 
-   = 30(Assignable IPs)
+   = 30 (Assignable IPs)
 
 2. Subnets
 
@@ -257,7 +255,11 @@ For example, if `171.129.67.168/25` was given
    If both bits are `1`, the result is `1`.
    If either bit is `0`, the result is `0`.
 
-   | IP Address (`171.129.67.160`) | 10101011.10000001.01000011.10100000 | Subnet Mask (`255.255.255.128`) | 11111111.11111111.11111111.10000000 | Result (Network Address) | 10101011.10000001.01000011.10000000 |
+   IP Address (`171.129.67.160`) | 10101011.10000001.01000011.10100000
+
+   Subnet Mask (`255.255.255.128`) | 11111111.11111111.11111111.10000000
+
+   Result (Network Address) | 10101011.10000001.01000011.10000000 |
 
    In decimal form, `10101011.10000001.01000011.10000000` is :
 
@@ -277,13 +279,13 @@ For example, if `171.129.67.168/25` was given
 
    = 128
 
-   `171.129.67.128`
-
 2. Broadcast IP `171.129.67.255`
 
-   | Network address (`171.129.67.128`) | 10101011.10000001.01000011.10000000 | Set the host bits (last 7 bits) to 1 | 10101011.10000001.01000011.11111111 |
+   Network address (`171.129.67.128`) | 10101011.10000001.01000011.10000000
 
-   `10101011.10000001.01000011.11111111`
+   Set the host bits (last 7 bits) to 1 | 10101011.10000001.01000011.11111111
+
+   = `10101011.10000001.01000011.11111111`
 
    In decimal form, the Broadcast address is `171.129.67.255`
 
@@ -295,51 +297,50 @@ IPv4 has its limited address space.
 
 IPv6 has larger address space and no broadcast. It is considered to be more secure because there is no packet or datagram fragmentation. It has simplified header. IPv6 address uses **hexadecimal digits** and allows the use of shorthand notation. **IPv6 has 128 bits of addressable space inside of it as opposed to the 32 bits that we has in IPv4.**
 
-Shorthand notation:
+Shorthand notation
 
 `2018 : 0000 : 0000 : 0000 : 0000 : 0000 : 4815 : 54ae` -> `2018 : 0 : 0 : 0 : 0 : 0 : 4815 : 54ae` -> `2018 :: 4815 : 54ae`
 
-Different types of IPv6
+### Different types of IPv6
 
-A single interface can be assigned to multiple different IPv6 addresses.
+A single interface can be assigned to multiple different IPv6 addresses.That means a device can have multi IPv6 addresses.
 
 `2584:0db8:8583:1234:5678:882e:0370:7334`
 
-- **Unicast addresses** are used to identify a single interface. (`2584`)
+1. **Unicast Address** is used to identify a single interface in a network.
 
-  - Globally-routed unicast addresses (`2584:0db8:8583:1234:5678:882e:0370:7334`) are similar to IPv4's unicast class A, B, and C addresses and begins with 2000-3999. SLAAC (Stateless Address Autoconfiguration) facilitates automatic address configuration for devices using RA messages, without needing manual configuration or a DHCP server. This autoconfiguration process discovers the current network that an interface is located on, and select its own host ID based on its MAC address using the EUI-64 process.
+   ### Different types of unicast addresses in IPv6
 
-    - Extended Unique Identifier (EUI) allows a host to assign itself a unique 64-bit IPv6 interface identifier called EUI-64. EUI-64 process splits the MAC address into two 24-bit parts (Organizationally Unique Identifier and device-specific identifier) and inserts `FF FE` between them to form the 64-bit address.
+   - **Globally-routed Unicast Addresses (GUA)** are similar to IPv4's unicast class A, B, and C addresses and begins with 2000-3999.
 
-      `00:21:2F:B5:6E:10` (MAC Address)
-      `00:21:2F:FF:FE:B5:6E:10` (64-bit EUI)
+   For example, `2584:0db8:8583:1234:5678:882e:0370:7334` starts with `2584`
 
-    - DHCPv6 Protocol allows DHCP to automatically assign addresses from a DHCPv6 server. DHCPv6 can also be used to assign IPv6 addresses, but SLAAC allows a device to autonomously generate its IP address using NDP and EUI-64, making DHCPv6 optional.
+   Globally-routed Unicast address can be created manually by DHCP and automatically by SLAAC (Stateless Address Autoconfiguration).
 
-    - Neighbor Discovery Protocol (NDP) is used to determine the Layer 2 addresses that are on a given network. SLAAC uses NDP to discover Layer 2 addresses (MAC addresses) and network neighbors. NDP functions include:
+   - **Link-local/Local Use address** is very much like a private IP inside of IPv4. It can only be used on the local area network and **begins with `FE80` as its first segment**. Whenever an IPv6 system starts up itself, it is automatically going to create a link-local address for each IP version six interface on that system.
 
-      - Router Solicitation: Clients ask for routers on the network.
+     - **Stateless Address Autoconfiguration (SLAAC)** enables a device to automatically generate its own IPv6 address without a DHCP server. The host independently assigns itself a link-local address, tests its uniqueness, and contacts the router for guidance on further configuration. This process allows the host to configure a global unicast address as needed.
 
-      - Router Advertisement: Routers announce their presence and provide network prefix information.
+     Extended Unique Identifier-64 (EUI-64) and Neighbor Discovery Protocol (NDP) are used with SLAAC
 
-      - Neighbor Solicitation and Advertisement: Hosts discover other nodes on the network and exchange information.
+     - Stateless Address Autoconfiguration (SLAAC) allows a device to discover its network and generate a unique host identifier using its MAC address through the EUI-64 process. This involves separating the 48-bit MAC address into two 24-bit portions, inserting a 16-bit value `FF:FE` between them to form a 64-bit interface identifier.
 
-      - Redirection: Routers suggest more efficient routes to a destination.
+     - The device then uses Neighbor Discovery Protocol (NDP) to learn about Layer 2 addresses on the network. NDP facilitates router solicitation, router advertisement, neighbor solicitation, neighbor advertisement, and redirection to help the device find routers and other nodes.
 
-  - Link-local/Local Use addresses is very much like a private IP inside of IPv4. It can only be used on the local area network and begins with `FE80` as its first segment. Whenever an IPv6 system starts up itself, it is automatically going to create a link-local address for each IP version six interface on that system.
+   - DHCPv6 (Dynamic Host Configuration Protocol for IPv6) is used to assign IPv6 addresses and other configuration parameters from a centralized DHCP server.
 
-- **Multicast addresses** are used to identify a group of interfaces and begins with `FF`.
+2. **Multicast addresses** are used **to identify a group of interfaces** and **begins with `FF`**.
 
-- **Anycast addresses** are used to identify a set of interfaces so that a packet can be sent to any member of a set. Data travels from a single source device to the device nearest to multiple (but specific) destination devices. It is really efficient.
+3. **Anycast addresses** are used **to identify a set of interfaces** so that a packet can be sent to any member of a set. Data travels from a single source device to the device nearest to multiple (but specific) destination devices. It is really efficient.
 
 ## IPv4 and IPv6 Compatibility Requirements
 
-As the transition from IPv4 to IPv6 occurs, both protocols need to coexist on the same network due to the widespread use of IPv4. Here are the main mechanisms used to ensure compatibility:
+As the transition from IPv4 to IPv6 occurs, both protocols need to coexist on the same network due to the widespread use of IPv4. Here are the main mechanisms used to ensure compatibility
 
-1. **Dual Stack** allows devices (Routers, Switches, and hosts) to run both IPv4 and IPv6 simultaneously. Devices communicate using IPv6 by default. If IPv6 is unavailable, they fall back to IPv4. DNS queries return both A (IPv4) and AAAA (IPv6) records, and devices choose the appropriate protocol. This method provides a seamless migration path without disrupting services or requiring immediate IPv4 removal.
+1. **Dual Stack** allows devices (Routers, Multilayer Switches, and hosts) to run both IPv4 and IPv6 simultaneously. Devices communicate using IPv6 by default. If IPv6 is unavailable, they fall back to IPv4. DNS queries return both A (IPv4) and AAAA (IPv6) records, and devices choose the appropriate protocol. This method provides a seamless migration path without disrupting services or requiring immediate IPv4 removal.
 
-2. **Tunneling** encapsulates IPv6 packets within IPv4 packets to allow them to traverse an IPv4 network. IPv6 packets are encapsulated in IPv4, sent across the IPv4 network, then decapsulated at the endpoint and delivered to the IPv6 destination. Techniques like 6to4, Teredo, and ISATAP create these tunnels. This method enables IPv6 communication over IPv4 infrastructure.
+2. **Tunneling** **encapsulates IPv6 packets within IPv4 packets to allow them to traverse an IPv4 network**. IPv6 packets are encapsulated in IPv4, sent across the IPv4 network, then decapsulated at the endpoint and delivered to the IPv6 destination. Techniques like 6to4, Teredo, and ISATAP create these tunnels. This method **enables IPv6 communication over IPv4 infrastructure**.
 
-3. **NAT64** allows IPv6-only devices to communicate with IPv4 services. A NAT64 gateway translates IPv6 addresses into IPv4 and vice versa. The gateway maintains a translation table for seamless interaction between devices across both protocols. This method facilitates communication between IPv6-only devices and legacy IPv4 systems, extending the life of IPv4.
+3. **NAT64** allows IPv6-only devices to communicate with IPv4 services. A NAT64 gateway **translates IPv6 addresses into IPv4 and vice versa**. The gateway maintains a translation table for seamless interaction between devices across both protocols. This method facilitates communication between IPv6-only devices and legacy IPv4 systems, extending the life of IPv4.
 
 While IPv6 brings new benefits, IPv4 will remain in use for the foreseeable future. These compatibility mechanisms allow the internet and network infrastructure to support both protocols during the lengthy transition period

@@ -2,7 +2,7 @@
 layout: post
 title: CompTia network+ certification
 subtitle: Preparing for CompTia network+ - Network Services
-tags: [network, compTia, fundamentals, services, types of communication]
+tags: [network, compTia, fundamentals, services, types of communications]
 comments: true
 author: Lantana Park
 ---

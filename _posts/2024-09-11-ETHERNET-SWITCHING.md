@@ -15,11 +15,13 @@ It is focused heavily on the second layer of the OSI model because layer two - D
 
 Early networking technologies were diverse, including Ethernet, Token Ring, LocalTalk, AppleTalk, and others. Over time, Ethernet emerged as the dominant Layer 2 protocol, used widely in local area networks (LANs).
 
+Initially, Ethernet used coaxial cables (10Base2 and 10Base5), which allowed for long distances but were eventually replaced by **10Base-T Ethernet** using **twisted-pair cables** known as category 3 or CAT 3 with **RJ-45 connectors**. 10Base-T could transmit data at **10 Mbps** over a maximum distance of **100 meters**.
+
 ### Two different Network methods
 
-- Deterministic Networks (e.g., Token Ring) : Devices wait for a turn to transmit using a token-passing method.
+- Deterministic Networks (e.g., Token Ring) : Means that the network access should be very organized and orderly.
 
-- Contention-Based Networks (Ethernet) : Devices can transmit data whenever the network is clear, which can result in collisions.
+- Contention-Based Networks (Ethernet) : Used to determine who gets to access and communicate on the network at any given time.
 
 How to prevent collision?
 
@@ -71,24 +73,31 @@ Router | 1 per port | 1 per port | 3+
 
 ## Virtual Local Area Network (VLAN)
 
-VLAN is a logical subdivision of a given network that segments into separate broadcast domains. The logical grouping of devices is achieved through a software configuration. When we use VLANs, we can consolidate all four of those switches into just two switches.
+A VLAN is a logical segmentation of a network, used to create separate broadcast domains within the same physical network infrastructure. Devices in the same VLAN can communicate with each other as if they were on the same network, even if they are physically connected to different switches. VLANs operate at Layer 2 (Data Link Layer) of the OSI model, and they allow for better network segmentation and control.
 
-VLANs operate at the layer two or the data link layer of the OSI model. Whenever a switch is configured to utilize a VLAN, it will tag each frame of data with a VLAN ID as it passes through the switch.
+When VLANs are implemented, each frame of data is tagged with a VLAN ID, ensuring that traffic from different VLANs remains separate.
 
-Reasons for using VLAN
+VLAN (Virtual Local Area Network) is a type of network configuration used in Ethernet networks.
 
-1. Enhanced security because segmenting the networks into VLANs allows sensitive data to be isolated to reduce data breaches
-2. Improved performance because VLAN reduces the size of a broadcast domain helps to decrease the amount of traffic begin sent over that segment
-3. Increased management because VLAN provides greater control over the management of networks to implement policy changes and troubleshoot issue
-4. Improved cost efficiency because VLAN allows us to better utilize our existing network infrastructure by breaking it up into smaller logical segments
+### Reasons for using VLAN
 
-Effective VLANs must maintain a VLAN database that contains all of the VLAN configurations for a particular switch.
+1. Enhanced Security: VLANs allow sensitive data to be isolated. For example, separating the HR department from the Finance department can help protect confidential data and reduce security risks.
 
-Switch Virtual Interface (SVI) allows switching to route traffic between different VLANs without requiring/buying a separate router. It provides layer three or network layer processing to the VLAN. By configuring a SVI for the VLAN, the switch can handle the routing decision for any data within that VLAN.
+2. Improved Performance: By reducing the size of the broadcast domain, VLANs help minimize broadcast traffic, improving the overall performance of the network.
 
-Cisco switch - VLAN.DAT
+3. Simplified Management: VLANs provide greater control over the network, enabling easier policy implementation, segmentation, and troubleshooting.
 
-## VLAN Configuration
+4. Cost Efficiency: VLANs allow more efficient use of existing infrastructure by creating logical segments, reducing the need for additional physical hardware.
+
+### VLAN Configurations
+
+- VLAN Database : Each switch maintains a VLAN database that holds all VLAN configurations, allowing for easy management and identification of the VLANs associated with the switch.
+
+- Switch Virtual Interface (SVI) : An SVI enables inter-VLAN routing, allowing traffic to be routed between VLANs without the need for an external router. The switch can perform Layer 3 (Network Layer) operations for the VLAN, making it capable of routing traffic within and between VLANs.
+
+- Cisco VLAN.DAT : On Cisco switches, VLAN configurations are stored in a file called VLAN.DAT. It is important for maintaining the integrity of the VLAN configuration.
+
+### Key VLAN Concepts
 
 - 802.1Q Tagging : A VLAN tagging standard that adds VLAN IDs to Ethernet frames, helping manage multiple VLANs on the same physical network infrastructure(Trunking). This ensures data separation between different departments (e.g., HR and finance) by tagging their traffic for secure, isolated communication.
 
@@ -122,7 +131,7 @@ It defined by IEEE standard 802.1d, it **prevents loops in network traffic** by 
 
 ## Network Access Control (NAC)
 
-Network Access Control (NAC) is a security mechanism used to **ensure that devices connecting to a network meet specific security requirements**. It acts as a gatekeeper, inspecting devices for compliance before granting them access, similar to customs at an airport. Here’s an overview of key NAC concepts:
+Network Access Control (NAC) is a security mechanism used to **ensure that devices connecting to a network meet specific security requirements**. NAC is effectively implemented in switches to enforce security policies and control access to the network. It acts as a gatekeeper, inspecting devices for compliance before granting them access, similar to customs at an airport.
 
 1. Device Inspection
 
@@ -131,9 +140,11 @@ Network Access Control (NAC) is a security mechanism used to **ensure that devic
 
 2. NAC Components
 
-   - Port Security: Limits physical devices that can connect to network ports. Port security mechanism can be configured to allow only specific MAC addresses to access a port.
-   - MAC Filtering: Controls access based on a device’s MAC address (using allowlists or blocklists). Block-listing is considered less secure than allowlisting.
-   - 802.1x Authentication: Ensures only authenticated users can access the network using usernames, passwords, certificates, etc. This protocol works by encapsulating the extensible authentication protocol, also known as EAP within the network's frames. It involves three components:
+   - Port Security : Limits physical devices that can connect to network ports. Port security mechanism can be configured to allow only specific MAC addresses to access a port.
+
+   - MAC Filtering : Controls access based on a device’s MAC address (using allowlists or blocklists). Block-listing is considered less secure than allowlisting.
+
+   - 802.1x Authentication : Ensures only authenticated users can access the network using usernames, passwords, certificates, etc. This protocol works by encapsulating the extensible authentication protocol, also known as EAP within the network's frames. It involves three components
 
      - Supplicant is a user device that's seeking to access the network.
      - Authenticator is the network device the user wants to connect to like switches or a wireless access point.
@@ -142,7 +153,7 @@ Network Access Control (NAC) is a security mechanism used to **ensure that devic
 3. Implementation in Organizations
 
    - Employees can connect company or personal devices, which must comply with the organization's security policies.
-   - Persistent or Non-Persistent Agents are used to assess device compliance:
+   - Persistent or Non-Persistent Agents are used to assess device compliance.
      - Persistent Agents (on company devices) continuously monitor security compliance.
      - Non-Persistent Agents (on personal devices) perform a temporary security check.
    - When a device is connected to the network, the persistent or non-persistent agent is first going to check the MAC address and verify the device's identity.
@@ -160,19 +171,21 @@ Network Access Control (NAC) is a security mechanism used to **ensure that devic
 
 ## Maximum Transmission Unit (MTU)
 
-- MTU Definition: The largest size of a data packet (frame) that can be sent over a network, measured in bytes.
-
-- Impact: Affects network performance and efficiency. A properly set MTU avoids packet loss and excessive overhead.
+Maximum Transmission Unit (MTU) settings can be configured on switches.
+The largest size of a data packet (frame) that can be sent over a network, measured in bytes. It affects network performance and efficiency. A properly set MTU avoids packet loss and excessive overhead.
 
 1. Common MTU Sizes
 
-   - Wired Ethernet: 1500 bytes (default, balances efficiency and compatibility).
-   - Wireless Networks: Often smaller (~1420 bytes) to handle instability and higher error rates.
-   - VPN/PPPoE: Smaller MTU (1400–1450 bytes) to accommodate overhead from encapsulation.
-   - Jumbo Frames: Typically 9000 bytes, used in high-bandwidth environments like data centers or for large file transfers.
+   - Wired Ethernet : The standard MTU size is 1500 bytes. This is widely used because it strikes a good balance between efficiency and compatibility with different types of networks.
+
+   - Wireless Networks : MTU sizes for wireless networks are often smaller, around 1420 bytes. This helps manage issues like instability and higher error rates that are common in wireless communications.
+
+   - VPN/PPPoE : For VPN connections or Point-to-Point Protocol over Ethernet (PPPoE), the MTU is usually smaller, typically ranging from 1400 to 1450 bytes. This is necessary to account for the extra data (overhead) added during encapsulation.
+
+   - Jumbo Frames : In specialized environments like data centers, MTUs can be increased to 9000 bytes. This is known as a Jumbo Frame and is used for transferring large files efficiently, reducing the number of packets sent over the network.
 
 2. Considerations
 
-   - Jumbo Frames: Boost efficiency but require network devices to support them. Improper configuration leads to packet fragmentation, latency, and troubleshooting difficulties.
+   - While Jumbo Frames can enhance efficiency, all network devices must support them. If they don’t, it can lead to packet fragmentation (breaking packets into smaller pieces), increased latency (delays), and challenges in troubleshooting network issues.
 
-   - Real-World Use: Configure different MTUs for wired, wireless, VPN, and high-speed network segments to optimize performance.
+   - To get the best performance, it’s important to configure MTUs appropriately based on the type of network being used (wired, wireless, VPN, etc.). This helps ensure smooth data transmission without bottlenecks or interruptions.
