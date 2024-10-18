@@ -1,7 +1,7 @@
 ---
 layout: post
 title: CompTia network+ certification
-subtitle: Preparing for CompTia network+ - Network Services
+subtitle: Preparing for CompTia network+ | Network Services
 tags: [network, compTia, fundamentals, services, types of communications]
 comments: true
 author: Lantana Park
@@ -15,39 +15,38 @@ Network Service is a function provided by the network infrastructure to support 
 
 DHCP provides an IP address to every machine on the network and eliminates configuration errors. Because IP conflicts happens when the same IP gets assigned to multiple machine inside the same network by accident. DHCP operates using the User Datagram Protocol (UDP). To help the data get to where it needs to go, I need to configure what's known as an IP helper address on my router. The IP helper address is used to forward several different kinds of UDP broadcasts across the router and can be used in conjunction with the DHCP relay that we just talked about. So, for DHCP to work across different network segments, I need to configure the client's router with an IP helper address.
 
-- Dynamic Assignment
+### Types of IP Assignment of DHCP
 
-- Static Assignment (I need to configure statically IP address, subnet mask, default gateway IP and DNS server IP on my device.)
+- **Dynamic Assignment**: Most common; IPs are given to devices temporarily, and the IP might change over time.
 
-DHCP Reservation lets me exclude some IP addresses from being handed out to devices unless a certain condition is met. The DHCP server automatically configures devices by assigning a static address each time, utilizing this automatic configuration.
+- **Static Assignment**: Manual setup; you assign the IP, subnet mask, gateway, and DNS server by hand on each device.
 
-DHCP Relay forwards DHCP packets between clients and servers. DHCP relay is used when the client device and the DHCP server are not located on the same subnet or network. instead of installing a DHCP server on every subnet or mini network inside of the network, I can configure one device to act as the DHCP relay, and that way I can save myself a lot of effort. This device will listen for discovery requests, and then forward that request to the DHCP server on the other network on behalf of the client, acting essentially as a middleman.
+**DHCP Reservation** lets me exclude some IP addresses from being handed out to devices unless a certain condition is met. The DHCP server automatically configures devices by assigning a static address each time, utilizing this automatic configuration.
+
+**DHCP Relay** forwards DHCP packets between clients and servers. **DHCP relay is used when the client device and the DHCP server are not located on the same subnet or network.** Instead of installing a DHCP server on every subnet or mini network inside of the network, I can configure one device to act as the DHCP relay, and, in that way, it is possible to save a lot of effort. This device will listen for discovery requests, and then forward that request to the DHCP server on the other network on behalf of the client, acting essentially as a middleman.
 
 In the world of cyber security, having devices that are constantly changing their IPs makes it harder for us to track down when bad things happen. So in larger networks, we tend to use a longer lease time.
 
-4 Steps of configuring a device on a network using DHCP,
+### 4 Steps of configuring a device on a network using DHCP
 
-1. Discover
+1. Discover: The device (client) sends a message asking for an IP address when it connects to the network.
 
-2. Offer
+2. Offer: The DHCP server responds with an available IP address.
 
-3. Request
+3. Request: The client then requests to use the offered IP address.
 
-4. Acknowledge
+4. Acknowledge: The DHCP server confirms and gives the client that IP.
 
 `DORA`
 
-With the information configured, that client can get online, get out of the network, and get onto the internet because it now knows where it is on the network with its IP address, where the router is with that gateway address, and how to convert the domain names to IP addresses using that DNS server's IP.
+Once the client gets its IP address, it can also get other important settings like:
 
-1. IP address
+- IP Address (Unique to the device on the network)
+- Subnet Mask (Tells the device which part of the IP defines the network)
+- Default Gateway (The router IP to access other networks, like the internet)
+- DNS Server (Helps convert domain names to IP addresses for internet browsing)
 
-2. Subnet mask
-
-3. Default gateway IP
-
-4. DNS server IP
-
-Key Features
+### Key Features
 
 - Centralized control over IP address assignment.
 
@@ -167,11 +166,9 @@ In enterprise networks, NTP servers synchronize time across systems, with client
 
 ## Quality of Service (QoS)
 
-QoS allows networks to prioritize certain types of traffic to ensure proper functionality, especially for time-sensitive applications like VoIP or video streaming.
+**Quality of Service (QoS)** is a network feature that helps prioritize important traffic, ensuring that certain applications (like voice calls or video streaming) perform smoothly, even when the network is busy. It ensures that time-sensitive traffic (e.g., VoIP) gets enough bandwidth and isn't affected by delays or interruptions.
 
-Voice and video traffic require higher priority due to their sensitivity to latency and jitter, whereas data traffic (e.g., web browsing) can tolerate slight delays.
-
-QoS Categories
+### Key Factors in QoS
 
 - Delay: The time taken for a packet to travel from source to destination, important for live communications like VoIP or video calls.
 - Jitter: Uneven arrival of packets, affecting real-time communications and causing distorted audio or video.
@@ -179,15 +176,15 @@ QoS Categories
 
 #### Effective Bandwidth
 
-The overall speed of communication is limited by the slowest link in the network path. QoS helps manage this by prioritizing critical traffic within the available bandwidth.
+Bandwidth is the total amount of data that can be transmitted in a network path. QoS ensures critical traffic gets enough of the available bandwidth, even if the network’s slowest link limits overall speed.
 
-#### Mechanisms I can use to categorize the traffic
+#### Traffic Categorization Mechanisms
 
-1. Best effort - No QoS, Traffic is first in, first out
+1. Best effort - No prioritization at all, Traffic is first in, first out
 
-2. Integrated services (IntServ) - Hard QoS, Traffic has strict bandwidth reservations
+2. Integrated services (IntServ) - Hard QoS, A strict method that reserves bandwidth for specific traffic
 
-3. Differentiated services (DiffServ) - Soft QoS, has differentiation of data types where routers and switches can make decisions based on markings and can fluctuate traffic
+3. Differentiated services (DiffServ) - Soft QoS, this method marks traffic and lets network devices decide the priority
 
 Best Effort | Not strict
 DiffServ | Less strict (Soft QoS)
@@ -195,14 +192,20 @@ IntServ | More strict (Hard QoS)
 
 ### QoS mechanisms
 
-1. Classification: Traffic is categorized based on type, such as email (POP3, IMAP, SMTP), VoIP, video, etc. It’s identified through packet headers, ports, and protocols without altering bits in the packet. Switches and routers use this info to implement QoS.
+1. Classification: **Traffic is categorized based on type**, such as email (POP3, IMAP, SMTP), VoIP, video, etc. It’s identified through packet headers, ports, and protocols without altering bits in the packet. Switches and routers use this info to implement QoS.
 
-2. Marking: Here, specific bits in the packet are altered to signal how the traffic should be treated. This marking, such as using IP precedence or DSCP (Differentiated Services Code Point), helps network devices prioritize packets.
+2. Marking: After classification, packets are “marked” by altering bits in their headers (like using DSCP values) to signal how the network should treat them. This helps network devices understand the priority of each packet.
 
-3. Congestion Management: When devices receive more traffic than they can send, they buffer it. Queuing algorithms like weighted fair queuing, low-latency queuing, and weighted round-robin are used to decide which packets are sent first. Weighted round-robin, for example, allows traffic prioritization by category (e.g., VoIP gets more priority).
+3. Congestion Management: When too much data enters a device, it has to queue traffic. Various algorithms manage this process
 
-4. Congestion Avoidance: Mechanisms like RED (Random Early Detection) help prevent queues from overflowing by selectively dropping low-priority traffic when congestion builds up, especially for TCP traffic, which can retransmit.
+  - Weighted Fair Queuing: All traffic gets a share, but some types (like VoIP) get more priority.
 
-5. Policing and Shaping: Policing drops packets that exceed a bandwidth limit (like enforcing a speed limit), leading to retransmissions. Shaping, on the other hand, buffers excess traffic and sends it when bandwidth is available, optimizing network performance.
+  - Low-Latency Queuing: Critical traffic, like video or voice, skips the queue.
+
+  - Weighted Round Robin: Different categories of traffic get assigned bandwidth based on priority.
+
+4. Congestion Avoidance: Methods like Random Early Detection (RED) help prevent networks from becoming overloaded by selectively dropping less important traffic when congestion starts building up. This helps ensure that critical traffic still gets through.
+
+5. Policing and Shaping: Policing drops packets that exceed a bandwidth limit (like enforcing a speed limit), leading to retransmissions. Shaping, on the other hand, buffers excess data traffic and sends it later when bandwidth is available, optimizing network performance.
 
 6. Link Efficiency: Techniques such as compression and LFI (Link Fragmentation and Interleaving) improve bandwidth utilization. Compression reduces packet size, especially for VoIP, while LFI fragments large packets and interleaves smaller ones, reducing latency on slower links
