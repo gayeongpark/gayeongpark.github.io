@@ -1,7 +1,7 @@
 ---
 layout: post
 title: CompTia network+ certification
-subtitle: Preparing for CompTia network+ - Cloud and the datacenter
+subtitle: Preparing for CompTia network+ | Cloud and the datacenter
 tags: [network, compTia, fundamentals, cloud, datacenter]
 comments: true
 author: Lantana Park
@@ -35,7 +35,7 @@ Cloud computing benefits or characteristics
 
 ## Cloud Service Models
 
-On-premise solutions offer strong security but come with high costs. Once I decided to use the on-premise solution, I need to procure all the hardware, software, and personnel necessary to run the organization's cloud.
+On-premise solutions offer strong security but come with high costs. Once it is decided to use the on-premise solution, it is needed to procure all the hardware, software, and personnel necessary to run the organization's cloud.
 
 Many organization instead decide to use a hosted solution. With the hosted solution, a third-party service provider(Amazon, Microsoft, Google) that provides all the hardware and facilities needed to maintain a cloud solution.
 
@@ -77,13 +77,13 @@ Cloud Architectures
 
 ## Cloud Connectivity
 
-When connecting enterprise networks to cloud service providers (CSPs), two main connectivity options are commonly used: **Virtual Private Networks (VPNs)** and **Private-Direct Connections**.
+When connecting enterprise networks to cloud service providers (CSPs), two main connectivity options are commonly used: **Virtual Private Networks (VPNs)** and **Private-Direct Connections (PDCs)**.
 
 ### VPN (Virtual Private Network)
 
 - Establishes a secure, encrypted connection between an on-premise network, remote offices, or client devices and the cloud provider’s network.
-- Typically uses an IPSec VPN to create an encrypted tunnel over the public internet.
-  Extends the network securely without requiring a direct connection.
+- Typically uses an **IPSec VPN** to create an encrypted tunnel over the public internet.
+- Extends the network securely without requiring a direct connection.
 - Works well for most organizations but may have limitations in speed and redundancy.
 - Example: AWS-managed VPN supports speeds up to 4 Gbps.
 - Cost: Relatively cheaper (e.g., 9 cents per gigabyte of data transfer).
@@ -196,7 +196,7 @@ VXLAN is a network overlay technology designed to encapsulate Ethernet frames wi
 
 ## SASE and SSE
 
-SASE (Secure Access Secure Edge) and SSE (Security Service Edge) are modern network security frameworks designed to address the evolving needs of distributed, cloud-centric businesses. These blend traditional network services with comprehensive security functions. 
+SASE (Secure Access Secure Edge) and SSE (Security Service Edge) are modern network security frameworks designed to address the evolving needs of distributed, cloud-centric businesses. These blend traditional network services with comprehensive security functions.
 
 ### Secure Access Secure Edge (SASE)
 
@@ -231,13 +231,13 @@ SASE (Secure Access Secure Edge) and SSE (Security Service Edge) are modern netw
 
 #### Key Benefits
 
-SASE:
+##### SASE
 
 - Provides secure, seamless access across distributed networks.
 - Uses cloud-native solutions for WAN and security, improving efficiency.
 - Supports global scalability through flexible, cloud-integrated services like AWS VPC, Azure Virtual WAN, and Google Cloud Interconnect.
 
-SSE:
+##### SSE
 
 - Focuses on security controls for cloud environments.
 - Implements robust threat protection for data access and user activities.

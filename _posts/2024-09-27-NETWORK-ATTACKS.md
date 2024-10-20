@@ -1,7 +1,7 @@
 ---
 layout: post
 title: CompTia network+ certification
-subtitle: Preparing for CompTia network+ - network attacks
+subtitle: Preparing for CompTia network+ | network attacks
 tags: [network, compTia, fundamentals, attacks, important]
 comments: true
 author: Lantana Park
@@ -33,23 +33,23 @@ To Achieve a denial of service attack with a single machine, attackers need to u
 
 ### Three main reasons an attacker want to do this attack
 
-- Data Snooping occurs when an attacker captures sensitive data by forcing the switch to broadcast traffic. It enables the attackers to eavesdrop in promiscuous mode during a MAC flooding attack.
+- Data Snooping occurs when an attacker **captures sensitive data** by forcing the switch to broadcast traffic. It enables the attackers to eavesdrop in promiscuous mode during a MAC flooding attack.
 
-- Disrupting Service arises from MAC flooding, causing a DoS attack by overwhelming the network with unnecessary traffic.
+- **Disrupting Service** arises from MAC flooding, causing a DoS attack by overwhelming the network with unnecessary traffic.
 
-- MAC flooding can bypass security measures like MAC address filtering. Switches may fail to enforce such restrictions, potentially allowing unauthorized devices to connect to the network.
+- MAC flooding can **bypass security measures** like MAC address filtering. Switches may fail to enforce such restrictions, potentially allowing unauthorized devices to connect to the network.
 
-To secure network, I should
+### To secure network, I should
 
-1. use anomaly-based Intrusion Detection System (IDS)
+1. Use anomaly-based Intrusion Detection System (IDS)
 
-2. employ network monitoring tools
+2. Employ network monitoring tools
 
-3. configure port security to limit the number of MAC addresses on a single port
+3. Configure port security to limit the number of MAC addresses on a single port
 
-4. set MAC address limits from each switch port
+4. Set MAC address limits from each switch port
 
-5. implement VLANs to segregate traffic
+5. Implement VLANs to segregate traffic
 
 ## Address Resolution Protocol (ARP) Attacks
 
@@ -57,9 +57,9 @@ Address Resolution Protocol (ARP) is a fundamental concept in IP networking that
 
 Since ARP is really old protocol, there are many vulnerabilities on it.
 
-1. ARP Spoofing is an attack wherein an attacker sends falsified ARP messages over a LAN. Attacker aims to associate their MAC address with a target IP address. ARP spoofing can be used to initiate an on-path attack inside of a Layer 2 network. (Attackers conduct a more targeted attack)
+1. ARP Spoofing is an attack wherein an attacker **sends falsified ARP messages over a LAN**. Attacker aims to associate their MAC address with a target IP address. ARP spoofing can be used to initiate an on-path attack inside of a Layer 2 network. (Attackers conduct a more targeted attack)
 
-2. ARP Poisoning is a form of attack that corrupts the ARP cache (ARP table) in the network. It allows an attacker to alter the network traffic flow, and enable data interception, session hijacking, or DoS attack. (Attackers target all devices in a LAN)
+2. ARP Poisoning is a form of attack that **corrupts the ARP cache*** (ARP table) in the network. It allows an attacker to alter the network traffic flow, and enable data interception, session hijacking, or DoS attack. (Attackers target all devices in a LAN)
 
 ### How to perform ARP attack
 
@@ -69,9 +69,9 @@ Since ARP is really old protocol, there are many vulnerabilities on it.
 
 ### Detection & Prevention
 
-- Detection: ARP monitoring tools and Intrusion Detection Systems (IDS) can track unusual traffic patterns.
+- Detection : ARP monitoring tools and Intrusion Detection Systems (IDS) can track unusual traffic patterns.
 
-- Prevention:
+- Prevention
 
   - Static ARP entries: Manually set IP-MAC mappings, though impractical for large networks.
 
@@ -93,7 +93,7 @@ As a network penetration tester, breaking out of a VLAN from a user's workstatio
 
 - VLAN Hopping is a technique that exploits a misconfiguration to direct traffic to a different VLAN without proper authorization.
 
-This attack can be accomplished using
+### VLAN Hopping can be accomplished using
 
 1. Double Tagging : A method where the attacker tries to reach a different VLAN using vulnerabilities in the trunk port configuration. Attackers add two VLAN tags to the frame — one outer tag(Native VLAN) and one inner tag(True destination). The switch strips the outer tag, and the inner tag tricks the network into forwarding the frame to a different VLAN. This allows the attacker to send traffic to another VLAN without authorization. Double tagging is a one-way attack since responses are not sent back to the attacker.
 

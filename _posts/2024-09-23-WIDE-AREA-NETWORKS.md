@@ -1,7 +1,7 @@
 ---
 layout: post
 title: CompTia network+ certification
-subtitle: Preparing for CompTia network+ - Wide Area Networks (WANs)
+subtitle: Preparing for CompTia network+ | Wide Area Networks (WANs)
 tags: [network, compTia, fundamentals, wan]
 comments: true
 author: Lantana Park
@@ -23,22 +23,49 @@ FTTB - Fiber to the Building/Basement | Fiber optic cables are brought to the co
 
 ## Cable (DOCSIS) Connections
 
-DOCSIS (Data Over Cable Service Interface Specification) is a standard that allows high-speed internet delivery using the same lines as cable TV. It defines how data is transmitted over a Hybrid Fiber-Coaxial (HFC) network.
+DOCSIS is a telecommunications standard that allows high-speed data transmission over existing **cable TV infrastructure**. It's essential to understand that DOCSIS enables cable companies to offer broadband internet services through their hybrid fiber-coaxial (HFC) networks.
 
-HFC (Hybrid Fiber-Coaxial)is a network infrastructure combining fiber optic cables for long-distance data transmission and coaxial cables for the final delivery to homes or offices. Fiber provides high-speed connections to a distribution point, where coaxial cables take over.
+1. HFC (Hybrid Fiber-Coaxial)
 
-DOCSIS designates frequency ranges for data transmission.
+   - DOCSIS operates over HFC networks, which combine fiber optic cables for high-speed, long-distance transmission and coaxial cables for local delivery. This hybrid network structure is significant because it makes cable broadband more cost-effective compared to full fiber-optic deployments.
 
-- Upstream (upload) uses 5-42 MHz.
-- Downstream (download) uses 50-860 MHz, offering far greater bandwidth, which leads to faster downloads compared to uploads.
+2. Frequency Allocation
 
-Cable connections offer higher download speeds (e.g., 1 Gbps) and much slower upload speeds (e.g., 30-40 Mbps) due to the bandwidth differences between downstream and upstream channels.
+   - DOCSIS designates specific frequency ranges for upstream (upload) and downstream (download) data.
 
-DOCSIS leverages existing cable TV infrastructure, making it more cost-effective and quicker to deploy than fiber-optic alternatives.
+     - Upstream: 5-42 MHz for upload traffic.
+
+     - Downstream: 50-860 MHz for download traffic.
+
+   - The broader frequency range for downstream enables faster download speeds compared to upload speeds.
+
+3. Asymmetrical Speeds
+
+   - Cable internet connections using DOCSIS typically offer asymmetrical speeds, meaning download speeds are much faster than upload speeds. Because of the larger bandwidth allocation for downstream traffic.
+
+4. DOCSIS Versions
+
+   - DOCSIS 3.0: Supports download speeds up to 1 Gbps and upload speeds up to 200 Mbps.
+
+   - DOCSIS 3.1: Supports download speeds up to 10 Gbps and upload speeds up to 1-2 Gbps.
+
+   - DOCSIS 3.1 offers speeds closer to fiber-optic broadband in certain scenarios.
+
+5. DOCSIS Benefits
+
+   - Cost-Effective Deployment: Since DOCSIS uses existing infrastructure, it’s a less expensive and faster solution for deploying broadband compared to fiber-optic installations.
+
+   - Widely Available: Cable networks are already widely available, so DOCSIS-based services can reach a large number of customers, making it a common choice for home broadband.
+
+6. Limitations
+
+   - Shared Bandwidth: DOCSIS users share the network with others in their local area, which can lead to congestion and slower speeds during peak usage times.
+
+   - Asymmetry: The difference between upload and download speeds can be a limitation for users who need high upload bandwidth (e.g., for video conferencing or uploading large files).
 
 ## Digital Subscriber Line (DSL) Connections
 
-DSL (Digital Subscriber Line) is a technology that provides internet access by transmitting digital data over local telephone networks. It was popular in the late 1990s and early 2000s for its affordability.
+Digital Subscriber Line (DSL) is a broadband internet technology that utilizes existing telephone lines to deliver internet access, allowing simultaneous voice and data transmission. It was a popular solution for residential and business internet connectivity during the late 1990s and early 2000s due to its affordability and ease of installation, especially in areas where cable or fiber-optic infrastructure was not yet available.
 
 ### Types of DSL
 
@@ -95,7 +122,7 @@ Because leased lines provide a direct connection, they offer higher security wit
 
 Leased lines are more expensive than shared services (DSL, cable) and are typically used by larger businesses that prioritize reliability and speed.
 
-## MPLS Connections
+## MPLS (Multiprotocol Label Switching) Connections
 
 MPLS is a technique used by service providers to improve the efficiency, speed, and flexibility of networks. It is not a networking protocol but an approach to streamline data traffic flow by using label switching instead of traditional IP routing.
 

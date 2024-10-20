@@ -1,7 +1,7 @@
 ---
 layout: post
 title: CompTia network+ certification
-subtitle: Preparing for CompTia network+ - network security fundamentals
+subtitle: Preparing for CompTia network+ | Network Security Fundamentals
 tags: [network, compTia, fundamentals, security]
 comments: true
 author: Lantana Park
@@ -99,7 +99,7 @@ Device Hardening refers to securing devices by reducing their attack surface, wh
 
 Endpoints (servers, mobile devices, network infrastructure) can all be hardened to reduce the risk of attack.
 
-Key practices include:
+Key practices include
 
 1. Security Software: Install endpoint security software like anti-malware, host-based firewalls, and log collection agents.
 2. Specialized Hardware: Use hardware security features like UEFI, TPM, and HSM.
