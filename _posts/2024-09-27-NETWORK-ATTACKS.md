@@ -1,7 +1,7 @@
 ---
 layout: post
 title: CompTia network+ certification
-subtitle: Preparing for CompTia network+ | network attacks
+subtitle: Preparing for CompTia network+ | Network attacks
 tags: [network, compTia, fundamentals, attacks, important]
 comments: true
 author: Lantana Park

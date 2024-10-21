@@ -112,7 +112,7 @@ Firewalls can be configured through web-based interfaces or command-line interfa
 
 - Windows Defender Firewall: You can configure inbound/outbound rules using the Windows Defender Firewall with Advanced Security tool. For example, you can allow SSH traffic over port 22 or block unsecure Telnet connections. Additionally, rules can be created for specific networks (private, public, domain), and the configurations can be exported for future use.
 
-- macOS Firewall: On macOS, firewall settings can be accessed via Security & Privacy settings. You can block all incoming connections or allow specific applications (e.g., Skype, Google Drive) to bypass the firewall.
+- MacOS Firewall: On macOS, firewall settings can be accessed via Security & Privacy settings. You can block all incoming connections or allow specific applications (e.g., Skype, Google Drive) to bypass the firewall.
 
 ### Best Practices
 
@@ -136,13 +136,13 @@ This can be achieved by:
 
 Proxy Servers play a key role in content filtering and act as intermediaries between user devices and the internet
 
-Different types of proxy servers:
+### Different types of proxy servers
 
 - Web Proxy: Retrieves web pages from the internet and can also be used to bypass or enforce content filters.
 - Reverse Proxy: Manages incoming traffic, improving security, load balancing, and caching resources.
 - Transparent Proxy: Monitors and filters internet traffic, blocks specific content, and logs user activities without requiring user configuration.
 
-Benefits of Proxy Servers:
+### Benefits of Proxy Servers
 
 - Improved Security: Filters out malicious traffic and prevents unauthorized access.
 - Anonymity: Hides a user’s IP address to maintain privacy online.
@@ -247,7 +247,7 @@ Zero-Trust assumes that no user or device is inherently trusted, whether inside 
 
 ### Two different plan for Zero-trust Architecture
 
-- Control Plane : Layout of the policies and procedures. Key elements include:
+- Control Plan : Layout of the policies and procedures. 
 
   - Adaptive Identity : Continual real-time validation of users' behaviors, devices, and locations.
 
@@ -257,9 +257,9 @@ Zero-Trust assumes that no user or device is inherently trusted, whether inside 
 
   - Secured Zones : Isolated environments for sensitive data, accessible only by authorized users.
 
-- Data Plane: Execution of the policies and procedures
+- Data Plan: Execution of the policies and procedures
 
-### four basic steps to verify and validate
+### Four basic steps to verify and validate
 
 1. Subject System : The user, device, or application requesting access.
 
@@ -275,11 +275,15 @@ VPN is used to extend a private network across a public network and enables send
 
 ### Types of VPNs
 
-- Site-to-Site VPN: Connects two offices over a public network, serving as a cost-effective alternative to leased lines.
+- Site-to-Site VPN : **Connects two offices over a public network**, serving as a cost-effective alternative to leased lines.
 
-- Client-to-Site VPN: Allows individual remote users to connect to a corporate network.
+- Client-to-Site VPN : Allows individual remote users to connect to a corporate network.
 
-- Clientless VPN: Establishes a secure connection through a web browser without requiring additional software, typically using SSL/TLS protocols.
+- Clientless VPN : **Establishes a secure connection through a web browser without needing to install additional software**, typically using SSL/TLS protocols.
+
+- IPSec VPN : Uses the Internet Protocol Security (IPsec) protocol suite to secure communication between two devices or networks. It typically requires client software installation.
+
+- SSL VPN : Utilizes the Secure Sockets Layer (SSL) protocol to establish secure connections between users and the private network.
 
 ### Tunnel Configurations
 
@@ -297,7 +301,7 @@ VPN is used to extend a private network across a public network and enables send
 
 ## Remote Access Management
 
-### various remote access methods to manage and configure servers, routers, switches, and firewalls
+### Various remote access methods to manage and configure servers, routers, switches, and firewalls
 
 - Telnet (Port 23) : Sends text-based commands to remote devices but is insecure as it transmits data in plain text. It should not be used for sensitive configurations or to connect to secure devices.
 
@@ -311,9 +315,10 @@ VPN is used to extend a private network across a public network and enables send
 
 - VDI (Virtual Desktop Infrastructure) : Virtualizes desktop environments on centralized servers, often used in thin client setups or via a web browser. It is also referred to as Desktop as a Service (DaaS).
 
-In-Band vs. Out-of-Band Management:
+### In-Band vs. Out-of-Band Management
 
 - In-Band Management uses the same network being managed (e.g., SSH or Telnet).
+
 - Out-of-Band Management uses a separate network or a direct console connection for secure management, providing an additional layer of security. It prevents a regular user's machine from connecting to the management interfaces of devices.
 
 - APIs (Application Programming Interfaces): Allow automated management, provisioning, and integration between different systems and services. Common API protocols include REST and SOAP.

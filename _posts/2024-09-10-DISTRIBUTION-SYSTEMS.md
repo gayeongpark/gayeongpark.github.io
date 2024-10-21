@@ -43,7 +43,7 @@ Cable Distribution System is an organized system to connect the network's backbo
 
 Power Distribution Systems ensure consistent and reliable power delivery for networking equipment, infrastructure, and environments.
 
-- **Uninterruptible power supply** (UPS) is an electrical apparatus that provides **emergency power** to a load when the input power source fails. An UPS is great for **short-duration power outages**, depending on the amount of electrical load.
+- **Uninterruptible Power Supply** (UPS) is an electrical apparatus that provides **emergency power** to a load when the input power source fails. An UPS is great for **short-duration power outages**, depending on the amount of electrical load.
 
 - Power Distribution Unit (PDU) is a specialized device for distributing electric power to various network components and computing equipment. PDU units are only designed to provide power protection from surges, spikes, and brownouts.
 
@@ -74,10 +74,10 @@ In order to properly manage the airflow,
 
 ## Fire Suppression Systems
 
-- **Wet pipe systems** are the most basic type of fire suppression system that involves using a sprinkler system and pipes that always contain water. Avoid using a wet pipe system in an around data centers because it that pipe leaks or that little glass bulb is broken by accident, water will come rushing out and it will damage the servers and network gear that are located inside of the room underneath them. 
+- **Wet pipe systems** are **the most basic type of fire suppression system** that involves using a sprinkler system and pipes that always contain water. Avoid using a wet pipe system in an around data centers because it that pipe leaks or that little glass bulb is broken by accident, water will come rushing out and it will damage the servers and network gear that are located inside of the room underneath them.
 
-- Pre-action systems help minimize the risk of accidental releases when using a wet pipe system. 
+- **Pre-action systems** help minimize the risk of accidental releases when using a wet pipe system. With a pre-action system, both a detector actuation like a smoke detector and a sprinkler must be tripped prior to water being released.
 
-- Special suppression systems utilize a clean agent as part of its suppression system. There is a danger with using a special suppression system because if there's people in the data center, they're going to be suffocated along with that fire whenever I release the clean agent.
+- **Special suppression systems** utilize **a clean agent** as part of its suppression system. There is a danger with using a special suppression system because it uses either a halocarbon agent or inert gas. When releases, the agents will displace the oxygen in the room with the inert gas and suffocates the fire.
 
 So the data center with special suppression system must be equipped with an alarm and has supplemental oxygen available.

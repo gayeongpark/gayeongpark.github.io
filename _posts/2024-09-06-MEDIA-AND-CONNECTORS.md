@@ -31,13 +31,13 @@ Includes specifications for various cable types: twisted pair cables, coaxial ca
     Regardless of whether using a shielded or unshielded one, twisted pair cables are categorized (CAT) by speed and distance capabilities:
 
     CAT 5 | 100 Mbps at 100 meters
-    CAT 5e | 1 Gbps (1000 Mbps) at 100 m
+    CAT 5e | 1 Gbps (1000 Mbps) at 100 m (Ethernet)
     CAT 6 | 1 Gbps at 100 m, 10 Gbps at 55m
     CAT 6a | 10 Gbps at 100 m
     CAT 7 | 10 Gbps at 100 m
     CAT 8 | 10-25 up to 40 Gbps at about 30 meters (Used in data centers)
 
-    All CAT cables are limited to 100 meter length except ofr CAT 6 and CAT 8.
+    All CAT cables are limited to 100 meter length except ofr CAT 6 and CAT 8. And all the cables listed—CAT 5, CAT 5e, CAT 6, CAT 6a, CAT 7, and CAT 8—are primarily used for Ethernet networking, which is the most common protocol for wired local area networks (LANs).
 
     - Plenum Cables: Designed with fire-resistant jackets for use in air-circulating areas (e.g., HVAC systems). Because Plenum-rated cables meet the stringent requirements of the National Electric Code and National Fire Protection Association.
 
@@ -124,9 +124,9 @@ Drawbacks
 
 Even with these drawbacks of the higher costs and fiber being more difficult to work with though, fiber optic cables have a place in most of our enterprise networks.
 
-- Single-Mode Fiber (SMF) : Designed for long-distance communication and features a small glass core typically around 8.3 to 10 microns in diameter. Yellow sheath
+- Single-Mode Fiber (SMF) : Designed for long-distance communication and features a small glass core typically around 8.3 to 10 microns in diameter. Yellow sheath. It uses 1550 nanometer wavelengths.
 
-- Multi-Mode Fiber (MMF) : Tailored for shorter distances because it has a larger fiber core size that ranges from 50 to 100 microns. Multi-mode cables with a larger code are cheaper to manufacture. Aqua blue or orange sheath
+- Multi-Mode Fiber (MMF) : Tailored for shorter distances because it has a larger fiber core size that ranges from 50 to 100 microns. Multi-mode cables with a larger code are cheaper to manufacture. Aqua blue or orange sheath. It uses 850 or 1300 nanometer wavelengths.
 
 Network designers often prefer multimode over single mode for its easier handling and cost-effective installation.
 

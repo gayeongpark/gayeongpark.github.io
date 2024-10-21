@@ -47,7 +47,7 @@ They forward traffic from one port to the intended destination port based on **t
 
 Modern routers predominantly rely on the internet protocol to route the traffic across the network using many different types of routing protocols. Routers can also provide security. Embedded firewall and content filtering software provide an additional protection from unwanted content and malicious websites without affecting the online experience.
 
-- **Firewalls** : Serve as security barriers between internal networks and the external world. They can monitor incoming and outgoing network traffic based upon predetermined security rules by using Access Control Lists(ACL).
+- **Firewalls** : Serve as security barriers between internal networks and the external world. They can monitor incoming and outgoing network traffic based upon predetermined security rules by using **Access Control Lists(ACL)**.
 
 It helps protect our network from unauthorized access, cyber attacks, and other online threats. Firewalls can be either hardware based, software based, or a combination of both of these.
 
@@ -61,7 +61,7 @@ So Load balancers prevent any one server from becoming a bottleneck, improving o
 
 It provides functionalities including web filtering (restricting access to certain websites of types of content), shared network connections, data caching to improve overall performance by storing frequently accessed web pages, and enhanced security and privacy by hiding/masking the user's real IP address and limiting their exposure to the internet.
 
-- **Intrusion Detection Systems (IDS)** : Are to detect unauthorized access or anomalies malicious access and alert administrators. The IDS is a listen-only device.
+- **Intrusion Detection Systems (IDS)** : Monitors network or system activities for suspicious behavior or unauthorized access. It detects threats using known attack **signatures or unusual activity patterns** and alerts administrators. Operating passively, IDS does not block threats but serves as a key tool for detecting potential security breaches.
 
 - **Intrusion Prevention Systems (IPS)** : Are not only detect threats, but also take action to prevent intrusion like blocking that traffic from entering network or dropping any kind of harmful packets.
 

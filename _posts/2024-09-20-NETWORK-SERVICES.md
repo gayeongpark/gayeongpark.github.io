@@ -80,24 +80,34 @@ In a smart home, devices like fridges, cameras, and lights automatically connect
 
 The Domain Name System (DNS) is a protocol that translates human-readable domain names (e.g., diontraining.com) into numeric IP addresses (e.g., 66.123.45.237) that computers use for communication. It simplifies web navigation, making it easier for users to remember domain names rather than IP addresses.
 
-How DNS Works:
+### How DNS Works
 
 When a user types a domain name into their browser, their device contacts a DNS server to request the IP address associated with that domain.
 The DNS server responds with the correct IP address, allowing the device to connect to the web server.
 
 Fully-Qualified Domain Name (FQDN) is a complete domain name, such as `www.diontraining(Domain name).com(Top level domain)`, that specifies the exact location of a resource in the DNS hierarchy.
 
-DNS Hierarchy (5 Levels):
+### Types of DNS servers
 
-1. Root Level: The highest level of the DNS hierarchy, represented by a dot (.). It answers requests in the root zone. It contains a list of top-level domains (TLDs)
+1. **Authoritative DNS server** is responsible for **providing answers to queries about domains it is directly responsible for**. It contains the most accurate and updated information about the domain names it serves. When a recursive DNS server queries an authoritative server, the authoritative server responds with the correct IP address or DNS information for the requested domain.
 
-2. Top-Level Domains (TLDs): These include generic TLDs like `.com`, `.edu`, `.net`, or country code TLDs like `.de` or `.us`.
+2. **Non-authoritative DNS server** provides answers from its cache, which might not be to date.
 
-3. Second-Level Domains: Domains directly under the TLD, such as diontraining in `diontraining.com`. This is the registered domain name.
+3. **Recursive DNS server** acts as an intermediary between end-users and the DNS system. When a user requests to resolve a domain (e.g., www.example.com), the recursive DNS server either returns a cached result or queries other DNS servers to resolve the domain.
 
-4. Subdomains: An optional part of the domain name that can be added before the second-level domain, like www or mail (e.g., `www.diontraining.com` or `support.diontraining.com`).
+4. **Secondary DNS server** is a backup server that holds a **read-only** copy of the zone file from the primary DNS server.
 
-5. Host Level: Refers to the individual machine or service in the network, often represented by an A or AAAA record in DNS. It points to a specific IP address where the service (like a web server or mail server) is hosted.
+### DNS Hierarchy (5 Levels)
+
+1. Root Level : The highest level of the DNS hierarchy, represented by a dot (.). It answers requests in the root zone. It contains a list of top-level domains (TLDs)
+
+2. Top-Level Domains (TLDs) : These include generic TLDs like `.com`, `.edu`, `.net`, or country code TLDs like `.de` or `.us`.
+
+3. Second-Level Domains : Domains directly under the TLD, such as diontraining in `diontraining.com`. This is the registered domain name.
+
+4. Subdomains : An optional part of the domain name that can be added before the second-level domain, like www or mail (e.g., `www.diontraining.com` or `support.diontraining.com`).
+
+5. Host Level : Refers to the individual machine or service in the network, often represented by an A or AAAA record in DNS. It points to a specific IP address where the service (like a web server or mail server) is hosted.
 
 Before DNS, systems used a flat file called the host file to map domain names to IP addresses.
 The host file can still be used to override DNS locally. And every time I enter a website's name, my system has to first consult its host file to see if it already knows the IP address for that given domain name.
@@ -118,7 +128,7 @@ MX | Mail Exchange | Directs email to a mail server, using priorities to set rou
 SOA | Start of Authority | Stories important information about a domain or zone updates and DNS zone transfer
 PTR | Pointer | Maps an IP address to a domain name, used for reverse DNS lookups for security purposes
 TXT | Text | Stores human-readable or machine-readable text, often used for domain verification or email security.
-NS | Nameserver | Specifies the authoritative DNS server for a domain.
+NS | NameServer | Specifies the authoritative DNS server for a domain.
 
 ### Attack using DNS
 

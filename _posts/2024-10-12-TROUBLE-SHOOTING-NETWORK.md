@@ -87,7 +87,7 @@ DHCP (Dynamic Host Configuration Protocol) is a network management protocol that
 
 - Routing Loop is formed when an error occurs in the operation of the routing algorithm and creates a circular route amongst a group of network devices. Routing loops are caused by logical Layer 3 circular connections that may exist in a routing table.
 
-  Solutions
+  ### Solutions
 
   - Split Horizon : Routing configuration that stops a route from being advertised back in the direction from which it came
   - Route Poisoning : Increasing a router's metric to an infinitely high number after detecting one of its connected routes has failed
@@ -125,11 +125,13 @@ Devices in the same VLAN must be on the same subnet. For example, all IT clients
 
 Another common mistake is not using VLANs, leaving all devices in the default VLAN (VLAN 1), which creates a large broadcast domain. This can slow down the network due to excessive broadcasts. Separating traffic into VLANs improves performance, especially for critical devices like servers.
 
+Finally, if the new VLAN is not allowed on the trunk link, traffic from that VLAN cannot traverse the network to reach the router for internet access. Ensuring the trunk link is configured to allow the new VLAN resolves the issue. Incorrect subnet masks would affect local communication, not specifically internet access. If the DHCP server ran out of IP addresses, users would not receive any IP configuration. While the firewall could block internet access, it's less likely if the issue is isolated to a newly created VLAN.
+
 ## DNS and NTP Issues
 
 ### DNS Issues
 
-DNS matches domain names (like example.com) to their corresponding IP addresses.
+DNS matches domain names (like `example.com`) to their corresponding IP addresses.
 
 1. Client-Side DNS Issue
 
@@ -155,6 +157,7 @@ DNS matches domain names (like example.com) to their corresponding IP addresses.
 NTP synchronizes system clocks across devices in a hierarchical time source system.
 
 1. Common NTP Issues
+
    NTP Packets Not Received:
 
    - Check physical connection (Layer 1).

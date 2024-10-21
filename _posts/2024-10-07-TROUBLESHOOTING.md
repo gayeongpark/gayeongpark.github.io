@@ -126,11 +126,11 @@ Decibel loss | Cable certifier, Cable analyzer | Fiber light meter
 
 ## Fiber Cable Issues
 
-1. Incorrect Transceivers: A transceiver is a device that transmits and receives data, often used in routers and switches to convert network connections. Using the wrong transceiver can cause connectivity issues. Transceivers are typically hot-pluggable, meaning they can be replaced without shutting down the device. However, the correct transceiver type must be used to avoid data loss and connectivity problems.
+1. **Incorrect Transceivers** : A transceiver is a device that transmits and receives data, often used in routers and switches to convert network connections. Using the wrong transceiver can cause connectivity issues. Transceivers are typically hot-pluggable, meaning they can be replaced without shutting down the device. However, the correct transceiver type must be used to avoid data loss and connectivity problems.
 
-2. Reversed Transmit/Receive Connections: Fiber connections usually consist of two cables—one for transmitting data (TX) and one for receiving it (RX). If these cables are reversed, there will be no valid connection. This can be easily resolved by swapping the TX and RX cables and checking the LED activity lights to confirm the connection is active.
+2. **Reversed Transmit/Receive Connections** : Fiber connections usually consist of two cables—one for transmitting data (TX) and one for receiving it (RX). If these cables are reversed, there will be no valid connection. This can be easily resolved by swapping the TX and RX cables and checking the LED activity lights to confirm the connection is active.
 
-3. Dirty Optical Cables: Dust, dirt, or fingerprints on fiber optic cables and connectors can block the optical signal, leading to performance issues or connection problems. Cleaning methods include dry cleaning (using a dry cloth) for dust or dirt, and wet cleaning (with isopropanol alcohol) for oils or fingerprints. Regular cleaning is essential to maintain optimal fiber performance, especially if errors or slowdowns occur, which can be detected with a fiber light meter.
+3. **Dirty Optical Cables** : Dust, dirt, or fingerprints on fiber optic cables and connectors can block the optical signal, leading to performance issues or connection problems. Cleaning methods include dry cleaning (using a dry cloth) for dust or dirt, and wet cleaning (with isopropanol alcohol) for oils or fingerprints. Regular cleaning is essential to maintain optimal fiber performance, especially if errors or slowdowns occur, which can be detected with a fiber light meter.
 
 ## Ethernet Issues
 
@@ -144,7 +144,9 @@ Decibel loss | Cable certifier, Cable analyzer | Fiber light meter
 
 ## Interface Issues
 
-1. Cyclic Redundancy Check (CRC) Errors : These occur when the integrity of data is compromised during transmission, often due to interference, cable damage, or hardware faults. An increasing number of CRC errors signals a physical issue in the network.
+1. **Cyclic Redundancy Check (CRC) Errors** : These occur when the integrity of data is compromised during transmission, often due to interference, cable damage, or hardware faults. An increasing number of CRC errors signals a physical issue in the network.
+
+   - **Cyclic Redundancy Check (CRC)** is a method used to detect errors in data transmission. It works by performing a mathematical calculation (checksum) on the data packets before they are sent. This checksum is then sent along with the data. The receiving server also calculates the checksum for the received data and compares it with the checksum sent. If they do not match, it indicates that the data has been corrupted during transmission.
 
 2. Runts : These are frames smaller than the minimum size, often caused by collisions or network card malfunctions. Monitoring runts helps maintain network integrity.
 
@@ -273,11 +275,11 @@ In general, captive portal is implemented by using an HTTP redirect, ICMP redire
 
 - DNS Redirect : The client is redirected by the onboard DNS server to the captive portal webpage
 
-Typical issues:
+### Typical issues
 
 1. Open a web browser and try to go to any website : Sometimes the mobile devices do not automatically load up the captive portal page. If that issue occurs, try to go to any website.
 
-2. Determine default gateway for wireless network and enter http:// and default gateway's IP address, then press enter.
+2. Determine default gateway for wireless network and enter `http://` and default gateway's IP address, then press enter.
 
 3. Verify DNS server IPs and allow DHCP to autoconfigure the DNS server when connecting to the wireless network
 
