@@ -51,7 +51,7 @@ author: Lantana Park
 
 8. Punch Down Tools : Used for terminating cables on punch-down blocks (e.g., 66 or 110 blocks).
 
-9. Tone Generators : Helps identify cable runs by generating a tone that is detected at the other end, useful for tracing cables.
+9. Tone Generators : Helps identify copper cables run by generating a tone that is detected at the other end, useful for tracing cables.
 
 10. Loopback Adapters : Creates a loop in the network for testing connectivity by connecting transmit and receive pins.
 
@@ -67,7 +67,7 @@ author: Lantana Park
 
 1. Wi-Fi analyzer : Used to conduct wireless surveys to ensure proper coverage and to prevent non-desired overlap between wireless access point coverage zones and channels
 
-2. Protocol analyzer and packet capture : Protocol analyzer is used to capture and analyze signals and data traffic over a communication channel and Packet Capturing Tool is used to capture packets running over a network connection in real time and save for later analysis
+2. Protocol analyzer and packet capture : Protocol analyzer is used to **capture and analyze signals and data traffic over a communication channel** and Packet Capturing Tool is used to capture packets running over a network connection in real time and save for later analysis
 
 3. Bandwidth speed test : Verifies the real-world throughput from a client device all the way out to the Internet and back
 

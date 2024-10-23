@@ -182,7 +182,7 @@ The largest size of a data packet (frame) that can be sent over a network, measu
 
    - VPN/PPPoE : For VPN connections or Point-to-Point Protocol over Ethernet (PPPoE), the MTU is usually smaller, typically ranging from 1400 to 1450 bytes. This is necessary to account for the extra data (overhead) added during encapsulation.
 
-   - Jumbo Frames : In specialized environments like data centers, MTUs can be increased to 9000 bytes. This is known as a Jumbo Frame and is used for transferring large files efficiently, reducing the number of packets sent over the network.
+   - Jumbo Frames : In specialized environments like data centers, MTUs can be increased to 9000 bytes. This is known as a Jumbo Frame and is used for transferring large files efficiently, reducing the number of packets sent over the network. It allows increased network throughput in Fibre Channel over Ethernet (FCoE) networks by enabling the transmission of larger data packets. **Jumbo frames allow FCoE networks to move more data with fewer trips, speeding up the process**.
 
 2. Considerations
 

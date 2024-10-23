@@ -23,7 +23,7 @@ author: Lantana Park
 
    **Basic Service Set Identifier (BSSID)** is the **unique identifier** for each AP. It has a set to the MAC address of the wireless access point.
 
-   **Service Set Identifier (SSID)** is a common alphanumeric network name that end users can search for to connect to the wireless network.
+   **Service Set Identifier (SSID)** is a common alphanumeric network name that end users can search for to connect to the wireless network. It is something like `TP-Link_015040`, `netgear37`, or `Linksys00042`
 
    **Extended Service Set (ESS)** creates a **larger network** that shares the name SSID to allow for seamless connectivity across a building.
 
@@ -79,6 +79,12 @@ Wireless frequencies are the different frequency bands that are used to transmit
 - **5 GHz**(5.725 GHz to 5.875 GHz) - There are **more non-overlapping channels** of 20 MHz per channel when working in a 5 GHz-based 802.11 wireless network. It has **less interference and higher levels of performance**. It has **a shorter range** than the 2.4 GHz band. (Video streaming and gaming). It has **faster data transfer speed**.
 
 - **6 GHz**(5.925 GHz to 7.125 GHz) - It is a relatively new spectrum opened up for Wi-Fi use that offers even **more channels and bandwidth to allow for faster connections and less congestion**. It does provide the **shortest distances for its coverage**, and offer the least amount of solid object penetration for the use cases.
+
+**Band steering** directs devices to connect to the less congested frequency band, optimizing the performance of the wireless network by balancing the load between the 2.4 GHz and 5 GHz bands.
+
+**Beamforming** focuses wireless signals in specific directions to improve signal strength.
+
+**Channel bonding** combines multiple channels to increase bandwidth.
 
 ## 802.11 Standards
 

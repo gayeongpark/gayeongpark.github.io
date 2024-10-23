@@ -170,13 +170,13 @@ Transceivers are devices that can both transmit and receive data. They convert s
 
 Transceivers act as media converters, changing data between different physical formats (e.g., copper to fiber) while keeping the protocol (Ethernet, Fiber Channel) the same.
 
-Use Cases:
+#### Use Cases
 
 Converting between different media types (e.g., fiber to copper).
 Translating between different protocols (e.g., Ethernet to Fiber Channel).
 Extending network distance by converting Ethernet to fiber for long-distance connections.
 
-Form Factors of transceivers:
+#### Form Factors of transceivers
 
 SFP (Small Form-Factor Pluggable): Supports up to 4.25 Gbps. It is associated with a single-channel data link.
 
@@ -191,3 +191,5 @@ Remember that QSFP modules are faster than SFP modules.
 All of these are just different types of transceivers that are going to be installed inside of a router, a switch, or other networking device that can convert the light that travels over a fiber optic cable back into an electrical impulse that represents a one or zero that our copper network switches and cables can then understand and utilize.
 
 Also, if I need to convert from one protocol to another, like moving from ethernet to fiber channel or from fiber channel back to ethernet, I can do that too using a transceiver.
+
+**A fiber distribution panel** acts like a hub where all incoming fiber optic connections can be neatly organized and distributed throughout the building. It makes managing, troubleshooting, and expanding the network much easier.

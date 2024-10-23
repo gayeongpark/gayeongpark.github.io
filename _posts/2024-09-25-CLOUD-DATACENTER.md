@@ -192,7 +192,7 @@ To create an SD-WAN, use a centralized control function to securely and intellig
 
 Virtual Extensible Local Area Network (VXLAN) is a network virtualization technology that addresses the limitations posed by traditional network infrastructure.
 
-VXLAN is a network overlay technology designed to encapsulate Ethernet frames within a UDP packet. It operates by encapsulating Layer 2 Ethernet frames within Layer 4 UDP packets.
+VXLAN is a network overlay technology designed to encapsulate Ethernet frames within a UDP packet. It encapsulates Layer 2 Ethernet frames within Layer 3 UDP packets.
 
 ## SASE and SSE
 

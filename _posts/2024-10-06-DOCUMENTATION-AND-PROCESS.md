@@ -29,15 +29,15 @@ author: Lantana Park
 
 Physical Network Diagram shows the actual physical arrangement of the components that make up the network.
 
-Logical Network Diagram illustrates the flow of data across a network and shows how devices communicate with each other.
+**Logical Network Diagram** illustrates **the flow of data across a network** and **shows how devices communicate with each other**. It typically includes elements like subnets, network objects and devices, routing protocols and domains, voice gateways, traffic flow, and network segments.
 
 Wiring Diagram labels which cables are connected to which ports.
 
-Radio Frequency (Wireless) Site Survey is the process of planning and designing a wireless network to deliver the required wireless solution.
+**Radio Frequency (Wireless) Site Survey** is **the process of planning and designing a wireless network to deliver the required wireless solution.** In this documentation process, a wireless networking technician has completed an assessment of a wireless network and documented the detected signal strengths in various locations.
 
-Audit and Assessment Reports are delivered after a formal assessment has been conducted. It should contain executive summary, environment and system diagram, scope and objectives, security requirements, assumptions and limitations, findings and recommendations, methods and tool, and audit result.
+**Audit and Assessment Reports** are delivered after a formal assessment has been conducted. It should contain executive summary, environment and system diagram, scope and objectives, security requirements, assumptions and limitations, findings and recommendations, methods and tool, and audit result.
 
-Baseline Configurations are the most stable versions of a device's configurations. It is the set of specifications for an information system, or a configuration item within a system, that has been formally reviewed and agreed on. Changes will be properly tested and approved to be part of the new baseline.
+**Baseline Configuration**s are the most stable versions of a device's configurations. It is the set of specifications for an information system, or a configuration item within a system, that has been formally reviewed and agreed on. Changes will be properly tested and approved to be part of the new baseline. **Providing a network baseline requires testing and reporting of the physical connectivity, normal network utilization, protocol usage, peak network utilization, and average throughput of the network usage**.
 
 ## Asset Inventory
 
@@ -221,3 +221,5 @@ It is also important to consider to use geographic dispersion because it helps s
   - Blue Team: The defensive team, composed of system administrators and cybersecurity professionals, tasked with defending systems.
 
   - White Team: The referees and supervisors who evaluate and manage the exercise, ensuring objectivity and reporting on both teams' performance. They may also set up simulated environments for testing without risking the live network.
+
+  **Validation tests** are advocated to confirm the effectiveness of **Disaster Recovery (DR)** and **Business Continuity Plans (BCP)** **by simulating realistic disaster scenarios**. The purpose of these tests is to ensure that, in the event of an actual disaster or disruption, the organization's recovery and continuity strategies will function as intended, minimizing downtime and protecting critical business operations.

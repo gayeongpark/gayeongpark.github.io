@@ -75,7 +75,7 @@ It provides functionalities including web filtering (restricting access to certa
 
 - **Controllers** : Are central units used to manage **flow control to networking devices**. This enables administrators to dictate the behavior of the network switches and routers through software and this gives us more flexibility and efficiency.
 
-- **Network-Attached Storage (NAS) Device**: Dedicated file storage system that provides data access to a heterogeneous group of clients.
+- **Network-Attached Storage (NAS) Device**: Is a storage device that connects directly to a network, allowing users and devices on the network to store and retrieve data.
 
 - **Media** : Refers to the physical materials used to transmit data.
 

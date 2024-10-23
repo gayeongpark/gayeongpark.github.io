@@ -114,6 +114,16 @@ The host file can still be used to override DNS locally. And every time I enter 
 
 Attackers can manipulate host files to redirect traffic to malicious sites, highlighting the need for caution when modifying host files.
 
+### DNS Zones
+
+- Reverse Zone : Is used in DNS to map IP addresses to domain names, which is called a reverse DNS lookup. It is useful for troubleshooting.
+
+- Stub Zone : Contains just enough information to aid in directing DNS queries to the correct server. (Connecting queries)
+
+- Forward Zone : Is the typical DNS zone that maps domain names to IP addresses.
+
+- Secondary Zone : Is a read-only copy of the primary DNS zone, used for load balancing, redundancy, and fault tolerance.
+
 ### DNS Record Types
 
 DNS records are entries in the Domain Name System (DNS) that map domain names to various types of information, primarily IP addresses. These records tell DNS servers how to respond to queries for a domain. Different types of DNS records serve different purposes, and they are essential for routing traffic on the internet.
@@ -125,7 +135,7 @@ A | Address | Links a hostname to an IPv4 address | `www.example.com` -> `192.12
 AAAA | Address | Links a hostname to an IPv6 address | `www.diontraining.com` -> `2400:cb00:2024::a29f:1234`
 CNAME | Canonical Name | Pints a domain to another domain or subdomain | `support.diontraining.com`
 MX | Mail Exchange | Directs email to a mail server, using priorities to set routing preferences. | `mail.diontraining.com`
-SOA | Start of Authority | Stories important information about a domain or zone updates and DNS zone transfer
+SOA | Start of Authority | Stores important information about a domain or zone updates and DNS zone transfer
 PTR | Pointer | Maps an IP address to a domain name, used for reverse DNS lookups for security purposes
 TXT | Text | Stores human-readable or machine-readable text, often used for domain verification or email security.
 NS | NameServer | Specifies the authoritative DNS server for a domain.
