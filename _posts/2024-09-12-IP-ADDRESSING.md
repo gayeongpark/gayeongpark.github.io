@@ -106,9 +106,9 @@ In essence, CIDR notation simplifies IP address and subnet representation by spe
 
 - Unicast : Data travels from a single source to **a single destination**. It’s a one-to-one communication, like a phone call between two people.
 
-- Multicast : Data is sent from a single source to **multiple specific destinations**. It’s efficient because the data is sent once and delivered to multiple devices in a multicast group.
+- Multicast : Data is sent from a single source to **a specific group of devices on a network**. It’s efficient because the data is sent once and delivered to multiple devices in a multicast group.
 
-- Broadcast : Data is sent from a single source to **all devices on the destination network**. Every device connected to the network receives the broadcast. (radio broadcast)
+- Broadcast : Data is sent from a single source to **all devices on the destination network**. Broadcast only works with IPv4. Every device connected to the network receives the broadcast. (radio broadcast)
 
 ## Assigning IPv4 Addresses
 
@@ -331,7 +331,7 @@ A single interface can be assigned to multiple different IPv6 addresses.That mea
 
 2. **Multicast addresses** are used **to identify a group of interfaces** and **begins with `FF`**.
 
-3. **Anycast addresses** are used **to identify a set of interfaces** so that a packet can be sent to any member of a set. Data travels from a single source device to the device nearest to multiple (but specific) destination devices. It is really efficient.
+3. **Anycast addresses** are used **to identify a set of interfaces** so that a packet can be sent to any member of a set. **Data travels from a single source device to the device nearest to multiple (but specific) destination devices**. It is really efficient. **Anycast can only be used with IPv6**.
 
 ## IPv4 and IPv6 Compatibility Requirements
 

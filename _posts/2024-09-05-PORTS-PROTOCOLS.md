@@ -184,7 +184,7 @@ This is the specialized rules and procedures that are utilized for the transmiss
 
 - Secure File Transfer Protocol (SFTP) - port 22 was created to address the security concerns of FTP. SFTP creates a "tunnel" through SSH. SSH encrypts the connection, making it secure and private.
 
-- Trivial File Transfer Protocol (TFTP) - port 69 is the simpler and more basic version of the FTP. TFTP is designed for sending files when minimal security is sufficient.
+- Trivial File Transfer Protocol (TFTP) - port 69 is the simpler and more basic version of the FTP. TFTP is a very basic form of file sharing protocol and designed for sending files when minimal security is sufficient.
 
 - Server Message Block (SMB) - port 445 allows computer apps to read and write to files and request services from the server programs. SMB is predominantly used for Windows file sharing and it allows Windows computers to communicate with each other and share files over a network. Samba on Linux systems does rely on the SMB protocol. SMB is used inside local area networks (LAN), and it is not a protocol to send data across the Internet.
 
@@ -199,7 +199,7 @@ These protocols build and manage systems and networks from across the network.
 
 - Secure Shell (SSH) - port 22 is a protocol that's used for secure remote login and other secure network services over an unsecure network. It provides a secure channel over an insecure network in a client server architecture that offers strong authentication and encrypted data communications for anything inside of that SSH tunnel. This secure encrypted tunnel allows people to operate text-based commands from a remote server. It is for secure command line-based management.
 
-- Telnet - port 23 is one of the earliest remote login protocols and allows a user on one computer to login remotely to another computer that is part of the same network. Telnet was designed for local area networks only, although some people have used it over the internet. Telnet actually transfer its data in plain text, so it is not secure protocol. This is why SSH was developed. I should never use telnet.
+- Telnet - port 23 is one of **the earliest remote login protocols**(username & password authentication), allows a user on one computer to login remotely to another computer that is part of the same network and **command execution**. Telnet was designed for local area networks only, although some people have used it over the internet. Telnet actually **transfer its data in plain text**, so it is **not secure protocol**. This is why SSH was developed. I should never use telnet.
 
 - Remote Desktop Protocol (RDP) - port 3389 is the proprietary protocol that was developed by Microsoft to provide users with a graphical user interface to connect to another computer over a network connection. It only allows to issue and receive text-based information. It supports different types of network topologies and multiple LAN protocols. It allows for smart card authentication, data encryption, and bandwidth reduction mechanisms.
 

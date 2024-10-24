@@ -133,7 +133,7 @@ Zone Transfer is to send DNS records data from the primary nameserver to a secon
 DNS Record | Description | Function | Example
 A | Address | Links a hostname to an IPv4 address | `www.example.com` -> `192.12.1.1.`
 AAAA | Address | Links a hostname to an IPv6 address | `www.diontraining.com` -> `2400:cb00:2024::a29f:1234`
-CNAME | Canonical Name | Pints a domain to another domain or subdomain | `support.diontraining.com`
+CNAME | Canonical Name | Points a domain to another domain or subdomain | `support.diontraining.com`
 MX | Mail Exchange | Directs email to a mail server, using priorities to set routing preferences. | `mail.diontraining.com`
 SOA | Start of Authority | Stores important information about a domain or zone updates and DNS zone transfer
 PTR | Pointer | Maps an IP address to a domain name, used for reverse DNS lookups for security purposes

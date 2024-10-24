@@ -71,11 +71,13 @@ IPAM creates a systematic and error-resistant method of managing IP addresses in
 
 ## Common Agreements
 
-Non-Disclosure Agreement (NDA) defines what data is confidential and cannot be shared outside of a relationship. NDA is an administrative control.
+- **Non-Disclosure Agreement (NDA)** defines what data is confidential and cannot be shared outside of a relationship. NDA is an administrative control. It is used to protect an organization’s intellectual property.
 
-Memorandum of Understanding (MOU) is the non-binding agreement between two or more organizations to detail what common actions they intend to take.
+- **Memorandum of Understanding (MOU)** is the **non-binding agreement** between two or more organizations to detail what common actions they intend to take.
 
-Service-Level Agreement (SLA) documents the quality, availability, and responsibilities agreed upon by a service provider and a client.
+- **Service-Level Agreement (SLA)** documents the quality, availability, and responsibilities agreed upon by a service provider and a client.
+
+- **Acceptable Use Policy (AUP)** is a set of rules applied by the owner, creator, or administrator of a network, website, or service, that restrict the ways in which the network, website, or system may be used and sets guidelines as to how it should be used. 
 
 ## Product Lifecycle
 

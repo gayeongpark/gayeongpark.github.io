@@ -49,15 +49,17 @@ Many organization instead decide to use a hosted solution. With the hosted solut
 
 ### Cloud service models
 
-1. Software as a Service (SaaS) - The service provider is going to give the client organization a complete solution, including Application, Data, Runtime, Middleware, O/S, Virtualization, Servers, Storage, and Networking. (Turbo Tax, QuickBooks Online, Office 365). SaaSis much closer to the end user than either PaaS or IaaS.
+1. **Software as a Service (SaaS)** : The service provider is going to give the client organization a complete solution, including Application, Data, Runtime, Middleware, O/S, Virtualization, Servers, Storage, and Networking. (Turbo Tax, QuickBooks Online, Office 365). It provides remote access to software applications based on a subscription fee. SaaS is much closer to the end user than either PaaS or IaaS.
 
-2. Platform as a Service (PaaS) - Offers hardware, operating systems, and middleware, while organizations manage their custom applications. PaaS is ideal for developing web applications. with PaaS, the operating system and infrastructure software are included as part of the service.
+   - **Multitenancy** is a software architecture in which a single instance of an application serves multiple customers (tenants), with each tenant's data and environment isolated from others. It allows multiple users or organizations to share the same application while maintaining privacy and security. This is commonly used in cloud services and SaaS (Software as a Service) platforms. Each tenant may have customized settings, but they all use the same infrastructure and application instance.
 
-3. Infrastructure as a Service (IaaS) - Provides virtualized hardware like servers, storage, and networking, allowing organizations to configure operating systems and software themselves. IaaS is focused on the hardware only.
+2. **Platform as a Service (PaaS)** : Offers hardware, operating systems, and middleware, while organizations manage their custom applications. **PaaS is ideal for developing web applications**. with PaaS, the operating system and infrastructure software are included as part of the service.
 
-Reliability of Cloud Service
+3. **Infrastructure as a Service (IaaS)** : Provides virtualized hardware like servers, storage, and networking, allowing organizations to configure operating systems and software themselves. IaaS is focused on the hardware only.
 
-`IaaS` < `PaaS` < `SaaS`
+#### Reliability of Cloud Service
+
+`SaaS` > `PaaS` > `IaaS`
 
 ## Cloud Deployment Models
 
@@ -90,7 +92,7 @@ When connecting enterprise networks to cloud service providers (CSPs), two main 
 
 ### Private-Direct Connection
 
-- Provides a dedicated, secure connection between an on-premise network and a cloud provider's network.
+- **Provides a dedicated, secure connection between an on-premise network and a cloud provider's network**.
 - Bypasses the internet, using a dedicated leased line or WAN connection.
 - Supports faster speeds and greater redundancy compared to VPNs.
 - Example: AWS Direct Connect supports speeds up to 40 Gbps and allows multiple connections to different virtual private clouds (VPCs).
@@ -102,21 +104,29 @@ VPNs are more affordable but have speed limitations, while Private-Direct Connec
 
 Cloud security is comprised of several different components within a virtual private cloud.
 
-Virtual Private Cloud (VPC) is a logically isolated section of a cloud provider’s infrastructure, allowing users to launch resources in a virtual network they define. VPCs provide flexibility, scalability, and control compared to traditional hardware networks.
+**Virtual Private Cloud (VPC) is a logically isolated network area hosted within a public cloud environment**. VPCs provide flexibility, scalability, and control compared to traditional hardware networks.
 
 VPCs are integral to IAC (Infrastructure as Code), where the deployment of resources is automated via scripts and orchestration. IAC enhances cloud architecture management by enabling scripted network configuration and resource deployment.
 
-### VPC Components
+### VPC (Virtual Private Cloud) Components
 
-- Subnets : Logical subdivisions of a VPC. Public subnets allow internet access, while private subnets restrict external access.
+- **Subnets** : Logical subdivisions of a VPC. Public subnets allow internet access, while private subnets restrict external access.
+
 - Route Tables : Contain rules to direct network traffic within the VPC, associated with subnets.
-- Internet Gateways : Enable VPC resources to communicate with the public internet.
-- NAT (Network Address Translation) Gateways : Allow instances in private subnets to access the internet while blocking incoming traffic.
-- Network Access Control Lists (ACLs) : **Stateless firewalls** controlling inbound/outbound traffic at the subnet level. Both inbound and outbound rules must be configured independently.
-- Security Groups : **Stateful firewalls** applied at the instance level, controlling inbound/outbound traffic more granularly than ACLs.
+
+- **Internet Gateways** : Allows instances within a cloud environment to send and receive unencrypted traffic to and from the Internet.
+
+- **NAT (Network Address Translation) Gateways** : Enables instances within a VPC to access external networks. Translates private IP addresses to a public IP address. Restricts inbound connections from external networks.
+
+- **Network Access Control/Security Lists (NSL)** : Are stateless and operate at the subnet level, requiring separate inbound and outbound rules. And used for controlling inbound and outbound traffic in cloud computing environments.
+
+- **Network Security Groups (NSG)** : are stateful, provide more granular control, and can be applied at the instance (or specific virtual NICs) level, automatically managing connection states. And used for controlling inbound and outbound traffic in cloud computing environments.
+
 - VPC (Virtual Private Cloud) Peering : Allows direct network connections between two VPCs without using the public internet.
+
 - VPC Endpoints : Enable private connections to cloud services within the same cloud provider’s network, improving security and performance.
-- VPN Connections : Establish secure connections between VPCs or between a VPC and an on-premise network.
+
+- **VPN Connections** : Establish a secure, encrypted Internet connection between an on-premises network and cloud resources.
 
 ### Advantages
 
