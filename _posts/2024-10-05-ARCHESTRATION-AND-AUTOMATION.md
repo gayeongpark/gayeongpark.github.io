@@ -88,7 +88,7 @@ Automation ensures that networks adhere to compliance standards (e.g., PCIDSS) b
 
 - Continuous Compliance Monitoring : Automation tools can provide 24/7 monitoring of network configurations, automatically correcting deviations, and offering real-time compliance reports.
 
-## Automating Network Inventories
+## Automating Network Inventories / Dynamic inventories
 
 Automating network inventories is crucial in modern networks, especially with the increasing use of virtual machines and cloud services. Traditional manual inventory methods are ineffective for virtual environments, which require real-time tracking of dynamic assets such as devices, software, and licenses. Automating this process ensures more accurate and up-to-date information, supporting both logistical and strategic needs.
 

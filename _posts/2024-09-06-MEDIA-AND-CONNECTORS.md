@@ -30,12 +30,13 @@ Includes specifications for various cable types: twisted pair cables, coaxial ca
 
     Regardless of whether using a shielded or unshielded one, twisted pair cables are categorized (CAT) by speed and distance capabilities:
 
-    CAT 5 | 100 Mbps at 100 meters
-    CAT 5e | 1 Gbps (1000 Mbps) at 100 m (Ethernet)
-    CAT 6 | 1 Gbps at 100 m, 10 Gbps at 55m
-    CAT 6a | 10 Gbps at 100 m
-    CAT 7 | 10 Gbps at 100 m
-    CAT 8 | 10-25 up to 40 Gbps at about 30 meters (Used in data centers)
+    CAT 3 | 10BASE-T | 10 Mbps at 100 meters
+    CAT 5 | 100BASE-TX | 100 Mbps at 100 meters
+    CAT 5e | 1000BASE-T | 1 Gbps (1000 Mbps) at 100 m (Ethernet)
+    CAT 6 | 1000BASE-T/10GBASE-T | 1 Gbps at 100 m, 10 Gbps at 55m
+    CAT 6a | 10GBASE-T | 10 Gbps at 100 m
+    CAT 7 | 10GBASE-T | 10 Gbps at 100 m
+    CAT 8 | 40GBASE-T | 40 Gbps at 30 meters (Used in data centers)
 
     All CAT cables are limited to 100 meter length except ofr CAT 6 and CAT 8. And all the cables listed—CAT 5, CAT 5e, CAT 6, CAT 6a, CAT 7, and CAT 8—are primarily used for Ethernet networking, which is the most common protocol for wired local area networks (LANs).
 

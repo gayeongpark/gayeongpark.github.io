@@ -37,15 +37,15 @@ Cloud computing benefits or characteristics
 
 On-premise solutions offer strong security but come with high costs. Once it is decided to use the on-premise solution, it is needed to procure all the hardware, software, and personnel necessary to run the organization's cloud.
 
-Many organization instead decide to use a hosted solution. With the hosted solution, a third-party service provider(Amazon, Microsoft, Google) that provides all the hardware and facilities needed to maintain a cloud solution.
+Many organization instead decide to use a hosted solution. With the hosted solution, a third-party service provider (Amazon, Microsoft, Google) that provides all the hardware and facilities needed to maintain a cloud solution.
 
 ### Concerns of using the service hosting provider
 
 1. It is important to understand their authentication and authorization mechanisms.
 
-2. I should require redundancy and fault tolerance measures
+2. I should require redundancy and fault tolerance measures.
 
-3. I should know storage location and location-based laws
+3. I should know storage location and location-based laws.
 
 ### Cloud service models
 
@@ -106,7 +106,7 @@ Cloud security is comprised of several different components within a virtual pri
 
 **Virtual Private Cloud (VPC) is a logically isolated network area hosted within a public cloud environment**. VPCs provide flexibility, scalability, and control compared to traditional hardware networks.
 
-VPCs are integral to IAC (Infrastructure as Code), where the deployment of resources is automated via scripts and orchestration. IAC enhances cloud architecture management by enabling scripted network configuration and resource deployment.
+VPCs are integral to IaC (Infrastructure as Code), where the deployment of resources is automated via scripts and orchestration. IaC enhances cloud architecture management by enabling scripted network configuration and resource deployment.
 
 ### VPC (Virtual Private Cloud) Components
 
@@ -122,30 +122,30 @@ VPCs are integral to IAC (Infrastructure as Code), where the deployment of resou
 
 - **Network Security Groups (NSG)** : are stateful, provide more granular control, and can be applied at the instance (or specific virtual NICs) level, automatically managing connection states. And used for controlling inbound and outbound traffic in cloud computing environments.
 
-- VPC (Virtual Private Cloud) Peering : Allows direct network connections between two VPCs without using the public internet.
+- **VPC (Virtual Private Cloud) Peering** : Allows direct network connections between two VPCs without using the public internet.
 
-- VPC Endpoints : Enable private connections to cloud services within the same cloud provider’s network, improving security and performance.
+- **VPC Endpoints** : Enable private connections to cloud services within the same cloud provider’s network, improving security and performance.
 
 - **VPN Connections** : Establish a secure, encrypted Internet connection between an on-premises network and cloud resources.
 
 ### Advantages
 
-- Flexibility & Scalability: VPCs offer flexible network configurations and allows mixing products from different vendors.
-- Automation: VPCs integrate with IAC for automated and high speed deployments.
-- Security: Multi-layered security options like ACLs and security groups enhance protection.
+- Flexibility & Scalability : VPCs offer flexible network configurations and allows mixing products from different vendors.
+- Automation : VPCs integrate with IAC for automated and high speed deployments.
+- Security : Multi-layered security options like ACLs and security groups enhance protection.
 
 ### Challenges
 
-- Potential Single Point of Failure: Loss of VPC connectivity can affect the entire network.
-- Security: Proper configuration and regular audits of ACLs and security groups are essential to prevent misconfigurations.
+- Potential Single Point of Failure : Loss of VPC connectivity can affect the entire network.
+- Security : Proper configuration and regular audits of ACLs and security groups are essential to prevent misconfigurations.
 
 ## Network Function Virtualization (NFV)
 
-Network Function Virtualization is a transformative concept that is reshaping the telecommunications industry by introducing agility and flexibility to hardware-dependent networks.
+**Network Function Virtualization** is a transformative concept that is reshaping the telecommunications industry by introducing agility and flexibility to hardware-dependent networks.
 
 It provides network flexibility and the ability to respond to the needs of cloud services and virtualization technologies
 
-Network Function Virtualization relies on three main component to work
+### Three main components to work
 
 1. **NFV Infrastructure** includes the hardware and virtual resources necessary for deploying, managing, and executing VNFs.
 
@@ -200,9 +200,9 @@ To create an SD-WAN, use a centralized control function to securely and intellig
 
 ## Virtual Extensible Local Area Network (VXLAN)
 
-Virtual Extensible Local Area Network (VXLAN) is a network virtualization technology that addresses the limitations posed by traditional network infrastructure.
+**Virtual Extensible Local Area Network (VXLAN)** is a network virtualization technology that addresses the limitations posed by traditional network infrastructure.
 
-VXLAN is a network overlay technology designed to encapsulate Ethernet frames within a UDP packet. It encapsulates Layer 2 Ethernet frames within Layer 3 UDP packets.
+**VXLAN encapsulates Layer 2 Ethernet frames within Layer 3 UDP packets**.
 
 ## SASE and SSE
 
@@ -214,7 +214,7 @@ SASE (Secure Access Secure Edge) and SSE (Security Service Edge) are modern netw
 
 - It leverages SDN (Software Defined Networking) to offer networking and security services from the cloud rather than traditional hardware, improving flexibility, scalability, and cost-efficiency.
 
-- Core components include:
+#### Core components include
 
   - Firewalls
   - VPNs

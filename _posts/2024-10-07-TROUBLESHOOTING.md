@@ -77,6 +77,20 @@ author: Lantana Park
 
 6. IP scanner : Used to search for and detect IP addresses and other information related to devices on the network
 
+## Command Tools
+
+1. **arp** : Display the current ARP table, showing a list of IP addresses and their corresponding MAC addresses that the device has recently interacted with.
+
+Internet Address | Physical Address | Type
+192.168.1.1 | 00-14-22-01-23-45 | dynamic
+192.168.1.2 | 00-16-17-10-20-30 | dynamic
+
+2. **tcpdump** : A powerful network packet analyzer used to capture and analyze traffic on a network. It helps to diagnose network issues, monitor network activity, and analyze data being sent and received on a network.
+
+3. **dig** : Queries the domain name system (DNS) to obtain information about host addresses, mail exchanges, nameservers, and related information.
+
+4. **ipconfig** : Displays the current TCP/IP network configuration and refresh the DHCP and DNS settings on a given host.
+
 # Troubleshooting Physical
 
 ## Cable Signal Issues
