@@ -127,8 +127,8 @@ Cons,
 
 - **Local Area Network (LAN)** : Connects components in a limited distance, generally up about 100 meters or 300 feet. (WIFI, Ethernet).
 
-WiFi | IEEE 802.11
-Ethernet | IEEE 802.3
+**WiFi** | **IEEE 802.11**
+**Ethernet** | **IEEE 802.3**
 
 - **Campus Area Network (CAN)** : A building-centric LAN that is spread across numerous buildings in a certain area.
 
@@ -216,10 +216,10 @@ Spine and leaf architecture can be used in combination with the standard three-t
 
 **Traffic flows**
 
-- North-South : The traffic that enters or leaves the data center from a system physically residing outside the data-center.
+1. North-South Traffic: This involves data that moves in or out of the data center. When users access a web application hosted in the data center, for example, their request enters (Southbound) and the response exits (Northbound) the data center. This type of traffic often traverses firewalls, routers, and other boundary devices, as it involves interaction with external networks.
 
   - Northbound Traffic : Leaving data-center
 
   - Southbound Traffic : Entering data-center
 
-- East-West : Refers to data flow within a data-center
+2. East-West Traffic: This refers to data that flows within the data center, specifically between servers, virtual machines, or storage units. East-West traffic is common in operations where servers communicate with each other, such as database updates, file sharing, and application workloads within the same data center. This traffic type does not cross the data center boundary, so it doesn’t typically interact with external networks or firewalls.

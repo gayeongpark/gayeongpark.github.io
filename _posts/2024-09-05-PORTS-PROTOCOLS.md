@@ -157,7 +157,7 @@ Main differences between HTTP and HTTPS
 
 These protocols are the backbone of email communication and they ensure that messages are sent, received, and managed efficiently.
 
-- Simple Mail Transfer Protocol (SMTP) - port 25 is the standard protocol used for sending emails. It is only for sending emails, not for receiving them.
+- **Simple Mail Transfer Protocol (SMTP)** - **TCP port 25** is the standard protocol used for sending emails. It is only for sending emails, not for receiving them.
 
 - Simple Mail Transfer Protocol Secure (SMTPS) - port 465 or 587 was introduced as a secure variant of SMTP because data under SMTP is sent in the plain text. It is a way to secure the SMTP protocol by transporting it via the secure socket layer or transport layer security protocols. This creates an encrypted tunnel, and then the SMTP protocol can tunnel its data through that encryption tunnel.
 
@@ -180,9 +180,9 @@ Port 993 (IMAPS): Secure IMAP (SSL/TLS).
 
 This is the specialized rules and procedures that are utilized for the transmission of files across networks, operate on the designated ports, and act as doorways for data transfer activities.
 
-- File Transfer Protocol (FTP) - port 20 (actual data transfer) or port 21 (sending control command) is one of the oldest protocols that is used for transferring files between a client and a server over a network. Whenever an FTP session is going to be initiated, the client will first use port 21 to communicate with the server, authenticate if necessary and then set up the file transfer. Once those commands are sent then the data transfer takes place over the port 20. Transmissions over FTP are not encrypted and are sent in plaintext.
+- **File Transfer Protocol (FTP)** - **TCP port 20 (actual data transfer)** or **TCP port 21 (sending control command/administer a session)** is one of the oldest protocols that is used for transferring files between a client and a server over a network. Whenever an FTP session is going to be initiated, the client will first use port 21 to communicate with the server, authenticate if necessary and then set up the file transfer. Once those commands are sent then the data transfer takes place over the port 20. Transmissions over FTP are not encrypted and are sent in plaintext.
 
-- Secure File Transfer Protocol (SFTP) - port 22 was created to address the security concerns of FTP. SFTP creates a "tunnel" through SSH. SSH encrypts the connection, making it secure and private.
+- **Secure File Transfer Protocol** (SFTP) - **TCP port 22** was created to address the security concerns of FTP. **SFTP creates a "tunnel" through SSH**. SSH encrypts the connection, making it secure and private.
 
 - Trivial File Transfer Protocol (TFTP) - port 69 is the simpler and more basic version of the FTP. TFTP is a very basic form of file sharing protocol and designed for sending files when minimal security is sufficient.
 
@@ -197,11 +197,11 @@ Port 445 (SMB): Windows file sharing.
 
 These protocols build and manage systems and networks from across the network.
 
-- Secure Shell (SSH) - port 22 is a protocol that's used for secure remote login and other secure network services over an unsecure network. It provides a secure channel over an insecure network in a client server architecture that offers strong authentication and encrypted data communications for anything inside of that SSH tunnel. This secure encrypted tunnel allows people to operate text-based commands from a remote server. It is for secure command line-based management.
+- **Secure Shell (SSH)** - **TCP port 22** is a protocol that's used for secure remote login and other secure network services over an unsecure network. It provides a secure channel over an insecure network in a client server architecture that offers strong authentication and encrypted data communications for anything inside of that SSH tunnel. This secure encrypted tunnel allows people to operate text-based commands from a remote server. It is for secure command line-based management.
 
-- Telnet - port 23 is one of **the earliest remote login protocols**(username & password authentication), allows a user on one computer to login remotely to another computer that is part of the same network and **command execution**. Telnet was designed for local area networks only, although some people have used it over the internet. Telnet actually **transfer its data in plain text**, so it is **not secure protocol**. This is why SSH was developed. I should never use telnet.
+- **Telnet** - **TCP port 23** is one of **the earliest remote login protocols**(username & password authentication), allows a user on one computer to login remotely to another computer that is part of the same network and **command execution**. Telnet was designed for local area networks only, although some people have used it over the internet. Telnet actually **transfer its data in plain text**, so it is **not secure protocol**. This is why SSH was developed. I should never use telnet.
 
-- Remote Desktop Protocol (RDP) - port 3389 is the proprietary protocol that was developed by Microsoft to provide users with a graphical user interface to connect to another computer over a network connection. It only allows to issue and receive text-based information. It supports different types of network topologies and multiple LAN protocols. It allows for smart card authentication, data encryption, and bandwidth reduction mechanisms.
+- **Remote Desktop Protocol (RDP)** - **TCP port 3389** is the proprietary protocol that was developed by Microsoft to provide users with a graphical user interface to connect to another computer over a network connection. It only allows to issue and receive text-based information. It supports different types of network topologies and multiple LAN protocols. It allows for smart card authentication, data encryption, and bandwidth reduction mechanisms.
 
 Port 22 (SSH): Secure remote login.
 Port 23 (Telnet): Remote login (unsecure, plain text).
@@ -211,11 +211,11 @@ Port 3389 (RDP): Microsoft remote desktop (secure graphical interface).
 
 These are crucial for the smooth functioning of digital communications and network management.
 
-- Domain Name System (DNS) - port 53 is just like the internet phone book. This system is used to translate human-friendly domain names into an IP address that computers can use to identify each other on a network. It operates on two different transport protocols, both TCP and UDP. It uses UDP for querying and response messages that fit within a single packet. If there is a larger message that needs to be sent, it is going to use TCP for those larger messages.
+- **Domain Name System (DNS)** - **TCP/UDP port 53** is just like the internet phone book. This system is used to translate human-friendly domain names into an IP address that computers can use to identify each other on a network. It operates on two different transport protocols, both TCP and UDP. It uses UDP for querying and response messages that fit within a single packet. If there is a larger message that needs to be sent, it is going to use TCP for those larger messages.
 
-- Dynamic Host Configuration Protocol (DHCP) - port 67 and port 68 is used to automate the assignment of IP addresses, subnet masks, gateways, and other networking parameters (including DNS IPs) to a client device. It simplifies of configuring devices on our IP networks. These DHCP servers listen for client requests over port 67 using UDP as a transport mechanism and the DHCP clients will receive responses back over port 68 using UDP.
+- **Dynamic Host Configuration Protocol (DHCP)** - **UDP port 67 (server)** and **UDP port 68(client)** is used to automate the assignment of IP addresses, subnet masks, gateways, and other networking parameters (including DNS IPs) to a client device. It simplifies of configuring devices on our IP networks.
 
-- SQL Services - port 1433 (Microsoft SQL) or port 3306 (MySQL) refers to the protocols used by database servers to manage queries and control operations from the client applications that are requesting them.
+- **SQL Services** - **TCP port 1433 (Microsoft SQL)** or **TCP port 3306 (MySQL)** refers to the protocols used by database servers to manage queries and control operations from the client applications that are requesting them.
 
 - Simple Network Management Protocol (SNMP) - port 161 and port 162 is used for collecting information from or configuring different network devices like servers, printers, hubs, switches, and routers over an IP network. It uses UDP. Port 161 is used by SNMP managers that are communicating with the SNMP agents on the different devices to conduct polling. Port 162 is used when agents want to send unsolicited trap messages back to the SNMP manager, which essentially is reporting information back to the manager about the client device. SNMP is crucial for network diagnostics and performance monitoring and is something people will use heavily as a network administrator or network technician.
 
@@ -225,10 +225,48 @@ Port 53 (DNS): Translates domain names to IP addresses.
 
 ## Other Network Service Ports and Protocols
 
-- Network Time Protocol (NTP) - port 123 is used to synchronize the clocks of a computer over a given network. It uses UDP. It enables our networks to maintain accurate time with precision and reliability, which is crucial for transaction logging, security protocols and the coordination of system functions.
+- **Network Time Protocol (NTP)** - **UDP port 123** is used to synchronize the clocks of a computer over a given network. It uses UDP. It enables our networks to maintain accurate time with precision and reliability, which is crucial for transaction logging, security protocols and the coordination of system functions.
 
-- Session Initiation Protocol (SIP) - port 5060 and port 5061 is widely used for initiating, maintaining, and terminating real-time sessions that involve voice, video messaging, and other communication services. It uses UDP.
+- **Session Initiation Protocol (SIP)** - **UDP port 5060** and **TCP/TLS port 5061** is widely used for initiating, maintaining, and terminating real-time sessions that involve voice, video messaging, and other communication services. 
 
 - Lightweight Directory Access Protocol (LDAP) - port 389 is a protocol for accessing and maintaining distributed directory information services over an IP network. It is used to look up information in a directory listing. It uses both TCP and UDP. It transmits all that information in plain text.
 
 - Lightweight Directory Access Protocol over SSL (LDAPS) - port 636 is a version of LDAP that is encrypted with SSL or, in newer versions, TLS for increased security. It uses TCP. This protocol provides secure directory service transactions that protects the sensitive data during the transmission by placing it inside of an encrypted tunnel.
+
+### Key Components of IEEE 802.1
+
+1. VLANs (Virtual Local Area Networks) - **IEEE 802.1Q**
+
+   - Purpose: This standard defines how to implement VLANs in Ethernet networks by tagging frames with VLAN identifiers. This allows multiple VLANs to coexist on the same physical network.
+
+   - Functionality: It adds a 4-byte tag to Ethernet frames, which contains information about the VLAN to which the frame belongs.
+
+2. Spanning Tree Protocol (STP) - **IEEE 802.1D**
+
+   - Purpose: STP is designed to prevent loops in Ethernet networks, which can cause broadcast storms and network failures.
+
+   - Functionality: It creates a loop-free topology by designating a root bridge and blocking redundant paths in the network.
+
+3. Link Aggregation - **IEEE 802.1AX (formerly 802.3ad)**
+
+   - Purpose: This standard allows multiple network connections to be combined into a single logical link to increase bandwidth and provide redundancy.
+
+   - Functionality: It uses Link Aggregation Control Protocol (LACP) to manage the aggregation of links.
+
+4. Network Access Control - **IEEE 802.1X**
+
+   - Purpose: This standard provides port-based network access control, allowing organizations to authenticate devices before they gain access to the network.
+
+   - Functionality: It works with authentication servers (like RADIUS) to verify user credentials before allowing network access.
+
+5. Quality of Service (QoS) - **IEEE 802.1P**
+
+   - Purpose: This standard provides a mechanism for prioritizing network traffic to ensure that time-sensitive data (like voice and video) is transmitted with higher priority over other types of traffic.
+
+   - Functionality: It adds priority information to Ethernet frames, enabling switches to manage traffic based on priority levels.
+
+6. Power over Ethernet (PoE) - **IEEE 802.1AF**
+
+   - Purpose: This standard allows network cables to **carry electrical power along with data** to power devices such as IP cameras, VoIP phones, and wireless access points.
+
+   - Functionality: It specifies the requirements for delivering power over Ethernet cabling, including power classification and power sourcing equipment.

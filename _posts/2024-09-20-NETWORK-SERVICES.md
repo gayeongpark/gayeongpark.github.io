@@ -137,7 +137,8 @@ CNAME | Canonical Name | Points a domain to another domain or subdomain | `suppo
 MX | Mail Exchange | Directs email to a mail server, using priorities to set routing preferences. | `mail.diontraining.com`
 SOA | Start of Authority | Stores important information about a domain or zone updates and DNS zone transfer
 PTR | Pointer | Maps an IP address to a domain name, used for reverse DNS lookups for security purposes
-TXT | Text | Stores human-readable or machine-readable text, often used for domain verification or email security.
+SRV | Service | Specifies a host and port for specific services such as voice over IP (VoIP)
+TXT | Text | Stores human-readable or machine-readable text, often used for domain ownership verification or preventing email spam.
 NS | NameServer | Specifies the authoritative DNS server for a domain.
 
 ### Attack using DNS

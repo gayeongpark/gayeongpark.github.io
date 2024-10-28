@@ -19,7 +19,15 @@ An IPS is an active device placed in-line with network traffic, monitoring and b
 
 IPS systems can cause issues by blocking legitimate traffic if not properly configured, leading to a higher preference for IDS in some organizations.
 
-Snort : Is a widely-used, open-source IDS/IPS that can detect attacks and, in the case of IPS, block them.
+**Snort** is a widely-used, open-source IDS/IPS that can detect attacks and, in the case of IPS, block them.
+
+#### Alert rules of IDS
+
+1. Evaluation of the Entire Packet: **IDS will examine the entire packet** to evaluate it against all configured alert rules. This means that even if one rule matches, **IDS does not stop its evaluation; it will continue to check the packet against all other rules**.**
+
+2. Logging Alerts: If any additional rules match during the evaluation, **those matches are logged as well**. IDS is designed to detect and alert on potential intrusions rather than actively blocking traffic (unless configured as an Intrusion Prevention System, or IPS).
+
+3. Packet Forwarding: After evaluating all rules, **IDS allows the packet to continue its journey to its intended destination**, regardless of whether it matched any alert rules.
 
 ### Detection Mechanisms of IDS/IPS
 
@@ -127,6 +135,8 @@ All of the network devices generates logs based on Information, Events, Warnings
 Instead of checking log of each device manually, I can use System Logging protocol (Syslog). It sends system log or event messages to a central server, called a syslog server.
 
 It can be called Security Information Management (SIM), Security Event Management (SEM), or Security Information and Event Management (SIEM).
+
+SIEM (Security Information and Event Management) systems centralize security event logs, correlate data from multiple sources, and provide analysis for detecting and responding to security incidents effectively. 
 
 When I configure my syslog server, there are two primary components I have to have,
 

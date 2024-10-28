@@ -229,7 +229,11 @@ SASE (Secure Access Secure Edge) and SSE (Security Service Edge) are modern netw
 
 - SSE is a subset of SASE, focusing exclusively on security services that safeguard interactions between users, devices, and cloud resources.
 
-- SSE addresses the challenges of modern security, where traditional perimeters have disappeared due to cloud computing, mobile workforces, and BYOD policies.
+- SSE is a cloud-based security model designed to address the needs of today’s distributed and mobile workforce, unlike traditional network security architectures that rely on physical hardware at the network perimeter.
+
+- SSE leverages cloud-based security services to protect distributed users and devices.
+
+- SSE aims to provide comprehensive security coverage for users accessing applications and data from various locations, including remote offices, branch offices, and mobile devices.
 
 - SSE includes
 

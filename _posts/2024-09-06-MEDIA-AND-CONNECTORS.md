@@ -20,7 +20,7 @@ Includes specifications for various cable types: twisted pair cables, coaxial ca
 
 ## Copper Cables
 
-1.  Twisted Pair Cables : Two conductors twisted together to reduce electromagnetic interference (EMI) and crosstalk. Used in transmitting data and voice signals for networking and telecommunications. Twisting enhances signal consistency and reduces susceptibility to interference.
+1.  **Twisted Pair Cables** : Two conductors twisted together to reduce electromagnetic interference (EMI) and crosstalk. Used in transmitting data and voice signals for networking and telecommunications. Twisting enhances signal consistency and reduces susceptibility to interference. It is commonly used for **medium-range applications**.
 
     - Unshielded Twisted Pair (UTP) : Most common, lightweight, flexible, and cost-effective. No additional shielding, making them smaller and easier to install but more susceptible to EMI(Electromagnetic interference) and noise. Common in Ethernet-based LANs.
 
@@ -28,7 +28,9 @@ Includes specifications for various cable types: twisted pair cables, coaxial ca
 
     ![cables](../assets/img/networkFundamental/utpandstp.jpeg)
 
-    Regardless of whether using a shielded or unshielded one, twisted pair cables are categorized (CAT) by speed and distance capabilities:
+    Regardless of whether using a shielded or unshielded one, twisted pair cables are categorized (CAT) by speed and distance capabilities
+
+    ### Types of Copper cables
 
     CAT 3 | 10BASE-T | 10 Mbps at 100 meters
     CAT 5 | 100BASE-TX | 100 Mbps at 100 meters
@@ -48,7 +50,7 @@ Includes specifications for various cable types: twisted pair cables, coaxial ca
 
     ![coaxial](../assets/img/networkFundamental/networking-coaixal_cable_01_mobile.jpg)
 
-    - Standard coaxial cables(RG-6, RG-59) are common in broadcasting and broadband systems (e.g., cable TV) because these cables are being used to carry data at **high speeds over longer distances**. RG-6 cables support up to **1 Gbps for 300 meters**. It is used to support faster Internet speeds when using a cable model.
+    - Standard coaxial cables(RG-6, RG-59) are common in broadcasting and broadband systems (e.g., cable TV) because these cables are being used to carry data at **high speeds over medium-range distances**. RG-6 cables support up to **1 Gbps for 300 meters**. It is used to support faster Internet speeds when using a cable model.
 
     - Direct Attach Copper (DAC) Cables are the newer form of coaxial cabling and fixed assembly copper cables used to connect network hardware (switches, routers, servers). Cost-effective and consume less power than fiber. **Support up to 100 Gbps for short distances (15 meters for active cables, 7 meters for passive)**. These cables are suitable for interconnect applications between two servers, routers, switches, or other devices.
 
@@ -125,9 +127,9 @@ Drawbacks
 
 Even with these drawbacks of the higher costs and fiber being more difficult to work with though, fiber optic cables have a place in most of our enterprise networks.
 
-- Single-Mode Fiber (SMF) : Designed for long-distance communication and features a small glass core typically around 8.3 to 10 microns in diameter. Yellow sheath. It uses 1550 nanometer wavelengths.
+- **Single-Mode Fiber (SMF)** : Designed for **long-distance communication** and features a small glass core typically around 8.3 to 10 microns in diameter. **Yellow sheath**. It uses 1550 nanometer wavelengths.
 
-- Multi-Mode Fiber (MMF) : Tailored for shorter distances because it has a larger fiber core size that ranges from 50 to 100 microns. Multi-mode cables with a larger code are cheaper to manufacture. Aqua blue or orange sheath. It uses 850 or 1300 nanometer wavelengths.
+- **Multi-Mode Fiber (MMF)** : Tailored for **shorter distances** because it has a larger fiber core size that ranges from 50 to 100 microns. Multi-mode cables with a larger code are cheaper to manufacture. Aqua blue or orange sheath. It uses 850 or 1300 nanometer wavelengths.
 
 Network designers often prefer multimode over single mode for its easier handling and cost-effective installation.
 

@@ -81,13 +81,13 @@ VLAN (Virtual Local Area Network) is a type of network configuration used in Eth
 
 ### Reasons for using VLAN
 
-1. Enhanced Security: VLANs allow sensitive data to be isolated. For example, separating the HR department from the Finance department can help protect confidential data and reduce security risks.
+1. Enhanced Security : VLANs allow sensitive data to be isolated. For example, separating the HR department from the Finance department can help protect confidential data and reduce security risks.
 
-2. Improved Performance: By reducing the size of the broadcast domain, VLANs help minimize broadcast traffic, improving the overall performance of the network.
+2. Improved Performance : By reducing the size of the broadcast domain, VLANs help minimize broadcast traffic, improving the overall performance of the network.
 
-3. Simplified Management: VLANs provide greater control over the network, enabling easier policy implementation, segmentation, and troubleshooting.
+3. Simplified Management : VLANs provide greater control over the network, enabling easier policy implementation, segmentation, and troubleshooting.
 
-4. Cost Efficiency: VLANs allow more efficient use of existing infrastructure by creating logical segments, reducing the need for additional physical hardware.
+4. Cost Efficiency : VLANs allow more efficient use of existing infrastructure by creating logical segments, reducing the need for additional physical hardware.
 
 ### VLAN Configurations
 
@@ -99,21 +99,21 @@ VLAN (Virtual Local Area Network) is a type of network configuration used in Eth
 
 ### Key VLAN Concepts
 
-- 802.1Q Tagging : A VLAN tagging standard that adds VLAN IDs to Ethernet frames, helping manage multiple VLANs on the same physical network infrastructure(Trunking). This ensures data separation between different departments (e.g., HR and finance) by tagging their traffic for secure, isolated communication.
+- **802.1Q Tagging** : A VLAN tagging standard that adds VLAN IDs to Ethernet frames, helping manage multiple VLANs on the same physical network infrastructure(Trunking). This ensures data separation between different departments (e.g., HR and finance) by tagging their traffic for secure, isolated communication.
 
-- Trunking : The transmission of traffic from different VLANs across the same physical network infrastructure, while keeping the traffic from each VLAN separate and secure.
+- Trunking : **The transmission of traffic from different VLANs across the same physical network infrastructure**, while keeping the traffic from each VLAN separate and secure.
 
 - Native VLAN : The default VLAN on a trunk port, used for untagged traffic. It's crucial for legacy devices that don’t support VLAN tags. Ensuring consistent native VLAN configurations across switches helps avoid traffic mis-routing. Cybersecurity experts recommend renaming the default VLAN(VLAN10 or VLAN100) to prevent VLAN hopping attacks.
 
 - Voice VLAN : A dedicated VLAN for Voice over IP (VoIP) traffic, prioritizing voice data over regular traffic to maintain high-quality communications. This reduces latency, jitter, and packet loss for critical voice calls in business environments.
 
-- Link Aggregation : A method of combining multiple network connections into one logical link, increasing bandwidth and providing redundancy. This is often used in data centers to prevent network bottlenecks and ensure high-speed connectivity.
+- Link Aggregation : A method of combining multiple network connections into one logical link, increasing bandwidth and providing redundancy. This is often used in data centers to prevent network bottlenecks and ensure high-speed connectivity. (IEEE 802.1AX)
 
 - Speed and Duplex Configurations : These settings control data transmission speed (in Mbps or Gbps) and whether data is sent and received simultaneously (full duplex) or alternately (half duplex). Misconfigurations can reduce performance, and auto-negotiation may sometimes select lower-than-optimal speeds, requiring manual adjustments.
 
 ## Spanning Tree Protocol (STP) / 802.1d
 
-It defined by IEEE standard 802.1d, it **prevents loops in network traffic** by allowing redundant links between switches. Without STP, switching loops can lead to broadcast storms that overwhelm the network.
+It defined by IEEE standard **802.1d**, it **prevents loops in network traffic** by allowing redundant links between switches. Without STP, switching loops can lead to broadcast storms that overwhelm the network.
 
 - Key Concepts
 
@@ -138,13 +138,13 @@ Network Access Control (NAC) is a security mechanism used to **ensure that devic
    - Devices are inspected upon trying to connect to the network.
    - If they meet security criteria, they gain access; otherwise, they may be quarantined for remediation.
 
-2. NAC Components
+2. **NAC** Components
 
    - Port Security : Limits physical devices that can connect to network ports. Port security mechanism can be configured to allow only specific MAC addresses to access a port.
 
    - MAC Filtering : Controls access based on a device’s MAC address (using allowlists or blocklists). Block-listing is considered less secure than allowlisting.
 
-   - 802.1x Authentication : Ensures only authenticated users can access the network using usernames, passwords, certificates, etc. This protocol works by encapsulating the extensible authentication protocol, also known as EAP within the network's frames. It involves three components
+   - **802.1x Authentication** : Ensures only authenticated users can access the network using usernames, passwords, certificates, etc. This protocol works by encapsulating the extensible authentication protocol, also known as EAP within the network's frames. It involves three components
 
      - Supplicant is a user device that's seeking to access the network.
      - Authenticator is the network device the user wants to connect to like switches or a wireless access point.
@@ -172,7 +172,7 @@ Network Access Control (NAC) is a security mechanism used to **ensure that devic
 ## Maximum Transmission Unit (MTU)
 
 Maximum Transmission Unit (MTU) settings can be configured on switches.
-The largest size of a data packet (frame) that can be sent over a network, measured in bytes. It affects network performance and efficiency. A properly set MTU avoids packet loss and excessive overhead.
+The largest size of a data frame that can be sent over a network, measured in bytes. It affects network performance and efficiency. A properly set MTU avoids packet loss and excessive overhead.
 
 1. Common MTU Sizes
 

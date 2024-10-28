@@ -81,3 +81,5 @@ In order to properly manage the airflow,
 - **Special suppression systems** utilize **a clean agent** as part of its suppression system. There is a danger with using a special suppression system because it uses either a halocarbon agent or inert gas. When releases, the agents will displace the oxygen in the room with the inert gas and suffocates the fire.
 
 So the data center with special suppression system must be equipped with an alarm and has supplemental oxygen available.
+
+

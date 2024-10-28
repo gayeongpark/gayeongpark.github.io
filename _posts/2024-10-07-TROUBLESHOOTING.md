@@ -9,7 +9,7 @@ author: Lantana Park
 
 # Troubleshooting Methodology
 
-1. Identify the problem
+1. Identify the problem gathering information
 
    - Ask questions to the users for gathering information. Such as, What happened?, What was the status before?, What was the status after?, Is there any change in the system?
 
@@ -77,6 +77,8 @@ author: Lantana Park
 
 6. IP scanner : Used to search for and detect IP addresses and other information related to devices on the network
 
+7. Heat Map : Visually **displays data regarding network usage, performance, or activity levels across different segments of the network**. Areas of **high activity** might be shown in warmer colors (like red or orange), while areas of **low activity** may be represented in cooler colors (like blue or green). This helps network administrators quickly identify congestion, potential bottlenecks, or underutilized resources.
+
 ## Command Tools
 
 1. **arp** : Display the current ARP table, showing a list of IP addresses and their corresponding MAC addresses that the device has recently interacted with.
@@ -85,11 +87,15 @@ Internet Address | Physical Address | Type
 192.168.1.1 | 00-14-22-01-23-45 | dynamic
 192.168.1.2 | 00-16-17-10-20-30 | dynamic
 
-2. **tcpdump** : A powerful network packet analyzer used to capture and analyze traffic on a network. It helps to diagnose network issues, monitor network activity, and analyze data being sent and received on a network.
+2. **tcpdump** : A powerful network packet analyzer used to **capture and analyze traffic on a network**. It helps to diagnose network issues, monitor network activity, and analyze data being sent and received on a network.
 
 3. **dig** : Queries the domain name system (DNS) to obtain information about host addresses, mail exchanges, nameservers, and related information.
 
 4. **ipconfig** : Displays the current TCP/IP network configuration and refresh the DHCP and DNS settings on a given host.
+
+5. **netstat** : **Displays network connections** for the Transmission Control Protocol (incoming and outgoing), routing tables, and several network interface and network protocol statistics.
+
+6. **tracert**/**traceroute** : Show details about the path that a packet takes from a host to a target and displays information about each hop in the path.
 
 # Troubleshooting Physical
 

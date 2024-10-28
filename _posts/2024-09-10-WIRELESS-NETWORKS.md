@@ -90,42 +90,42 @@ Wireless frequencies are the different frequency bands that are used to transmit
 
 The 802.11 standards are a set of protocols developed by the Institute of Electrical and Electronics Engineers (IEEE) for implementing wireless local area network (WLAN) communications. These standards define how wireless devices like laptops, smartphones, and routers communicate over radio waves. Each version of 802.11 improves performance, speed, and range, and supports different frequency bands.
 
-1. 802.11a (Wireless A):
+1. **802.11a** (Wireless A)
 
    - Frequency: 5 GHz
    - Speed: Up to 54 Mbps
    - Range: ~35 meters
    - Higher cost made it primarily used by businesses
 
-2. 802.11b (Wireless B):
+2. **802.11b** (Wireless B)
 
    - Frequency: 2.4 GHz
    - Speed: Up to 11 Mbps
    - Range: ~140 meters
    - Lower cost made it widely adopted in homes and schools. (Security cameras, Walkie talkies, baby monitors, microwaves)
 
-3. 802.11g (Wireless G):
+3. **802.11g** (Wireless G)
 
    - Frequency: 2.4 GHz
    - Speed: Up to 54 Mbps
    - Range: ~140 meters
    - Combined Wireless A’s speed with Wireless B’s affordability
 
-4. 802.11n (Wireless N / Wi-Fi 4):
+4. **802.11n** (Wireless N / Wi-Fi 4)
 
    - Frequency: 2.4 GHz & 5 GHz
    - Speed: Up to 600 Mbps
    - Range: ~70 meters (2.4 GHz) and ~35 meters (5 GHz)
    - Introduced **MIMO (multiple-input, multiple-output) for faster data transfer**. MIMO technology allows an access point to use multiple antennas to send and receive data at faster speeds
 
-5. 802.11ac (Wireless AC / Wi-Fi 5):
+5. **802.11ac** (Wireless AC / Wi-Fi 5)
 
    - Frequency: 5 GHz
    - Speed: Up to 6.9 Gbps
    - Range: ~35 meters
    - Introduced **MU-MIMO (multi-user MIMO)** for simultaneous connections by multiple users. **High speed and reliability**
 
-6. 802.11ax (Wireless AX / Wi-Fi 6):
+6. **802.11ax** (Wireless AX / Wi-Fi 6)
 
    - Frequency: 2.4 GHz, 5 GHz, and optionally 6 GHz (Wi-Fi 6E)
    - Speed: Up to 9.6 Gbps

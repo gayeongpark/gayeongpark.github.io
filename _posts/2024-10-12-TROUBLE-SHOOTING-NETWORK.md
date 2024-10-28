@@ -220,7 +220,7 @@ Broadcast Domain is a logical division of a computer network where all nodes can
 
 Voice Over Internet Protocol is a set of protocols that are used to send streaming voice and video in real time. Being able to have a very low latency and a very high quality of service is imperative to having a good voice connection or video connection when using real-time protocols such as VoIP.
 
-- Latency : Time it takes for a signal to reach the intended client. For providing stable service, I need to keep latency under 50 to 100 milliseconds. Latency is the delay between the sending and receiving of data packets, it doesn't directly cause intermittent disruptions.
+- Latency : Time it takes for a signal to reach the intended client. It is about the travel time of each packet. For providing stable service, I need to keep latency under 50 to 100 milliseconds. Latency is the delay between the sending and receiving of data packets, it doesn't directly cause intermittent disruptions.
 
 - Jitter : Measurement of the variation in delay over time. When latency increases by up to 30-50 milliseconds, it starts to have jitter. Jitter is a variation in the delay of received packets, with irregular arrival times causing intermittent disruptions such as freezes and delays.
 
