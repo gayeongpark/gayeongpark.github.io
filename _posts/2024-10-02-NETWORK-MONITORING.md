@@ -207,7 +207,7 @@ Network Performance Monitoring focuses on the end user's experience by monitorin
 
 2. Bandwidth/Throughput: Bandwidth refers to the theoretical maximum data transfer rate, while throughput measures the actual transfer rate in practice.
 
-3. Jitter: The variation in delay between data packets, which can cause issues in real-time applications like VoIP or video conferencing.
+3. Jitter: The variation in **delay between data packets**, which can cause issues in real-time applications like VoIP or video conferencing.
 
 Ensuring low latency, sufficient bandwidth, and minimal jitter is essential for maintaining network performance.
 

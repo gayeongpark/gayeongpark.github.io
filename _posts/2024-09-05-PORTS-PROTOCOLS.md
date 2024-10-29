@@ -247,11 +247,12 @@ Port 53 (DNS): Translates domain names to IP addresses.
 
    - Functionality: It creates a loop-free topology by designating a root bridge and blocking redundant paths in the network.
 
-3. Link Aggregation - **IEEE 802.1AX (formerly 802.3ad)**
+3. Link Aggregation Control Protocol - **IEEE 802.1AX (formerly 802.3ad)**
 
-   - Purpose: This standard allows multiple network connections to be combined into a single logical link to increase bandwidth and provide redundancy.
+   - Purpose: This standard allows multiple network connections to be combined into a single logical link. By aggregating links, the combined bandwidth of the physical links is available to the network, enhancing performance and fault tolerance.
 
    - Functionality: It uses Link Aggregation Control Protocol (LACP) to manage the aggregation of links.
+
 
 4. Network Access Control - **IEEE 802.1X**
 

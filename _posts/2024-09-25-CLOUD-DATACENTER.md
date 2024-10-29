@@ -57,6 +57,8 @@ Many organization instead decide to use a hosted solution. With the hosted solut
 
 3. **Infrastructure as a Service (IaaS)** : Provides virtualized hardware like servers, storage, and networking, allowing organizations to configure operating systems and software themselves. IaaS is focused on the hardware only.
 
+4. **Desktop as a Service (DaaS)** : Is a cloud computing offering where a service provider delivers virtual desktops to end-users over the Internet, licensed with a per-user subscription. DaaS is often combined with Virtual Desktop Infrastructure. Citrix Virtual Apps and Desktops can be the example of that.
+
 #### Reliability of Cloud Service
 
 `SaaS` > `PaaS` > `IaaS`
@@ -116,7 +118,7 @@ VPCs are integral to IaC (Infrastructure as Code), where the deployment of resou
 
 - **Internet Gateways** : Allows instances within a cloud environment to send and receive unencrypted traffic to and from the Internet.
 
-- **NAT (Network Address Translation) Gateways** : Enables instances within a VPC to access external networks. Translates private IP addresses to a public IP address. Restricts inbound connections from external networks.
+- **NAT (Network Address Translation) Gateways** : Enables instances within a VPC(Virtual Private Cloud) to access external networks. Translates private IP addresses to a public IP address. Restricts inbound connections from external networks.
 
 - **Network Access Control/Security Lists (NSL)** : Are stateless and operate at the subnet level, requiring separate inbound and outbound rules. And used for controlling inbound and outbound traffic in cloud computing environments.
 
@@ -203,6 +205,8 @@ To create an SD-WAN, use a centralized control function to securely and intellig
 **Virtual Extensible Local Area Network (VXLAN)** is a network virtualization technology that addresses the limitations posed by traditional network infrastructure.
 
 **VXLAN encapsulates Layer 2 Ethernet frames within Layer 3 UDP packets**.
+
+The VXLAN Network Identifier (VNI) is a 24-bit identifier that helps differentiate between different VXLAN overlay networks. Each VXLAN segment or overlay network typically has a unique VNI assigned to it, allowing VXLAN endpoints to correctly identify and route traffic within the appropriate overlay network.
 
 ## SASE and SSE
 

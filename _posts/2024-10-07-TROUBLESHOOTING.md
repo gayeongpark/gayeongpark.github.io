@@ -67,7 +67,7 @@ author: Lantana Park
 
 1. Wi-Fi analyzer : Used to conduct wireless surveys to ensure proper coverage and to prevent non-desired overlap between wireless access point coverage zones and channels
 
-2. Protocol analyzer and packet capture : Protocol analyzer is used to **capture and analyze signals and data traffic over a communication channel** and Packet Capturing Tool is used to capture packets running over a network connection in real time and save for later analysis
+2. Protocol analyzer / packet capture / packet sniffer : Protocol analyzer is used to **capture and analyze signals and data traffic over a communication channel** and Packet Capturing Tool is used to capture packets running over a network connection in real time and save for later analysis
 
 3. Bandwidth speed test : Verifies the real-world throughput from a client device all the way out to the Internet and back
 
@@ -79,23 +79,21 @@ author: Lantana Park
 
 7. Heat Map : Visually **displays data regarding network usage, performance, or activity levels across different segments of the network**. Areas of **high activity** might be shown in warmer colors (like red or orange), while areas of **low activity** may be represented in cooler colors (like blue or green). This helps network administrators quickly identify congestion, potential bottlenecks, or underutilized resources.
 
-## Command Tools
-
-1. **arp** : Display the current ARP table, showing a list of IP addresses and their corresponding MAC addresses that the device has recently interacted with.
+8. **arp** : Display the current ARP table, showing a list of IP addresses and their corresponding MAC addresses that the device has recently interacted with.
 
 Internet Address | Physical Address | Type
 192.168.1.1 | 00-14-22-01-23-45 | dynamic
 192.168.1.2 | 00-16-17-10-20-30 | dynamic
 
-2. **tcpdump** : A powerful network packet analyzer used to **capture and analyze traffic on a network**. It helps to diagnose network issues, monitor network activity, and analyze data being sent and received on a network.
+9. **tcpdump** : A powerful network packet analyzer used to **capture and analyze traffic on a network**. It helps to diagnose network issues, monitor network activity, and analyze data being sent and received on a network.
 
-3. **dig** : Queries the domain name system (DNS) to obtain information about host addresses, mail exchanges, nameservers, and related information.
+10. **dig/nslookup** : **Queries the domain name system (DNS) to obtain information** about host addresses, mail exchanges, nameservers, and related information.
 
-4. **ipconfig** : Displays the current TCP/IP network configuration and refresh the DHCP and DNS settings on a given host.
+11. **ipconfig** : Displays the current TCP/IP network configuration and refresh the DHCP and DNS settings on a given host.
 
-5. **netstat** : **Displays network connections** for the Transmission Control Protocol (incoming and outgoing), routing tables, and several network interface and network protocol statistics.
+12. **netstat** : **Displays network connections** for the Transmission Control Protocol (incoming and outgoing), routing tables, and several network interface and network protocol statistics.
 
-6. **tracert**/**traceroute** : Show details about the path that a packet takes from a host to a target and displays information about each hop in the path.
+13. **tracert**/**traceroute** : Show details about the path that a packet takes from a host to a target and displays information about each hop in the path.
 
 # Troubleshooting Physical
 
@@ -221,6 +219,10 @@ Tools: Signal booster, Larger antenna, Wireless repeater, Second access point
    - Multi-path Reception: Signals can bounce off walls, causing delays and weaker signals, impacting throughput.
    - Mitigation: Use high-quality cables and antennas to reduce attenuation and improve signal quality.
 
+3. Crosstalk
+
+   - Definition: It occurs when signals from adjacent cables interfere with each other, leading to signal degradation.
+
 ## Client Disassociation Issues
 
 ### Disassociation Causes
@@ -242,7 +244,13 @@ It's crucial to check wireless gateway and controller logs to identify whether d
 
 ## Incorrect Wireless Configuration
 
-- Wrong SSID
+- WAP Placement
+
+   - Reasoning: The physical location of the WAP can significantly impact wireless coverage and signal strength. If the WAP is placed in a corner, near obstacles, or within walls that block signals (like metal, concrete, or thick wood), it can cause weak signal strength or dead zones, leading to connection drops.
+
+   - Recommendation: Conduct a wireless site survey to assess signal strength and coverage areas. Proper placement usually involves locating the WAP centrally in the area it needs to cover, away from obstructions.
+
+- Wrong WAP SSID
 
   SSID (Service Set Identifier) is a natural language name used to identify a wireless network in an 802.11 network.
 
@@ -260,7 +268,7 @@ It's crucial to check wireless gateway and controller logs to identify whether d
 
   Solution: Attempt to reinstall the drivers for the wireless adapter
 
-- Encryption mismatch
+- Encryption type mismatch
 
   Encryption algorithms
 

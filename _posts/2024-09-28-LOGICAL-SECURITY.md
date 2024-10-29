@@ -176,37 +176,37 @@ IPSec is a secure network protocol suite used to provide encrypted and authentic
 
 ## Public Key Infrastructure (PKI)
 
-Public Key Infrastructure (PKI) is a comprehensive system designed to manage public and private keys, enabling secure data exchange through asymmetric encryption. It consists of hardware, software, policies, procedures, and people, ensuring secure communications, such as when connecting to HTTPS websites.
+**Public Key Infrastructure (PKI)** is an entire system of hardware, software, policies, procedures, and people that is based on asymmetric encryption. HTTPS connection is part of PKI. It manages digital certificates, including their issuance, revocation, and verification, providing a framework for secure communication and authentication.
 
-1. HTTPS Connection : When I visit a secure website, like `https://google.com`, my web browser communicates with a certificate authority (CA), which provides the server's public key. The browser then creates a shared secret key (used for symmetric encryption) and securely sends it to the web server using the server’s public key.
+**Public Key Cryptography** refers to the process of encryption and decryption using asymmetric keys as one small part of the overall PKI architecture.
 
-2. Asymmetric and Symmetric Encryption
+### Key Components & Process
 
-   - Asymmetric encryption : Involves a pair of keys (public and private). The browser encrypts the shared secret with the server’s public key, which only the server can decrypt with its private key. This ensures secure key exchange.
+1. Asymmetric Encryption
 
-   - Symmetric encryption : Once both the browser and server share the secret key, they use it to create a secure tunnel (using algorithms like AES) for encrypted data transmission.
+   - In PKI, public and private keys are generated, typically by a trusted third-party known as a Certificate Authority (CA).
+   - Public Key: Accessible to anyone, used to encrypt data.
+   - Private Key: Held securely by the owner (e.g., a web server), used to decrypt data.
+   - Example: When visiting a secure website (HTTPS), your browser retrieves the website's public key from the CA, then encrypts a random shared secret key. The server decrypts this with its private key, establishing a secure connection.
 
-3. Authentication and Confidentiality
+2. Symmetric Encryption
 
-   - Authentication : Ensures that the server is who it claims to be (e.g., google.com), thanks to the digital certificate issued by a trusted CA.
+   - After initial secure key exchange via asymmetric encryption, symmetric encryption (e.g., AES) is used for efficient, bulk data transfer through an encrypted tunnel like TLS/SSL.
 
-   - Confidentiality : Ensures only the intended parties (browser and server) can read the data transferred via the encrypted tunnel.
+3. Certificate Authority (CA)
 
-4. Public Key Infrastructure vs. Public Key Cryptography
+   - A CA issues digital certificates, ensuring the legitimacy of keys by verifying the identity of key owners.
+   - This authentication step confirms the identity of the server or client, forming the basis of trust in PKI.
 
-   - Public Key Cryptography refers to the process of encryption and decryption using asymmetric keys.
+4. Key Escrow
 
-   - PKI is a broader system encompassing key management, certificate issuance, validation, and the entire process of securing communications.
-
-5. Certificate Authority (CA) : The trusted third party responsible for issuing digital certificates, verifying the authenticity of the public key, and maintaining global trust among CAs.
-
-6. Key Escrow : A secure method of storing encryption keys with a third party, allowing retrieval in cases where keys are lost or needed for legal investigations. While key escrow is beneficial, it introduces security risks since unauthorized access to the escrow keys could compromise large amounts of data.
-
-7. Security Considerations : PKI provides an essential framework for secure communication, but its components, especially key escrow, must be managed with stringent security measures to prevent unauthorized access.
+   - Secure storage of cryptographic keys by a third party in case keys are lost or needed for legal reasons.
+   - Essential for organizations where encrypted data must remain accessible (e.g., if an employee leaves with encrypted data).
+   - Security Concern: Key escrow introduces a risk if an unauthorized party gains access to the stored keys.
 
 ## Digital Certificates
 
-Digital Certificate : A digitally-signed electronic document that binds a public key with a user's identity (can be a person, server, or device). Commonly follows the X.509 standard in PKI (Public Key Infrastructure).
+Digital Certificate is a digitally-signed electronic document that binds a public key with a user's identity (can be a person, server, or device). Commonly follows the X.509 standard in PKI (Public Key Infrastructure).
 
 ### Types of Certificates
 
@@ -241,7 +241,7 @@ Digital Certificate : A digitally-signed electronic document that binds a public
 
 ### Key Concepts
 
-- Root of Trust: The foundational concept where each certificate can be validated using the concept of a root of trust or the chain of trust.
+- Root of Trust : The foundational concept where each certificate can be validated using the concept of a root of trust or the chain of trust.
 
 - Certificate Authority (CA) : Trusted third party that issues certificates, containing a digital signature, serial number, and expiration date.
 

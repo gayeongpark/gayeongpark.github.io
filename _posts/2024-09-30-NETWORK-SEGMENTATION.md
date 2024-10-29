@@ -92,9 +92,9 @@ Screened subnet hosts include web, email, communication, and proxy servers, whic
 
 Intrusion detection systems (IDS) are useful in this zone to monitor for potential threats. Attackers often try to compromise a host in the screened subnet and pivot into the internal network.
 
-bastion hosts are servers in the screened subnet that do not run internal services, limiting their exposure.
+**Bastion hosts** are servers in the screened subnet that do not run internal services, limiting their exposure.
 
-Jumpboxes are used to securely manage and configure devices in the screened subnet. Administrators connect to the jumpbox, which then connects to servers in the subnet. Jumpboxes must be highly secured and can be either physical machines or virtual machines.
+The primary purpose of a **jump box** (also known as a jump host) is to serve as a secure gateway through which administrators can access and manage remote servers and network devices. This method consolidates access points, enhancing security by limiting direct access to the network's internal resources. While a jump box/host might introduce a minor additional step in the connection process, it does not significantly impact the network's latency or performance in a way that would outweigh its security benefits. Direct management connections typically expose each managed device directly to potential threats, making them less secure compared to the controlled environment provided by a jump box/host, which centralizes access controls and authentication. A jump box/host can actually facilitate better tracking and logging of administrative activities by centralizing access.
 
 ## ACL on the firewalls
 
@@ -247,7 +247,7 @@ Zero-Trust assumes that no user or device is inherently trusted, whether inside 
 
 ### Two different plan for Zero-trust Architecture
 
-- Control Plan : Layout of the policies and procedures. 
+- Control Plan : Layout of the policies and procedures.
 
   - Adaptive Identity : Continual real-time validation of users' behaviors, devices, and locations.
 
@@ -322,3 +322,13 @@ VPN is used to extend a private network across a public network and enables send
 - Out-of-Band Management uses a separate network or a direct console connection for secure management, providing an additional layer of security. It prevents a regular user's machine from connecting to the management interfaces of devices.
 
 - APIs (Application Programming Interfaces): Allow automated management, provisioning, and integration between different systems and services. Common API protocols include REST and SOAP.
+
+## Triple-homed firewall
+
+- A triple-homed firewall is a firewall that has three network interfaces, allowing it to connect to three different networks. The typical configuration includes
+
+  - External Network : Connected to the internet (public).
+  - Internal Network : Connected to a private, trusted network (e.g., a corporate LAN).
+  - DMZ : A semi-secure network that hosts services accessible from the external network while being isolated from the internal network.
+
+  ![three-homed](../assets/img/networkFundamental/slide_7.jpg)

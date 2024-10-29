@@ -11,17 +11,19 @@ author: Lantana Park
 
 ## Cable Distribution Systems
 
-Cable Distribution System is an organized system to connect the network's backbone in MDF to the Intermediate Distribution Frames(IDF) and to end user's wall jacks.
+Cable Distribution System is an organized system to connect the network's backbone in MDF to the Intermediate Distribution Frames (IDF) and to end user's wall jacks.
 
 ### Components of cable distribution systems
 
-- **Demarcation Point** is the location at which the Internet service provider's connection ends and the network infrastructure and cabling begin.
+- **Demarcation Point(DP)** is the location at which the Internet service provider's connection ends and the network infrastructure and cabling begin.
 
-- **Main Distribution Frame** serves as the main starting point for all interior cabling that will be distributed throughout this facility. It is like the trunk of a tree.
+- **Main Distribution Frame(MDF)** serves as the main starting point for all interior cabling that will be distributed throughout this facility. It is like the trunk of a tree. It holds the router and backbone switch to manage external connections and centralize the internal network. 
 
-- **Intermediate Distribution Frame** is like branches of the tree. It connects smaller sections of the network back to the MDF. These IDFs contain edge switches that connect to the backbone switch in the MDF. Each floor or area usually has its own IDF.
+- **Backbone switch** is where the network connects in MDF. Its main role is to gather, process, and forward data from various parts of the network, such as the edge switches located in each IDF (Intermediate Distribution Frame).
 
-- **Backbone switch** is where the network connects in MDF.
+- **Intermediate Distribution Frame(IDF)** is like branches of the tree. It connects smaller sections of the network back to the MDF. These IDFs contain edge switches that connect to the backbone switch in the MDF. Each floor or area usually has its own IDF.
+
+- **Edge switch** connects local devices and users to the backbone switch or router in the MDF.
 
 - **Cable Tray** is the unit or assembly of units that form a rigid structural system to secure the cables and raceways used by the cables as they go across the building.
 
@@ -78,8 +80,4 @@ In order to properly manage the airflow,
 
 - **Pre-action systems** help minimize the risk of accidental releases when using a wet pipe system. With a pre-action system, both a detector actuation like a smoke detector and a sprinkler must be tripped prior to water being released.
 
-- **Special suppression systems** utilize **a clean agent** as part of its suppression system. There is a danger with using a special suppression system because it uses either a halocarbon agent or inert gas. When releases, the agents will displace the oxygen in the room with the inert gas and suffocates the fire.
-
-So the data center with special suppression system must be equipped with an alarm and has supplemental oxygen available.
-
-
+- **Special suppression systems** utilize **a clean agent** as part of its suppression system. Clean agents, such as FM-200 or Novec 1230, are ideal for data centers as they effectively suppress fires **without harming electronic equipment or leaving a residue**. These agents are safe for the environment and do not displace oxygen, which minimizes risk to personnel. Because they do **not cause environmental damage**, they are preferred over older options like Halon gas, which, although effective, depletes the ozone layer. If a special suppression system is used, data centers should have alarms and backup oxygen available to ensure safety.

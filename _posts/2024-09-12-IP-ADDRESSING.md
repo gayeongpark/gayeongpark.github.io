@@ -95,10 +95,10 @@ In essence, CIDR notation simplifies IP address and subnet representation by spe
    - Range: 127.0.0.0/8, typically 127.0.0.1.
    - Used for internal testing and diagnostics, without external communication.
 
-4. APIPA (Automatic Private IP Addressing)
+4. **APIPA (Automatic Private IP Addressing)**
 
    - Range: 169.254.0.0 – 169.254.255.255.
-   - Assigned when DHCP fails, allowing limited local network communication but not internet access.
+   - **Assigned IP addresses when DHCP fails**, allowing limited local network communication but not internet access.
    - Indicates potential issues with DHCP (for automatically assigning IP addresses) when seen on a device.
    - It is considered private IPs.
 
@@ -339,7 +339,7 @@ As the transition from IPv4 to IPv6 occurs, both protocols need to coexist on th
 
 1. **Dual Stack** allows devices (Routers, Multilayer Switches, and hosts) to run both IPv4 and IPv6 simultaneously. Devices communicate using IPv6 by default. If IPv6 is unavailable, they fall back to IPv4. DNS queries return both A (IPv4) and AAAA (IPv6) records, and devices choose the appropriate protocol. This method provides a seamless migration path without disrupting services or requiring immediate IPv4 removal.
 
-2. **Tunneling** **encapsulates IPv6 packets within IPv4 packets to allow them to traverse an IPv4 network**. IPv6 packets are encapsulated in IPv4, sent across the IPv4 network, then decapsulated at the endpoint and delivered to the IPv6 destination. Techniques like 6to4, Teredo, and ISATAP create these tunnels. This method **enables IPv6 communication over IPv4 infrastructure**.
+2. **Tunneling** **encapsulates IPv6 packets within IPv4 packets to allow them to traverse an IPv4 network**. IPv6 packets are encapsulated in IPv4, sent across the IPv4 network, then decapsulated at the endpoint and delivered to the IPv6 destination. **Techniques like 6to4, Teredo, and ISATAP create these tunnels. This method** **enables IPv6 communication over IPv4 infrastructure**.
 
 3. **NAT64** allows IPv6-only devices to communicate with IPv4 services. A NAT64 gateway **translates IPv6 addresses into IPv4 and vice versa**. The gateway maintains a translation table for seamless interaction between devices across both protocols. This method facilitates communication between IPv6-only devices and legacy IPv4 systems, extending the life of IPv4.
 

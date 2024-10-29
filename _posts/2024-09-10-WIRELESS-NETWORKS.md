@@ -82,7 +82,7 @@ Wireless frequencies are the different frequency bands that are used to transmit
 
 **Band steering** directs devices to connect to the less congested frequency band, optimizing the performance of the wireless network by balancing the load between the 2.4 GHz and 5 GHz bands.
 
-**Beamforming** focuses wireless signals in specific directions to improve signal strength.
+**Beamforming** focuses wireless signals in specific directions to **improve signal strength**.
 
 **Channel bonding** combines multiple channels to increase bandwidth.
 
@@ -132,8 +132,15 @@ The 802.11 standards are a set of protocols developed by the Institute of Electr
    - Range: Varies by band
    - Supports all previous wireless standards and enhances performance with **MU-MIMO and OFDMA** (Orthogonal Frequency Division Multiple Access).
 
+7. **802.11h**
+
+   - Frequency: 5 GHz
+   - Speed: Up to 54 Mbps (similar to 802.11a)
+   - Range: ~35 meters (similar to 802.11a)
+   - Introduced features for dynamic frequency selection (DFS) and **transmit power control (TPC)** to minimize interference with radar systems. This makes it suitable for use in areas where radar systems operate, providing more robust wireless connectivity in such environments. TPC allows wireless devices (like routers and access points) to adjust how strong their signals are. They can "turn down" their power when it's not needed.
+
 - Wireless B, G, N, and AX support 2.4 GHz.
-- Wireless A, N, AC, and AX support 5 GHz.
+- Wireless A, N, H, AC, and AX support 5 GHz.
 - Wi-Fi 6E supports 6 GHz.
 - Higher speeds often come with reduced coverage distances for a single access point
 
@@ -158,9 +165,9 @@ Two mechanisms to authentication in the wireless networks,
 
 - **Wi-Fi Protected Access 2 (WPA2)** is still heavily used today. It was created as part of the IEEE 802.11i standard and was first implemented with wireless g and then used again with wireless n, wireless a, and wireless ac networks. Instead of using Message Integrity Check, WPA2 relies on Countermode with Cipher Blockchaining Message Authentication Code Protocol(CCMP). Instead of using RC4, it uses the **Advanced Encryption Standard (AES)**. **AES provides more data security and confidentiality**.
 
-In personal Mode, WPA2 uses the pre-shared key
+**In personal Mode, WPA2/WPA uses the pre-shared key**
 
-In enterprise Mode, WPA2 uses the centralized authentication (802.1X)
+In enterprise Mode, WPA2 uses the centralized authentication. For example, RADIUS authentication server is used with individual usernames and passwords for each client.
 
 - **Wi-Fi Protected Access (WPA3)** uses the **Simultaneous Authentication of Equals (SAE)**. SAE is a security protocol that was designed to enhance the handshake process used in Wi-Fi authentication. It does not use the pre-shared key model. Instead **SAE established a secure initial key exchange between the client and the access point**.
 

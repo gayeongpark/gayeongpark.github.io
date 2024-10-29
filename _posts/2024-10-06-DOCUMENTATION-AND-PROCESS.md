@@ -147,6 +147,8 @@ When designing redundant networks, several key considerations need to be made.
 
    - Software Redundancy: Virtual switches, virtual routers, and software-based solutions like RAID provide redundancy without requiring additional hardware, reducing costs.
 
+      - RAID is a type of redundant storage that is directly connected to the server using data cables, therefore you do not need an IP address for the RAID itself.
+
 2. Cost-Benefit Analysis
 
    Understanding how to balance cost, availability, and redundancy is a key part of network design. You must consider how adding redundancy, whether via hardware or software, affects the overall network budget.
@@ -184,15 +186,15 @@ Disaster Recovery Metrics are the quantifiable standards used to plan and evalua
 
 ### Key metrics
 
-- Mean Time to Repair (MTTR) : Measures the average time it takes to repair a device or service after a failure. A lower MTTR indicates better availability.
+- **Mean Time To Repair (MTTR)** : Measures **the average time it takes to repair** a device or service after a failure. A lower MTTR indicates better availability. (Time to fix)
 
-- Mean Time Between Failures (MTBF) : Measures the average time between failures. A higher MTBF means greater reliability.
+- **Mean Time Between Failures (MTBF)** : Measures the average time between failures. A higher MTBF means greater reliability. (Gap between failures)
 
-- Maximum Tolerable Downtime (MTD) : The longest time a business or system can be down without causing significant damage to operations. This varies across different organizations and functions.
+- **Maximum Tolerable Downtime (MTD)** : The longest time a business or system can be down without causing significant damage to operations. This varies across different organizations and functions. (Max downtime allowed)
 
-- Recovery Time Objective (RTO) : The target time to restore normal operations after a disruption. For instance, using backup generators or battery systems can achieve short RTOs, even zero for power recovery.
+- **Recovery Time Objective (RTO)** : The duration of time and a service level within which a business process must be restored after a disaster in order to avoid unacceptable consequences associated with a break in continuity. (Target time to recover)
 
-- Recovery Point Objective (RPO) : The longest period of time that an organization can tolerate lost data being unrecoverable.
+- **Recovery Point Objective (RPO)** : The interval of time that might pass during a disruption before the quantity of data lost during that period exceeds the Business Continuity Plan’s maximum allowable threshold or tolerance. (Max data loss limit)
 
 ## Redundant Site Considerations
 
