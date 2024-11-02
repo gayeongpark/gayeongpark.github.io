@@ -32,13 +32,13 @@ Includes specifications for various cable types: twisted pair cables, coaxial ca
 
     ### Types of Copper cables
 
-    CAT 3 | 10BASE-T | 10 Mbps at 100 meters
-    CAT 5 | 100BASE-TX | 100 Mbps at 100 meters
-    CAT 5e | 1000BASE-T | 1 Gbps (1000 Mbps) at 100 m (Ethernet)
-    CAT 6 | 1000BASE-T/10GBASE-T | 1 Gbps at 100 m, 10 Gbps at 55m
-    CAT 6a | 10GBASE-T | 10 Gbps at 100 m
-    CAT 7 | 10GBASE-T | 10 Gbps at 100 m
-    CAT 8 | 40GBASE-T | 40 Gbps at 30 meters (Used in data centers)
+    CAT 3 | 10BASE-T | 10 Mbps at 100 meters | Used for voice and low-speed data
+    CAT 5 | 100BASE-TX | 100 Mbps at 100 meters | Used for Fast Ethernet.
+    CAT 5e | 1000BASE-T | 1 Gbps (1000 Mbps) at 100 m | Improved version of Cat 5 to reduce crosstalk.
+    CAT 6 | 1000BASE-T/10GBASE-T | 1 Gbps at 100 m, 10 Gbps at 55m | Suitable for Gigabit Ethernet and limited 10 Gbps applications over shorter distances.
+    CAT 6a | 10GBASE-T | 10 Gbps at 100 m | Enhanced Cat 6, suitable for 10 Gbps over longer distances with reduced crosstalk.
+    CAT 7 | 10GBASE-T | 10 Gbps at 100 m | Features shielding for improved performance, often used in data centers.
+    CAT 8 | 40GBASE-T | 40 Gbps at 30 meters | Designed for high-speed data center applications; supports up to 25 Gbps or 40 Gbps over short distances.
 
     All CAT cables are limited to 100 meter length except ofr CAT 6 and CAT 8. And all the cables listed—CAT 5, CAT 5e, CAT 6, CAT 6a, CAT 7, and CAT 8—are primarily used for Ethernet networking, which is the most common protocol for wired local area networks (LANs).
 
@@ -54,7 +54,7 @@ Includes specifications for various cable types: twisted pair cables, coaxial ca
 
     - Direct Attach Copper (DAC) Cables are the newer form of coaxial cabling and fixed assembly copper cables used to connect network hardware (switches, routers, servers). Cost-effective and consume less power than fiber. **Support up to 100 Gbps for short distances (15 meters for active cables, 7 meters for passive)**. These cables are suitable for interconnect applications between two servers, routers, switches, or other devices.
 
-    - Twin-axial Cables are featured two insulated copper conductors and are optimized for **short-range high-speed signaling**. It supports **10 Gbps or more at 10 meters**. Used in SFP+(small form factor pluggable plus) and QSFP(quad small form factor pluggable) direct attach applications between two routers and switches. It is less vulnerable to EMI.
+    - Twin-axial Cables are featured two insulated copper conductors and are optimized for **short-range high-speed signaling**. It supports **10 Gbps or more at 10 meters**. Used in SFP+(small form factor pluggable plus) and QSFP(quad small form factor pluggable) direct attach applications between two routers and switches. Twinaxial cables are cost-effective alternatives to coaxial cables for certain applications. It is less vulnerable to EMI.
 
 ## Copper Network Connections (physical plugs)
 
@@ -76,7 +76,7 @@ Includes specifications for various cable types: twisted pair cables, coaxial ca
 
    RG-6 and RG-59 are used for cable **television connections** and high speed internet service connections respectively.
 
-   - **F-type Connector** is a screw on connector commonly used with both the RG-6 and RG-59 **cable types**. This connector is the standard for cable television and satellite connection and it can be used for cable internet connections too.
+   - **F-Connector** is a screw on connector commonly used with both the RG-6 and RG-59 **coaxial cable types**. This connector is the standard for cable television and satellite connection and it can be used for broadband internet connections too.
 
    ![f-typeConnector](../assets/img/networkFundamental/f-type.jpg)
 
@@ -89,6 +89,8 @@ Includes specifications for various cable types: twisted pair cables, coaxial ca
    - Bayonet Neill-Concelman (BNC) Connector is another type of **coaxial connector** that is characterized by its secure bayonet locking mechanism. It provides "push and twist" style connector. This BNC connector can be found in professional video connections, such as studios or video surveillance systems as well as in some radio frequency applications too. This cable is quick, secure, reliable, and stable.
 
    ![bncConnector](../assets/img/networkFundamental/bncConnector.jpg)
+
+   - **110 Block** is a type of punch-down block used for terminating twisted pair cabling, such as Cat 5e, Cat 6, and higher. It allows for the organized connection of multiple cables and provides a neat way to manage network wiring in structured cabling systems. It is designed with insulation displacement connectors (IDC), which enable quick and efficient termination of the wires by simply pushing them into the block using a punch-down tool. This helps reduce crosstalk and maintain signal integrity between the pairs of wires, which is particularly important for high-speed networks like those using Cat 5e or better. In an MDF or IDF, the 110 block serves as a point where multiple network cables can be connected and managed efficiently, making it a critical component of network infrastructure.
 
 ## Copper Cable Pinouts (specific internal arrangement of wires)
 
@@ -127,9 +129,9 @@ Drawbacks
 
 Even with these drawbacks of the higher costs and fiber being more difficult to work with though, fiber optic cables have a place in most of our enterprise networks.
 
-- **Single-Mode Fiber (SMF)** : Designed for **long-distance communication** and features a small glass core typically around 8.3 to 10 microns in diameter. **Yellow sheath**. It uses 1550 nanometer wavelengths.
+- **Single-Mode Fiber (SMF)** : Designed for **long-distance communication** and features a small glass core typically around 8.3 to 10 microns in diameter. **Yellow sheath**. It uses 1550 nanometer wavelengths. (10GBase-LR)
 
-- **Multi-Mode Fiber (MMF)** : Tailored for **shorter distances** because it has a larger fiber core size that ranges from 50 to 100 microns. Multi-mode cables with a larger code are cheaper to manufacture. Aqua blue or orange sheath. It uses 850 or 1300 nanometer wavelengths.
+- **Multi-Mode Fiber (MMF)** : Tailored for **shorter distances** because it has a larger fiber core size that ranges from 50 to 100 microns. Multi-mode cables with a larger code are cheaper to manufacture. Aqua blue or orange sheath. It uses 850 or 1300 nanometer wavelengths. (10GBase-SR)
 
 Network designers often prefer multimode over single mode for its easier handling and cost-effective installation.
 
@@ -196,3 +198,19 @@ All of these are just different types of transceivers that are going to be insta
 Also, if I need to convert from one protocol to another, like moving from ethernet to fiber channel or from fiber channel back to ethernet, I can do that too using a transceiver.
 
 **A fiber distribution panel** acts like a hub where all incoming fiber optic connections can be neatly organized and distributed throughout the building. It makes managing, troubleshooting, and expanding the network much easier.
+
+## Applied Example
+
+1. ATM (Asynchronous Transfer Mode)
+
+   ATM is a networking technology that typically uses fiber optic or twisted pair cables for high-speed data transfer.
+
+2. Token Ring
+
+   Token Ring networks typically use special connectors and cabling (often fiber optic or STP) designed for their specific protocol.
+
+3. IEEE 802.3 (Ethernet)
+
+   This standard pertains to Ethernet networks, which usually utilize twisted pair, fiber optic, and coaxial connections.
+
+   10BASE2 ("ThinNet"), the name denotes a wired Ethernet standard providing 10 Mbps speed over thin coaxial cable, whereas 10BASE5 ("ThickNet") refers to a wired Ethernet standard providing 10 Mbps over thick coaxial cable.

@@ -116,6 +116,10 @@ Modern networking system and operating systems are no longer vulnerable to these
 
 If ICMP is blocked, it does make troubleshooting the network connectivity issues a little bit harder because the administrator is unable to use tools like ping and traceroute to determine if the network connectivity is working properly and firewalls will drop the ICMP packets or return a host unreachable error.
 
+## LLDP (Link Layer Discovery Protocol)
+
+LLDP is a Layer 2 (data link layer) protocol used by network devices to advertise their identity, capabilities, and neighbors on a local area network (LAN). By using LLDP, the technician can identify the specific switch and port to which the VoIP handset is connected. The device can query the switch for LLDP information and obtain details about the connected device, including the port number.
+
 ## Web Ports and Protocols
 
 Port 80 for HTTP protocol
@@ -233,28 +237,28 @@ Port 53 (DNS): Translates domain names to IP addresses.
 
 - Lightweight Directory Access Protocol over SSL (LDAPS) - port 636 is a version of LDAP that is encrypted with SSL or, in newer versions, TLS for increased security. It uses TCP. This protocol provides secure directory service transactions that protects the sensitive data during the transmission by placing it inside of an encrypted tunnel.
 
-### Key Components of IEEE 802.1
+### Key Components of IEEE
 
-1. VLANs (Virtual Local Area Networks) - **IEEE 802.1Q**
+1. VLANs (Virtual Local Area Networks) - **IEEE 802.1q**
 
    - Purpose: This standard defines how to implement VLANs in Ethernet networks by tagging frames with VLAN identifiers. This allows multiple VLANs to coexist on the same physical network.
 
    - Functionality: It adds a 4-byte tag to Ethernet frames, which contains information about the VLAN to which the frame belongs.
 
-2. Spanning Tree Protocol (STP) - **IEEE 802.1D**
+2. Spanning Tree Protocol (STP) - **IEEE 802.1d**
 
    - Purpose: STP is designed to prevent loops in Ethernet networks, which can cause broadcast storms and network failures.
 
    - Functionality: It creates a loop-free topology by designating a root bridge and blocking redundant paths in the network.
 
-3. Link Aggregation Control Protocol - **IEEE 802.1AX (formerly 802.3ad)**
+3. **Link Aggregation Control Protocol** - **802.3ad**
 
    - Purpose: This standard allows multiple network connections to be combined into a single logical link. By aggregating links, the combined bandwidth of the physical links is available to the network, enhancing performance and fault tolerance.
 
    - Functionality: It uses Link Aggregation Control Protocol (LACP) to manage the aggregation of links.
 
 
-4. Network Access Control - **IEEE 802.1X**
+4. Network Access Control / RADIUS / TACACS+ - **IEEE 802.1X**
 
    - Purpose: This standard provides port-based network access control, allowing organizations to authenticate devices before they gain access to the network.
 
@@ -266,8 +270,19 @@ Port 53 (DNS): Translates domain names to IP addresses.
 
    - Functionality: It adds priority information to Ethernet frames, enabling switches to manage traffic based on priority levels.
 
-6. Power over Ethernet (PoE) - **IEEE 802.1AF**
+6. Power over Ethernet (PoE) - **IEEE 802.3AF**
 
-   - Purpose: This standard allows network cables to **carry electrical power along with data** to power devices such as IP cameras, VoIP phones, and wireless access points.
+   - Purpose: This standard allows network cables to **carry electrical power along with data** to power devices such as IP cameras, VoIP phones, and wireless access points. the "AF" stands for "Audio-Video Bridging".
 
    - Functionality: It specifies the requirements for delivering power over Ethernet cabling, including power classification and power sourcing equipment.
+
+7. Ethernet Physical Layer Standards - **IEEE 802.3**
+
+   - Purpose: Defines various Ethernet standards for wired LAN technologies, including speed, cabling, and signaling.
+
+   - Examples
+
+      - 10Base-T: 10 Mbps over twisted pair.
+      - 100Base-TX: 100 Mbps over twisted pair.
+      - 1000Base-T: 1 Gbps over twisted pair.
+      - 10GBase-SR/LR: 10 Gbps over multimode/single-mode fiber.

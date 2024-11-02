@@ -93,54 +93,47 @@ The 802.11 standards are a set of protocols developed by the Institute of Electr
 1. **802.11a** (Wireless A)
 
    - Frequency: 5 GHz
-   - Speed: Up to 54 Mbps
-   - Range: ~35 meters
+   - Speed: 54 Mbps
+   - Range: 35 meters
    - Higher cost made it primarily used by businesses
 
 2. **802.11b** (Wireless B)
 
    - Frequency: 2.4 GHz
-   - Speed: Up to 11 Mbps
-   - Range: ~140 meters
+   - Speed: 11 Mbps
+   - Range: 140 meters
    - Lower cost made it widely adopted in homes and schools. (Security cameras, Walkie talkies, baby monitors, microwaves)
 
 3. **802.11g** (Wireless G)
 
    - Frequency: 2.4 GHz
-   - Speed: Up to 54 Mbps
-   - Range: ~140 meters
+   - Speed: 54 Mbps
+   - Range: 140 meters
    - Combined Wireless A’s speed with Wireless B’s affordability
 
 4. **802.11n** (Wireless N / Wi-Fi 4)
 
    - Frequency: 2.4 GHz & 5 GHz
-   - Speed: Up to 600 Mbps
-   - Range: ~70 meters (2.4 GHz) and ~35 meters (5 GHz)
+   - Speed: 600 Mbps
+   - Range: 70 meters (2.4 GHz) and 35 meters (5 GHz)
    - Introduced **MIMO (multiple-input, multiple-output) for faster data transfer**. MIMO technology allows an access point to use multiple antennas to send and receive data at faster speeds
 
 5. **802.11ac** (Wireless AC / Wi-Fi 5)
 
    - Frequency: 5 GHz
-   - Speed: Up to 6.9 Gbps
-   - Range: ~35 meters
+   - Speed: 6.9 Gbps
+   - Range: 35 meters
    - Introduced **MU-MIMO (multi-user MIMO)** for simultaneous connections by multiple users. **High speed and reliability**
 
 6. **802.11ax** (Wireless AX / Wi-Fi 6)
 
    - Frequency: 2.4 GHz, 5 GHz, and optionally 6 GHz (Wi-Fi 6E)
-   - Speed: Up to 9.6 Gbps
+   - Speed: 9.6 Gbps
    - Range: Varies by band
    - Supports all previous wireless standards and enhances performance with **MU-MIMO and OFDMA** (Orthogonal Frequency Division Multiple Access).
 
-7. **802.11h**
-
-   - Frequency: 5 GHz
-   - Speed: Up to 54 Mbps (similar to 802.11a)
-   - Range: ~35 meters (similar to 802.11a)
-   - Introduced features for dynamic frequency selection (DFS) and **transmit power control (TPC)** to minimize interference with radar systems. This makes it suitable for use in areas where radar systems operate, providing more robust wireless connectivity in such environments. TPC allows wireless devices (like routers and access points) to adjust how strong their signals are. They can "turn down" their power when it's not needed.
-
 - Wireless B, G, N, and AX support 2.4 GHz.
-- Wireless A, N, H, AC, and AX support 5 GHz.
+- Wireless A, N, AC, and AX support 5 GHz.
 - Wi-Fi 6E supports 6 GHz.
 - Higher speeds often come with reduced coverage distances for a single access point
 
@@ -163,7 +156,7 @@ Two mechanisms to authentication in the wireless networks,
 
 - **Wi-Fi Protected Access** (WPA) was designed as a replacement for WEP and uses the **Temporal Key Integrity Protocol (TKIP)**. TKIP is **still has vulnerabilities by today's standard because WPA uses Rivest Cipher 4 (RC4)** for encryption with Message Integrity Check (MIC). MIC relies on hashing the data before it's sent over the network.
 
-- **Wi-Fi Protected Access 2 (WPA2)** is still heavily used today. It was created as part of the IEEE 802.11i standard and was first implemented with wireless g and then used again with wireless n, wireless a, and wireless ac networks. Instead of using Message Integrity Check, WPA2 relies on Countermode with Cipher Blockchaining Message Authentication Code Protocol(CCMP). Instead of using RC4, it uses the **Advanced Encryption Standard (AES)**. **AES provides more data security and confidentiality**.
+- **Wi-Fi Protected Access 2 (WPA2)** is still heavily used today. It was created as part of the IEEE 802.11i standard and was first implemented with wireless g and then used again with wireless n, wireless a, and wireless ac networks. Instead of using Message Integrity Check, WPA2 relies on Countermode with Cipher Blockchaining Message Authentication Code Protocol(CCMP). Instead of using RC4, it uses the **Advanced Encryption Standard (AES)**. **AES provides more data security and confidentiality**. Therefore, WPA2-CCMP is the most secure and provides the high level of confidentiality
 
 **In personal Mode, WPA2/WPA uses the pre-shared key**
 
@@ -181,7 +174,7 @@ In these days, WEP, WPA and WPS are not used due to insecurity.
 
 - WPA is associated with the terms TKIP and RC4.
 
-- WPA2 is associated with the terms CCMP and AES.
+- WPA2 is associated with the terms CCMP and AES. WPA2-CCMP is the most secure and provides the required level of confidentiality
 
 - WPA3 is associated with the term SAE.
 
@@ -200,6 +193,8 @@ In these days, WEP, WPA and WPS are not used due to insecurity.
 - Use WPA2 with a good, long, strong pre-shared key.
 
 - Disable WPS setting because it is vulnerable to brute-force.
+
+Lightweight Access Point Protocol (LWAPP) is the name of a protocol that can control multiple Wi-Fi wireless access points at once. 
 
 ## Captive Portals
 

@@ -79,6 +79,10 @@ When VLANs are implemented, each frame of data is tagged with a VLAN ID, ensurin
 
 VLAN (Virtual Local Area Network) is a type of network configuration used in Ethernet networks.
 
+In a single-VLAN environment, all devices are on the same network segment, meaning they can communicate directly through the Layer 2 switch without needing routing between segments (which is a Layer 3 function).
+
+Layer 2 switches are ideal for environments where devices don’t need to communicate across multiple VLANs or subnets since they are focused on simple, fast switching without additional routing features.
+
 ### Reasons for using VLAN
 
 1. Enhanced Security : VLANs allow sensitive data to be isolated. For example, separating the HR department from the Finance department can help protect confidential data and reduce security risks.

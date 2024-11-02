@@ -210,53 +210,45 @@ The VXLAN Network Identifier (VNI) is a 24-bit identifier that helps differentia
 
 ## SASE and SSE
 
-SASE (Secure Access Secure Edge) and SSE (Security Service Edge) are modern network security frameworks designed to address the evolving needs of distributed, cloud-centric businesses. These blend traditional network services with comprehensive security functions.
+
+SASE (Secure Access Secure Edge) and SSE (Security Service Edge) are both frameworks designed to address the security and access needs of today's cloud-centric, remote-workforce-driven organizations. While they share some similarities, they each focus on distinct aspects of network security.
 
 ### Secure Access Secure Edge (SASE)
 
-- SASE combines wide area networking (WAN) and security services into a cloud-native platform, providing secure, reliable access to applications and services across various locations (branch offices, remote workers, cloud environments).
+SASE combines both networking and security functionalities in a cloud-based model to connect and protect users, applications, and data regardless of where they are located.
 
-- It leverages SDN (Software Defined Networking) to offer networking and security services from the cloud rather than traditional hardware, improving flexibility, scalability, and cost-efficiency.
+#### Key Points of SASE
 
-#### Core components include
+1. Combination of Network and Security Services: SASE merges wide area networking (WAN) capabilities with security functions.
 
-  - Firewalls
-  - VPNs
-  - Zero Trust Network Access (ZTNA)
-  - Cloud Access Security Brokers (CASB)
+   - Firewalls: Protecting network segments and blocking unauthorized access.
 
-- SASE is key for securing modern distributed networks with mobile users and cloud-based services.
+   - VPNs: Secure access to internal resources.
 
-- SASE provides a secure and efficient way of connecting users and their devices.
+   - Zero Trust Network Access (ZTNA): Granting access only to authenticated and authorized users.
+
+   - Cloud Access Security Brokers (CASB): Managing cloud service security and policies.
+
+2. SDN-Based Networking: SASE uses Software-Defined Networking (SDN) to route traffic through cloud services rather than traditional, on-premises hardware. This makes networking more flexible and scalable to meet the dynamic demands of modern organizations.
+
+3. Enhanced Connectivity: SASE connects users efficiently by optimizing their access paths to data centers, applications, or the internet, providing secure and reliable connections, whether they’re working from a branch office or remotely.
+
+4. Unified Platform for Global Scalability: SASE can be scaled across global cloud platforms, making it suitable for organizations with geographically dispersed users.
 
 ### Security Service Edge (SSE)
 
-- SSE is a subset of SASE, focusing exclusively on security services that safeguard interactions between users, devices, and cloud resources.
+SSE is a subset of SASE that focuses exclusively on security rather than the networking aspects, providing a comprehensive suite of cloud-based security tools.
 
-- SSE is a cloud-based security model designed to address the needs of today’s distributed and mobile workforce, unlike traditional network security architectures that rely on physical hardware at the network perimeter.
+#### Key Points of SSE
 
-- SSE leverages cloud-based security services to protect distributed users and devices.
+1. Security-Focused Services: SSE’s primary purpose is to protect data, applications, and user interactions within cloud environments. Key components include:
 
-- SSE aims to provide comprehensive security coverage for users accessing applications and data from various locations, including remote offices, branch offices, and mobile devices.
+   - Secure Web Gateways (SWG): Monitors web traffic, filters out malware, and enforces acceptable use policies.
 
-- SSE includes
+   - Cloud Access Security Brokers (CASB): Manages and secures interactions with cloud applications by enforcing data loss prevention, compliance, and access control policies.
 
-  - Secure Web Gateways (SWG): Filters malware and monitors web traffic.
+   - Zero Trust Network Access (ZTNA): Ensures that only authenticated users with specific permissions can access certain resources, reducing the risk of insider and external threats.
 
-  - Cloud Access Security Brokers (CASB): Manages and enforces cloud-based security policies.
+2. Real-Time Threat Intelligence: SSE integrates threat intelligence to detect and respond to security incidents in real-time, allowing organizations to stay ahead of potential attacks.
 
-  - Zero Trust Network Access (ZTNA): Ensures only authorized users can access applications and services, reducing the risk of internal threats.
-
-#### Key Benefits
-
-##### SASE
-
-- Provides secure, seamless access across distributed networks.
-- Uses cloud-native solutions for WAN and security, improving efficiency.
-- Supports global scalability through flexible, cloud-integrated services like AWS VPC, Azure Virtual WAN, and Google Cloud Interconnect.
-
-##### SSE
-
-- Focuses on security controls for cloud environments.
-- Implements robust threat protection for data access and user activities.
-- Applies Zero Trust principles, securing all connections regardless of the user's location or device.
+3. Cloud-Native and Location-Independent: Unlike traditional security models, which depend on securing the network perimeter, SSE operates in the cloud, allowing security policies to follow users wherever they are, whether on-site, at home, or on the go.

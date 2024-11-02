@@ -168,7 +168,7 @@ Rogue devices are unauthorized devices connected to a network, presenting a seri
 
 1. Network Taps: Devices attached to cabling that record network packets.
 
-2. Wireless Access Points (WAPs): Rogue WAPs can extend physical networks to unauthorized users or be used as "evil twins" to trick users into connecting. A Wi-Fi Pineapple can be used to easily create a rogue access point.
+2. Wireless Access Points (WAPs): Rogue WAPs(Different names or configurations) can extend physical networks to unauthorized users or be used as "evil twins" (Cloning an existing SSID) to trick users into connecting. A Wi-Fi Pineapple can be used to easily create a rogue access point.
 
 3. Servers: Rogue servers may be set up by adversaries to steal credentials or mislead traffic using ARP poisoning.
 

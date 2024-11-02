@@ -63,6 +63,8 @@ author: Lantana Park
 
 14. Fusion Splicers : Joins fiber optic cables by fusing the fibers together.
 
+15. Traffic Access Point (TAP) : Is a device that sits between two points in a network (e.g., between a switch and a router) and allows for the monitoring of network traffic without interrupting the data flow. It passively copies the data packets and sends them to a monitoring device for analysis. Thus, it does not make any disrupting operations.
+
 ## Software Tools
 
 1. Wi-Fi analyzer : Used to conduct wireless surveys to ensure proper coverage and to prevent non-desired overlap between wireless access point coverage zones and channels

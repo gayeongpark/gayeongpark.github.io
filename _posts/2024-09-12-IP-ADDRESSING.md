@@ -98,7 +98,7 @@ In essence, CIDR notation simplifies IP address and subnet representation by spe
 4. **APIPA (Automatic Private IP Addressing)**
 
    - Range: 169.254.0.0 – 169.254.255.255.
-   - **Assigned IP addresses when DHCP fails**, allowing limited local network communication but not internet access.
+   - **Assigned IPv4 addresses when DHCP fails**, allowing limited local network communication but not internet access.
    - Indicates potential issues with DHCP (for automatically assigning IP addresses) when seen on a device.
    - It is considered private IPs.
 
@@ -106,9 +106,9 @@ In essence, CIDR notation simplifies IP address and subnet representation by spe
 
 - Unicast : Data travels from a single source to **a single destination**. It’s a one-to-one communication, like a phone call between two people.
 
-- Multicast : Data is sent from a single source to **a specific group of devices on a network**. It’s efficient because the data is sent once and delivered to multiple devices in a multicast group.
+- Multicast : Data is sent from **a single source to** **a specific group of devices on a network**. It’s efficient because the data is sent once and delivered to multiple devices in a multicast group.
 
-- Broadcast : Data is sent from a single source to **all devices on the destination network**. Broadcast only works with IPv4. Every device connected to the network receives the broadcast. (radio broadcast)
+- Broadcast : Data is sent from a single source to **all devices on the destination network**. **Broadcast only works with IPv4**. Every device connected to the network receives the broadcast. (radio broadcast)
 
 ## Assigning IPv4 Addresses
 
@@ -321,7 +321,7 @@ A single interface can be assigned to multiple different IPv6 addresses.That mea
 
      - **Stateless Address Autoconfiguration (SLAAC)** enables a device to automatically generate its own IPv6 address without a DHCP server. The host independently assigns itself a link-local address, tests its uniqueness, and contacts the router for guidance on further configuration. This process allows the host to configure a global unicast address as needed.
 
-     Extended Unique Identifier-64 (EUI-64) and Neighbor Discovery Protocol (NDP) are used with SLAAC
+     **Extended Unique Identifier-64 (EUI-64) and Neighbor Discovery Protocol (NDP) are used with SLAAC**. EUI-64 (Extended Unique Identifier) is a method we can use to automatically configure IPv6 host addresses. An IPv6 device will use the MAC address of its interface to generate a unique 64-bit interface ID.
 
      - Stateless Address Autoconfiguration (SLAAC) allows a device to discover its network and generate a unique host identifier using its MAC address through the EUI-64 process. This involves separating the 48-bit MAC address into two 24-bit portions, inserting a 16-bit value `FF:FE` between them to form a 64-bit interface identifier.
 

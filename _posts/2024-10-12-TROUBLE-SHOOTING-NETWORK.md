@@ -279,3 +279,7 @@ It is important to implement proactive measures to help prevent packet loss
 - BYOD Challenges : Supporting a Bring-Your-Own-Device (BYOD) policy creates complexities as network administrators must manage diverse devices with different configurations. This increases operational expenses and troubleshooting challenges, particularly in identifying whether issues stem from the network or the device.
 
 - Hardware failures : Can occurs all over the network. To troubleshoot, I need to pinpoint which component on the device has failed. To solve this issue, replace the failed component, replace the entire device, and then return to the manufacture for require or properly dispose.
+
+#### What is a Maintenance Window?
+
+A maintenance window is a pre-scheduled period when network administrators perform updates, upgrades, or maintenance tasks that may disrupt normal network operations. During this time, users are typically informed that certain services may be unavailable or affected, allowing them to plan accordingly.

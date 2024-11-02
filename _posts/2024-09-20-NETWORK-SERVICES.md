@@ -93,7 +93,7 @@ Fully-Qualified Domain Name (FQDN) is a complete domain name, such as `www.diont
 
 2. **Non-authoritative DNS server** provides answers from its cache, which might not be to date.
 
-3. **Recursive DNS server** acts as an intermediary between end-users and the DNS system. When a user requests to resolve a domain (e.g., www.example.com), the recursive DNS server either returns a cached result or queries other DNS servers to resolve the domain.
+3. **Recursive DNS server** receives a DNS query, it starts by checking its local cache. If the answer isn’t there, it recursively queries other DNS servers—first contacting root servers, then top-level domain (TLD) servers, and finally the domain’s authoritative server—until it retrieves the IP address. It ensures that any domain, whether previously requested or not, can be resolved. Once it finds the answer, it caches it locally for a specified period (TTL) to improve response times for future queries.
 
 4. **Secondary DNS server** is a backup server that holds a **read-only** copy of the zone file from the primary DNS server.
 

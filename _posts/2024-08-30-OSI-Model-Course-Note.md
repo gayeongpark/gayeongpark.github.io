@@ -90,6 +90,8 @@ Layer 2 devices are like
 
 Switches, Bridges, Network Interface Card (NIC)
 
+Ethernet is a protocol that operates at the Data Link Layer, managing the physical addressing and framing of data packets.
+
 ## Layer 3 - Network (Decides which physical path the data will take)
 
 Layer 3 is responsible for determining the best path for data packets to travel across networks. And it handles logical addressing (e.g., IP addresses) to identify devices on the network.

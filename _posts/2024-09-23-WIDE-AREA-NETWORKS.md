@@ -104,11 +104,15 @@ Code-Division Multiple Access (CDMA) is a cellular technology that uses code div
 
 GSM and CDMA are the two underlying technologies. GSM, used by most of the world, relies on SIM cards, making it preferable for international travelers. CDMA is more common in places like the US, Japan, and South Korea. Modern phones now often support E-SIMs, allowing users to switch carriers digitally.
 
+Cellular network coverage is often unreliable if it even exists in remote mountainous areas.
+
 ## Microwave Connections
 
 A microwave link is a communication system that uses a beam of radio waves in the microwave frequency range to transmit information between two fixed locations.
 
 Microwaves can provide a very fast connection point using point-to-point connections between two places.
+
+Compared to satellite internet, microwave connections generally experience lower latency. This is important for real-time applications or data transfer where delays can affect research outcomes.
 
 ## Leased Line Connections
 

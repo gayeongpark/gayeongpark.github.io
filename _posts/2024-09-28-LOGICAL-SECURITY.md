@@ -148,6 +148,15 @@ IPSec is a secure network protocol suite used to provide encrypted and authentic
 4. Data Transfer: Encrypted data transmission occurs using the parameters set in Phase 2.
 5. Tunnel Termination: The tunnel ends when SAs are deleted or expire.
 
+### Key Components in IPsec
+
+- AH: Provides data integrity and authentication (but not encryption).
+
+- ESP: Provides data confidentiality (encryption), integrity, and authentication.
+
+- IKE: Responsible for setting up secure connections and exchanging cryptographic keys.
+
+
 ### Modes of Operation to allow the data transfer
 
 - Transport Mode: Used in client-to-site VPNs, uses the original packet header and minimizes packet size.

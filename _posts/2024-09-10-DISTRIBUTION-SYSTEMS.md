@@ -81,3 +81,17 @@ In order to properly manage the airflow,
 - **Pre-action systems** help minimize the risk of accidental releases when using a wet pipe system. With a pre-action system, both a detector actuation like a smoke detector and a sprinkler must be tripped prior to water being released.
 
 - **Special suppression systems** utilize **a clean agent** as part of its suppression system. Clean agents, such as FM-200 or Novec 1230, are ideal for data centers as they effectively suppress fires **without harming electronic equipment or leaving a residue**. These agents are safe for the environment and do not displace oxygen, which minimizes risk to personnel. Because they do **not cause environmental damage**, they are preferred over older options like Halon gas, which, although effective, depletes the ozone layer. If a special suppression system is used, data centers should have alarms and backup oxygen available to ensure safety.
+
+## Storage network Technology
+
+1. NAS (Network Attached Storage)
+
+  - File-Level Storage: NAS provides file-level storage, which means data is stored and accessed as files (such as documents or media files). It’s similar to how data is stored on a shared network drive.
+  - Function: NAS operates as a dedicated file server, accessible over a network, and is ideal for environments where multiple clients or users need to access shared files.
+  - Example Protocols: NAS devices commonly use protocols like NFS (Network File System) or SMB (Server Message Block) for file sharing.
+
+2. SAN (Storage Area Network)
+
+  - Block-Level Storage: Unlike NAS, SAN typically provides block-level storage, where data is divided into blocks and each block is managed separately. This method is closer to how data is managed on a physical hard drive.
+  - Function: SANs are generally used in enterprise environments, providing high-speed, low-latency storage over dedicated networks, which makes them ideal for database and application data where quick, efficient access is needed.
+  - Example Protocols: Common SAN protocols include iSCSI, Fibre Channel (FC), and Fibre Channel over Ethernet (FCoE).
