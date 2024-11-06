@@ -116,10 +116,6 @@ Modern networking system and operating systems are no longer vulnerable to these
 
 If ICMP is blocked, it does make troubleshooting the network connectivity issues a little bit harder because the administrator is unable to use tools like ping and traceroute to determine if the network connectivity is working properly and firewalls will drop the ICMP packets or return a host unreachable error.
 
-## LLDP (Link Layer Discovery Protocol)
-
-LLDP is a Layer 2 (data link layer) protocol used by network devices to advertise their identity, capabilities, and neighbors on a local area network (LAN). By using LLDP, the technician can identify the specific switch and port to which the VoIP handset is connected. The device can query the switch for LLDP information and obtain details about the connected device, including the port number.
-
 ## Web Ports and Protocols
 
 Port 80 for HTTP protocol
@@ -231,7 +227,7 @@ Port 53 (DNS): Translates domain names to IP addresses.
 
 - **Network Time Protocol (NTP)** - **UDP port 123** is used to synchronize the clocks of a computer over a given network. It uses UDP. It enables our networks to maintain accurate time with precision and reliability, which is crucial for transaction logging, security protocols and the coordination of system functions.
 
-- **Session Initiation Protocol (SIP)** - **UDP port 5060** and **TCP/TLS port 5061** is widely used for initiating, maintaining, and terminating real-time sessions that involve voice, video messaging, and other communication services. 
+- **Session Initiation Protocol (SIP)** - **UDP port 5060** and **TCP/TLS port 5061** is widely used for initiating, maintaining, and terminating real-time sessions that involve voice, video messaging, and other communication services.
 
 - Lightweight Directory Access Protocol (LDAP) - port 389 is a protocol for accessing and maintaining distributed directory information services over an IP network. It is used to look up information in a directory listing. It uses both TCP and UDP. It transmits all that information in plain text.
 
@@ -257,7 +253,6 @@ Port 53 (DNS): Translates domain names to IP addresses.
 
    - Functionality: It uses Link Aggregation Control Protocol (LACP) to manage the aggregation of links.
 
-
 4. Network Access Control / RADIUS / TACACS+ - **IEEE 802.1X**
 
    - Purpose: This standard provides port-based network access control, allowing organizations to authenticate devices before they gain access to the network.
@@ -282,7 +277,11 @@ Port 53 (DNS): Translates domain names to IP addresses.
 
    - Examples
 
-      - 10Base-T: 10 Mbps over twisted pair.
-      - 100Base-TX: 100 Mbps over twisted pair.
-      - 1000Base-T: 1 Gbps over twisted pair.
-      - 10GBase-SR/LR: 10 Gbps over multimode/single-mode fiber.
+     - 10Base-T: 10 Mbps over twisted pair.
+     - 100Base-TX: 100 Mbps over twisted pair for fast ethernet.
+     - 1000Base-T: 1 Gbps over twisted pair.
+     - 10GBase-SR: 10 Gbps over multimode fiber, designed for short-range applications.
+     - 10GBase-LR: 10 Gbps over single-mode fiber, used for long-range applications. Max distance: up to 10 kilometers.
+     - 10Base-FL: 10 Mbps over fiber optic cable
+     - 1000Base-SX: 1 Gbps over multimode fiber, optimized for short distances.
+     - 1000Base-LX: 1 Gbps over single-mode or multimode fiber, typically used for longer distances.

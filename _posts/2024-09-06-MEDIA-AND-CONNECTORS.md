@@ -30,7 +30,7 @@ Includes specifications for various cable types: twisted pair cables, coaxial ca
 
     Regardless of whether using a shielded or unshielded one, twisted pair cables are categorized (CAT) by speed and distance capabilities
 
-    ### Types of Copper cables
+    ### Types of twisted pair cable
 
     CAT 3 | 10BASE-T | 10 Mbps at 100 meters | Used for voice and low-speed data
     CAT 5 | 100BASE-TX | 100 Mbps at 100 meters | Used for Fast Ethernet.
@@ -50,7 +50,7 @@ Includes specifications for various cable types: twisted pair cables, coaxial ca
 
     ![coaxial](../assets/img/networkFundamental/networking-coaixal_cable_01_mobile.jpg)
 
-    - Standard coaxial cables(RG-6, RG-59) are common in broadcasting and broadband systems (e.g., cable TV) because these cables are being used to carry data at **high speeds over medium-range distances**. RG-6 cables support up to **1 Gbps for 300 meters**. It is used to support faster Internet speeds when using a cable model.
+    - Standard coaxial cables (RG-6, RG-59) are common in broadcasting and broadband systems (e.g., cable TV) because these cables are being used to carry data at **high speeds over medium-range distances**. RG-6 cables support up to **1 Gbps for 300 meters**. It is used to support faster Internet speeds when using a cable model.
 
     - Direct Attach Copper (DAC) Cables are the newer form of coaxial cabling and fixed assembly copper cables used to connect network hardware (switches, routers, servers). Cost-effective and consume less power than fiber. **Support up to 100 Gbps for short distances (15 meters for active cables, 7 meters for passive)**. These cables are suitable for interconnect applications between two servers, routers, switches, or other devices.
 
@@ -69,6 +69,8 @@ Includes specifications for various cable types: twisted pair cables, coaxial ca
    ![rj45Andrj11](../assets/img/networkFundamental/RJ11-RJ45.jpg)
 
    - **RJ-45** is the standard connector for data networks that utilize copper cables to **create ethernet network**. This connector has an eight-position and eight-conductor configuration (8P8C). It is going to be widely used in networking to connect computers, switches and routers together inside of a local area network. It can support high-speed data transfer. RJ-45 connectors are used with CAT cables(5e, 6, or higher).
+
+   - **110 Block** is a type of punch-down block used for terminating twisted pair cabling, such as Cat 5e, Cat 6, and higher. It allows for the organized connection of multiple cables and provides a neat way to manage network wiring in structured cabling systems. It is designed with insulation displacement connectors (IDC), which enable quick and efficient termination of the wires by simply pushing them into the block using a punch-down tool. This helps reduce crosstalk and maintain signal integrity between the pairs of wires, which is particularly important for high-speed networks like those using Cat 5e or better. In an MDF or IDF, the 110 block serves as a point where multiple network cables can be connected and managed efficiently, making it a critical component of network infrastructure.
 
 2. RG-X
 
@@ -89,8 +91,6 @@ Includes specifications for various cable types: twisted pair cables, coaxial ca
    - Bayonet Neill-Concelman (BNC) Connector is another type of **coaxial connector** that is characterized by its secure bayonet locking mechanism. It provides "push and twist" style connector. This BNC connector can be found in professional video connections, such as studios or video surveillance systems as well as in some radio frequency applications too. This cable is quick, secure, reliable, and stable.
 
    ![bncConnector](../assets/img/networkFundamental/bncConnector.jpg)
-
-   - **110 Block** is a type of punch-down block used for terminating twisted pair cabling, such as Cat 5e, Cat 6, and higher. It allows for the organized connection of multiple cables and provides a neat way to manage network wiring in structured cabling systems. It is designed with insulation displacement connectors (IDC), which enable quick and efficient termination of the wires by simply pushing them into the block using a punch-down tool. This helps reduce crosstalk and maintain signal integrity between the pairs of wires, which is particularly important for high-speed networks like those using Cat 5e or better. In an MDF or IDF, the 110 block serves as a point where multiple network cables can be connected and managed efficiently, making it a critical component of network infrastructure.
 
 ## Copper Cable Pinouts (specific internal arrangement of wires)
 
@@ -151,7 +151,7 @@ More fiber optic cables will require two different sets of connectors on that ca
 
 - Straight Tip Connector(ST) : Recognizable by its **round shape** and **twist-lock mechanism** that offers a robust and reliable connector type for use in networks. ST connector is commonly used with **multi-mode fiber optic cables** and applications.
 
-- Mechanical Transfer-Registered Jack(MTRJ) : Features a **small**, rectangular design and houses both **the transmit and receive fibers** in a single connector.
+- Mechanical Transfer-Registered Jack(MT-RJ) : Features a **small**, rectangular design and houses both **the transmit and receive fibers in a single connector**.
 
 - Multi-Fiber Push On(MPO) : Designed to accommodate **multiple fibers in a single connector** to significantly increase the capacity and flexibility of the fiber networks. Inside of a **data center**, MPO connectors are often going to be used for backbone cabling and **high speed interconnections** between the devices.
 

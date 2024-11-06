@@ -149,8 +149,9 @@ DNS matches domain names (like `example.com`) to their corresponding IP addresse
 
 3. Tools for DNS Troubleshooting
 
-   - nslookup: Use to verify A and CNAME records.
+   - nslookup: Use to verify A and CNAME records and specify DNS servers.
    - ping: Test connectivity to the DNS server.
+   - dig: query DNS servers for information about host addresses, mail exchanges, name servers, and related data.
 
 ### NTP Troubleshooting
 

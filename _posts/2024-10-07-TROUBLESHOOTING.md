@@ -97,6 +97,8 @@ Internet Address | Physical Address | Type
 
 13. **tracert**/**traceroute** : Show details about the path that a packet takes from a host to a target and displays information about each hop in the path.
 
+14. **LLDP (Link Layer Discovery Protocol)** : Is a Layer 2 (data link layer) protocol used by network devices to advertise their identity, capabilities, and neighbors on a local area network (LAN). By using LLDP, the technician can identify the specific switch and port to which the VoIP handset is connected. The device can query the switch for LLDP information and obtain details about the connected device, including the port number.
+
 # Troubleshooting Physical
 
 ## Cable Signal Issues
