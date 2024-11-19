@@ -27,13 +27,19 @@ author: Lantana Park
 
    **Extended Service Set (ESS)** creates a **larger network** that shares the name SSID to allow for seamless connectivity across a building.
 
+   - SSID: The name of the Wi-Fi network you see when you want to connect.
+   - BSS: One router with connected devices in a single area.
+   - ESS: Multiple routers with the same Wi-Fi name to cover a bigger area.
+   - BSSID: The unique ID of each router (MAC address).
+   - ESSID: The shared Wi-Fi name (SSID) used across multiple routers in an ESS.
+
 3. **Point-to-point Wireless Networks** are designed to **connect two distinct locations** over long distances using high-gain antennas. It is highly efficient and offer dedicated bandwidth between two points.
 
 4. **Wireless Mesh Mesh Networks** are versatile and resilient form of wireless networking. It has **self-healing capability with multiple APs** and can reconfigure themselves around broken or blocked pathways. Mesh networks are also **great for large scale deployments** when I cannot lay cables. **It routes data through alternative paths if one fails**.
 
-5. **Autonomous Access Point** is **a standalone device that contains all of the intelligence to handle wireless networking functions independently**.
+5. **Autonomous Access Point** is **a standalone device that contains all of the intelligence to handle wireless networking functions independently**. It operates independently without a controller and well-suited for networks with fewer APs and simpler needs. Each AP is configured and managed individually.
 
-6. **Lightweight Access Point** is **multiple access points connecting back to a centralized controller**.
+6. **Lightweight Access Point** is **multiple access points connecting back to a centralized controller**. It requires a Wireless LAN Controller (WLC) for centralized configuration and management. It is best for environments with multiple APs requiring uniform management. It is easily expandable with minimal configuration effort.
 
 ## Wireless Antennas
 
@@ -84,7 +90,7 @@ Wireless frequencies are the different frequency bands that are used to transmit
 
 **Beamforming** focuses wireless signals in specific directions to **improve signal strength**.
 
-**Channel bonding** combines multiple channels to increase bandwidth.
+**Channel bonding** combines multiple channels to increase bandwidth and speed.
 
 ## 802.11 Standards
 
@@ -136,6 +142,7 @@ The 802.11 standards are a set of protocols developed by the Institute of Electr
 - Wireless A, N, AC, and AX support 5 GHz.
 - Wi-Fi 6E supports 6 GHz.
 - Higher speeds often come with reduced coverage distances for a single access point
+- 802.11h was introduced to help manage Wi-Fi frequencies and power more efficiently, especially to avoid interference with other devices.
 
 ## Wireless Security
 

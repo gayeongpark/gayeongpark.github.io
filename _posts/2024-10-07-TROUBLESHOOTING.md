@@ -93,11 +93,11 @@ Internet Address | Physical Address | Type
 
 11. **ipconfig** : Displays the current TCP/IP network configuration and refresh the DHCP and DNS settings on a given host.
 
-12. **netstat** : **Displays network connections** for the Transmission Control Protocol (incoming and outgoing), routing tables, and several network interface and network protocol statistics.
+12. **netstat** : **Displays network connections** for the Transmission Control Protocol (incoming and outgoing), routing tables, and several network interface and network protocol statistics **on the local device**.
 
 13. **tracert**/**traceroute** : Show details about the path that a packet takes from a host to a target and displays information about each hop in the path.
 
-14. **LLDP (Link Layer Discovery Protocol)** : Is a Layer 2 (data link layer) protocol used by network devices to advertise their identity, capabilities, and neighbors on a local area network (LAN). By using LLDP, the technician can identify the specific switch and port to which the VoIP handset is connected. The device can query the switch for LLDP information and obtain details about the connected device, including the port number.
+14. **LLDP (Link Layer Discovery Protocol)** : Is a Layer 2 (data link layer) protocol used by network devices to **advertise their identity, capabilities, and neighbors on a local area network (LAN)**. By using LLDP, the technician can identify the specific switch and port to which the VoIP handset is connected. The device can query the switch for LLDP information and obtain details about the connected device, including the port number. CDP is the Cisco-only discovery protocol. 
 
 # Troubleshooting Physical
 
@@ -105,7 +105,7 @@ Internet Address | Physical Address | Type
 
 1. Attenuation
 
-   - Attenuation is the loss of signal strength over the length of a cable.
+   - **Attenuation is the loss of signal strength over the length of a cable**.
 
    - It occurs in both wired and wireless connections but is emphasized here for wired connections.
 

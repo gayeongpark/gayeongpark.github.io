@@ -52,7 +52,7 @@ CIDR (Classless Inter-Domain Routing) combines the IP address and subnet mask in
 
 The number after the slash (e.g., /24) represents how many bits are set to "1" in the subnet mask.
 
-For example, 255.255.255.0 has 24 bits set to "1", so it's written as /24.
+For example, `255.255.255.0` has 24 bits set to "1", so it's written as /24.
 
 Classful vs. Classless Subnet Masks:
 

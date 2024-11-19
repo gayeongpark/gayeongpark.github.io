@@ -289,7 +289,7 @@ VPN is used to extend a private network across a public network and enables send
 
 - Full Tunnel: Routes all traffic through the VPN, offering more security but reducing local network access and performance.
 
-- Split Tunnel: Separates traffic, sending only necessary data through the VPN and the rest through the regular internet, improving performance but with reduced security.
+- Split Tunnel: Separates traffic, sending only necessary data through the VPN. Only traffic destined for the corporate network is routed through the VPN tunnel, while internet-bound traffic is sent directly to the internet without passing through the VPN. This routing behavior optimizes bandwidth usage and reduces the load on the VPN server.
 
 ### VPN Protocols
 

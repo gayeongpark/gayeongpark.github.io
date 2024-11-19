@@ -49,13 +49,13 @@ The way to utilize the bandwidth of the cable,
 
 - **Baseband** uses all available frequencies on a medium (cable) to transmit data. It uses a reference clock and synchronous communication. For example, a telephone uses baseband communication. And a wired home ethernet network can be also the example of this baseband communication because it uses all of the frequency that is available on the cable.
 
-Multiplexing is a technique used to allow multiple signals or data streams to be transmitted over a single communication channel (wired or wireless). This helps make better use of the available bandwidth and increases efficiency. There are three main types of multiplexing to share bandwidth efficiently.
+- Multiplexing is a technique used to allow multiple signals or data streams to be transmitted over a single communication channel (wired or wireless). This helps make better use of the available bandwidth and increases efficiency. There are three main types of multiplexing to share bandwidth efficiently.
 
-- Time-Division Multiplexing (TDM) : Uses time slots for each session. Telephone networks often use TDM to allow multiple calls to share the same communication line without interference.
+  - Time-Division Multiplexing (TDM) : Uses time slots for each session. Telephone networks often use TDM to allow multiple calls to share the same communication line without interference.
 
-- Statistical Time-Division Multiplexing (StatTDM) : Dynamically allocates the time slots on an as-needed basis. This is useful in network scenarios where not all connections are active at the same time, improving efficiency by reducing wasted bandwidth.
+  - Statistical Time-Division Multiplexing (StatTDM) : Dynamically allocates the time slots on an as-needed basis. This is useful in network scenarios where not all connections are active at the same time, improving efficiency by reducing wasted bandwidth.
 
-- Frequency-Division Multiplexing (FDM) : Divides channels based on frequencies. Radio broadcasting uses FDM to transmit multiple radio stations over the same frequency spectrum by assigning different frequencies to each station.
+  - Frequency-Division Multiplexing (FDM) : Divides channels based on frequencies. Radio broadcasting uses FDM to transmit multiple radio stations over the same frequency spectrum by assigning different frequencies to each station.
 
 Layer 1 devices are essentially repeaters, passing along whatever is received.
 

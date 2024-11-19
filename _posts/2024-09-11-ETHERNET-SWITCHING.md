@@ -115,6 +115,9 @@ Layer 2 switches are ideal for environments where devices don’t need to commun
 
 - Speed and Duplex Configurations : These settings control data transmission speed (in Mbps or Gbps) and whether data is sent and received simultaneously (full duplex) or alternately (half duplex). Misconfigurations can reduce performance, and auto-negotiation may sometimes select lower-than-optimal speeds, requiring manual adjustments.
 
+   - Half-duplex : Communication in One Direction at a Time
+   - Full-duplex : Two Devices Communicating Both Ways Simultaneously
+
 ## Spanning Tree Protocol (STP) / 802.1d
 
 It defined by IEEE standard **802.1d**, it **prevents loops in network traffic** by allowing redundant links between switches. Without STP, switching loops can lead to broadcast storms that overwhelm the network.

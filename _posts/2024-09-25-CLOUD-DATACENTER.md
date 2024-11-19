@@ -252,3 +252,5 @@ SSE is a subset of SASE that focuses exclusively on security rather than the net
 2. Real-Time Threat Intelligence: SSE integrates threat intelligence to detect and respond to security incidents in real-time, allowing organizations to stay ahead of potential attacks.
 
 3. Cloud-Native and Location-Independent: Unlike traditional security models, which depend on securing the network perimeter, SSE operates in the cloud, allowing security policies to follow users wherever they are, whether on-site, at home, or on the go.
+
+208 volts is recommended for data centers

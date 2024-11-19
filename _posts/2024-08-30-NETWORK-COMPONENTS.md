@@ -184,7 +184,7 @@ It talks about how the traffic/data is actually going to flow in the network.
 
 **Infrastructure Mode** : Most common type of wireless network. It **uses a wireless access point** as a centralized point.
 
-**Ad Hoc Mode** : Known as Ad Hoc. It is **decentralized** wireless network which creates Peer-to-Peer connections and **does not require a router or access point**. This can allow people to jump in and out of the network as much as they want.
+**Ad Hoc Mode** : Known as Ad Hoc. It is **decentralized** wireless network which creates Peer-to-Peer connections and **does not require a router or access point**. This can allow people to jump in and out of the network as much as they want. It refers to temporary connections.
 
 **Wireless Mesh Topology** : Is an interconnection of different types of nodes, devices, and radios to create this mesh topology. Bluetooth, cellular, wi-fi, satellite, microwave, and all of them can combine into this single wireless network. So that we can expand the network access. This provides us redundant and reliable connections.
 

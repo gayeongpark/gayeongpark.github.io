@@ -149,7 +149,7 @@ More fiber optic cables will require two different sets of connectors on that ca
 
 - Lucent Connector(LC) : Distinguished by a **compact size that utilize a push-pull mechanism** similar to the SC but in a much smaller form factor. In the enterprise **data centers** where space is at a premium and high rates are essential, it is to find the LC connectors are being used there.
 
-- Straight Tip Connector(ST) : Recognizable by its **round shape** and **twist-lock mechanism** that offers a robust and reliable connector type for use in networks. ST connector is commonly used with **multi-mode fiber optic cables** and applications.
+- Straight Tip Connector(ST) : Recognizable by its **round shape** and **twist-lock(bayonet) mechanism** that offers a robust and reliable connector type for use in networks. ST connector is commonly used with **multi-mode fiber optic cables** and applications.
 
 - Mechanical Transfer-Registered Jack(MT-RJ) : Features a **small**, rectangular design and houses both **the transmit and receive fibers in a single connector**.
 
