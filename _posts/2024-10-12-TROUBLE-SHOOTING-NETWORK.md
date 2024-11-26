@@ -127,6 +127,8 @@ Another common mistake is not using VLANs, leaving all devices in the default VL
 
 Finally, if the new VLAN is not allowed on the trunk link, traffic from that VLAN cannot traverse the network to reach the router for internet access. Ensuring the trunk link is configured to allow the new VLAN resolves the issue. Incorrect subnet masks would affect local communication, not specifically internet access. If the DHCP server ran out of IP addresses, users would not receive any IP configuration. While the firewall could block internet access, it's less likely if the issue is isolated to a newly created VLAN.
 
+VLAN Trunking Protocol (VTP) shares VLAN information to all switches in a network. VTP enables you to configure the VLAN on a VTP server for centralized configuration and management. When you make a change to the VLAN configuration on a VTP server, the change is propagated to all switches in the VTP domain. 
+
 ## DNS and NTP Issues
 
 ### DNS Issues
